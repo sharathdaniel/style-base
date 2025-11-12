@@ -87,16 +87,18 @@ $colors: (
   )
 );
 
-:root {
-  --white: #FFF;
-  --white-rgb: 255, 255, 255;
-  --black: #000;
-  --black-rgb: 0, 0, 0;
+@layer base {
+  :root {
+    --white: #FFF;
+    --white-rgb: 255, 255, 255;
+    --black: #000;
+    --black-rgb: 0, 0, 0;
 
-  @each $color, $shades in $colors {
-    @each $shade, $value in $shades {
-      --#{"" + $color}-#{$shade}: rgb(#{$value});
-      --#{"" + $color}-#{$shade + "-rgb"}: #{$value};
+    @each $color, $shades in $colors {
+      @each $shade, $value in $shades {
+        --#{"" + $color}-#{$shade}: rgb(#{$value});
+        --#{"" + $color}-#{$shade + "-rgb"}: #{$value};
+      }
     }
   }
 }
