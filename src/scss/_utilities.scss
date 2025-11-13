@@ -58,10 +58,10 @@
   $dirs: (
     "": "",
     "t": "-top",
-    "r": "-right",
+    "r": "-inline-end",
     "b": "-bottom",
-    "l": "-left",
-    "x": ("-left", "-right"),
+    "l": "-inline-start",
+    "x": ("-inline-start", "-inline-end"),
     "y": ("-top", "-bottom")
   );
 
@@ -73,6 +73,8 @@
       .u-p#{$short}-#{$space} {
         @if meta.type-of($dir) == "string" {
           padding#{$dir}: $val;
+        } @else if $dir == ("-inline-start", "-inline-end") {
+          padding-inline: $val;
         } @else {
           @each $side in $dir {
             padding#{$side}: $val;
@@ -86,6 +88,8 @@
       .u-m#{$short}-#{$space} {
         @if meta.type-of($dir) == "string" {
           margin#{$dir}: $val;
+        } @else if $dir == ("-inline-start", "-inline-end") {
+          margin-inline: $val;
         } @else {
           @each $side in $dir {
             margin#{$side}: $val;
@@ -189,6 +193,14 @@
 
   .u-text-success {
     color: var(--green-success);
+  }
+
+  .u-text-left {
+    text-align: start;
+  }
+
+  .u-text-right {
+    text-align: end;
   }
 
   .u-cursor-pointer {
