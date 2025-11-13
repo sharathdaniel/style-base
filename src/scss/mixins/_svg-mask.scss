@@ -1,0 +1,37 @@
+// Applies an inline-SVG mask, colored via currentColor.
+/// @param $svg        URL-encoded SVG string (no data: prefix)
+/// @param $size       mask-size (default: contain)
+/// @param $position   mask-position (default: center)
+/// @param $repeat     mask-repeat (default: no-repeat)
+/// @param $important  whether to append !important to bg-color & mask-image (default: false)
+
+@mixin svg-mask(
+  $svg,
+  $size: contain,
+  $position: center,
+  $repeat: no-repeat,
+  $important: false
+) {
+  $imp: if($important, ' !important', '');
+
+  background-color: currentColor#{$imp};
+  -webkit-mask-image: url("data:image/svg+xml,#{$svg}")#{$imp};
+  mask-image:         url("data:image/svg+xml,#{$svg}")#{$imp};
+  -webkit-mask-repeat:  $repeat;
+  -webkit-mask-position:$position;
+  -webkit-mask-size:    $size;
+  mask-repeat:   $repeat;
+  mask-position: $position;
+  mask-size:     $size;
+}
+
+/* Usage
+
+.arrow-down {
+  color: black;
+
+  @include svg-mask(
+    "%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 9L8 13L12 9' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
+  );
+}
+*/

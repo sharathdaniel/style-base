@@ -1,0 +1,23 @@
+@use "sass:meta";
+
+@layer reset, base, components, utilities;
+
+@layer reset {
+  @include meta.load-css("reset");
+}
+
+@layer base {
+  @include meta.load-css("abstracts/variables");
+  @include meta.load-css("abstracts/theme");
+}
+
+@include meta.load-css("abstracts/typography");
+@include meta.load-css("common");
+
+@layer components {
+  @include meta.load-css("components/buttons");
+}
+
+@layer utilities {
+  @include meta.load-css("utilities");
+}

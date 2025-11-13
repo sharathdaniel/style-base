@@ -1,0 +1,12 @@
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
+}
+
+@layer components {
+  .section-block {
+    border: 1px solid var(--black);
+  }
+}
