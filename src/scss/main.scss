@@ -2,22 +2,19 @@
 
 @layer reset, base, components, utilities;
 
-@layer reset {
-  @include meta.load-css("reset");
-}
+/* Reset */
+@include meta.load-css("reset");
 
-@layer base {
-  @include meta.load-css("abstracts/variables");
-  @include meta.load-css("abstracts/theme");
-}
-
+/* Base */
+@include meta.load-css("abstracts/variables");
+@include meta.load-css("abstracts/theme");
 @include meta.load-css("abstracts/typography");
+
+/* Common */
 @include meta.load-css("common");
 
-@layer components {
-  @include meta.load-css("components/buttons");
-}
+/* Components */
+@include meta.load-css("components/buttons");
 
-@layer utilities {
-  @include meta.load-css("utilities");
-}
+/* Always load it last */
+@include meta.load-css("utilities");
