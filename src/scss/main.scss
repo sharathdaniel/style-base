@@ -11,6 +11,7 @@
   @include meta.load-css("abstracts/theme");
 }
 
+// Files having more than one @layer block
 @include meta.load-css("abstracts/typography");
 @include meta.load-css("common");
 
