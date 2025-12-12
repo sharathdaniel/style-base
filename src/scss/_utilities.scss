@@ -31,179 +31,201 @@
   }
 
   $spacing-start: 0;
-  $spacing-end: 24;
+  $spacing-end: 40;
   $spacing-step: 2;
 
   @function generate-spacings($start, $end, $step) {
-    $list: ();
-    $i: $start;
+    $list: (
+    );
+  $i: $start;
 
-    @while $i <= $end {
-      $list: list.append($list, $i);
-      $i: $i + $step;
-    }
-
-    @return $list;
+  @while $i <=$end {
+    $list: list.append($list, $i);
+    $i: $i + $step;
   }
 
-  @function spacing-value($n) {
-    @if $n == 0 {
-      @return 0;
-    }
+  @return $list;
+}
 
-    @return $n * 1px;
+@function spacing-value($n) {
+  @if $n ==0 {
+    @return 0;
   }
 
-  $spacings: generate-spacings($spacing-start, $spacing-end, $spacing-step);
-  $dirs: (
-    "": "",
-    "t": "-top",
-    "r": "-inline-end",
-    "b": "-bottom",
-    "l": "-inline-start",
-    "x": ("-inline-start", "-inline-end"),
-    "y": ("-top", "-bottom")
-  );
+  @return $n * 1px;
+}
 
-  @each $space in $spacings {
-    $val: spacing-value($space);
+$spacings: generate-spacings($spacing-start, $spacing-end, $spacing-step);
+$dirs: (
+  "": "",
+  "t": "-top",
+  "r": "-inline-end",
+  "b": "-bottom",
+  "l": "-inline-start",
+  "x": ("-inline-start", "-inline-end"),
+  "y": ("-top", "-bottom")
+);
 
-    // padding
-    @each $short, $dir in $dirs {
-      .u-p#{$short}-#{$space} {
-        @if meta.type-of($dir) == "string" {
-          padding#{$dir}: $val;
-        } @else if $dir == ("-inline-start", "-inline-end") {
-          padding-inline: $val;
-        } @else {
-          @each $side in $dir {
-            padding#{$side}: $val;
-          }
-        }
+@each $space in $spacings {
+  $val: spacing-value($space);
+
+  // padding
+  @each $short, $dir in $dirs {
+    .u-p#{$short}-#{$space} {
+      @if meta.type-of($dir)=="string" {
+        padding#{$dir}: $val;
       }
-    }
 
-    // margin
-    @each $short, $dir in $dirs {
-      .u-m#{$short}-#{$space} {
-        @if meta.type-of($dir) == "string" {
-          margin#{$dir}: $val;
-        } @else if $dir == ("-inline-start", "-inline-end") {
-          margin-inline: $val;
-        } @else {
-          @each $side in $dir {
-            margin#{$side}: $val;
-          }
+      @else if $dir ==("-inline-start", "-inline-end") {
+        padding-inline: $val;
+      }
+
+      @else {
+        @each $side in $dir {
+          padding#{$side}: $val;
         }
       }
     }
   }
 
-  .u-truncate {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  // margin
+  @each $short, $dir in $dirs {
+    .u-m#{$short}-#{$space} {
+      @if meta.type-of($dir)=="string" {
+        margin#{$dir}: $val;
+      }
+
+      @else if $dir ==("-inline-start", "-inline-end") {
+        margin-inline: $val;
+      }
+
+      @else {
+        @each $side in $dir {
+          margin#{$side}: $val;
+        }
+      }
+    }
   }
 
-  .u-no-truncate {
-    white-space: unset;
-    overflow: unset;
-    text-overflow: unset;
+  // gap
+  .u-gap-#{$space} {
+    gap: $val;
   }
 
-  .u-word-break {
-    overflow-wrap: break-word;
+  .u-row-gap-#{$space} {
+    row-gap: $val;
   }
 
-  .u-white-space-normal {
-    white-space: normal;
+  .u-col-gap-#{$space} {
+    column-gap: $val;
   }
+}
 
-  .u-white-space-nowrap {
-    white-space: nowrap;
-  }
+.u-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-  .u-white-space-pre-wrap {
-    white-space: pre-wrap;
-  }
+.u-no-truncate {
+  white-space: unset;
+  overflow: unset;
+  text-overflow: unset;
+}
 
-  .u-white-space-pre-line {
-    white-space: pre-line;
-  }
+.u-word-break {
+  overflow-wrap: break-word;
+}
 
-  .u-fw-normal {
-    font-weight: var(--fw-normal);
-  }
+.u-white-space-normal {
+  white-space: normal;
+}
 
-  .u-fw-medium {
-    font-weight: var(--fw-medium);
-  }
+.u-white-space-nowrap {
+  white-space: nowrap;
+}
 
-  .u-fw-bold {
-    font-weight: var(--fw-bold);
-  }
+.u-white-space-pre-wrap {
+  white-space: pre-wrap;
+}
 
-  .u-text-xs {
-    font-size: var(--text-xs);
-  }
+.u-white-space-pre-line {
+  white-space: pre-line;
+}
 
-  .u-text-xs-plus {
-    font-size: var(--text-xs-plus);
-  }
+.u-fw-normal {
+  font-weight: var(--fw-normal);
+}
 
-  .u-text-sm {
-    font-size: var(--text-sm);
-  }
+.u-fw-medium {
+  font-weight: var(--fw-medium);
+}
 
-  .u-text-sm-plus {
-    font-size: var(--text-sm-plus);
-  }
+.u-fw-bold {
+  font-weight: var(--fw-bold);
+}
 
-  .u-text-md {
-    font-size: var(--text-md);
-  }
+.u-text-xs {
+  font-size: var(--text-xs);
+}
 
-  .u-text-md-plus {
-    font-size: var(--text-md-plus);
-  }
+.u-text-xs-plus {
+  font-size: var(--text-xs-plus);
+}
 
-  .u-text-lg {
-    font-size: var(--text-lg);
-  }
+.u-text-sm {
+  font-size: var(--text-sm);
+}
 
-  .u-text-dark-1 {
-    color: var(--dark-1);
-  }
+.u-text-sm-plus {
+  font-size: var(--text-sm-plus);
+}
 
-  .u-text-dark-2 {
-    color: var(--dark-2);
-  }
+.u-text-md {
+  font-size: var(--text-md);
+}
 
-  .u-text-dark-3 {
-    color: var(--dark-3);
-  }
+.u-text-md-plus {
+  font-size: var(--text-md-plus);
+}
 
-  .u-text-hyperlink-blue {
-    color: var(--primary-hyperlink-blue);
-  }
+.u-text-lg {
+  font-size: var(--text-lg);
+}
 
-  .u-text-error {
-    color: var(--red-alert);
-  }
+.u-text-dark-1 {
+  color: var(--dark-1);
+}
 
-  .u-text-success {
-    color: var(--green-success);
-  }
+.u-text-dark-2 {
+  color: var(--dark-2);
+}
 
-  .u-text-left {
-    text-align: start;
-  }
+.u-text-dark-3 {
+  color: var(--dark-3);
+}
 
-  .u-text-right {
-    text-align: end;
-  }
+.u-text-hyperlink-blue {
+  color: var(--primary-hyperlink-blue);
+}
 
-  .u-cursor-pointer {
-    cursor: pointer;
-  }
+.u-text-error {
+  color: var(--red-alert);
+}
+
+.u-text-success {
+  color: var(--green-success);
+}
+
+.u-text-left {
+  text-align: start;
+}
+
+.u-text-right {
+  text-align: end;
+}
+
+.u-cursor-pointer {
+  cursor: pointer;
+}
 }
