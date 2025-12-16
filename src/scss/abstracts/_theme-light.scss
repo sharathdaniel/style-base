@@ -88,7 +88,7 @@ $colors: (
 );
 
 @layer base {
-  :root {
+  [data-theme="light"] {
     --white: #FFF;
     --white-rgb: 255, 255, 255;
     --black: #000;
