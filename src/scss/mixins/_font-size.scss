@@ -1,0 +1,11 @@
+@use 'sass:math';
+
+// Convert pixels to rem
+@function rem($px) {
+  @return math.div($px, 16) * 1rem;
+}
+
+// Mixin to apply font-size in rems
+@mixin font-size($px) {
+  font-size: rem($px);
+}
