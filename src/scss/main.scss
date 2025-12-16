@@ -7,7 +7,7 @@
 
 /* Base */
 @include meta.load-css("abstracts/variables");
-@include meta.load-css("abstracts/theme");
+@include meta.load-css("abstracts/theme-light");
 @include meta.load-css("abstracts/typography");
 
 /* Common */
