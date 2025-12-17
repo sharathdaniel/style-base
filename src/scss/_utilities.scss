@@ -51,7 +51,8 @@
       @return 0;
     }
 
-    @return $n * 1px;
+    // Convert spacing scale from px to rem (assuming 16px base size)
+    @return ($n / 16) * 1rem;
   }
 
   $spacings: generate-spacings($spacing-start, $spacing-end, $spacing-step);
