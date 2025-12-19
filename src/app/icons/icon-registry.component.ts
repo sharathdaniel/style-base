@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-icon-registry',
-  standalone: false,
+  standalone: true,
   templateUrl: './icon-registry.component.html',
   styles: [':host { display: none; }']
 })
