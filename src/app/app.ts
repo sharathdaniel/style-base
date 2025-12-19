@@ -1,12 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { IconsModule } from './icons/icons.module';
+import { IconRegistryComponent } from './icons/icon-registry.component';
+import { IconComponent } from './icons/icon.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   standalone: true,
-  imports: [RouterOutlet, IconsModule],
+  imports: [RouterOutlet, IconRegistryComponent, IconComponent],
   styleUrl: './app.scss'
 })
 export class App {
