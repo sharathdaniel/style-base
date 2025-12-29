@@ -87,6 +87,37 @@ $colors: (
   )
 );
 
+$semantic-bg: (
+  'bg-page': '--grey-6',
+  'bg-surface': '--neutral-white',
+  'bg-surface-subtle': '--grey-5',
+  'bg-hover': '--grey-6',
+  'bg-selected': '--primary-selection-blue'
+);
+
+$semantic-text: (
+  'text-primary': '--dark-1',
+  'text-secondary': '--grey-1',
+  'text-tertiary': '--grey-2',
+  'text-disabled': '--grey-3',
+  'text-link': '--primary-hyperlink-blue',
+  'text-link-hover': '--primary-navy-blue'
+);
+
+$semantic-border: (
+  'border-light': '--grey-4',
+  'border-medium': '--grey-2',
+  'border-strong': '--grey-1',
+  'border-focus': '--primary-accent-blue'
+);
+
+$semantic-status: (
+  'status-success': '--green-success',
+  'status-error': '--red-alert',
+  'status-warning': '--pending-orange-light',
+  'status-info': '--blue-bold'
+);
+
 @layer base {
   [data-theme="light"] {
     --white: #FFF;
@@ -94,10 +125,18 @@ $colors: (
     --black: #000;
     --black-rgb: 0, 0, 0;
 
-    @each $color, $shades in $colors {
-      @each $shade, $value in $shades {
-        --#{"" + $color}-#{$shade}: rgb(#{$value});
-        --#{"" + $color}-#{$shade + "-rgb"}: #{$value};
+    @each $group, $shades in $colors {
+      @each $name, $value in $shades {
+        --#{$group}-#{$name}: rgb(#{$value});
+        --#{$group}-#{$name}-rgb: #{$value};
+      }
+    }
+
+    // SEMANTIC TOKEN GENERATION
+    @each $map in ($semantic-bg, $semantic-text, $semantic-border, $semantic-status) {
+      @each $token, $ref in $map {
+        --#{$token}: var(#{$ref});
+        --#{$token}-rgb: var(#{$ref}-rgb);
       }
     }
   }
