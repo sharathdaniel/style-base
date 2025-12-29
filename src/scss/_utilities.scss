@@ -193,28 +193,28 @@
     font-size: var(--text-lg);
   }
 
-  .u-text-dark-1 {
-    color: var(--dark-1);
+  .u-text-primary {
+    color: var(--text-primary);
   }
 
-  .u-text-dark-2 {
-    color: var(--dark-2);
+  .u-text-secondary {
+    color: var(--text-secondary);
   }
 
-  .u-text-dark-3 {
-    color: var(--dark-3);
+  .u-text-tertiary {
+    color: var(--text-tertiary);
   }
 
-  .u-text-hyperlink-blue {
-    color: var(--primary-hyperlink-blue);
+  .u-text-link {
+    color: var(--text-link);
   }
 
   .u-text-error {
-    color: var(--red-alert);
+    color: var(--status-error);
   }
 
   .u-text-success {
-    color: var(--green-success);
+    color: var(--status-success);
   }
 
   .u-text-left {
