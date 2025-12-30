@@ -31,6 +31,14 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
 - **Tokens first**  
   Design decisions live in tokens, not scattered values.
 
+- **Rem-based scaling**  
+  StyleBase uses `rem` units for typography, spacing, and layout to ensure consistent scaling and accessibility.  
+  A shared `rem()` utility function is provided in the `functions` folder to handle pixel-to-rem conversion.
+
+  Exceptions:
+  - `1px` is used where visual precision is required (e.g. borders, dividers).
+  - Media queries use `px`, as `rem`-based breakpoints can be affected by user font-size settings.
+
 - **Foundation, not prescription**  
   StyleBase gives you structure, not visual identity.
 
