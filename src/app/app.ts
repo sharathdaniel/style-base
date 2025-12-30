@@ -8,7 +8,7 @@ import { IconComponent } from './icons/icon.component';
   templateUrl: './app.html',
   standalone: true,
   imports: [RouterOutlet, IconRegistryComponent, IconComponent],
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = signal('style-base');
