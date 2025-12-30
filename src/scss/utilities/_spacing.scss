@@ -1,0 +1,92 @@
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:math';
+
+$spacing-start: 0;
+$spacing-end: 40;
+$spacing-step: 2;
+
+@function generate-spacings($start, $end, $step) {
+  $list: ();
+  $i: $start;
+
+  @while $i <= $end {
+    $list: list.append($list, $i);
+    $i: $i + $step;
+  }
+
+  @return $list;
+}
+
+@function spacing-value($n) {
+  @if $n == 0 {
+    @return 0;
+  }
+
+  // Convert spacing scale from px to rem (assuming 16px base size)
+  @return math.div($n, 16) * 1rem;
+}
+
+$spacings: generate-spacings($spacing-start, $spacing-end, $spacing-step);
+$dirs: (
+  '': '',
+  't': '-top',
+  'r': '-inline-end',
+  'b': '-bottom',
+  'l': '-inline-start',
+  'x': (
+    '-inline-start',
+    '-inline-end',
+  ),
+  'y': (
+    '-top',
+    '-bottom',
+  ),
+);
+
+@each $space in $spacings {
+  $val: spacing-value($space);
+
+  // padding
+  @each $short, $dir in $dirs {
+    .u-p#{$short}-#{$space} {
+      @if meta.type-of($dir) == 'string' {
+        padding#{$dir}: $val;
+      } @else if $dir == ('-inline-start', '-inline-end') {
+        padding-inline: $val;
+      } @else {
+        @each $side in $dir {
+          padding#{$side}: $val;
+        }
+      }
+    }
+  }
+
+  // margin
+  @each $short, $dir in $dirs {
+    .u-m#{$short}-#{$space} {
+      @if meta.type-of($dir) == 'string' {
+        margin#{$dir}: $val;
+      } @else if $dir == ('-inline-start', '-inline-end') {
+        margin-inline: $val;
+      } @else {
+        @each $side in $dir {
+          margin#{$side}: $val;
+        }
+      }
+    }
+  }
+
+  // gap
+  .u-gap-#{$space} {
+    gap: $val;
+  }
+
+  .u-row-gap-#{$space} {
+    row-gap: $val;
+  }
+
+  .u-col-gap-#{$space} {
+    column-gap: $val;
+  }
+}
