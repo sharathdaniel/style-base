@@ -1,7 +1,10 @@
 @layer base {
   :root {
     --font-primary: 'DM Sans';
-    --font-fallbacks: system-ui, -apple-system, "Segoe UI", "Roboto", "Helvetica Neue", "Noto Sans", "Liberation Sans", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-fallbacks:
+      system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue',
+      'Noto Sans', 'Liberation Sans', 'Arial', sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --body-font: var(--font-primary), var(--font-fallbacks);
     --fw-normal: 400;
     --fw-medium: 500;

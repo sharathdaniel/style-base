@@ -15,14 +15,14 @@
   $imp: if($important, ' !important', '');
 
   background-color: currentColor#{$imp};
-  -webkit-mask-image: url("data:image/svg+xml,#{$svg}")#{$imp};
-  mask-image:         url("data:image/svg+xml,#{$svg}")#{$imp};
-  -webkit-mask-repeat:  $repeat;
-  -webkit-mask-position:$position;
-  -webkit-mask-size:    $size;
-  mask-repeat:   $repeat;
+  -webkit-mask-image: url('data:image/svg+xml,#{$svg}') #{$imp};
+  mask-image: url('data:image/svg+xml,#{$svg}') #{$imp};
+  -webkit-mask-repeat: $repeat;
+  -webkit-mask-position: $position;
+  -webkit-mask-size: $size;
+  mask-repeat: $repeat;
   mask-position: $position;
-  mask-size:     $size;
+  mask-size: $size;
 }
 
 /* Usage
