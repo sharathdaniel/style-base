@@ -9,7 +9,7 @@
 @include meta.load-css('abstracts/theme-light');
 @include meta.load-css('abstracts/typography');
 
-/* Common */
+/* Common (Styles common for multiple pages or components) */
 @include meta.load-css('common');
 
 @layer components {
