@@ -6,7 +6,7 @@
   "bracketSpacing": true,
   "printWidth": 100,
   "trailingComma": "none",
-  "endOfLine": "auto",
+  "endOfLine": "lf",
   "overrides": [
     {
       "files": "*.scss",

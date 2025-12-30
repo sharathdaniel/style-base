@@ -12,6 +12,9 @@
     "prepare": "husky"
   },
   "lint-staged": {
+    "src/**/*.{scss,ts,html,json}": [
+      "prettier --write"
+    ],
     "src/**/*.scss": [
       "stylelint --fix"
     ]
