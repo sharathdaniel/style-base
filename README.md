@@ -1,7 +1,7 @@
 # StyleBase
 
 StyleBase is a **minimal, scalable style foundation** for Angular projects.  
-It provides a clean SCSS architecture, design tokens, utilities, and CSS layers — **without being a UI framework like Tailwind or Bootstrap**.
+It provides a clean SCSS architecture, design tokens, utilities, and CSS layers - **without being a UI framework like Tailwind or Bootstrap**.
 
 This project is intended to be a solid starting point that teams can **extend and customize**, not a complete design system.
 
@@ -13,7 +13,7 @@ This project is intended to be a solid starting point that teams can **extend an
 - **Angular Standalone**: Built entirely with Angular Standalone Components, eliminating `NgModules` for a simpler and more modern setup.
 
 ### SCSS & CSS Architecture
-- **Modular SCSS (7-1 inspired)** located in `src/scss`
+- **Modular SCSS** structure located in `src/scss`
   - **Abstracts**: Design tokens for colors, spacing, typography, and themes
   - **Mixins**: Reusable helpers for breakpoints, truncation, and line-clamping
   - **Utilities**: Config-driven utility generator for spacing, sizing, and typography
@@ -43,4 +43,4 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 To start a local development server:
 
 ```bash
-ng serve
+ng serve --open
