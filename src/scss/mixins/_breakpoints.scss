@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // Semantic breakpoint definitions
 $breakpoints: (
   mobile: 0px,
@@ -6,7 +8,6 @@ $breakpoints: (
   wide: 1280px,
   ultrawide: 1536px
 );
-
 $breakpoint-max: (
   mobile: 767px,    // 0-767px
   tablet: 1024px,   // 768-1024px
@@ -17,22 +18,25 @@ $breakpoint-max: (
 
 // Core mixins
 @mixin breakpoint-up($size) {
-  @if not map-has-key($breakpoints, $size) {
-    @error "Breakpoint #{$size} not found. Available: #{map-keys($breakpoints)}";
+  @if not map.has-key($breakpoints, $size) {
+    @error "Breakpoint #{$size} not found. Available: #{map.keys($breakpoints)}";
   }
+
   
-  $min-width: map-get($breakpoints, $size);
+  $min-width: map.get($breakpoints, $size);
+
   @media (min-width: $min-width) {
     @content;
   }
 }
 
 @mixin breakpoint-down($size) {
-  @if not map-has-key($breakpoint-max, $size) {
-    @error "Breakpoint #{$size} not found. Available: #{map-keys($breakpoint-max)}";
+  @if not map.has-key($breakpoint-max, $size) {
+    @error "Breakpoint #{$size} not found. Available: #{map.keys($breakpoint-max)}";
   }
+
   
-  $max-width: map-get($breakpoint-max, $size);
+  $max-width: map.get($breakpoint-max, $size);
   
   @if $max-width {
     @media (max-width: $max-width) {
@@ -44,15 +48,17 @@ $breakpoint-max: (
 }
 
 @mixin breakpoint-between($lower, $upper) {
-  @if not map-has-key($breakpoints, $lower) {
-    @error "Lower breakpoint #{$lower} not found. Available: #{map-keys($breakpoints)}";
+  @if not map.has-key($breakpoints, $lower) {
+    @error "Lower breakpoint #{$lower} not found. Available: #{map.keys($breakpoints)}";
   }
-  @if not map-has-key($breakpoint-max, $upper) {
-    @error "Upper breakpoint #{$upper} not found. Available: #{map-keys($breakpoint-max)}";
+
+  @if not map.has-key($breakpoint-max, $upper) {
+    @error "Upper breakpoint #{$upper} not found. Available: #{map.keys($breakpoint-max)}";
   }
+
   
-  $min-width: map-get($breakpoints, $lower);
-  $max-width: map-get($breakpoint-max, $upper);
+  $min-width: map.get($breakpoints, $lower);
+  $max-width: map.get($breakpoint-max, $upper);
   
   @media (min-width: $min-width) and (max-width: $max-width) {
     @content;
