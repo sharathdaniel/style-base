@@ -1,39 +1,45 @@
+@use 'sass:map';
+
 // Semantic breakpoint definitions
 $breakpoints: (
   mobile: 0px,
   tablet: 768px,
   desktop: 1025px,
   wide: 1280px,
-  ultrawide: 1536px
+  ultrawide: 1536px,
 );
-
 $breakpoint-max: (
-  mobile: 767px,    // 0-767px
-  tablet: 1024px,   // 768-1024px
-  desktop: 1279px,  // 1025-1279px
-  wide: 1535px,     // 1280-1535px
-  ultrawide: null   // 1536px and up (no max)
+  mobile: 767px,
+  // 0-767px
+  tablet: 1024px,
+  // 768-1024px
+  desktop: 1279px,
+  // 1025-1279px
+  wide: 1535px,
+  // 1280-1535px
+  ultrawide: null, // 1536px and up (no max)
 );
 
 // Core mixins
 @mixin breakpoint-up($size) {
-  @if not map-has-key($breakpoints, $size) {
-    @error "Breakpoint #{$size} not found. Available: #{map-keys($breakpoints)}";
+  @if not map.has-key($breakpoints, $size) {
+    @error "Breakpoint #{$size} not found. Available: #{map.keys($breakpoints)}";
   }
-  
-  $min-width: map-get($breakpoints, $size);
+
+  $min-width: map.get($breakpoints, $size);
+
   @media (min-width: $min-width) {
     @content;
   }
 }
 
 @mixin breakpoint-down($size) {
-  @if not map-has-key($breakpoint-max, $size) {
-    @error "Breakpoint #{$size} not found. Available: #{map-keys($breakpoint-max)}";
+  @if not map.has-key($breakpoint-max, $size) {
+    @error "Breakpoint #{$size} not found. Available: #{map.keys($breakpoint-max)}";
   }
-  
-  $max-width: map-get($breakpoint-max, $size);
-  
+
+  $max-width: map.get($breakpoint-max, $size);
+
   @if $max-width {
     @media (max-width: $max-width) {
       @content;
@@ -44,55 +50,74 @@ $breakpoint-max: (
 }
 
 @mixin breakpoint-between($lower, $upper) {
-  @if not map-has-key($breakpoints, $lower) {
-    @error "Lower breakpoint #{$lower} not found. Available: #{map-keys($breakpoints)}";
+  @if not map.has-key($breakpoints, $lower) {
+    @error "Lower breakpoint #{$lower} not found. Available: #{map.keys($breakpoints)}";
   }
-  @if not map-has-key($breakpoint-max, $upper) {
-    @error "Upper breakpoint #{$upper} not found. Available: #{map-keys($breakpoint-max)}";
+
+  @if not map.has-key($breakpoint-max, $upper) {
+    @error "Upper breakpoint #{$upper} not found. Available: #{map.keys($breakpoint-max)}";
   }
-  
-  $min-width: map-get($breakpoints, $lower);
-  $max-width: map-get($breakpoint-max, $upper);
-  
+
+  $min-width: map.get($breakpoints, $lower);
+  $max-width: map.get($breakpoint-max, $upper);
+
   @media (min-width: $min-width) and (max-width: $max-width) {
     @content;
   }
 }
 
 @mixin mobile {
-  @include breakpoint-between(mobile, mobile) { @content; } // 0 - 767px
+  @include breakpoint-between(mobile, mobile) {
+    @content;
+  } // 0 - 767px
 }
 
 @mixin tablet {
-  @include breakpoint-between(tablet, tablet) { @content; } // 768px - 1024px
+  @include breakpoint-between(tablet, tablet) {
+    @content;
+  } // 768px - 1024px
 }
 
 @mixin mobile-and-tablet {
-  @include breakpoint-down(tablet) { @content; } // 0 - 1024px
+  @include breakpoint-down(tablet) {
+    @content;
+  } // 0 - 1024px
 }
 
 @mixin desktop-and-up {
-  @include breakpoint-up(desktop) { @content; } // 1025 and up
+  @include breakpoint-up(desktop) {
+    @content;
+  } // 1025 and up
 }
 
 @mixin wide-and-up {
-  @include breakpoint-up(wide) { @content; } // 1280 and up
+  @include breakpoint-up(wide) {
+    @content;
+  } // 1280 and up
 }
 
 @mixin ultrawide {
-  @include breakpoint-up(ultrawide) { @content; } // 1536 and up
+  @include breakpoint-up(ultrawide) {
+    @content;
+  } // 1536 and up
 }
 
 /* Less used */
 
 @mixin desktop {
-  @include breakpoint-between(desktop, desktop) { @content; }
+  @include breakpoint-between(desktop, desktop) {
+    @content;
+  }
 }
 
 @mixin wide {
-  @include breakpoint-between(wide, wide) { @content; }
+  @include breakpoint-between(wide, wide) {
+    @content;
+  }
 }
 
 @mixin desktop-and-wide {
-  @include breakpoint-between(desktop, wide) { @content; }
+  @include breakpoint-between(desktop, wide) {
+    @content;
+  }
 }

@@ -6,12 +6,14 @@
     text-align: center;
     text-decoration: none;
     vertical-align: middle;
-    -webkit-user-select: none;
     user-select: none;
     border: 1px solid transparent;
     background-color: transparent;
-    transition: color var(--transition-1), background-color var(--transition-1),
-      border-color var(--transition-1), box-shadow var(--transition-1);
+    transition:
+      color var(--transition-1),
+      background-color var(--transition-1),
+      border-color var(--transition-1),
+      box-shadow var(--transition-1);
 
     &:disabled {
       cursor: not-allowed;

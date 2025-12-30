@@ -1,5 +1,5 @@
-@use "sass:list";
-@use "sass:meta";
+@use 'sass:list';
+@use 'sass:meta';
 
 @layer utilities {
   .u-h-100 {
@@ -38,7 +38,7 @@
     $list: ();
     $i: $start;
 
-    @while $i <=$end {
+    @while $i <= $end {
       $list: list.append($list, $i);
       $i: $i + $step;
     }
@@ -47,7 +47,7 @@
   }
 
   @function spacing-value($n) {
-    @if $n ==0 {
+    @if $n == 0 {
       @return 0;
     }
 
@@ -57,13 +57,19 @@
 
   $spacings: generate-spacings($spacing-start, $spacing-end, $spacing-step);
   $dirs: (
-    "": "",
-    "t": "-top",
-    "r": "-inline-end",
-    "b": "-bottom",
-    "l": "-inline-start",
-    "x": ("-inline-start", "-inline-end"),
-    "y": ("-top", "-bottom")
+    '': '',
+    't': '-top',
+    'r': '-inline-end',
+    'b': '-bottom',
+    'l': '-inline-start',
+    'x': (
+      '-inline-start',
+      '-inline-end',
+    ),
+    'y': (
+      '-top',
+      '-bottom',
+    ),
   );
 
   @each $space in $spacings {
@@ -72,15 +78,11 @@
     // padding
     @each $short, $dir in $dirs {
       .u-p#{$short}-#{$space} {
-        @if meta.type-of($dir)=="string" {
+        @if meta.type-of($dir) == 'string' {
           padding#{$dir}: $val;
-        }
-
-        @else if $dir ==("-inline-start", "-inline-end") {
+        } @else if $dir == ('-inline-start', '-inline-end') {
           padding-inline: $val;
-        }
-
-        @else {
+        } @else {
           @each $side in $dir {
             padding#{$side}: $val;
           }
@@ -91,15 +93,11 @@
     // margin
     @each $short, $dir in $dirs {
       .u-m#{$short}-#{$space} {
-        @if meta.type-of($dir)=="string" {
+        @if meta.type-of($dir) == 'string' {
           margin#{$dir}: $val;
-        }
-
-        @else if $dir ==("-inline-start", "-inline-end") {
+        } @else if $dir == ('-inline-start', '-inline-end') {
           margin-inline: $val;
-        }
-
-        @else {
+        } @else {
           @each $side in $dir {
             margin#{$side}: $val;
           }
