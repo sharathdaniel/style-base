@@ -1,5 +1,4 @@
 @use "sass:meta";
-
 @layer reset, base, components, utilities;
 
 /* Reset */
@@ -21,7 +20,6 @@
 @include meta.load-css("components/buttons");
 @include meta.load-css("components/icons");
 @include meta.load-css("components/typography");
-
 
 /* Always load it last */
 @include meta.load-css("utilities");

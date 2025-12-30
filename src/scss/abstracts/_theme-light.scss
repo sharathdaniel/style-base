@@ -86,7 +86,6 @@ $colors: (
     'dark-1': #{211, 104, 6} // #D36806
   )
 );
-
 $semantic-bg: (
   'bg-page': '--grey-6',
   'bg-surface': '--neutral-white',
@@ -94,7 +93,6 @@ $semantic-bg: (
   'bg-hover': '--grey-6',
   'bg-selected': '--primary-selection-blue'
 );
-
 $semantic-text: (
   'text-primary': '--dark-1',
   'text-secondary': '--grey-1',
@@ -103,14 +101,12 @@ $semantic-text: (
   'text-link': '--primary-hyperlink-blue',
   'text-link-hover': '--primary-navy-blue'
 );
-
 $semantic-border: (
   'border-light': '--grey-4',
   'border-medium': '--grey-2',
   'border-strong': '--grey-1',
   'border-focus': '--primary-accent-blue'
 );
-
 $semantic-status: (
   'status-success': '--green-success',
   'status-error': '--red-alert',

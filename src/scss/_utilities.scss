@@ -38,7 +38,7 @@
     $list: ();
     $i: $start;
 
-    @while $i <=$end {
+    @while $i <= $end {
       $list: list.append($list, $i);
       $i: $i + $step;
     }
@@ -47,7 +47,7 @@
   }
 
   @function spacing-value($n) {
-    @if $n ==0 {
+    @if $n == 0 {
       @return 0;
     }
 
@@ -72,15 +72,11 @@
     // padding
     @each $short, $dir in $dirs {
       .u-p#{$short}-#{$space} {
-        @if meta.type-of($dir)=="string" {
+        @if meta.type-of($dir) == "string" {
           padding#{$dir}: $val;
-        }
-
-        @else if $dir ==("-inline-start", "-inline-end") {
+        } @else if $dir == ("-inline-start", "-inline-end") {
           padding-inline: $val;
-        }
-
-        @else {
+        } @else {
           @each $side in $dir {
             padding#{$side}: $val;
           }
@@ -91,15 +87,11 @@
     // margin
     @each $short, $dir in $dirs {
       .u-m#{$short}-#{$space} {
-        @if meta.type-of($dir)=="string" {
+        @if meta.type-of($dir) == "string" {
           margin#{$dir}: $val;
-        }
-
-        @else if $dir ==("-inline-start", "-inline-end") {
+        } @else if $dir == ("-inline-start", "-inline-end") {
           margin-inline: $val;
-        }
-
-        @else {
+        } @else {
           @each $side in $dir {
             margin#{$side}: $val;
           }
