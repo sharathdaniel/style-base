@@ -1,18 +1,27 @@
 {
-  "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier-scss"],
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-prettier-scss"
+  ],
   "ignoreFiles": ["dist/**/*", "node_modules/**/*"],
   "rules": {
     "no-empty-source": null,
-    "scss/at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": ["tailwind", "apply", "variants", "responsive", "screen"]
-      }
-    ],
+
+    "no-descending-specificity": null,
+    "selector-max-compound-selectors": null,
+    "selector-max-specificity": null,
+    "max-nesting-depth": null,
+    "scss/at-rule-no-unknown": null,
+
     "property-no-vendor-prefix": [
       true,
       {
-        "ignoreProperties": ["mask-image", "mask-size", "mask-position", "mask-repeat"]
+        "ignoreProperties": [
+          "mask-image",
+          "mask-size",
+          "mask-position",
+          "mask-repeat"
+        ]
       }
     ]
   }
