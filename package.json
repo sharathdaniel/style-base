@@ -16,7 +16,7 @@
       "prettier --write"
     ],
     "src/**/*.scss": [
-      "stylelint --fix"
+      "stylelint --fix --cache"
     ]
   },
   "prettier": {
