@@ -1,5 +1,6 @@
 @use 'sass:list';
 @use 'sass:meta';
+@use 'sass:math';
 
 @layer utilities {
   .u-h-100 {
@@ -52,7 +53,7 @@
     }
 
     // Convert spacing scale from px to rem (assuming 16px base size)
-    @return ($n / 16) * 1rem;
+    @return math.div($n, 16) * 1rem;
   }
 
   $spacings: generate-spacings($spacing-start, $spacing-end, $spacing-step);
