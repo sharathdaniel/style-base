@@ -1,35 +1,91 @@
 # StyleBase
 
-StyleBase is a **minimal, scalable style foundation** for Angular projects.  
-It provides a clean SCSS architecture, design tokens, utilities, and CSS layers - **without being a UI framework like Tailwind or Bootstrap**.
+**StyleBase is a minimal, opinionated SCSS foundation for building custom design systems.**
 
-This project is intended to be a solid starting point that teams can **extend and customize**, not a complete design system.
+It is **not**:
+
+- ❌ a UI framework
+- ❌ a component library
+- ❌ a Tailwind or Bootstrap alternative
+
+StyleBase provides a **clean, scalable styling baseline** that teams can extend and evolve based on their own product needs.
 
 ---
 
-## What’s included
+## What StyleBase is (and is not)
 
-### Architecture
-- **Angular Standalone**: Built entirely with Angular Standalone Components, eliminating `NgModules` for a simpler and more modern setup.
+### ✅ What it is
 
-### SCSS & CSS Architecture
-- **Modular SCSS** structure located in `src/scss`
-  - **Abstracts**: Design tokens for colors, spacing, typography, and themes
-  - **Mixins**: Reusable helpers for breakpoints, truncation, and line-clamping
-  - **Utilities**: Config-driven utility generator for spacing, sizing, and typography
-- **CSS Layers (`@layer`)** for predictable overrides without `!important`
-  - `reset`
-  - `base`
-  - `components`
-  - `utilities`
+- A **style foundation**, not a finished design system
+- Token-driven (colors, spacing, typography)
+- Built on **modern CSS Layers** for safe overrides
+
+### ❌ What it is not
+
+- A drop-in UI kit
+- A utility-first framework
+- A replacement for Tailwind or Bootstrap
+- A collection of pre-styled components
+
+---
+
+## Core Principles
+
+- **Layers over `!important`**  
+  All overrides are handled through CSS Layers, not specificity wars.
+
+- **Tokens first**  
+  Design decisions live in tokens, not scattered values.
+
+- **Foundation, not prescription**  
+  StyleBase gives you structure, not visual identity.
+
+- **Exceptions, not shortcuts**  
+  Utilities exist to solve edge cases, not to replace components.
+
+---
+
+## Architecture Overview
+
+### SCSS Structure
+
+All styling lives under `src/scss`, organized by responsibility:
+
+- **Abstracts**
+  - Design tokens (colors, spacing, typography)
+  - Theme definitions
+  - No component or layout styles
+
+- **Mixins**
+  - Breakpoints
+  - Truncation and line-clamping helpers
+
+- **Components**
+  - Reusable UI building blocks
+  - No page-level layout assumptions
+
+- **Utilities**
+  - Single-purpose helpers (spacing, sizing, typography)
+  - Intended as overrides
+
+### CSS Layers
+
+StyleBase uses native CSS Layers to guarantee predictable overrides:
+
+```scss
+@layer reset, base, components, utilities;
+```
 
 ### Icon System
+
 A lightweight, accessible SVG icon setup:
+
 - **SVG sprites** defined via `IconRegistryComponent` to avoid multiple network requests
 - **Reusable `<app-icon>` component** using the `<use>` tag
 - **Accessibility-friendly** with built-in support for `ariaLabel`
 
 ### Code Quality & Tooling
+
 - **Stylelint** for consistent and error-free SCSS
 - **Prettier** for automatic formatting
 - **Husky + lint-staged** to enforce quality checks before commits
@@ -43,9 +99,12 @@ A lightweight, accessible SVG icon setup:
 
 ## Development
 
+An Angular application is included in this repository as a reference implementation demonstrating the consumption of StyleBase. Use of Angular is not required by StyleBase itself.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
 
 To start a local development server:
 
 ```bash
 ng serve --open
+```
