@@ -2,13 +2,7 @@
 
 **StyleBase is a minimal, opinionated SCSS foundation for building custom design systems.**
 
-It is **not**:
-
-- ❌ a UI framework
-- ❌ a component library
-- ❌ a Tailwind or Bootstrap alternative
-
-StyleBase provides a **clean, scalable styling baseline** that teams can extend and evolve based on their own product needs.
+It provides a **clean, scalable styling baseline** that teams can extend and evolve based on their own product needs.
 
 ---
 
