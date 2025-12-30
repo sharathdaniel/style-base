@@ -1,31 +1,46 @@
 # StyleBase
 
+StyleBase is a **minimal, scalable style foundation** for Angular projects.  
+It provides a clean SCSS architecture, design tokens, utilities, and CSS layers — **without being a UI framework like Tailwind or Bootstrap**.
+
+This project is intended to be a solid starting point that teams can **extend and customize**, not a complete design system.
+
+---
+
+## What’s included
+
+### Architecture
+- **Angular Standalone**: Built entirely with Angular Standalone Components, eliminating `NgModules` for a simpler and more modern setup.
+
+### SCSS & CSS Architecture
+- **Modular SCSS (7-1 inspired)** located in `src/scss`
+  - **Abstracts**: Design tokens for colors, spacing, typography, and themes
+  - **Mixins**: Reusable helpers for breakpoints, truncation, and line-clamping
+  - **Utilities**: Config-driven utility generator for spacing, sizing, and typography
+- **CSS Layers (`@layer`)** for predictable overrides without `!important`
+  - `reset`
+  - `base`
+  - `components`
+  - `utilities`
+
+### Icon System
+A lightweight, accessible SVG icon setup:
+- **SVG sprites** defined via `IconRegistryComponent` to avoid multiple network requests
+- **Reusable `<app-icon>` component** using the `<use>` tag
+- **Accessibility-friendly** with built-in support for `ariaLabel`
+
+### Code Quality & Tooling
+- **Stylelint** for consistent and error-free SCSS
+- **Prettier** for automatic formatting
+- **Husky + lint-staged** to enforce quality checks before commits
+
+---
+
+## Development
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
 
-## Development server
-
-To start a local development server, run:
+To start a local development server:
 
 ```bash
 ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Features
-
-### Architecture
-- **Standalone**: The entire application is built using Angular Standalone Components, removing the need for `NgModules` and streamlining the architecture.
-
-### SCSS Architecture
-The project utilizes a modular SCSS structure inspired by the 7-1 pattern located in `src/scss`:
-- **Abstracts**: Centralized configuration for variables (`_variables.scss`), typography (`_typography.scss`), and themes (`_theme-light.scss`).
-- **Mixins**: clear, reusable mixins for breakpoints, line-clamping, and text truncation.
-- **Utilities**: A robust utility generator (`_utilities.scss`) that creates spacing (margin, padding, gap), sizing, and typography classes based on configurable Sass maps and functions.
-- **Layer System**: usage of `@layer` to organize styles into `base`, `components`, and `utilities` to manage specificity.
-
-### Icon System
-An efficient and accessible SVG icon system:
-- **SVG Sprites**: Uses `IconRegistryComponent` to define SVG symbols (e.g., `icon-home`, `icon-user`) preventing request overhead.
-- **Reusable Component**: A standalone `IconComponent` (`<app-icon>`) that renders icons using the `<use>` tag.
-- **Accessibility**: Built-in support for `ariaLabel` to properly handle decorative vs. semantic icons.
