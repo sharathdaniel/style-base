@@ -9,7 +9,9 @@
       height: 100%;
     }
   }
+}
 
+@layer utilities {
   .icon-size-sm {
     width: 16px;
     height: 16px;
