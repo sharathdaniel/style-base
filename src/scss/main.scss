@@ -21,6 +21,7 @@
 @include meta.load-css('components/buttons');
 @include meta.load-css('components/icons');
 @include meta.load-css('components/typography');
+@include meta.load-css('components/scrollbar');
 
 /* Utilities (Always load it last) */
 @include meta.load-css('utilities');

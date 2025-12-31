@@ -1,0 +1,8 @@
+@layer base {
+  @supports (scrollbar-width: auto) {
+    .scroller {
+      scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
+      scrollbar-width: var(--scrollbar-width);
+    }
+  }
+}
