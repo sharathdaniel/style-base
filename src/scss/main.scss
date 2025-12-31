@@ -5,12 +5,10 @@
 @include meta.load-css('reset');
 
 /* Base */
-@include meta.load-css('abstracts/tokens-colors');
+@include meta.load-css('abstracts/tokens/colors');
+@include meta.load-css('abstracts/themes/light');
 @include meta.load-css('abstracts/variables');
 @include meta.load-css('abstracts/typography');
-
-/* Themes */
-@include meta.load-css('abstracts/theme-light');
 
 /* Common (Styles common for multiple pages or components) */
 @include meta.load-css('common');
