@@ -5,6 +5,14 @@
   "semi": true,
   "bracketSpacing": true,
   "printWidth": 100,
-  "trailingComma": "none",
-  "endOfLine": "lf"
+  "trailingComma": "es5",
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
 }

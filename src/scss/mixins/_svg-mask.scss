@@ -5,13 +5,7 @@
 /// @param $repeat     mask-repeat (default: no-repeat)
 /// @param $important  whether to append !important to bg-color & mask-image (default: false)
 
-@mixin svg-mask(
-  $svg,
-  $size: contain,
-  $position: center,
-  $repeat: no-repeat,
-  $important: false
-) {
+@mixin svg-mask($svg, $size: contain, $position: center, $repeat: no-repeat, $important: false) {
   $imp: if($important, ' !important', '');
 
   background-color: currentColor#{$imp};
