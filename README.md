@@ -92,13 +92,6 @@ A lightweight, accessible SVG icon setup:
 - **Prettier** for automatic formatting
 - **Husky + lint-staged** to enforce quality checks before commits
 
----
-
-### Editor setup (recommended)
-
-- Prettier (formatting)
-- Stylelint (SCSS linting)
-
 ### Manual Installation
 
 ```bash
@@ -126,15 +119,18 @@ npm install -D husky lint-staged
     "lint-staged": "^16.2.7"
   },
   "lint-staged": {
-    "src/**/*.{scss,ts,html,json}": [
-      "prettier --write"
-    ],
-    "src/**/*.scss": [
-      "stylelint --fix --cache"
-    ]
+    "src/**/*.{scss,ts,html,json}": ["prettier --write"],
+    "src/**/*.scss": ["stylelint --fix --cache"]
   }
 }
 ```
+
+---
+
+### Editor setup (recommended)
+
+- Prettier (formatting)
+- Stylelint (SCSS linting)
 
 ## Development
 
