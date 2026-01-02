@@ -123,7 +123,7 @@ npm install -D sass prettier stylelint stylelint-config-standard-scss stylelint-
 }
 ```
 
-### Editor setup (recommended)
+## Editor setup (recommended)
 
 For the best development experience, install the following extensions (VS Code):
 
