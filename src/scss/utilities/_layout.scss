@@ -38,6 +38,10 @@
   display: block;
 }
 
+.u-d-inline-flex {
+  display: inline-flex;
+}
+
 .u-d-flex {
   display: flex;
 }
@@ -86,6 +90,18 @@
 
 .u-justify-between {
   justify-content: space-between;
+}
+
+.u-self-start {
+  align-self: flex-start;
+}
+
+.u-self-end {
+  align-self: flex-end;
+}
+
+.u-self-center {
+  align-self: center;
 }
 
 /* Flex sizing */
