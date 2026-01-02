@@ -10,30 +10,27 @@
   font-weight: var(--fw-bold);
 }
 
-.u-text-xs {
-  font-size: var(--text-xs);
-}
+$font-sizes: (
+  xs: --text-xs,
+  xs-plus: --text-xs-plus,
+  sm: --text-sm,
+  sm-plus: --text-sm-plus,
+  md: --text-md,
+  md-plus: --text-md-plus,
+  lg: --text-lg,
+  lg-plus: --text-lg-plus,
+  xl: --text-xl,
+  xl-plus: --text-xl-plus,
+  2xl: --text-2xl,
+  2xl-plus: --text-2xl-plus,
+  3xl: --text-3xl,
+  3xl-plus: --text-3xl-plus,
+  4xl: --text-4xl,
+  4xl-plus: --text-4xl-plus,
+);
 
-.u-text-xs-plus {
-  font-size: var(--text-xs-plus);
-}
-
-.u-text-sm {
-  font-size: var(--text-sm);
-}
-
-.u-text-sm-plus {
-  font-size: var(--text-sm-plus);
-}
-
-.u-text-md {
-  font-size: var(--text-md);
-}
-
-.u-text-md-plus {
-  font-size: var(--text-md-plus);
-}
-
-.u-text-lg {
-  font-size: var(--text-lg);
+@each $name, $var in $font-sizes {
+  .u-text-#{$name} {
+    font-size: var(#{$var});
+  }
 }
