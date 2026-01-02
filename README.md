@@ -125,8 +125,6 @@ npm install -D husky lint-staged
 }
 ```
 
----
-
 ### Editor setup (recommended)
 
 - Prettier (formatting)
