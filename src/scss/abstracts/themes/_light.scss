@@ -28,9 +28,7 @@ $semantic-status: (
 
 @layer base {
   [data-theme='light'] {
-    @each $map
-      in ($semantic-bg, $semantic-text, $semantic-border, $semantic-status)
-    {
+    @each $map in ($semantic-bg, $semantic-text, $semantic-border, $semantic-status) {
       @each $token, $ref in $map {
         --#{$token}: var(#{$ref});
         --#{$token}-rgb: var(#{$ref}-rgb);
