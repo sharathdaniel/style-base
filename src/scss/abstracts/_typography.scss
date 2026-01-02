@@ -1,8 +1,6 @@
 @layer base {
   :root {
-    /* =========================
-      Font (primitives)
-    ========================= */
+    /* Font (primitives) */
 
     --font-primary: 'DM Sans';
     --font-fallbacks:
@@ -32,9 +30,7 @@
     --fs-24: 1.5rem; /* 24px */
     --fs-25: 1.5625rem; /* 25px */
 
-    /* =========================
-      Semantic typography tokens
-    ========================= */
+    /* Semantic typography tokens */
 
     --body-font: var(--font-primary), var(--font-fallbacks);
     --fw-normal: var(--fw-400);
