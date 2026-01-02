@@ -2,6 +2,10 @@
   cursor: pointer;
 }
 
+.u-cursor-not-allowed {
+  cursor: not-allowed;
+}
+
 /* Screen reader only */
 .u-sr-only {
   position: absolute;
@@ -37,4 +41,12 @@
 
 .u-mx-auto {
   margin-inline: auto;
+}
+
+.u-pointer-none {
+  pointer-events: none;
+}
+
+.u-pointer-auto {
+  pointer-events: auto;
 }
