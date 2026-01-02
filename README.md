@@ -136,8 +136,6 @@ npm install -D husky lint-staged
 }
 ```
 
-### Configuration
-
 ## Development
 
 An Angular application is included in this repository as a reference implementation demonstrating the consumption of StyleBase. Use of Angular is not required by StyleBase itself.
