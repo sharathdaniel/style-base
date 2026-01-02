@@ -9,20 +9,6 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 end_of_line = lf
 
-[*.ts]
-quote_type = single
-ij_typescript_use_double_quotes = false
-
-[*.{scss,css}]
-indent_size = 2
-quote_type = single
-
-[*.html]
-indent_size = 2
-
-[*.json]
-indent_size = 2
-
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false
