@@ -1,3 +1,30 @@
+/**
+ * Spacing Utilities
+ * -----------------
+ * Generates padding, margin, and gap utility classes using a fixed spacing scale.
+ *
+ * Spacing scale:
+ * - Values range from 0 to 40 (step: 2)
+ * - Each value represents pixels converted to rem units
+ * - Conversion assumes a 16px root font size (e.g. 16px → 1rem)
+ *
+ * Units:
+ * - 0 is output as a unitless value
+ * - Non-zero spacing values are converted to rem
+ * - 1px values (when used elsewhere) should remain in px and are intentionally
+ *   excluded from the spacing scale
+ *
+ * Direction & RTL support:
+ * - Uses CSS logical properties (inline-start / inline-end) where applicable
+ * - Horizontal utilities (`x`, `l`, `r`) are RTL-safe
+ *
+ * Examples:
+ * - .u-p-8   → padding: 0.5rem
+ * - .u-mt-16 → margin-top: 1rem
+ * - .u-px-12 → padding-inline: 0.75rem
+ * - .u-gap-8 → gap: 0.5rem
+ */
+
 @use 'sass:list';
 @use 'sass:meta';
 @use 'sass:math';
