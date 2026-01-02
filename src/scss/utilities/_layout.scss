@@ -88,6 +88,18 @@
   justify-content: space-between;
 }
 
+.u-self-start {
+  align-self: flex-start;
+}
+
+.u-self-end {
+  align-self: flex-end;
+}
+
+.u-self-center {
+  align-self: center;
+}
+
 /* Flex sizing */
 
 .u-flex-1 {
