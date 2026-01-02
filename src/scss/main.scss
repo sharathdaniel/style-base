@@ -1,5 +1,5 @@
 @use 'sass:meta';
-@layer reset, base, components, utilities;
+@layer reset, base, plugins, components, utilities;
 
 /* Reset */
 @include meta.load-css('reset');
@@ -13,8 +13,9 @@
 /* Common (Styles common for multiple pages or components) */
 @include meta.load-css('common');
 
-@layer components {
-  /* styles from node_modules */
+/*  Plugins (node_modules) */
+@layer plugins {
+  /* Third-party / vendor CSS only */
 }
 
 /* Components */
