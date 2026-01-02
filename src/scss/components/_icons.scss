@@ -1,3 +1,5 @@
+@use '../abstracts/size-scale' as *;
+
 @layer components {
   .app-c-icon {
     display: flex;
@@ -12,13 +14,10 @@
 }
 
 @layer utilities {
-  .icon-size-sm {
-    width: 16px;
-    height: 16px;
-  }
-
-  .icon-size-md {
-    width: 24px;
-    height: 24px;
+  @each $name, $var in $size-scale {
+    .u-icon-#{$name} {
+      width: var(#{$var});
+      height: var(#{$var});
+    }
   }
 }
