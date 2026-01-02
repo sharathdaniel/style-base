@@ -1,3 +1,5 @@
+/* Width / Height */
+
 .u-h-100 {
   height: 100%;
 }
@@ -24,4 +26,76 @@
 
 .u-min-w-0 {
   min-width: 0;
+}
+
+/* Display */
+
+.u-d-none {
+  display: none;
+}
+
+.u-d-block {
+  display: block;
+}
+
+.u-d-flex {
+  display: flex;
+}
+
+/* Direction */
+
+.u-flex-col {
+  flex-direction: column;
+}
+
+/* Wrapping */
+
+.u-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.u-flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+/* Alignment */
+
+.u-items-start {
+  align-items: flex-start;
+}
+
+.u-items-center {
+  align-items: center;
+}
+
+.u-items-end {
+  align-items: flex-end;
+}
+
+.u-justify-start {
+  justify-content: flex-start;
+}
+
+.u-justify-center {
+  justify-content: center;
+}
+
+.u-justify-between {
+  justify-content: space-between;
+}
+
+/* Flex sizing */
+
+.u-flex-1 {
+  flex: 1 1 0%;
+}
+
+.u-flex-auto {
+  flex: 1 1 auto;
+}
+
+/* Shrink */
+
+.u-shrink-0 {
+  flex-shrink: 0;
 }
