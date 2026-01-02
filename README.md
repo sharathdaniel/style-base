@@ -99,6 +99,45 @@ A lightweight, accessible SVG icon setup:
 - Prettier (formatting)
 - Stylelint (SCSS linting)
 
+### Manual Installation
+
+```bash
+npm install -D sass
+npm install -D prettier stylelint stylelint-config-standard-scss stylelint-config-prettier-scss
+npm install -D husky lint-staged
+```
+
+**Package.json** setup
+
+```json
+{
+  "scripts": {
+    "lint:scss": "stylelint \"src/**/*.scss\"",
+    "format:check": "prettier --check \"src/**/*.{scss,ts,html,json}\"",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0",
+    "prettier": "^3.7.4",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard-scss": "^16.0.0",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7"
+  },
+  "lint-staged": {
+    "src/**/*.{scss,ts,html,json}": [
+      "prettier --write"
+    ],
+    "src/**/*.scss": [
+      "stylelint --fix --cache"
+    ]
+  }
+}
+```
+
+### Configuration
+
 ## Development
 
 An Angular application is included in this repository as a reference implementation demonstrating the consumption of StyleBase. Use of Angular is not required by StyleBase itself.
