@@ -75,7 +75,7 @@ All styling lives under `src/scss`, organized by responsibility:
 StyleBase uses native CSS Layers to guarantee predictable overrides:
 
 ```scss
-@layer reset, base, components, utilities;
+@layer reset, base, plugins, components, utilities;
 ```
 
 ### Icon System
