@@ -92,7 +92,7 @@ A lightweight, accessible SVG icon setup:
 - **Prettier** for automatic formatting
 - **Husky + lint-staged** to enforce quality checks before commits
 
-### Manual Installation
+## Manual Installation
 
 ```bash
 npm install -D sass
