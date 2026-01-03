@@ -117,3 +117,19 @@ $dirs: (
     column-gap: $val;
   }
 }
+
+.u-mt-auto {
+  margin-top: auto;
+}
+
+.u-ml-auto {
+  margin-inline-start: auto;
+}
+
+.u-mr-auto {
+  margin-inline-end: auto;
+}
+
+.u-mx-auto {
+  margin-inline: auto;
+}
