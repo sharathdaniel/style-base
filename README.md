@@ -62,7 +62,7 @@ All styling lives under `src/scss`, organized by responsibility:
 
 - **Components**
   - Reusable UI building blocks
-  - No page-level layout assumptions
+  - Application and design-system components
 
 - **Utilities**
   - Single-purpose helpers (spacing, sizing, typography)
