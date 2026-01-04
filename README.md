@@ -26,7 +26,7 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
 ## Core Principles
 
 - **Layers over `!important`**  
-  All overrides are handled through CSS Layers, not specificity wars.
+  Style overrides are managed using CSS Layers, avoiding the need for high-specificity selectors or `!important`.
 
 - **Tokens first**  
   Design decisions live in tokens, not scattered values.
@@ -38,9 +38,6 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
   Exceptions:
   - `1px` is used where visual precision is required (e.g. borders, dividers).
   - Media queries use `px`, as `rem`-based breakpoints can be affected by user font-size settings.
-
-- **Foundation, not prescription**  
-  StyleBase gives you structure, not visual identity.
 
 - **Exceptions, not shortcuts**  
   Utilities exist to solve edge cases, not to replace components.
