@@ -55,9 +55,10 @@ All styling lives under `src/scss`, organized by responsibility:
   - Theme definitions
   - No component or layout styles
 
-- **Mixins**
-  - Breakpoints
-  - Truncation and line-clamping helpers
+- **Plugins**
+  - Third-party or vendor styles (from node_modules)
+  - Base styles for external UI libraries
+  - Intended to be overridden by Components or Utilities
 
 - **Components**
   - Reusable UI building blocks
