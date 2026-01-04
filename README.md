@@ -89,6 +89,8 @@ A lightweight, accessible SVG icon setup:
 - **Prettier** for automatic formatting
 - **Husky + lint-staged** to enforce quality checks before commits
 
+All configuration files are included in the repository and require no manual setup.
+
 ## Installation
 
 ```bash
