@@ -1,7 +1,17 @@
-// Colors are defined in RGB format
-// Output 1: --primary-navy-blue: rgb(0, 45, 85)
-// Output 2: --primary-navy-blue-rgb: 0, 45, 85
-// Output 2 can be used like, background-color: rgba(var(--primary-navy-blue-rgb), 0.5)
+/**
+ * Color Tokens
+ * ------------
+ * Defines source color values for StyleBase.
+ *
+ * Colors are stored in RGB format and exposed as:
+ * - Full color token: rgb(...)
+ * - Raw RGB token: <r>, <g>, <b>
+ *
+ * The raw RGB token enables modern alpha usage:
+ * background-color: rgb(var(--primary-navy-blue-rgb) / 50%);
+ *
+ * Tokens only - defines colors, not where they are used.
+*/
 
 $colors: (
   'primary': (
