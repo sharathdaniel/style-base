@@ -28,6 +28,13 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
 - **Layers over `!important`**  
   Style overrides are managed using CSS Layers, avoiding the need for high-specificity selectors or `!important`.
 
+  In a few **intentional utility-level edge cases**, `!important` is used where:
+  - browser defaults must be forcefully neutralized (e.g. `pointer-events`, `visibility`)
+  - accessibility utilities must always win (e.g. screen-reader-only)
+  - component styles should never block a behavioral utility
+
+  These uses are **explicit, documented, and limited to utilities**, never components.
+
 - **Tokens first**  
   Design decisions live in tokens, not scattered values.
 
@@ -51,14 +58,14 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
 
   **✅ Prefer components for reusable UI**
   ```html
-  <button class="app-c-button app-c-button--primary">
+  <button class="app-c-button app-c-button-primary">
     Submit
   </button>
   ```
 
   **✅ Utilities are acceptable for one-off exceptions**
   ```html
-  <button class="app-c-button app-c-button--primary u-mt-16">
+  <button class="app-c-button app-c-button-primary u-mt-16">
     Submit
   </button>
 
