@@ -4,29 +4,23 @@
   text-overflow: ellipsis;
 }
 
-.u-no-truncate {
-  white-space: unset;
-  overflow: unset;
-  text-overflow: unset;
-}
-
 .u-word-break {
   overflow-wrap: break-word;
 }
 
-.u-white-space-normal {
+.u-ws-normal {
   white-space: normal;
 }
 
-.u-white-space-nowrap {
+.u-ws-nowrap {
   white-space: nowrap;
 }
 
-.u-white-space-pre-wrap {
+.u-ws-pre-wrap {
   white-space: pre-wrap;
 }
 
-.u-white-space-pre-line {
+.u-ws-pre-line {
   white-space: pre-line;
 }
 
