@@ -3,6 +3,8 @@
  * even if a component sets its own 'display' value.
  */
 
+@use '../mixins/breakpoints' as *;
+
 /* Hide only on mobile (0–767px) */
 .u-hidden-mobile {
   @include mobile {
