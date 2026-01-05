@@ -31,7 +31,7 @@
 /* Display */
 
 .u-d-none {
-  display: none;
+  display: none !important; // takes priority over component styles
 }
 
 .u-d-block {
