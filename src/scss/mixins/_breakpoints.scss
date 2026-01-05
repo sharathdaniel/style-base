@@ -1,3 +1,11 @@
+/**
+ * Note:
+ * For one-off custom breakpoints, use modern range syntax:
+ *
+ * @media (width <= 640px) { ... }  // max-width
+ * @media (width >= 1280px) { ... } // min-width
+*/
+
 @use 'sass:map';
 
 // Semantic breakpoint definitions
