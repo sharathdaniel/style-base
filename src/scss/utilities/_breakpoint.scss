@@ -1,0 +1,32 @@
+/**
+ * '!important' is used on purpose so hiding always works,
+ * even if a component sets its own 'display' value.
+ */
+
+/* Hide only on mobile (0–767px) */
+.u-hidden-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+/* Hide only on tablet (768–1024px) */
+.u-hidden-tablet {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+/* Hide on mobile + tablet (0–1024px) */
+.u-hidden-mobile-tablet {
+  @include mobile-and-tablet {
+    display: none !important;
+  }
+}
+
+/* Hide on desktop and up (1025px and up) */
+.u-hidden-desktop-up {
+  @include desktop-and-up {
+    display: none !important;
+  }
+}
