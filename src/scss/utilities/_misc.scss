@@ -62,3 +62,10 @@
 .u-pointer-auto {
   pointer-events: auto;
 }
+
+@supports (scrollbar-width: auto) {
+  .u-scrollbar {
+    scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
+    scrollbar-width: var(--scrollbar-width);
+  }
+}
