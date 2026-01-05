@@ -6,17 +6,20 @@
   cursor: not-allowed;
 }
 
-/* Screen reader only */
+/* Screen reader only
+   '!important' is used so this stays hidden visually,
+   even if a component sets its own layout styles.
+*/
 .u-sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  white-space: nowrap;
-  border: 0;
-  clip-path: inset(50%);
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  clip-path: inset(50%) !important;
 }
 
 .u-overflow-hidden {
@@ -51,8 +54,9 @@
   border-radius: 0;
 }
 
+/* Disable pointer interaction — '!important' ensures clicks are always blocked */
 .u-pointer-none {
-  pointer-events: none;
+  pointer-events: none !important;
 }
 
 .u-pointer-auto {
