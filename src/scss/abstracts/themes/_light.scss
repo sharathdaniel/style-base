@@ -1,3 +1,17 @@
+/**
+ * Light Theme – Semantic Token Mapping
+ * -----------------------------------
+ * This file maps semantic design tokens (background, text, border, status)
+ * to their corresponding base color tokens for the light theme.
+ *
+ * Components MUST consume semantic tokens (e.g. --bg-page, --text-primary),
+ * never raw color values, to allow seamless theme switching.
+ *
+ * RGB variants are also exposed (--*-rgb) for opacity-based usage.
+ *
+ * Theme is activated via: [data-theme='light']
+*/
+
 $semantic-bg: (
   'bg-page': '--grey-6',
   'bg-surface': '--neutral-white',
