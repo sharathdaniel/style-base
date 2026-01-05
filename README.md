@@ -42,6 +42,26 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
 - **Exceptions, not shortcuts**  
   Utilities exist to solve edge cases, not to replace components.
 
+  **❌ Avoid using utilities as a substitute for components**
+  ```html
+  <div class="u-d-flex u-align-center u-justify-between u-px-16 u-py-12 u-bg-primary u-text-white">
+    Submit
+  </div>
+  ```
+
+  **✅ Prefer components for reusable UI**
+  ```html
+  <button class="app-c-button app-c-button--primary">
+    Submit
+  </button>
+  ```
+
+  **✅ Utilities are acceptable for one-off exceptions**
+  ```html
+  <button class="app-c-button app-c-button--primary u-mt-16">
+    Submit
+  </button>
+
 ---
 
 ## Architecture Overview
