@@ -5,6 +5,13 @@
     "packageManager": "yarn"
   },
   "newProjectRoot": "projects",
+  "schematics": {
+    "@schematics/angular": {
+      "component": {
+        "spec": false
+      }
+    }
+  },
   "projects": {
     "style-base": {
       "projectType": "application",
