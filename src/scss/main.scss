@@ -1,7 +1,7 @@
 /*!
  * Styles - main entry point
  * ... .... .- .-. .- - ....
- */
+*/
 
 @use 'sass:meta';
 @layer reset, base, plugins, components, utilities;
