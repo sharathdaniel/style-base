@@ -1,6 +1,5 @@
-@use '../../../../scss/functions/rem' as *;
+@use 'functions/rem' as *;
 
-// Styles for User List Component
 :host {
   display: block;
   padding: rem(16);
