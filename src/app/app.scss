@@ -1,9 +1,13 @@
-@layer components {
-  .main {
-    .section {
-      .app-c-page-title {
-        color: var(--red-alert);
-      }
-    }
+@layer base {
+  .app-root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .route-container {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
   }
 }

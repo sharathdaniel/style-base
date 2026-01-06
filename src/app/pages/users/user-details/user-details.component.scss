@@ -1,0 +1,42 @@
+@use 'mixins/breakpoint' as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.page-layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+
+  @include mobile {
+    flex: initial;
+    min-height: auto;
+    overflow-y: unset;
+  }
+}
+
+.panel-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+
+  @include mobile {
+    overflow-y: unset;
+    flex: initial;
+  }
+}
