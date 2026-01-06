@@ -1,11 +1,8 @@
 @layer base {
   /* Ensure full-height layouts (sticky footer, flex layouts, etc.) */
-  html {
-    height: 100%;
-  }
-
+  html,
   body {
-    min-height: 100%;
+    height: 100%;
   }
 }
 
