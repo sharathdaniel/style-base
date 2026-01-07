@@ -1,24 +1,28 @@
-:host {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 0;
+@layer base {
+  :host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+  }
 }
 
-.page {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 0;
-}
+@layer components {
+  .page {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+  }
 
-.page-content {
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow-y: auto;
-}
+  .page-content {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+  }
 
-.page-filter,
-.page-footer {
-  flex: 0 0 auto;
+  .page-filter,
+  .page-footer {
+    flex: 0 0 auto;
+  }
 }

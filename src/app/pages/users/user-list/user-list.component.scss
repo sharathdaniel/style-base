@@ -1,8 +1,10 @@
 @use 'functions/rem' as *;
 
-:host {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  padding: rem(16);
+@layer base {
+  :host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: rem(16);
+  }
 }
