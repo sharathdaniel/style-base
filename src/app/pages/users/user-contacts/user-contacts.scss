@@ -1,3 +1,5 @@
+@use 'functions/rem' as *;
+
 @layer base {
   :host {
     display: flex;
@@ -19,10 +21,16 @@
     flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
+    padding: 0 rem(16) rem(16);
   }
 
   .page-filter,
   .page-footer {
     flex: 0 0 auto;
+    padding: rem(16);
+  }
+
+  .page-footer {
+    background-color: var(--bg-surface-subtle);
   }
 }

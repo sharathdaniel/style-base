@@ -1,9 +1,17 @@
+@use 'functions/rem' as *;
+
 @layer components {
   :host {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: var(--app-header-height);
     flex-shrink: 0;
+    height: var(--app-header-height);
+    padding: rem(16);
+    background-color: var(--bg-page);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
   }
 }

@@ -1,3 +1,4 @@
+@use 'functions/rem' as *;
 @use 'mixins/breakpoint' as *;
 
 @layer base {
@@ -25,6 +26,7 @@
     flex-direction: column;
     flex: 1;
     min-height: 0;
+    padding: rem(16);
 
     @include mobile {
       flex: initial;
