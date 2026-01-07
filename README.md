@@ -123,7 +123,7 @@ Every page stylesheet must follow this structure:
  * -----------
  * base        → page root layout
  * components  → page internals
- */
+*/
 
 @layer base {
   :host {
