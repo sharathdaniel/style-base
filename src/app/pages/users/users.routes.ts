@@ -1,19 +1,19 @@
 import { Routes } from '@angular/router';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserDetailsComponent } from './user-details/user-details.component';
-import { UserContactsComponent } from './user-contacts/user-contacts.component';
+import { UserList } from './user-list/user-list';
+import { UserDetails } from './user-details/user-details';
+import { UserContacts } from './user-contacts/user-contacts';
 
 export const routes: Routes = [
   {
     path: '',
-    component: UserListComponent,
+    component: UserList,
   },
   {
     path: 'details',
-    component: UserDetailsComponent,
+    component: UserDetails,
   },
   {
     path: 'contacts',
-    component: UserContactsComponent,
+    component: UserContacts,
   },
 ];
