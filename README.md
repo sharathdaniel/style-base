@@ -103,6 +103,39 @@ StyleBase uses native CSS Layers to guarantee predictable overrides:
 @layer reset, base, plugins, components, utilities;
 ```
 
+### Page Styling & CSS Layering
+
+StyleBase uses a simple and enforceable convention for page-level styles to avoid
+over-engineering and unnecessary layer splitting.
+
+#### Default Rule
+
+**Only the page root belongs in `@layer base`.  
+All other page styles belong in `@layer components`.**
+
+#### Required Structure for Page SCSS
+
+Every page stylesheet must follow this structure:
+
+```scss
+/**
+ * Page styles
+ * -----------
+ * base        → page root layout
+ * components  → page internals
+ */
+
+@layer base {
+  :host {
+    /* page root layout only */
+  }
+}
+
+@layer components {
+  /* all page-internal selectors */
+}
+```
+
 ### Icon System
 
 A lightweight, accessible SVG icon setup:
