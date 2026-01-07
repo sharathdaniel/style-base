@@ -4,7 +4,7 @@ import { IconComponent } from '../../../icons/icon.component';
 @Component({
   selector: 'app-user-list',
   imports: [IconComponent],
-  templateUrl: './user-list.component.html',
-  styleUrl: './user-list.component.scss',
+  templateUrl: './user-list.html',
+  styleUrl: './user-list.scss',
 })
-export class UserListComponent {}
+export class UserList {}
