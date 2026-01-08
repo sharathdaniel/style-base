@@ -23,4 +23,13 @@
       outline: none;
     }
   }
+
+  .app-c-btn-primary {
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-color);
+
+    &:hover {
+      background-color: var(--btn-primary-bg-hover);
+    }
+  }
 }
