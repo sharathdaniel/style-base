@@ -1,63 +1,131 @@
+@use 'sass:map';
+
+/* =====================================================
+   Typography variants (system roles)
+   ===================================================== */
+
+$typography-variants: (
+  /* Headings */
+  h-sm: (
+      size: var(--fs-13),
+      line: var(--lh-normal),
+    ),
+  h-md: (
+    size: var(--fs-16),
+    line: var(--lh-body),
+  ),
+  h-lg: (
+    size: var(--fs-19),
+    line: var(--lh-normal),
+  ),
+  h-xl: (
+    size: var(--fs-22),
+    line: var(--lh-body),
+  ),
+  h-xxl: (
+    size: var(--fs-25),
+    line: var(--lh-body),
+  ),
+
+  /* Body text */
+  body-md: (
+      size: var(--fs-14),
+      line: var(--lh-body),
+    ),
+  body-sm: (
+    size: var(--fs-13),
+    line: var(--lh-body),
+  ),
+
+  /* UI text */
+  ui-md: (
+      size: var(--fs-14),
+      line: var(--lh-normal),
+    ),
+  ui-sm: (
+    size: var(--fs-13),
+    line: var(--lh-normal),
+  ),
+  ui-xs: (
+    size: var(--fs-12),
+    line: var(--lh-normal),
+  )
+);
+
+/* =====================================================
+   Internal mixins (private to typography system)
+   ===================================================== */
+
+@mixin text-style($props) {
+  font-size: map.get($props, size);
+  line-height: map.get($props, line);
+}
+
+@mixin text-weight($weight) {
+  font-weight: var(--fw-#{$weight});
+}
+
+/* =====================================================
+   Semantic HTML element mapping
+   ===================================================== */
+
 @layer base {
-  :root {
-    /* Font (primitives) */
+  h3 {
+    @include text-style(map.get($typography-variants, h-xl));
+    @include text-weight(semibold);
 
-    --font-primary: 'DM Sans';
-    --font-fallbacks:
-      system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Noto Sans',
-      'Liberation Sans', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-      'Segoe UI Symbol', 'Noto Color Emoji';
-    --fw-400: 400;
-    --fw-500: 500;
-    --fw-700: 700;
-    --lh-none: 1;
-    --lh-tight: 1.2;
-    --lh-normal: 1.4;
-    --lh-body: 1.5;
-    --lh-relaxed: 1.6;
-    --fs-10: 0.625rem; /* 10px */
-    --fs-11: 0.6875rem; /* 11px */
-    --fs-12: 0.75rem; /* 12px */
-    --fs-13: 0.8125rem; /* 13px */
-    --fs-14: 0.875rem; /* 14px */
-    --fs-15: 0.9375rem; /* 15px */
-    --fs-16: 1rem; /* 16px */
-    --fs-17: 1.0625rem; /* 17px */
-    --fs-18: 1.125rem; /* 18px */
-    --fs-19: 1.1875rem; /* 19px */
-    --fs-20: 1.25rem; /* 20px */
-    --fs-21: 1.3125rem; /* 21px */
-    --fs-22: 1.375rem; /* 22px */
-    --fs-23: 1.4375rem; /* 23px */
-    --fs-24: 1.5rem; /* 24px */
-    --fs-25: 1.5625rem; /* 25px */
-
-    /* Semantic typography tokens */
-
-    --body-font: var(--font-primary), var(--font-fallbacks);
-    --fw-normal: var(--fw-400);
-    --fw-medium: var(--fw-500);
-    --fw-bold: var(--fw-700);
-    --text-xs: var(--fs-10);
-    --text-xs-plus: var(--fs-11);
-    --text-sm: var(--fs-12);
-    --text-sm-plus: var(--fs-13);
-    --text-md: var(--fs-14);
-    --text-md-plus: var(--fs-15);
-    --text-lg: var(--fs-16);
-    --text-lg-plus: var(--fs-17);
-    --text-xl: var(--fs-18);
-    --text-xl-plus: var(--fs-19);
-    --text-2xl: var(--fs-20);
-    --text-2xl-plus: var(--fs-21);
-    --text-3xl: var(--fs-22);
-    --text-3xl-plus: var(--fs-23);
-    --text-4xl: var(--fs-24);
-    --text-4xl-plus: var(--fs-25);
+    color: var(--title-text);
   }
 
-  body {
-    font-family: var(--body-font);
-    font-weight: var(--fw-normal);
+  h4 {
+    @include text-style(map.get($typography-variants, h-lg));
+    @include text-weight(semibold);
+
+    color: var(--title-text);
+  }
+
+  h5 {
+    @include text-style(map.get($typography-variants, h-md));
+    @include text-weight(semibold);
+
+    color: var(--title-text);
+  }
+
+  h6 {
+    @include text-style(map.get($typography-variants, h-sm));
+    @include text-weight(semibold);
+
+    color: var(--title-text);
+  }
+}
+
+/* =====================================================
+   UI text roles (global, reusable)
+   ===================================================== */
+
+@layer base {
+  .ui-page-title {
+    @include text-style(map.get($typography-variants, h-xxl));
+    @include text-weight(bold);
+  }
+
+  .ui-section-title {
+    @include text-style(map.get($typography-variants, h-lg));
+    @include text-weight(semibold);
+  }
+
+  .ui-field-label {
+    @include text-style(map.get($typography-variants, ui-sm));
+    @include text-weight(medium);
+  }
+
+  .ui-input-text {
+    @include text-style(map.get($typography-variants, body-md));
+    @include text-weight(normal);
+  }
+
+  .ui-helper-text {
+    @include text-style(map.get($typography-variants, ui-xs));
+    @include text-weight(normal);
   }
 }

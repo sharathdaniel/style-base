@@ -9,9 +9,13 @@
 /* Reset */
 @include meta.load-css('reset');
 
-/* Base */
+/* Tokens */
 @include meta.load-css('abstracts/tokens/colors');
+@include meta.load-css('abstracts/tokens/font');
+
+/* Themes */
 @include meta.load-css('abstracts/themes/light');
+
 @include meta.load-css('abstracts/variables');
 @include meta.load-css('abstracts/typography');
 
@@ -25,7 +29,6 @@
 
 /* Components */
 @include meta.load-css('components/icon');
-@include meta.load-css('components/typography');
 @include meta.load-css('components/buttons');
 
 /* Utilities (Always load it last) */
