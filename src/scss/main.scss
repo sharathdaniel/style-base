@@ -28,6 +28,7 @@
 }
 
 /* Components */
+@include meta.load-css('components/typography');
 @include meta.load-css('components/icon');
 @include meta.load-css('components/buttons');
 
