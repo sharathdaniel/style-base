@@ -1,5 +1,3 @@
-@use '../abstracts/size-scale' as *;
-
 .u-fw-normal {
   font-weight: var(--fw-normal);
 }
@@ -12,7 +10,26 @@
   font-weight: var(--fw-bold);
 }
 
-@each $name, $var in $size-scale {
+$text-sizes: (
+  xs: '--fs-10',
+  xs-plus: '--fs-11',
+  sm: '--fs-12',
+  sm-plus: '--fs-13',
+  md: '--fs-14',
+  md-plus: '--fs-15',
+  lg: '--fs-16',
+  lg-plus: '--fs-17',
+  xl: '--fs-18',
+  xl-plus: '--fs-19',
+  2xl: '--fs-20',
+  2xl-plus: '--fs-21',
+  3xl: '--fs-22',
+  3xl-plus: '--fs-23',
+  4xl: '--fs-24',
+  4xl-plus: '--fs-25',
+);
+
+@each $name, $var in $text-sizes {
   .u-text-#{$name} {
     font-size: var(#{$var});
   }
