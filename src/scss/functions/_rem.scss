@@ -2,6 +2,7 @@
 
 // Convert pixels to rem
 // Use directly in CSS: margin: rem(4) rem(8);
+// When assigning to CSS vars, interpolate: --space-4: #{rem(16)};
 // Don't use it for 1px values, eg: border: 1px or width: 1px
 @function rem($px) {
   @return math.div($px, 16) * 1rem;
