@@ -66,40 +66,6 @@ $typography-variants: (
 }
 
 /* =====================================================
-   Semantic HTML element mapping
-   ===================================================== */
-
-@layer base {
-  h3 {
-    @include text-style(map.get($typography-variants, h-xl));
-    @include text-weight(semibold);
-
-    color: var(--title-text);
-  }
-
-  h4 {
-    @include text-style(map.get($typography-variants, h-lg));
-    @include text-weight(semibold);
-
-    color: var(--title-text);
-  }
-
-  h5 {
-    @include text-style(map.get($typography-variants, h-md));
-    @include text-weight(semibold);
-
-    color: var(--title-text);
-  }
-
-  h6 {
-    @include text-style(map.get($typography-variants, h-sm));
-    @include text-weight(semibold);
-
-    color: var(--title-text);
-  }
-}
-
-/* =====================================================
    UI text roles (global, reusable)
    ===================================================== */
 
@@ -111,7 +77,7 @@ $typography-variants: (
 
   .ui-section-title {
     @include text-style(map.get($typography-variants, h-lg));
-    @include text-weight(semibold);
+    @include text-weight(medium);
   }
 
   .ui-field-label {
