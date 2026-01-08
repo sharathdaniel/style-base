@@ -78,7 +78,7 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
 All styling lives under `src/scss`, organized by responsibility:
 
 - **Abstracts**
-  - Design tokens (colors, spacing, typography)
+  - Design tokens (colors, typography)
   - Theme definitions
   - No component or layout styles
 
