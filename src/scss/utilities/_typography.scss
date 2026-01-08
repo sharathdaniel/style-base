@@ -17,3 +17,23 @@
     font-size: var(#{$var});
   }
 }
+
+.u-lh-none {
+  line-height: var(--lh-none);
+}
+
+.u-lh-tight {
+  line-height: var(--lh-tight);
+}
+
+.u-lh-normal {
+  line-height: var(--lh-normal);
+}
+
+.u-lh-body {
+  line-height: var(--lh-body);
+}
+
+.u-lh-relaxed {
+  line-height: var(--lh-relaxed);
+}
