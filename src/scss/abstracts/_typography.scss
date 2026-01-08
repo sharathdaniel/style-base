@@ -64,34 +64,3 @@ $typography-variants: (
 @mixin text-weight($weight) {
   font-weight: var(--fw-#{$weight});
 }
-
-/* =====================================================
-   UI text roles (global, reusable)
-   ===================================================== */
-
-@layer base {
-  .ui-page-title {
-    @include text-style(map.get($typography-variants, h-xxl));
-    @include text-weight(bold);
-  }
-
-  .ui-section-title {
-    @include text-style(map.get($typography-variants, h-lg));
-    @include text-weight(medium);
-  }
-
-  .ui-field-label {
-    @include text-style(map.get($typography-variants, ui-sm));
-    @include text-weight(medium);
-  }
-
-  .ui-input-text {
-    @include text-style(map.get($typography-variants, body-md));
-    @include text-weight(normal);
-  }
-
-  .ui-helper-text {
-    @include text-style(map.get($typography-variants, ui-xs));
-    @include text-weight(normal);
-  }
-}
