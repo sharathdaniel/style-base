@@ -37,6 +37,7 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
 
 - **Tokens first**  
   Design decisions live in tokens, not scattered values.
+  Colors and typography are tokenized; spacing is applied directly or via utilities where flexibility is required.
 
 - **Rem-based scaling**  
   StyleBase uses `rem` units for typography, spacing, and layout to ensure consistent scaling and accessibility.  
