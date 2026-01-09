@@ -69,7 +69,7 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
 
   **✅ Utilities are acceptable for one-off exceptions**
   ```html
-  <button class="app-c-button app-c-button-primary u-mt-16">
+  <button class="app-c-button app-c-button-primary u-mt-4">
     Submit
   </button>
 
