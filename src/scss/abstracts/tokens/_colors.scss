@@ -170,13 +170,11 @@ $colors: (
   ),
 );
 
-@layer base {
-  [data-theme='light'] {
-    @each $group, $shades in $colors {
-      @each $name, $value in $shades {
-        --#{$group}-#{$name}: rgb(#{$value});
-        --#{$group}-#{$name}-rgb: #{$value};
-      }
+[data-theme='light'] {
+  @each $group, $shades in $colors {
+    @each $name, $value in $shades {
+      --#{$group}-#{$name}: rgb(#{$value});
+      --#{$group}-#{$name}-rgb: #{$value};
     }
   }
 }

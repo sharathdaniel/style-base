@@ -1,46 +1,44 @@
-@layer base {
-  :root {
-    /* Font Family */
-    --font-primary: 'DM Sans';
-    --font-fallbacks:
-      system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Noto Sans',
-      'Liberation Sans', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-      'Segoe UI Symbol', 'Noto Color Emoji';
-    --body-font: var(--font-primary), var(--font-fallbacks);
+:root {
+  /* Font Family */
+  --font-primary: 'DM Sans';
+  --font-fallbacks:
+    system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Noto Sans',
+    'Liberation Sans', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --body-font: var(--font-primary), var(--font-fallbacks);
 
-    /* Font weight primitives */
-    --fw-400: 400;
-    --fw-500: 500;
-    --fw-700: 700;
+  /* Font weight primitives */
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-700: 700;
 
-    /* Semantic font weights */
-    --fw-normal: var(--fw-400);
-    --fw-medium: var(--fw-500);
-    --fw-bold: var(--fw-700);
+  /* Semantic font weights */
+  --fw-normal: var(--fw-400);
+  --fw-medium: var(--fw-500);
+  --fw-bold: var(--fw-700);
 
-    /* Line height */
-    --lh-none: 1;
-    --lh-tight: 1.2;
-    --lh-normal: 1.4;
-    --lh-body: 1.5;
-    --lh-relaxed: 1.6;
+  /* Line height */
+  --lh-none: 1;
+  --lh-tight: 1.2;
+  --lh-normal: 1.4;
+  --lh-body: 1.5;
+  --lh-relaxed: 1.6;
 
-    /* Font size scale 10px to 25px */
-    --fs-10: 0.625rem; /* 10px */
-    --fs-11: 0.6875rem; /* 11px */
-    --fs-12: 0.75rem; /* 12px */
-    --fs-13: 0.8125rem; /* 13px */
-    --fs-14: 0.875rem; /* 14px */
-    --fs-15: 0.9375rem; /* 15px */
-    --fs-16: 1rem; /* 16px */
-    --fs-17: 1.0625rem; /* 17px */
-    --fs-18: 1.125rem; /* 18px */
-    --fs-19: 1.1875rem; /* 19px */
-    --fs-20: 1.25rem; /* 20px */
-    --fs-21: 1.3125rem; /* 21px */
-    --fs-22: 1.375rem; /* 22px */
-    --fs-23: 1.4375rem; /* 23px */
-    --fs-24: 1.5rem; /* 24px */
-    --fs-25: 1.5625rem; /* 25px */
-  }
+  /* Font size scale 10px to 25px */
+  --fs-10: 0.625rem; /* 10px */
+  --fs-11: 0.6875rem; /* 11px */
+  --fs-12: 0.75rem; /* 12px */
+  --fs-13: 0.8125rem; /* 13px */
+  --fs-14: 0.875rem; /* 14px */
+  --fs-15: 0.9375rem; /* 15px */
+  --fs-16: 1rem; /* 16px */
+  --fs-17: 1.0625rem; /* 17px */
+  --fs-18: 1.125rem; /* 18px */
+  --fs-19: 1.1875rem; /* 19px */
+  --fs-20: 1.25rem; /* 20px */
+  --fs-21: 1.3125rem; /* 21px */
+  --fs-22: 1.375rem; /* 22px */
+  --fs-23: 1.4375rem; /* 23px */
+  --fs-24: 1.5rem; /* 24px */
+  --fs-25: 1.5625rem; /* 25px */
 }

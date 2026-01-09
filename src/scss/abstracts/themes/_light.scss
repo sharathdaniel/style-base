@@ -40,13 +40,11 @@ $semantic-status: (
   'status-info': '--blue-bold',
 );
 
-@layer base {
-  [data-theme='light'] {
-    @each $map in ($semantic-bg, $semantic-text, $semantic-border, $semantic-status) {
-      @each $token, $ref in $map {
-        --#{$token}: var(#{$ref});
-        --#{$token}-rgb: var(#{$ref}-rgb);
-      }
+[data-theme='light'] {
+  @each $map in ($semantic-bg, $semantic-text, $semantic-border, $semantic-status) {
+    @each $token, $ref in $map {
+      --#{$token}: var(#{$ref});
+      --#{$token}-rgb: var(#{$ref}-rgb);
     }
   }
 }
