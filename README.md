@@ -33,17 +33,17 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
   - accessibility utilities must always win (e.g. screen-reader-only)
   - component styles should never block a behavioral utility
 
-  These uses are **explicit, documented, and limited to utilities**, never components.
+  These uses are **explicit, documented and limited to utilities**, never components.
 
 - **Tokens first**  
   Design decisions live in tokens, not scattered values.
-  Colors, typography, and spacing are fully tokenized.
+  Colors, typography and spacing are fully tokenized.
 
 - **Rem-based scaling**  
-  StyleBase uses `rem` units for typography, spacing, and layout to ensure consistent scaling and accessibility. 
-  - Spacing values are defined once in spacing tokens
-  - Utilities and components consume spacing tokens directly
-  - No pixel-to-rem conversion is performed at the utility level
+  StyleBase uses `rem` units for typography, spacing and layout to ensure consistent scaling and accessibility.
+  - Spacing values are defined once in spacing tokens.
+  - Utilities and components consume spacing tokens directly.
+  - No pixel-to-rem conversion is performed at the utility level.
   - For rare one-off layout adjustments, the `rem()` function in the `functions` folder may be used in component styles.
 
   Exceptions:
@@ -55,7 +55,7 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
 
   **❌ Avoid using utilities as a substitute for components**
   ```html
-  <div class="u-d-flex u-align-center u-justify-between u-px-16 u-py-12 u-bg-primary u-text-white">
+  <div class="u-d-flex u-align-center u-justify-between u-px-4 u-py-3 u-bg-primary u-text-white">
     Submit
   </div>
   ```
