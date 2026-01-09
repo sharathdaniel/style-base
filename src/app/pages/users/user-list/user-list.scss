@@ -1,8 +1,6 @@
-@use 'functions/rem' as *;
-
 :host {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  padding: rem(16);
+  padding: var(--space-4);
 }

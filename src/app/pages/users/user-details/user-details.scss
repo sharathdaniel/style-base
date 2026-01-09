@@ -1,4 +1,3 @@
-@use 'functions/rem' as *;
 @use 'mixins/breakpoint' as *;
 
 :host {
@@ -23,7 +22,7 @@
   flex-direction: column;
   flex: 1;
   min-height: 0;
-  padding: rem(16);
+  padding: var(--space-4);
 
   @include mobile {
     flex: initial;
