@@ -1,48 +1,44 @@
 @use 'functions/rem' as *;
 @use 'mixins/breakpoint' as *;
 
-@layer base {
-  :host {
-    display: flex;
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.page-layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+
+  @include mobile {
     flex-direction: column;
-    height: 100%;
-    min-height: 0;
   }
 }
 
-@layer components {
-  .page-layout {
-    display: flex;
-    flex: 1;
-    min-height: 0;
+.panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  padding: rem(16);
 
-    @include mobile {
-      flex-direction: column;
-    }
+  @include mobile {
+    flex: initial;
+    min-height: auto;
+    overflow-y: unset;
   }
+}
 
-  .panel {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-height: 0;
-    padding: rem(16);
+.panel-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
 
-    @include mobile {
-      flex: initial;
-      min-height: auto;
-      overflow-y: unset;
-    }
-  }
-
-  .panel-body {
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-
-    @include mobile {
-      overflow-y: unset;
-      flex: initial;
-    }
+  @include mobile {
+    overflow-y: unset;
+    flex: initial;
   }
 }
