@@ -12,7 +12,7 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
 
 - A **style foundation**, not a finished design system
 - Token-driven (colors, spacing, typography)
-- Built on **modern CSS Layers** for safe overrides
+- Uses **modern CSS Layers** for global styles and utilities
 
 ### ❌ What it is not
 
@@ -37,11 +37,14 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
 
 - **Tokens first**  
   Design decisions live in tokens, not scattered values.
-  Colors and typography are tokenized; spacing is applied directly or via utilities where flexibility is required.
+  Colors, typography, and spacing are fully tokenized.
 
 - **Rem-based scaling**  
-  StyleBase uses `rem` units for typography, spacing, and layout to ensure consistent scaling and accessibility.  
-  A shared `rem()` utility function is provided in the `functions` folder to handle pixel-to-rem conversion.
+  StyleBase uses `rem` units for typography, spacing, and layout to ensure consistent scaling and accessibility. 
+  - Spacing values are defined once in spacing tokens
+  - Utilities and components consume spacing tokens directly
+  - No pixel-to-rem conversion is performed at the utility level
+  - For rare one-off layout adjustments, the `rem()` function in the `functions` folder may be used in component styles.
 
   Exceptions:
   - `1px` is used where visual precision is required (e.g. borders, dividers).
@@ -79,7 +82,8 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
 All styling lives under `src/scss`, organized by responsibility:
 
 - **Abstracts**
-  - Design tokens (colors, typography)
+  - Design tokens (colors, typography, spacing)
+  - Component-level tokens
   - Theme definitions
   - No component or layout styles
 
@@ -98,11 +102,20 @@ All styling lives under `src/scss`, organized by responsibility:
 
 ### CSS Layers
 
-StyleBase uses native CSS Layers to guarantee predictable overrides:
+StyleBase uses native CSS Layers to guarantee predictable overrides.
+CSS Layers are used only in global stylesheets.  
+Angular component and page styles do not use layers.
 
 ```scss
 @layer reset, base, plugins, components, utilities;
 ```
+
+### Tokens vs Layers (Important)
+
+- Tokens define values and never participate in the cascade
+- Layers control override order for global styles
+- Token files never use `@layer`
+- Only global CSS uses layers (`reset`, `base`, `components`, `utilities`)
 
 ### Icon System
 
