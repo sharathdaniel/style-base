@@ -1,0 +1,18 @@
+@layer base {
+  :root {
+    /* Container */
+    --accordion-bg: var(--bg-surface);
+    --accordion-border: var(--border-light);
+
+    /* Header */
+    --accordion-header-color: var(--text-primary);
+    --accordion-header-color-disabled: var(--text-disabled);
+
+    /* Expanded state */
+    --accordion-expanded-bg: var(--bg-surface-subtle);
+    --accordion-expanded-border: var(--border-medium);
+
+    /* Focus */
+    --accordion-focus-ring: var(--border-focus);
+  }
+}
