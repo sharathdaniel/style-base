@@ -1,15 +1,13 @@
 @use 'functions/rem' as *;
 
-@layer components {
-  :host {
-    --header-spacing: #{rem(16)};
+:host {
+  --header-spacing: #{rem(16)};
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-shrink: 0;
-    height: var(--app-header-height);
-    padding: var(--header-spacing);
-    background-color: var(--bg-page);
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  height: var(--app-header-height);
+  padding: var(--header-spacing);
+  background-color: var(--bg-page);
 }
