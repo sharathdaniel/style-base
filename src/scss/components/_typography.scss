@@ -1,12 +1,14 @@
 @use '../abstracts/typography' as *;
 @use 'sass:map';
 
-@layer components {
+@layer base {
   body {
     font-family: var(--body-font);
     font-weight: var(--fw-normal);
   }
+}
 
+@layer components {
   .ui-page-title {
     @include text-style(map.get($typography-variants, h-xxl));
     @include text-weight(bold);
