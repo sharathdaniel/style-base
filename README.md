@@ -103,8 +103,7 @@ All styling lives under `src/scss`, organized by responsibility:
 ### CSS Layers
 
 StyleBase uses native CSS Layers to guarantee predictable overrides.
-CSS Layers are used only in global stylesheets.  
-Angular component and page styles do not use layers.
+CSS Layers are used only in global stylesheets, not in page styles.
 
 ```scss
 @layer reset, base, plugins, components, utilities;
