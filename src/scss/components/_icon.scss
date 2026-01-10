@@ -1,20 +1,11 @@
 :root {
-  --icon-xs: var(--fs-10);
-  --icon-xs-plus: var(--fs-11);
-  --icon-sm: var(--fs-12);
-  --icon-sm-plus: var(--fs-13);
-  --icon-md: var(--fs-14);
-  --icon-md-plus: var(--fs-15);
-  --icon-lg: var(--fs-16);
-  --icon-lg-plus: var(--fs-17);
-  --icon-xl: var(--fs-18);
-  --icon-xl-plus: var(--fs-19);
-  --icon-2xl: var(--fs-20);
-  --icon-2xl-plus: var(--fs-21);
-  --icon-3xl: var(--fs-22);
-  --icon-3xl-plus: var(--fs-23);
-  --icon-4xl: var(--fs-24);
-  --icon-4xl-plus: var(--fs-25);
+  --icon-2xs: 0.5rem; /* 8px  */
+  --icon-xs: 0.75rem; /* 12px */
+  --icon-sm: 1rem; /* 16px */
+  --icon-md: 1.25rem; /* 20px */
+  --icon-lg: 1.5rem; /* 24px */
+  --icon-xl: 2rem; /* 32px */
+  --icon-2xl: 3rem; /* 48px */
 }
 
 @layer components {
@@ -33,28 +24,19 @@
 
 @layer utilities {
   $icon-sizes: (
-    xs: '--icon-xs',
-    xs-plus: '--icon-xs-plus',
-    sm: '--icon-sm',
-    sm-plus: '--icon-sm-plus',
-    md: '--icon-md',
-    md-plus: '--icon-md-plus',
-    lg: '--icon-lg',
-    lg-plus: '--icon-lg-plus',
-    xl: '--icon-xl',
-    xl-plus: '--icon-xl-plus',
-    2xl: '--icon-2xl',
-    2xl-plus: '--icon-2xl-plus',
-    3xl: '--icon-3xl',
-    3xl-plus: '--icon-3xl-plus',
-    4xl: '--icon-4xl',
-    4xl-plus: '--icon-4xl-plus',
+    2xs: var(--icon-2xs),
+    xs: var(--icon-xs),
+    sm: var(--icon-sm),
+    md: var(--icon-md),
+    lg: var(--icon-lg),
+    xl: var(--icon-xl),
+    2xl: var(--icon-2xl),
   );
 
-  @each $name, $var in $icon-sizes {
+  @each $name, $value in $icon-sizes {
     .u-icon-#{$name} {
-      width: var(#{$var});
-      height: var(#{$var});
+      width: $value;
+      height: $value;
     }
   }
 }
