@@ -18,7 +18,7 @@
 /* Themes */
 @include meta.load-css('abstracts/themes/light');
 
-/* Component semantic tokens */
+/* Component semantic tokens(bg-color, color, border-color etc.) */
 @include meta.load-css('abstracts/tokens/components/button');
 @include meta.load-css('abstracts/tokens/components/accordion');
 
