@@ -13,6 +13,7 @@
 @include meta.load-css('abstracts/tokens/colors');
 @include meta.load-css('abstracts/tokens/font');
 @include meta.load-css('abstracts/tokens/spacing');
+@include meta.load-css('abstracts/tokens/icon');
 
 /* Themes */
 @include meta.load-css('abstracts/themes/light');
