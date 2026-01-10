@@ -1,0 +1,58 @@
+/* ==========================================================================
+   SYSTEM SCALES
+   --------------------------------------------------------------------------
+   This file declares all design system scales.
+   Each scale is independent.
+   ========================================================================== */
+
+/* Typography scale */
+$text-scale: (
+  2xs: var(--fs-10),
+  // 10px
+  xs: var(--fs-11),
+  // 11px
+  sm: var(--fs-12),
+  // 12px
+  md: var(--fs-13),
+  // 13px
+  lg: var(--fs-14),
+  // 14px
+  xl: var(--fs-16),
+  // 16px
+  2xl: var(--fs-18),
+  // 18px
+  3xl: var(--fs-20),
+  // 20px
+  4xl: var(--fs-24), // 24px
+);
+
+/* Icon scale */
+$icon-scale: (
+  2xs: var(--icon-2xs),
+  // 8px
+  xs: var(--icon-xs),
+  // 12px
+  sm: var(--icon-sm),
+  // 16px
+  md: var(--icon-md),
+  // 20px
+  lg: var(--icon-lg),
+  // 24px
+  xl: var(--icon-xl),
+  // 32px
+  2xl: var(--icon-2xl), // 48px
+);
+
+/* Spacing scal */
+$space-scale: (
+  0: var(--space-0),
+  1: var(--space-1),
+  2: var(--space-2),
+  3: var(--space-3),
+  4: var(--space-4),
+  5: var(--space-5),
+  6: var(--space-6),
+  7: var(--space-7),
+  8: var(--space-8),
+  9: var(--space-9),
+);

@@ -1,12 +1,4 @@
-:root {
-  --icon-2xs: 0.5rem; /* 8px  */
-  --icon-xs: 0.75rem; /* 12px */
-  --icon-sm: 1rem; /* 16px */
-  --icon-md: 1.25rem; /* 20px */
-  --icon-lg: 1.5rem; /* 24px */
-  --icon-xl: 2rem; /* 32px */
-  --icon-2xl: 3rem; /* 48px */
-}
+@use '../abstracts/size-scale' as *;
 
 @layer components {
   .app-c-icon {
@@ -23,17 +15,7 @@
 }
 
 @layer utilities {
-  $icon-sizes: (
-    2xs: var(--icon-2xs),
-    xs: var(--icon-xs),
-    sm: var(--icon-sm),
-    md: var(--icon-md),
-    lg: var(--icon-lg),
-    xl: var(--icon-xl),
-    2xl: var(--icon-2xl),
-  );
-
-  @each $name, $value in $icon-sizes {
+  @each $name, $value in $icon-scale {
     .u-icon-#{$name} {
       width: $value;
       height: $value;

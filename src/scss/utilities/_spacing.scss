@@ -15,23 +15,10 @@
  * - u-gap-5 → gap: var(--space-5)
 */
 
+@use '../abstracts/size-scale' as *;
 @use 'sass:meta';
 
 @layer utilities {
-  /* Spacing scale (must mirror tokens exactly) */
-  $spaces: (
-    0: var(--space-0),
-    1: var(--space-1),
-    2: var(--space-2),
-    3: var(--space-3),
-    4: var(--space-4),
-    5: var(--space-5),
-    6: var(--space-6),
-    7: var(--space-7),
-    8: var(--space-8),
-    9: var(--space-9),
-  );
-
   /* Directions (logical + RTL-safe) */
   $dirs: (
     '': '',
@@ -50,7 +37,7 @@
   );
 
   /* Padding utilities */
-  @each $key, $val in $spaces {
+  @each $key, $val in $space-scale {
     @each $short, $dir in $dirs {
       .u-p#{$short}-#{$key} {
         @if meta.type-of($dir) == 'string' {
@@ -65,7 +52,7 @@
   }
 
   /* Margin utilities */
-  @each $key, $val in $spaces {
+  @each $key, $val in $space-scale {
     @each $short, $dir in $dirs {
       .u-m#{$short}-#{$key} {
         @if meta.type-of($dir) == 'string' {
@@ -80,7 +67,7 @@
   }
 
   /* Gap utilities */
-  @each $key, $val in $spaces {
+  @each $key, $val in $space-scale {
     .u-gap-#{$key} {
       gap: $val;
     }
