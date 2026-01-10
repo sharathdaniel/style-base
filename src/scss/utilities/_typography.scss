@@ -12,9 +12,9 @@
   font-weight: var(--fw-bold);
 }
 
-@each $name, $var in $text-scale {
+@each $name, $value in $text-scale {
   .u-text-#{$name} {
-    font-size: var(#{$var});
+    font-size: $value;
   }
 }
 
