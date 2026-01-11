@@ -18,83 +18,81 @@
 @use '../abstracts/size-scale' as *;
 @use 'sass:meta';
 
-@layer utilities {
-  /* Directions (logical + RTL-safe) */
-  $dirs: (
-    '': '',
-    't': '-top',
-    'b': '-bottom',
-    'l': '-inline-start',
-    'r': '-inline-end',
-    'x': (
-      '-inline-start',
-      '-inline-end',
-    ),
-    'y': (
-      '-top',
-      '-bottom',
-    ),
-  );
+/* Directions (logical + RTL-safe) */
+$dirs: (
+  '': '',
+  't': '-top',
+  'b': '-bottom',
+  'l': '-inline-start',
+  'r': '-inline-end',
+  'x': (
+    '-inline-start',
+    '-inline-end',
+  ),
+  'y': (
+    '-top',
+    '-bottom',
+  ),
+);
 
-  /* Padding utilities */
-  @each $key, $val in $space-scale {
-    @each $short, $dir in $dirs {
-      .u-p#{$short}-#{$key} {
-        @if meta.type-of($dir) == 'string' {
-          padding#{$dir}: $val;
-        } @else {
-          @each $side in $dir {
-            padding#{$side}: $val;
-          }
+/* Padding utilities */
+@each $key, $val in $space-scale {
+  @each $short, $dir in $dirs {
+    .u-p#{$short}-#{$key} {
+      @if meta.type-of($dir) == 'string' {
+        padding#{$dir}: $val;
+      } @else {
+        @each $side in $dir {
+          padding#{$side}: $val;
         }
       }
     }
   }
+}
 
-  /* Margin utilities */
-  @each $key, $val in $space-scale {
-    @each $short, $dir in $dirs {
-      .u-m#{$short}-#{$key} {
-        @if meta.type-of($dir) == 'string' {
-          margin#{$dir}: $val;
-        } @else {
-          @each $side in $dir {
-            margin#{$side}: $val;
-          }
+/* Margin utilities */
+@each $key, $val in $space-scale {
+  @each $short, $dir in $dirs {
+    .u-m#{$short}-#{$key} {
+      @if meta.type-of($dir) == 'string' {
+        margin#{$dir}: $val;
+      } @else {
+        @each $side in $dir {
+          margin#{$side}: $val;
         }
       }
     }
   }
+}
 
-  /* Gap utilities */
-  @each $key, $val in $space-scale {
-    .u-gap-#{$key} {
-      gap: $val;
-    }
-
-    .u-row-gap-#{$key} {
-      row-gap: $val;
-    }
-
-    .u-col-gap-#{$key} {
-      column-gap: $val;
-    }
+/* Gap utilities */
+@each $key, $val in $space-scale {
+  .u-gap-#{$key} {
+    gap: $val;
   }
 
-  /* Auto margin helpers */
-  .u-mt-auto {
-    margin-top: auto;
+  .u-row-gap-#{$key} {
+    row-gap: $val;
   }
 
-  .u-ml-auto {
-    margin-inline-start: auto;
+  .u-col-gap-#{$key} {
+    column-gap: $val;
   }
+}
 
-  .u-mr-auto {
-    margin-inline-end: auto;
-  }
+/* Auto margin helpers */
+.u-mt-auto {
+  margin-top: auto;
+}
 
-  .u-mx-auto {
-    margin-inline: auto;
-  }
+.u-ml-auto {
+  margin-inline-start: auto;
+}
+
+.u-mr-auto {
+  margin-inline-end: auto;
+}
+
+.u-mx-auto {
+  margin-inline: auto;
 }
