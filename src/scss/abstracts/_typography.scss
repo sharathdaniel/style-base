@@ -1,62 +1,64 @@
 @use 'sass:map';
 
 /* =====================================================
-   Typography variants (system roles)
+   Typography Variants (System Roles)
    ===================================================== */
 
 $typography-variants: (
   /* Headings */
   h-sm: (
-      size: var(--fs-13),
+      size: var(--fs-label),
       line: var(--lh-normal),
     ),
   h-md: (
-    size: var(--fs-16),
+    size: var(--fs-lg),
     line: var(--lh-body),
   ),
   h-lg: (
-    size: var(--fs-20),
+    size: var(--fs-2xl),
     line: var(--lh-normal),
   ),
   h-xl: (
-    size: var(--fs-22),
+    size: var(--fs-3xl),
     line: var(--lh-body),
   ),
   h-xxl: (
-    size: var(--fs-24),
+    size: var(--fs-4xl),
     line: var(--lh-body),
   ),
 
   /* Body text */
   body-md: (
-      size: var(--fs-14),
+      size: var(--fs-md),
       line: var(--lh-body),
     ),
   body-sm: (
-    size: var(--fs-13),
+    size: var(--fs-label),
     line: var(--lh-body),
   ),
 
   /* UI text */
   ui-md: (
-      size: var(--fs-14),
+      size: var(--fs-md),
       line: var(--lh-normal),
     ),
   ui-sm: (
-    size: var(--fs-13),
+    size: var(--fs-label),
     line: var(--lh-normal),
   ),
   ui-xs: (
-    size: var(--fs-12),
+    size: var(--fs-sm),
     line: var(--lh-normal),
   )
 );
 
 /* =====================================================
-   Internal mixins (private to typography system)
+   Internal Mixins (Private API)
    ===================================================== */
 
-@mixin text-style($props) {
+@mixin text-style($variant) {
+  $props: map.get($typography-variants, $variant);
+
   font-size: map.get($props, size);
   line-height: map.get($props, line);
 }
