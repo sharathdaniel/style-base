@@ -36,7 +36,7 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
   These uses are **explicit, documented and limited to utilities**, never components.
 
 - **Tokens first**  
-  Design decisions live in tokens, not scattered values.
+  Design decisions live in tokens (base and semantic), while components consume and locally configure them via scoped CSS variables.
   Colors, typography and spacing are fully tokenized.
 
 - **Rem-based scaling**  
@@ -54,6 +54,7 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
   Utilities exist to solve edge cases, not to replace components.
 
   **❌ Avoid using utilities as a substitute for components**
+
   ```html
   <div class="u-d-flex u-align-center u-justify-between u-px-4 u-py-3 u-bg-primary u-text-white">
     Submit
@@ -61,17 +62,16 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
   ```
 
   **✅ Prefer components for reusable UI**
+
   ```html
-  <button class="app-c-button app-c-button-primary">
-    Submit
-  </button>
+  <button class="app-c-button app-c-button-primary">Submit</button>
   ```
 
   **✅ Utilities are acceptable for one-off exceptions**
+
   ```html
-  <button class="app-c-button app-c-button-primary u-mt-4">
-    Submit
-  </button>
+  <button class="app-c-button app-c-button-primary u-mt-4">Submit</button>
+  ```
 
 ---
 
@@ -83,7 +83,6 @@ All styling lives under `src/scss`, organized by responsibility:
 
 - **Abstracts**
   - Design tokens (colors, typography, spacing)
-  - Component-level tokens
   - Theme definitions
   - No component or layout styles
 
@@ -99,6 +98,16 @@ All styling lives under `src/scss`, organized by responsibility:
 - **Utilities**
   - Single-purpose helpers (spacing, sizing, typography)
   - Intended as overrides
+
+### Theming model
+
+StyleBase uses **theme-scoped color palettes**.
+
+- Base color tokens are defined per theme (e.g. light, dark)
+- Semantic tokens map to the active theme palette
+- Components consume semantic tokens only
+
+This allows entire color systems to change between themes without modifying components.
 
 ### CSS Layers
 
