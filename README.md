@@ -125,8 +125,6 @@ CSS Layers are used only in global stylesheets, not in page styles.
 - Token files never use `@layer`
 - Only global CSS uses layers (`reset`, `base`, `components`, `utilities`)
 
-### Icon System
-
 ### Icon system (reference implementation)
 
 StyleBase itself is **framework-agnostic** and does not require or provide
