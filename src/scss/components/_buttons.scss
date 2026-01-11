@@ -1,5 +1,10 @@
 @layer components {
   .app-c-btn {
+    --btn-bg: transparent;
+    --btn-bg-hover: transparent;
+    --btn-color: var(--text-primary);
+    --btn-border: transparent;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -7,8 +12,9 @@
     text-decoration: none;
     vertical-align: middle;
     user-select: none;
-    border: 1px solid transparent;
-    background-color: transparent;
+    border: 1px solid var(--btn-border);
+    background-color: var(--btn-bg);
+    color: var(--btn-color);
     transition:
       color var(--transition-1),
       background-color var(--transition-1),
@@ -25,11 +31,13 @@
   }
 
   .app-c-btn-primary {
-    background-color: var(--btn-primary-bg);
-    color: var(--btn-primary-color);
+    --btn-bg: var(--btn-primary-bg);
+    --btn-bg-hover: var(--btn-primary-bg-hover);
+    --btn-color: var(--btn-primary-color);
+    --btn-border: var(--btn-primary-border);
 
-    &:hover {
-      background-color: var(--btn-primary-bg-hover);
+    &:hover:not(:disabled) {
+      background-color: var(--btn-bg-hover);
     }
   }
 }

@@ -39,9 +39,16 @@ $semantic-status: (
   'status-warning': '--pending-orange-light',
   'status-info': '--blue-bold',
 );
+$semantic-button: (
+  'btn-primary-bg': '--bg-selected',
+  'btn-primary-bg-hover': '--bg-hover',
+  'btn-primary-color': '--text-primary',
+  'btn-primary-border': '--border-focus',
+);
 
 [data-theme='light'] {
-  @each $map in ($semantic-bg, $semantic-text, $semantic-border, $semantic-status) {
+  @each $map in ($semantic-bg, $semantic-text, $semantic-border, $semantic-status, $semantic-button)
+  {
     @each $token, $ref in $map {
       --#{$token}: var(#{$ref});
       --#{$token}-rgb: var(#{$ref}-rgb);
