@@ -127,11 +127,20 @@ CSS Layers are used only in global stylesheets, not in page styles.
 
 ### Icon System
 
-A lightweight, accessible SVG icon setup:
+### Icon system (reference implementation)
 
-- **SVG sprites** defined via `IconRegistryComponent` to avoid multiple network requests
-- **Reusable `<app-icon>` component** using the `<use>` tag
-- **Accessibility-friendly** with built-in support for `ariaLabel`
+StyleBase itself is **framework-agnostic** and does not require or provide
+an icon system.
+
+The repository includes an **Angular-based reference implementation**
+demonstrating one possible approach:
+
+- SVG sprites to avoid multiple network requests
+- A reusable `<app-icon>` component using `<use>`
+- Accessibility support via `aria-label`
+
+These patterns are **optional** and may be adapted to any framework
+(React, Vue, Web Components, or plain HTML) as needed.
 
 ### Code Quality & Tooling
 
