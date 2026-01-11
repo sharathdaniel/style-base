@@ -7,25 +7,23 @@
 
 /* Typography scale */
 $text-scale: (
-  2xs: var(--fs-10),
+  xs: var(--fs-10),
   // 10px
-  xs: var(--fs-11),
-  // 11px
   sm: var(--fs-12),
   // 12px
-  md: var(--fs-13),
-  // 13px
-  lg: var(--fs-14),
-  // 14px
-  xl: var(--fs-16),
+  label: var(--fs-13),
+  // 13px (special-purpose text)
+  md: var(--fs-14),
+  // 14px (base UI/body)
+  lg: var(--fs-16),
   // 16px
-  2xl: var(--fs-18),
+  xl: var(--fs-18),
   // 18px
-  3xl: var(--fs-20),
+  2xl: var(--fs-20),
   // 20px
-  4xl: var(--fs-22),
+  3xl: var(--fs-22),
   // 22px
-  5xl: var(--fs-24), // 24px
+  4xl: var(--fs-24), // 24px
 );
 
 /* Icon scale */
