@@ -17,6 +17,7 @@
       true,
       {
         "ignoreProperties": [
+          "user-select",
           "mask-image",
           "mask-size",
           "mask-position",
