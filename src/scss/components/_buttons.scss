@@ -26,6 +26,12 @@
       cursor: not-allowed;
     }
 
+    &:not(:disabled) {
+      &:hover {
+        background-color: var(--btn-bg-hover);
+      }
+    }
+
     &:focus {
       outline: none;
     }
@@ -36,9 +42,5 @@
     --btn-bg-hover: var(--btn-primary-bg-hover);
     --btn-color: var(--btn-primary-color);
     --btn-border: var(--btn-primary-border);
-
-    &:hover:not(:disabled) {
-      background-color: var(--btn-bg-hover);
-    }
   }
 }
