@@ -34,6 +34,7 @@
 @include meta.load-css('components/icon');
 @include meta.load-css('components/buttons');
 @include meta.load-css('components/accordion');
+@include meta.load-css('components/badges');
 
 /* Utilities (Always load it last) */
 @include meta.load-css('utilities');

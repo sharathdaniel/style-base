@@ -1,0 +1,10 @@
+@layer components {
+  .app-c-badge {
+    padding: rem(2) rem(4);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-none);
+    text-transform: uppercase;
+  }
+}
