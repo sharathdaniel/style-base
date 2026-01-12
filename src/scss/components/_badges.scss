@@ -1,6 +1,6 @@
 @layer components {
   .app-c-badge {
-    padding: rem(2) rem(4);
+    padding: rem(2) var(--space-1);
     border-radius: var(--radius-sm);
     font-size: var(--fs-sm);
     font-weight: var(--fw-medium);
