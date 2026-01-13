@@ -15,7 +15,7 @@
  * - u-gap-5 → gap: var(--space-5)
 */
 
-@use '../abstracts/size-scale' as *;
+@use '../abstracts/scales' as *;
 @use 'sass:meta';
 
 /* Directions (logical + RTL-safe) */
