@@ -6,17 +6,21 @@
 /// @param $important  whether to append !important to bg-color & mask-image (default: false)
 
 @mixin svg-mask($svg, $size: contain, $position: center, $repeat: no-repeat, $important: false) {
-  $imp: if($important, ' !important', '');
-
-  background-color: currentColor#{$imp};
-  -webkit-mask-image: url('data:image/svg+xml,#{$svg}') #{$imp};
-  mask-image: url('data:image/svg+xml,#{$svg}') #{$imp};
+  background-color: currentColor;
+  -webkit-mask-image: url('data:image/svg+xml,#{$svg}');
+  mask-image: url('data:image/svg+xml,#{$svg}');
   -webkit-mask-repeat: $repeat;
   -webkit-mask-position: $position;
   -webkit-mask-size: $size;
   mask-repeat: $repeat;
   mask-position: $position;
   mask-size: $size;
+
+  @if $important {
+    background-color: currentColor !important;
+    -webkit-mask-image: url('data:image/svg+xml,#{$svg}') !important;
+    mask-image: url('data:image/svg+xml,#{$svg}') !important;
+  }
 }
 
 /* Usage
