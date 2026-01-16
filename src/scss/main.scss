@@ -18,6 +18,7 @@
 /* Themes */
 @include meta.load-css('abstracts/themes/light');
 
+/* Vars, Typography */
 @include meta.load-css('abstracts/variables');
 @include meta.load-css('abstracts/typography');
 

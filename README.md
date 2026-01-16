@@ -151,7 +151,7 @@ All configuration files are included in the repository and require no manual set
 ## Installation
 
 ```bash
-npm install -D sass prettier stylelint stylelint-config-standard-scss stylelint-config-prettier-scss husky lint-staged
+yarn add -D sass prettier stylelint stylelint-config-standard-scss husky lint-staged
 ```
 
 **package.json** setup
@@ -165,10 +165,9 @@ npm install -D sass prettier stylelint stylelint-config-standard-scss stylelint-
   },
   "devDependencies": {
     "sass": "^1.77.0",
-    "prettier": "^3.7.4",
-    "stylelint": "^16.26.1",
-    "stylelint-config-standard-scss": "^16.0.0",
-    "stylelint-config-prettier-scss": "^1.0.0",
+    "prettier": "^3.8.0",
+    "stylelint": "^17",
+    "stylelint-config-standard-scss": "^17",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7"
   },
