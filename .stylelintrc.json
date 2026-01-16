@@ -1,7 +1,6 @@
 {
   "extends": [
-    "stylelint-config-standard-scss",
-    "stylelint-config-prettier-scss"
+    "stylelint-config-standard-scss"
   ],
   "ignoreFiles": ["dist/**/*", "node_modules/**/*"],
   "rules": {
@@ -21,11 +20,11 @@
       true,
       {
         "ignoreProperties": [
-          "user-select",
-          "mask-image",
-          "mask-size",
-          "mask-position",
-          "mask-repeat"
+          "-webkit-mask-image",
+          "-webkit-mask-size",
+          "-webkit-mask-position",
+          "-webkit-mask-repeat",
+          "-webkit-user-select"
         ]
       }
     ]
