@@ -137,8 +137,7 @@ The Angular-based example demonstrates:
 - A reusable `<app-icon>` component using `<use>`
 - Accessibility support via `aria-label`
 
-These patterns are **optional** and may be adapted to any framework
-(React, Vue, Web Components, or plain HTML) as needed.
+These patterns are optional and can be adapted to any framework (React, Vue, etc).
 
 ### Code Quality & Tooling
 
