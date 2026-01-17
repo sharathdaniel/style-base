@@ -154,6 +154,8 @@ All configuration files are included in the repository and require no manual set
 yarn add -D sass prettier stylelint stylelint-config-standard-scss husky lint-staged
 ```
 
+> **Note:** You can skip installing `sass` if your framework already provides it.
+
 **package.json** setup
 
 ```json
