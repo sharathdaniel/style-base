@@ -127,11 +127,11 @@ CSS Layers are used only in global stylesheets, not in page styles.
 
 ### Icon system (reference implementation)
 
-StyleBase itself is **framework-agnostic** and does not require or provide
-an icon system.
+StyleBase itself is framework-agnostic.
 
-The repository includes an **Angular-based reference implementation**
-demonstrating one possible approach:
+To illustrate how an icon system could be integrated, the repository includes an Angular-based example.
+
+The Angular-based example demonstrates:
 
 - SVG sprites to avoid multiple network requests
 - A reusable `<app-icon>` component using `<use>`
