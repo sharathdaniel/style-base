@@ -1,0 +1,21 @@
+.demo-box {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+
+  &.alt {
+    background-color: #e0e0e0;
+  }
+
+  &.blue {
+    background-color: #dbeafe;
+    border-color: #93c5fd;
+  }
+
+  &.green {
+    background-color: #dcfce7;
+    border-color: #86efac;
+  }
+}
