@@ -147,6 +147,8 @@ These patterns are optional and can be adapted to any framework (React, Vue, etc
 
 All configuration files are included in the repository and require no manual setup.
 
+---
+
 ## Installation
 
 ```bash
