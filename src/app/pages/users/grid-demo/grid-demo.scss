@@ -1,9 +1,9 @@
 .demo-box {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
-  padding: 1rem;
+  padding: var(--space-4);
   text-align: center;
-  font-size: 0.875rem;
+  font-size: var(--fs-md);
 
   &.alt {
     background-color: #e0e0e0;
