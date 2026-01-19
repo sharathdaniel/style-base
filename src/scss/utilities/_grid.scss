@@ -25,9 +25,13 @@ $grid-gap: var(--space-4) !default; // 16px default
    -------------------------------------------------------------------------- */
 
 .u-grid {
+  --grid-gap: var(--gap, #{$grid-gap});
+  --grid-row-gap: var(--row-gap, var(--grid-gap));
+  --grid-column-gap: var(--column-gap, var(--grid-gap));
+
   display: grid;
   grid-template-columns: repeat(#{$grid-columns}, minmax(0, 1fr));
-  gap: $grid-gap;
+  gap: var(--grid-row-gap) var(--grid-column-gap);
 }
 
 /* --------------------------------------------------------------------------
