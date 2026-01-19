@@ -46,7 +46,7 @@ It provides a **clean, scalable styling baseline** that teams can extend and evo
   - No pixel-to-rem conversion is performed at the utility level.
   - For rare one-off layout adjustments, the `rem()` function in the `functions` folder may be used in component styles.
 
-  Exceptions:
+  Note:
   - `1px` is used where visual precision is required (e.g. borders, dividers).
   - Media queries use `px`, as `rem`-based breakpoints can be affected by user font-size settings.
 
