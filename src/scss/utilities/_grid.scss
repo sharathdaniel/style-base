@@ -1,0 +1,77 @@
+@use '../mixins/breakpoint' as *;
+
+/* --------------------------------------------------------------------------
+   Configuration
+   -------------------------------------------------------------------------- */
+
+$grid-columns: 12 !default;
+$grid-gap: var(--space-4) !default; // 16px default
+
+/* --------------------------------------------------------------------------
+   Grid container
+   -------------------------------------------------------------------------- */
+
+.u-grid {
+  display: grid;
+  grid-template-columns: repeat(#{$grid-columns}, minmax(0, 1fr));
+  gap: $grid-gap;
+}
+
+/* --------------------------------------------------------------------------
+   Mixin: Grid Columns
+   -------------------------------------------------------------------------- */
+
+@mixin make-grid-columns($infix: null) {
+  $prefix: if($infix, '-#{$infix}', '');
+
+  .u-col#{$prefix}-full {
+    grid-column: 1 / -1;
+  }
+
+  @for $i from 1 through $grid-columns {
+    .u-col#{$prefix}-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Column span utilities
+   -------------------------------------------------------------------------- */
+
+/* Default (Base) */
+@include make-grid-columns;
+
+/* Tablet: 768–1024px */
+@include tablet {
+  @include make-grid-columns('tablet');
+}
+
+/* Desktop: 1025–1279px */
+@include desktop {
+  @include make-grid-columns('desktop');
+}
+
+/* Wide: 1280–1535px */
+@include wide {
+  @include make-grid-columns('wide');
+}
+
+/* Ultrawide: 1536px and up */
+@include ultrawide {
+  @include make-grid-columns('ultrawide');
+}
+
+/* --------------------------------------------------------------------------
+   Breakpoint-and-up variants
+   -------------------------------------------------------------------------- */
+
+/* Desktop and up: ≥1025px */
+@include desktop-and-up {
+  @include make-grid-columns('desktop-up');
+}
+
+/* Wide and up: ≥1280px */
+@include wide-and-up {
+  @include make-grid-columns('wide-up');
+}
