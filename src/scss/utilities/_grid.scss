@@ -1,0 +1,149 @@
+/* ==========================================================================
+   Grid Column System
+   --------------------------------------------------------------------------
+   Uses StyleBase semantic breakpoints and mixins.
+   Non–mobile-first. Explicit, predictable ranges.
+   ========================================================================== */
+
+@use '../mixins/breakpoint' as *;
+
+/* --------------------------------------------------------------------------
+   Configuration
+   -------------------------------------------------------------------------- */
+
+$u-grid-columns: 12 !default;
+$u-grid-gap: var(--space-md) !default;
+
+/* --------------------------------------------------------------------------
+   Grid container
+   -------------------------------------------------------------------------- */
+
+.u-grid {
+  display: grid;
+  grid-template-columns: repeat(#{$u-grid-columns}, minmax(0, 1fr));
+  gap: $u-grid-gap;
+}
+
+/* --------------------------------------------------------------------------
+   Column span utilities (base / default)
+   -------------------------------------------------------------------------- */
+
+.u-col-full {
+  grid-column: 1 / -1;
+}
+
+@for $i from 1 through $u-grid-columns {
+  .u-col-#{$i} {
+    grid-column: span #{$i};
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Breakpoint-specific variants (bounded ranges)
+   -------------------------------------------------------------------------- */
+
+/* Tablet: 768–1024px */
+@include tablet {
+  .u-col-tablet-full {
+    grid-column: 1 / -1;
+  }
+
+  @for $i from 1 through $u-grid-columns {
+    .u-col-tablet-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+/* Desktop: 1025–1279px */
+@include desktop {
+  .u-col-desktop-full {
+    grid-column: 1 / -1;
+  }
+
+  @for $i from 1 through $u-grid-columns {
+    .u-col-desktop-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+/* Wide: 1280–1535px */
+@include wide {
+  .u-col-wide-full {
+    grid-column: 1 / -1;
+  }
+
+  @for $i from 1 through $u-grid-columns {
+    .u-col-wide-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+/* Ultrawide: 1536px and up */
+@include ultrawide {
+  .u-col-ultrawide-full {
+    grid-column: 1 / -1;
+  }
+
+  @for $i from 1 through $u-grid-columns {
+    .u-col-ultrawide-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Breakpoint-and-up variants (escape hatch, still semantic)
+   -------------------------------------------------------------------------- */
+
+/* Desktop and up: ≥1025px */
+@include desktop-and-up {
+  .u-col-desktop-up-full {
+    grid-column: 1 / -1;
+  }
+
+  @for $i from 1 through $u-grid-columns {
+    .u-col-desktop-up-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+/* Wide and up: ≥1280px */
+@include wide-and-up {
+  .u-col-wide-up-full {
+    grid-column: 1 / -1;
+  }
+
+  @for $i from 1 through $u-grid-columns {
+    .u-col-wide-up-#{$i} {
+      grid-column: span #{$i};
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Optional helpers
+   -------------------------------------------------------------------------- */
+
+.u-grid-center {
+  align-items: center;
+}
+
+.u-grid-start {
+  align-items: start;
+}
+
+.u-grid-end {
+  align-items: end;
+}
+
+.u-gap-sm {
+  gap: var(--space-sm);
+}
+
+.u-gap-lg {
+  gap: var(--space-lg);
+}
