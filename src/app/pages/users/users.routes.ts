@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { UserList } from './user-list/user-list';
 import { UserDetails } from './user-details/user-details';
 import { UserContacts } from './user-contacts/user-contacts';
+import { GridDemo } from './grid-demo/grid-demo';
 
 export const routes: Routes = [
   {
@@ -15,5 +16,9 @@ export const routes: Routes = [
   {
     path: 'contacts',
     component: UserContacts,
+  },
+  {
+    path: 'grid-demo',
+    component: GridDemo,
   },
 ];
