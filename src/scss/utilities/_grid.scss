@@ -1,3 +1,16 @@
+/* --------------------------------------------------------------------------
+   Usage example
+
+   <div class="u-grid">
+     <div class="u-col-12 u-col-desktop-up-6">Panel 1</div>
+     <div class="u-col-12 u-col-desktop-up-6">Panel 2</div>
+   </div>
+
+   - Creates a 12-column grid
+   - Columns stack by default and split at desktop and up
+   - Grid gap uses spacing tokens (see spacing utilities)
+   -------------------------------------------------------------------------- */
+
 @use '../mixins/breakpoint' as *;
 
 /* --------------------------------------------------------------------------
