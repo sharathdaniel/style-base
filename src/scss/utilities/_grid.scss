@@ -1,7 +1,7 @@
 /* --------------------------------------------------------------------------
    Usage example
 
-   <div class="u-grid">
+   <div class="u-grid-row">
      <div class="u-col-12 u-col-desktop-up-6">Panel 1</div>
      <div class="u-col-12 u-col-desktop-up-6">Panel 2</div>
    </div>
@@ -24,7 +24,7 @@ $grid-gap: var(--space-4) !default; // 16px default
    Grid container
    -------------------------------------------------------------------------- */
 
-.u-grid {
+.u-grid-row {
   --grid-gap: var(--gap, #{$grid-gap});
   --grid-row-gap: var(--row-gap, var(--grid-gap));
   --grid-column-gap: var(--column-gap, var(--grid-gap));
