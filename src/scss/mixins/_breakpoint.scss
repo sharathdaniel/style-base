@@ -136,3 +136,26 @@ $breakpoints: (
     @content;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Interaction & Capability Helpers
+   -------------------------------------------------------------------------- */
+
+/**
+ * Targets devices with a mouse/trackpad (fine pointer) that support hover.
+ * Essential for 1024px screens (iPad landscape vs small Laptops).
+ */
+@mixin has-hover {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+/**
+ * Targets touch-first devices (coarse pointer).
+ */
+@mixin is-touch {
+  @media (pointer: coarse) {
+    @content;
+  }
+}
