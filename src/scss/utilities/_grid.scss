@@ -73,3 +73,20 @@ $grid-gap: var(--space-4) !default; // 16px default
 @include breakpoint-up(wide) {
   @include make-grid-columns('wide-up');
 }
+
+/* --------------------------------------------------------------------------
+   Auto-fit / Auto-fill grid helpers
+   -------------------------------------------------------------------------- */
+
+/* Default minimum column width */
+$grid-auto-min: 16rem !default;
+
+/* Auto-fit: collapses empty tracks */
+.u-grid-auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(var(--grid-auto-min, #{$grid-auto-min}), 1fr));
+}
+
+/* Auto-fill: preserves empty tracks */
+.u-grid-auto-fill {
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-auto-min, #{$grid-auto-min}), 1fr));
+}
