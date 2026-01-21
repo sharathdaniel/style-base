@@ -18,5 +18,10 @@ import { Component, Input } from '@angular/core';
 })
 export class IconComponent {
   @Input() name!: string;
+  /**
+   * Accessibility:
+   * - Use `ariaLabel` ONLY for standalone / status icons
+   * - NEVER use `ariaLabel` when icon is inside a button or link
+   */
   @Input() ariaLabel?: string;
 }
