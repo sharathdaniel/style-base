@@ -1,3 +1,10 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: var(--space-4);
+}
+
 .demo-box {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
