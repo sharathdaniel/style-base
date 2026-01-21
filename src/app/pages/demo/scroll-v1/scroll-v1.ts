@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { IconComponent } from '../../../icons/icon.component';
 
 @Component({
-  selector: 'app-user-list',
+  selector: 'app-scroll-v1',
   imports: [IconComponent],
-  templateUrl: './user-list.html',
-  styleUrl: './user-list.scss',
+  templateUrl: './scroll-v1.html',
+  styleUrl: './scroll-v1.scss',
 })
-export class UserList {}
+export class ScrollV1 {}
