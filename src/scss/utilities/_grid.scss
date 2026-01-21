@@ -56,39 +56,20 @@ $grid-gap: var(--space-4) !default; // 16px default
    Column span utilities
    -------------------------------------------------------------------------- */
 
-/* Default (Base) */
+/* Base: < 768px (mobile) */
 @include make-grid-columns;
 
-/* Tablet: 768–1024px */
-@include tablet {
-  @include make-grid-columns('tablet');
+/* Tablet and up: ≥ 768px */
+@include breakpoint-up(tablet) {
+  @include make-grid-columns('tablet-up');
 }
 
-/* Desktop: 1025–1279px */
-@include desktop {
-  @include make-grid-columns('desktop');
-}
-
-/* Wide: 1280–1535px */
-@include wide {
-  @include make-grid-columns('wide');
-}
-
-/* Ultrawide: 1536px and up */
-@include ultrawide {
-  @include make-grid-columns('ultrawide');
-}
-
-/* --------------------------------------------------------------------------
-   Breakpoint-and-up variants
-   -------------------------------------------------------------------------- */
-
-/* Desktop and up: ≥1025px */
-@include desktop-and-up {
+/* Desktop and up: ≥ 1024px */
+@include breakpoint-up(desktop) {
   @include make-grid-columns('desktop-up');
 }
 
-/* Wide and up: ≥1280px */
-@include wide-and-up {
+/* Wide and up: ≥ 1280px */
+@include breakpoint-up(wide) {
   @include make-grid-columns('wide-up');
 }
