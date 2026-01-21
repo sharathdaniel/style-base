@@ -7,28 +7,21 @@
 */
 
 @use 'sass:map';
+@use 'sass:list';
 
-// Semantic breakpoint definitions
 $breakpoints: (
   mobile: 0px,
   tablet: 768px,
-  desktop: 1025px,
+  desktop: 1024px,
   wide: 1280px,
   ultrawide: 1536px,
 );
-$breakpoint-max: (
-  mobile: 767px,
-  // 0-767px
-  tablet: 1024px,
-  // 768-1024px
-  desktop: 1279px,
-  // 1025-1279px
-  wide: 1535px,
-  // 1280-1535px
-  ultrawide: null, // 1536px and up (no max)
-);
 
-// Core mixins
+/* --------------------------------------------------------------------------
+   Core Logic Mixins
+   -------------------------------------------------------------------------- */
+
+// Min-width: Target $size and everything larger
 @mixin breakpoint-up($size) {
   @if not map.has-key($breakpoints, $size) {
     @error "Breakpoint #{$size} not found. Available: #{map.keys($breakpoints)}";
@@ -36,20 +29,25 @@ $breakpoint-max: (
 
   $min-width: map.get($breakpoints, $size);
 
-  @media (min-width: $min-width) {
+  @media (width >= $min-width) {
     @content;
   }
 }
 
+// Max-width: Target $size and everything smaller
 @mixin breakpoint-down($size) {
-  @if not map.has-key($breakpoint-max, $size) {
-    @error "Breakpoint #{$size} not found. Available: #{map.keys($breakpoint-max)}";
+  @if not map.has-key($breakpoints, $size) {
+    @error "Breakpoint #{$size} not found. Available: #{map.keys($breakpoints)}";
   }
 
-  $max-width: map.get($breakpoint-max, $size);
+  $keys: map.keys($breakpoints);
+  $index: list.index($keys, $size);
 
-  @if $max-width {
-    @media (max-width: $max-width) {
+  @if $index < list.length($keys) {
+    $next-size: list.nth($keys, $index + 1);
+    $next-min: map.get($breakpoints, $next-size);
+
+    @media (width < $next-min) {
       @content;
     }
   } @else {
@@ -58,68 +56,77 @@ $breakpoint-max: (
 }
 
 @mixin breakpoint-between($lower, $upper) {
-  @if not map.has-key($breakpoints, $lower) {
-    @error "Lower breakpoint #{$lower} not found. Available: #{map.keys($breakpoints)}";
+  @if not map.has-key($breakpoints, $lower) or not map.has-key($breakpoints, $upper) {
+    @error "Breakpoint range [#{$lower}, #{$upper}] contains a key that does not exist. Available: #{map.keys($breakpoints)}";
   }
 
-  @if not map.has-key($breakpoint-max, $upper) {
-    @error "Upper breakpoint #{$upper} not found. Available: #{map.keys($breakpoint-max)}";
+  $keys: map.keys($breakpoints);
+  $lower-index: list.index($keys, $lower);
+  $upper-index: list.index($keys, $upper);
+
+  @if $lower-index > $upper-index {
+    @error "Invalid breakpoint range: '#{$lower}' comes after '#{$upper}'. " + "Ensure your lower bound is smaller than your upper bound.";
   }
 
   $min-width: map.get($breakpoints, $lower);
-  $max-width: map.get($breakpoint-max, $upper);
 
-  @media (min-width: $min-width) and (max-width: $max-width) {
-    @content;
+  @if $upper-index < list.length($keys) {
+    $next-size: list.nth($keys, $upper-index + 1);
+    $next-min: map.get($breakpoints, $next-size);
+
+    @media (width >= $min-width) and (width < $next-min) {
+      @content;
+    }
+  } @else {
+    @media (width >= $min-width) {
+      @content;
+    }
   }
 }
+
+/* --------------------------------------------------------------------------
+   Semantic Helpers
+   -------------------------------------------------------------------------- */
 
 @mixin mobile {
   @include breakpoint-between(mobile, mobile) {
     @content;
-  } // 0 - 767px
+  } // < 768px
 }
 
 @mixin tablet {
   @include breakpoint-between(tablet, tablet) {
     @content;
-  } // 768px - 1024px
+  } // 768px – < 1024px
 }
 
 @mixin mobile-and-tablet {
   @include breakpoint-down(tablet) {
     @content;
-  } // 0 - 1024px
+  } // < 1024px
 }
 
 @mixin desktop-and-up {
   @include breakpoint-up(desktop) {
     @content;
-  } // 1025 and up
+  } // ≥ 1024px
 }
 
 @mixin wide-and-up {
   @include breakpoint-up(wide) {
     @content;
-  } // 1280 and up
+  } // ≥ 1280px
 }
 
 @mixin ultrawide {
   @include breakpoint-up(ultrawide) {
     @content;
-  } // 1536 and up
+  } // ≥ 1536px
 }
 
-/* Less used */
-
+// Specific ranges
 @mixin desktop {
   @include breakpoint-between(desktop, desktop) {
-    @content;
-  }
-}
-
-@mixin wide {
-  @include breakpoint-between(wide, wide) {
     @content;
   }
 }
