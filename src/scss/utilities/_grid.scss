@@ -39,6 +39,7 @@ $grid-gap: var(--space-4) !default; // 16px default
 /* --------------------------------------------------------------------------
    Mixin: Grid Columns
    -------------------------------------------------------------------------- */
+
 /* stylelint-disable declaration-block-no-redundant-longhand-properties */
 
 @mixin make-grid-columns($infix: null) {
