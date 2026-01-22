@@ -1,10 +1,11 @@
-/**
- * Note:
- * For one-off custom breakpoints, use modern range syntax:
- *
- * @media (width <= 640px) { ... }  // max-width
- * @media (width >= 1280px) { ... } // min-width
-*/
+/* --------------------------------------------------------------------------
+   Note
+   --------------------------------------------------------------------------
+   For one-off custom breakpoints, use modern range syntax:
+
+   @media (width <= 640px) { ... }  // max-width
+   @media (width >= 1280px) { ... } // min-width
+   -------------------------------------------------------------------------- */
 
 @use 'sass:map';
 @use 'sass:list';
@@ -151,9 +152,7 @@ $breakpoints: (
   }
 }
 
-/**
- * Targets touch-first devices (coarse pointer).
- */
+/* Targets touch-first devices (coarse pointer) */
 @mixin is-touch {
   @media (pointer: coarse) {
     @content;
