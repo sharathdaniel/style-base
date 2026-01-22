@@ -1,19 +1,7 @@
-/**
- * rem() Utility
- * -------------
- * Converts pixel values to rem units.
- *
- * Usage:
- * - Use directly in CSS:
- *   margin: rem(4) rem(8);
- *
- * - When assigning to CSS variables, interpolate:
- *   --space-4: #{rem(16)};
- *
- * Rules:
- * - Do NOT use for 1px values
- * - Use raw px for hairline borders (e.g. border: 1px)
-*/
+// Convert pixels to rem
+// Use directly in CSS: margin: rem(4) rem(8);
+// When assigning to CSS vars, interpolate: --space-4: #{rem(16)};
+// Don't use it for 1px values, eg: border: 1px or width: 1px
 
 @use 'sass:math';
 
