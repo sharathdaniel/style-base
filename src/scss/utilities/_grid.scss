@@ -107,7 +107,7 @@ $grid-auto-min: 16rem !default;
   grid-template-columns: repeat(auto-fill, minmax(var(--grid-auto-min, #{$grid-auto-min}), 1fr));
 }
 
-/* Vertical Alignment (Highly recommended) */
+/* Vertical Alignment */
 .u-col-align-start {
   align-self: start;
 }
