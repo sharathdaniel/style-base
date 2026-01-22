@@ -78,17 +78,22 @@ $grid-gap: var(--space-4) !default; // 16px default
 
 /* Tablet and up: ≥ 768px */
 @include breakpoint-up(tablet) {
-  @include make-grid-columns('tablet-up');
+  @include make-grid-columns('tablet');
 }
 
 /* Desktop and up: ≥ 1024px */
 @include breakpoint-up(desktop) {
-  @include make-grid-columns('desktop-up');
+  @include make-grid-columns('desktop');
 }
 
 /* Wide and up: ≥ 1280px */
 @include breakpoint-up(wide) {
-  @include make-grid-columns('wide-up');
+  @include make-grid-columns('wide');
+}
+
+/* Ultra-wide and up: ≥ 1536px */
+@include breakpoint-up(ultrawide) {
+  @include make-grid-columns('ultrawide');
 }
 
 /* --------------------------------------------------------------------------
