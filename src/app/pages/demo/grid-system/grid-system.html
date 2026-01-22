@@ -1,10 +1,9 @@
 <h1 class="u-mb-4">Grid System Demo</h1>
 
-<!-- Basic Columns -->
 <section class="u-mb-5">
   <h2 class="u-mb-3">12 Columns (base)</h2>
   <div class="u-grid-row">
-    <div class="u-col-full demo-box">1</div>
+    <div class="u-col-full demo-box">u-col-full (Always 100%)</div>
     <div class="u-col-1 demo-box alt">1</div>
     <div class="u-col-1 demo-box">1</div>
     <div class="u-col-1 demo-box alt">1</div>
@@ -20,34 +19,40 @@
   </div>
 </section>
 
-<!-- Responsive Splits -->
+<section class="u-mb-5">
+  <h2 class="u-mb-3">Centered Column</h2>
+  <div class="u-grid-row">
+    <div class="u-col-6 u-col-start-4 demo-box blue">u-col-6 u-col-start-4</div>
+  </div>
+</section>
+
+<section class="u-mb-5">
+  <h2 class="u-mb-3">Edge Helpers</h2>
+  <div class="u-grid-row">
+    <div class="u-col-start-4 u-col-end-last demo-box">
+      u-col-start-4 u-col-end-last (Stretches from Line 4 to the Edge)
+    </div>
+  </div>
+</section>
+
+<section class="u-mb-5">
+  <h2 class="u-mb-3">Individual Alignment (Self)</h2>
+  <div class="u-grid-row app-c-individual-align">
+    <div class="u-col-3 u-col-align-start demo-box alt">Top (align-start)</div>
+    <div class="u-col-3 u-col-align-center demo-box">Middle (align-center)</div>
+    <div class="u-col-3 u-col-align-end demo-box alt">Bottom (align-end)</div>
+    <div class="u-col-3 u-col-align-stretch demo-box">Full Height (stretch)</div>
+  </div>
+</section>
+
 <section class="u-mb-5">
   <h2 class="u-mb-3">Responsive Layouts</h2>
   <p class="u-mb-3">Resize window to see changes (12 → 6 → 3 columns)</p>
 
   <div class="u-grid-row">
-    <!-- Stack on mobile, half on tablet+, quarter on desktop+ -->
-    <div class="u-col-12 u-col-tablet-up-6 u-col-desktop-up-3 demo-box">Column A (12 / 6 / 3)</div>
-    <div class="u-col-12 u-col-tablet-up-6 u-col-desktop-up-3 demo-box alt">
-      Column B (12 / 6 / 3)
-    </div>
-    <div class="u-col-12 u-col-tablet-up-6 u-col-desktop-up-3 demo-box">Column C (12 / 6 / 3)</div>
-    <div class="u-col-12 u-col-tablet-up-6 u-col-desktop-up-3 demo-box alt">
-      Column D (12 / 6 / 3)
-    </div>
-  </div>
-</section>
-
-<!-- Complex Spans -->
-<section class="u-mb-5">
-  <h2 class="u-mb-3">Complex Spans</h2>
-  <div class="u-grid-row">
-    <div class="u-col-8 demo-box blue">u-col-8</div>
-    <div class="u-col-4 demo-box blue">u-col-4</div>
-  </div>
-
-  <div class="u-grid-row u-mt-3">
-    <div class="u-col-4 demo-box green">u-col-4</div>
-    <div class="u-col-8 demo-box green">u-col-8</div>
+    <div class="u-col-12 u-col-tablet-up-6 u-col-desktop-up-3 demo-box">Column A</div>
+    <div class="u-col-12 u-col-tablet-up-6 u-col-desktop-up-3 demo-box alt">Column B</div>
+    <div class="u-col-12 u-col-tablet-up-6 u-col-desktop-up-3 demo-box">Column C</div>
+    <div class="u-col-12 u-col-tablet-up-6 u-col-desktop-up-3 demo-box alt">Column D</div>
   </div>
 </section>

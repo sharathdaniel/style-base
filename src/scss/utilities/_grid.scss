@@ -9,6 +9,8 @@
    - Creates a 12-column grid
    - Columns stack by default and split at defined breakpoints (tablet-up, desktop-up, etc.)
    - Grid gap uses spacing tokens (see spacing utilities)
+   - Centering Logic (The 13-Line Rule):
+   - To center a column, use the formula: ((Total Grid Columns - Column Width) / 2) + 1
    -------------------------------------------------------------------------- */
 
 @use '../mixins/breakpoint' as *;
@@ -37,20 +39,34 @@ $grid-gap: var(--space-4) !default; // 16px default
 /* --------------------------------------------------------------------------
    Mixin: Grid Columns
    -------------------------------------------------------------------------- */
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
 
 @mixin make-grid-columns($infix: null) {
   $prefix: if($infix, '-#{$infix}', '');
 
   .u-col#{$prefix}-full {
-    grid-column: 1 / -1;
+    grid-column-start: 1;
+    grid-column-end: -1;
   }
 
   @for $i from 1 through $grid-columns {
     .u-col#{$prefix}-#{$i} {
-      grid-column: span #{$i};
+      grid-column-end: span #{$i};
     }
   }
+
+  @for $i from 1 through $grid-columns {
+    .u-col-start#{$prefix}-#{$i} {
+      grid-column-start: #{$i};
+    }
+  }
+
+  .u-col-end#{$prefix}-last {
+    grid-column-end: -1;
+  }
 }
+
+/* stylelint-enable declaration-block-no-redundant-longhand-properties */
 
 /* --------------------------------------------------------------------------
    Column span utilities
@@ -89,4 +105,21 @@ $grid-auto-min: 16rem !default;
 /* Auto-fill: preserves empty tracks */
 .u-grid-auto-fill {
   grid-template-columns: repeat(auto-fill, minmax(var(--grid-auto-min, #{$grid-auto-min}), 1fr));
+}
+
+/* Vertical Alignment (Highly recommended) */
+.u-col-align-start {
+  align-self: start;
+}
+
+.u-col-align-center {
+  align-self: center;
+}
+
+.u-col-align-end {
+  align-self: end;
+}
+
+.u-col-align-stretch {
+  align-self: stretch;
 }
