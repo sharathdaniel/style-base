@@ -1,0 +1,83 @@
+/* --------------------------------------------------------------------------
+   Usage example
+
+   <div class="u-flex-row">
+     <div class="u-col-12 u-col-desktop-6">Item 1</div>
+     <div class="u-col-12 u-col-desktop-6">Item 2</div>
+   </div>
+   -------------------------------------------------------------------------- */
+
+@use 'sass:math';
+@use '../mixins/breakpoint' as *;
+
+/* --------------------------------------------------------------------------
+   Configuration
+   -------------------------------------------------------------------------- */
+
+$flex-columns: 12 !default;
+$flex-gap: var(--space-4, 1rem) !default; // Added fallback
+
+/* --------------------------------------------------------------------------
+   Flex row
+   -------------------------------------------------------------------------- */
+
+.u-flex-row {
+  --gap: #{$flex-gap};
+  --flex-row-gap: var(--row-gap, var(--gap));
+  --flex-column-gap: var(--column-gap, var(--gap));
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--flex-row-gap) var(--flex-column-gap);
+
+  > * {
+    min-width: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  /* --------------------------------------------------------------------------
+     Flex column widths
+     -------------------------------------------------------------------------- */
+
+  @mixin make-flex-columns($infix: null) {
+    $prefix: if($infix, '-#{$infix}', '');
+
+    @for $i from 1 through $flex-columns {
+      .u-col#{$prefix}-#{$i} {
+        $multiplier: math.div($i, $flex-columns);
+
+        flex-basis: calc((100% * #{$multiplier}) - (var(--flex-column-gap) * (1 - #{$multiplier})));
+        max-width: calc((100% * #{$multiplier}) - (var(--flex-column-gap) * (1 - #{$multiplier})));
+      }
+    }
+
+    .u-col#{$prefix}-full {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+  }
+
+  /* Base */
+  @include make-flex-columns;
+
+  /* Tablet and up */
+  @include breakpoint-up(tablet) {
+    @include make-flex-columns('tablet');
+  }
+
+  /* Desktop and up */
+  @include breakpoint-up(desktop) {
+    @include make-flex-columns('desktop');
+  }
+
+  /* Wide and up */
+  @include breakpoint-up(wide) {
+    @include make-flex-columns('wide');
+  }
+
+  /* Ultra-wide and up */
+  @include breakpoint-up(ultrawide) {
+    @include make-flex-columns('ultrawide');
+  }
+}
