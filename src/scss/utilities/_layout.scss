@@ -64,7 +64,8 @@
 
 /* Alignment */
 .u-items-start {
-  align-items: flex-start;
+  align-items: flex-start; /* fallback */
+  align-items: start; /* modern, logical */
 }
 
 .u-items-center {
@@ -73,14 +74,21 @@
 
 .u-items-end {
   align-items: flex-end;
+  align-items: end;
 }
 
 .u-justify-start {
   justify-content: flex-start;
+  justify-content: start;
 }
 
 .u-justify-center {
   justify-content: center;
+}
+
+.u-justify-end {
+  justify-content: flex-end;
+  justify-content: end;
 }
 
 .u-justify-between {
@@ -89,14 +97,20 @@
 
 .u-self-start {
   align-self: flex-start;
-}
-
-.u-self-end {
-  align-self: flex-end;
+  align-self: start;
 }
 
 .u-self-center {
   align-self: center;
+}
+
+.u-self-end {
+  align-self: flex-end;
+  align-self: end;
+}
+
+.u-self-stretch {
+  align-self: stretch;
 }
 
 /* Flex sizing */

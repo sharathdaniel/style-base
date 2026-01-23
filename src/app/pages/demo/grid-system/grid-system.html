@@ -1,58 +1,74 @@
-<h1 class="u-mb-4">Grid System Demo</h1>
+<h1 class="u-mb-4">Flex & Grid Layouts</h1>
+
+<p class="u-mb-5">
+  Use <strong>Flexbox Grid</strong> (<code>.u-flex-row</code>) for simpler components, toolbars, and
+  standard uniform layouts. <br />
+  Use <strong>CSS Grid</strong> (<code>.u-grid-row</code>) for advanced layouts requiring explicit
+  track placement, overlapping items, or auto-fit magic.
+</p>
+
+<!-- ======================================================================= -->
+<!-- FLEXBOX SYSTEM -->
+<!-- ======================================================================= -->
 
 <section class="u-mb-5">
-  <h2 class="u-mb-3">12 Columns (base)</h2>
-  <div class="u-grid-row">
-    <div class="u-col-full demo-box">u-col-full (Always 100%)</div>
-    <div class="u-col-1 demo-box alt">1</div>
-    <div class="u-col-1 demo-box">1</div>
-    <div class="u-col-1 demo-box alt">1</div>
-    <div class="u-col-1 demo-box">1</div>
-    <div class="u-col-1 demo-box alt">1</div>
-    <div class="u-col-1 demo-box">1</div>
-    <div class="u-col-1 demo-box alt">1</div>
-    <div class="u-col-1 demo-box">1</div>
-    <div class="u-col-1 demo-box alt">1</div>
-    <div class="u-col-1 demo-box">1</div>
-    <div class="u-col-1 demo-box alt">1</div>
-    <div class="u-col-1 demo-box">1</div>
+  <h2 class="u-mb-3">1. Flexbox System (Recommended)</h2>
+
+  <!-- Basic -->
+  <h3 class="u-mb-3">Standard Columns</h3>
+  <div class="u-flex-row u-mb-4">
+    <div class="u-col-4 demo-box">Col 4</div>
+    <div class="u-col-4 demo-box alt">Col 4</div>
+    <div class="u-col-4 demo-box">Col 4</div>
+  </div>
+
+  <!-- Responsive -->
+  <h3 class="u-mb-3">Responsive Wrap</h3>
+  <div class="u-flex-row u-mb-4">
+    <div class="u-col-12 u-col-tablet-6 u-col-desktop-3 demo-box">12 -> 6 -> 3</div>
+    <div class="u-col-12 u-col-tablet-6 u-col-desktop-3 demo-box alt">12 -> 6 -> 3</div>
+    <div class="u-col-12 u-col-tablet-6 u-col-desktop-3 demo-box">12 -> 6 -> 3</div>
+    <div class="u-col-12 u-col-tablet-6 u-col-desktop-3 demo-box alt">12 -> 6 -> 3</div>
+  </div>
+
+  <!-- Alignment (Self) -->
+  <h3 class="u-mb-3">Vertical Alignment (Items)</h3>
+  <p class="u-mb-2">Flex items support <code>align-self</code> via <code>.u-self-*</code>.</p>
+  <div class="u-flex-row app-c-individual-align">
+    <div class="u-col-4 u-self-start demo-box alt">Top</div>
+    <div class="u-col-4 u-self-center demo-box">Middle</div>
+    <div class="u-col-4 u-self-end demo-box alt">Bottom</div>
   </div>
 </section>
 
+<hr class="u-mb-5" />
+
+<!-- ======================================================================= -->
+<!-- CSS GRID SYSTEM -->
+<!-- ======================================================================= -->
+
 <section class="u-mb-5">
-  <h2 class="u-mb-3">Centered Column</h2>
-  <div class="u-grid-row">
-    <div class="u-col-6 u-col-start-4 demo-box blue">u-col-6 u-col-start-4</div>
+  <h2 class="u-mb-3">2. CSS Grid System (Advanced)</h2>
+
+  <!-- Explicit Placement -->
+  <h3 class="u-mb-3">Automated Centering</h3>
+  <div class="u-grid-row u-mb-4">
+    <div class="u-col-6-center demo-box blue">Centered 6-col</div>
   </div>
-</section>
 
-<section class="u-mb-5">
-  <h2 class="u-mb-3">Edge Helpers</h2>
-  <div class="u-grid-row">
-    <div class="u-col-start-4 u-col-end-last demo-box">
-      u-col-start-4 u-col-end-last (Stretches from Line 4 to the Edge)
-    </div>
+  <!-- Edge Helpers -->
+  <h3 class="u-mb-3">Edge Helpers</h3>
+  <div class="u-grid-row u-mb-4">
+    <div class="u-col-start-4 u-col-end-last demo-box">u-col-end-last (Stretch to end)</div>
   </div>
-</section>
 
-<section class="u-mb-5">
-  <h2 class="u-mb-3">Individual Alignment (Self)</h2>
-  <div class="u-grid-row app-c-individual-align">
-    <div class="u-col-3 u-col-align-start demo-box alt">Top (align-start)</div>
-    <div class="u-col-3 u-col-align-center demo-box">Middle (align-center)</div>
-    <div class="u-col-3 u-col-align-end demo-box alt">Bottom (align-end)</div>
-    <div class="u-col-3 u-col-align-stretch demo-box">Full Height (stretch)</div>
-  </div>
-</section>
-
-<section class="u-mb-5">
-  <h2 class="u-mb-3">Responsive Layouts</h2>
-  <p class="u-mb-3">Resize window to see changes (12 → 6 → 3 columns)</p>
-
-  <div class="u-grid-row">
-    <div class="u-col-12 u-col-tablet-6 u-col-desktop-3 demo-box">Column A</div>
-    <div class="u-col-12 u-col-tablet-6 u-col-desktop-3 demo-box alt">Column B</div>
-    <div class="u-col-12 u-col-tablet-6 u-col-desktop-3 demo-box">Column C</div>
-    <div class="u-col-12 u-col-tablet-6 u-col-desktop-3 demo-box alt">Column D</div>
+  <!-- Auto Fit -->
+  <h3 class="u-mb-3">Auto Fit (Dynamic)</h3>
+  <div class="u-grid-row u-grid-auto-fit">
+    <div class="demo-box alt">Item</div>
+    <div class="demo-box">Item</div>
+    <div class="demo-box alt">Item</div>
+    <div class="demo-box">Item</div>
+    <div class="demo-box alt">Item</div>
   </div>
 </section>
