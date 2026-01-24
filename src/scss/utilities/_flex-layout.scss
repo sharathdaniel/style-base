@@ -9,6 +9,7 @@
 
 @use 'sass:math';
 @use '../mixins/breakpoint' as *;
+@use '../abstracts/scales' as *;
 
 /* --------------------------------------------------------------------------
    Configuration
@@ -34,6 +35,21 @@ $flex-gap: var(--space-4, 1rem) !default; // Added fallback
     min-width: 0;
     flex-grow: 0;
     flex-shrink: 0;
+  }
+
+  @each $key, $val in $space-scale {
+    &.u-gap-#{$key} {
+      --flex-column-gap: #{$val};
+      --flex-row-gap: #{$val};
+    }
+
+    &.u-col-gap-#{$key} {
+      --flex-column-gap: #{$val};
+    }
+
+    &.u-row-gap-#{$key} {
+      --flex-row-gap: #{$val};
+    }
   }
 
   /* --------------------------------------------------------------------------
