@@ -53,6 +53,7 @@ $grid-gap: var(--space-4) !default; // 16px default
 
     @for $i from 1 through $grid-columns {
       .u-col#{$prefix}-#{$i} {
+        grid-column-start: auto;
         grid-column-end: span #{$i};
       }
 
