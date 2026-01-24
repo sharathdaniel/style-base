@@ -44,7 +44,7 @@ $flex-gap: var(--space-4, 1rem) !default; // Added fallback
     $prefix: if($infix, '-#{$infix}', '');
 
     @for $i from 1 through $flex-columns {
-      .u-col#{$prefix}-#{$i} {
+      > .u-col#{$prefix}-#{$i} {
         $multiplier: math.div($i, $flex-columns);
 
         flex-basis: calc((100% * #{$multiplier}) - (var(--flex-column-gap) * (1 - #{$multiplier})));
@@ -52,9 +52,13 @@ $flex-gap: var(--space-4, 1rem) !default; // Added fallback
       }
     }
 
-    .u-col#{$prefix}-full {
-      flex-basis: 100%;
+    > .u-col#{$prefix}-auto {
+      flex: 0 0 auto;
       max-width: 100%;
+    }
+
+    > .u-col#{$prefix}-fill {
+      flex: 1 1 0%;
     }
   }
 
