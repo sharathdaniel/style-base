@@ -10,6 +10,8 @@
     "selector-max-specificity": null,
     "max-nesting-depth": null,
     "scss/at-rule-no-unknown": null,
+    "scss/operator-no-newline-after": null,
+    "scss/operator-no-newline-before": null,
     "value-keyword-case": [
       "lower",
       {

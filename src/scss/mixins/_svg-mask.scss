@@ -5,22 +5,32 @@
 /// @param $repeat     mask-repeat (default: no-repeat)
 /// @param $important  whether to append !important to bg-color & mask-image (default: false)
 
+@use 'sass:meta';
+
 @mixin svg-mask($svg, $size: contain, $position: center, $repeat: no-repeat, $important: false) {
-  background-color: currentColor;
-  -webkit-mask-image: url('data:image/svg+xml,#{$svg}');
-  mask-image: url('data:image/svg+xml,#{$svg}');
+  @if meta.type-of($svg) != 'string' {
+    @error "svg-mask(): $svg must be a URL-encoded string.";
+  }
+
+  @if meta.type-of($important) != 'bool' {
+    @error "svg-mask(): $important must be a boolean.";
+  }
+
+  $imp: '';
+
+  @if $important {
+    $imp: ' !important';
+  }
+
+  background-color: currentColor#{$imp};
+  -webkit-mask-image: url('data:image/svg+xml,#{$svg}') #{$imp};
+  mask-image: url('data:image/svg+xml,#{$svg}') #{$imp};
   -webkit-mask-repeat: $repeat;
   -webkit-mask-position: $position;
   -webkit-mask-size: $size;
   mask-repeat: $repeat;
   mask-position: $position;
   mask-size: $size;
-
-  @if $important {
-    background-color: currentColor !important;
-    -webkit-mask-image: url('data:image/svg+xml,#{$svg}') !important;
-    mask-image: url('data:image/svg+xml,#{$svg}') !important;
-  }
 }
 
 /// Usage
