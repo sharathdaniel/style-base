@@ -1,4 +1,16 @@
+@use 'sass:math';
+@use 'sass:meta';
+
 @mixin line-clamp($lines: 2) {
+  @if meta.type-of($lines) !=
+    'number' or not
+    math.is-unitless($lines) or
+    math.round($lines) !=
+    $lines
+  {
+    @error "line-clamp(): The value `#{$lines}` must be a unitless integer.";
+  }
+
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;

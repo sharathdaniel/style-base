@@ -4,7 +4,19 @@
 // Don't use it for 1px values, eg: border: 1px or width: 1px
 
 @use 'sass:math';
+@use 'sass:meta';
 
 @function rem($px) {
-  @return math.div($px, 16) * 1rem;
+  @if meta.type-of($px) != 'number' {
+    @error "rem(): Expected a number, got `#{$px}`.";
+  }
+
+  @if not math.is-unitless($px) and math.unit($px) != 'px' {
+    @error "rem(): Expected a unitless value or px, got `#{$px}`.";
+  }
+
+  // Strip px unit if present
+  $value: if(math.is-unitless($px), $px, math.div($px, 1px));
+
+  @return math.div($value, 16) * 1rem;
 }
