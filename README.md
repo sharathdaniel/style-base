@@ -1,5 +1,7 @@
 # StyleBase
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/sharathdaniel/style-base)
+
 **StyleBase is a minimal, opinionated SCSS foundation for building custom design systems.**
 
 It provides a **clean, scalable styling baseline** that teams can extend and evolve based on their own product needs.
