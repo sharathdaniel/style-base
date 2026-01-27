@@ -65,19 +65,19 @@ $grid-gap: var(--space-4) !default; // 16px default
   @mixin make-grid-columns($infix: null) {
     $prefix: if($infix, '-#{$infix}', '');
 
-    .u-col#{$prefix}-full {
+    > .u-col#{$prefix}-full {
       grid-column-start: 1;
       grid-column-end: -1;
     }
 
     @for $i from 1 through $grid-columns {
-      .u-col#{$prefix}-#{$i} {
+      > .u-col#{$prefix}-#{$i} {
         grid-column-start: auto;
         grid-column-end: span #{$i};
       }
 
       @if ($grid-columns - $i) % 2 == 0 {
-        .u-col#{$prefix}-#{$i}-center {
+        > .u-col#{$prefix}-#{$i}-center {
           grid-column-end: span #{$i};
           grid-column-start: #{math.div($grid-columns - $i, 2) + 1};
         }
@@ -85,12 +85,12 @@ $grid-gap: var(--space-4) !default; // 16px default
     }
 
     @for $i from 1 through $grid-columns {
-      .u-col-start#{$prefix}-#{$i} {
+      > .u-col-start#{$prefix}-#{$i} {
         grid-column-start: #{$i};
       }
     }
 
-    .u-col-end#{$prefix}-last {
+    > .u-col-end#{$prefix}-last {
       grid-column-end: -1;
     }
   }
