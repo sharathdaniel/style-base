@@ -1,44 +1,95 @@
-// Applies an inline-SVG mask, colored via currentColor.
-/// @param $svg        URL-encoded SVG string (no data: prefix)
+@use 'sass:string';
+@use 'sass:meta';
+@use 'sass:list';
+
+/// @access private
+@function -str-replace($string, $search, $replace: '') {
+  $index: string.index($string, $search);
+
+  @if $index {
+    @return string.slice($string, 1, $index - 1) + $replace +
+      -str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+/// @param {String} $svg - The raw SVG string
+/// @return {String} - The encoded string
+@function svg-encode($svg) {
+  $svg: -str-replace($svg, '%', '%25');
+  $encoded-chars: (
+    '<': '%3C',
+    '>': '%3E',
+    '#': '%23',
+    '(': '%28',
+    ')': '%29',
+    ';': '%3B',
+    ':': '%3A',
+    '"': "'",
+    "'": '%27',
+    ' ': '%20',
+  );
+
+  @each $char, $encoded in $encoded-chars {
+    $svg: -str-replace($svg, $char, $encoded);
+  }
+
+  @return $svg;
+}
+
+/// @param $svg        Raw SVG string OR URL-encoded string
 /// @param $size       mask-size (default: contain)
 /// @param $position   mask-position (default: center)
 /// @param $repeat     mask-repeat (default: no-repeat)
-/// @param $important  whether to append !important to bg-color & mask-image (default: false)
-
-@use 'sass:meta';
-
+/// @param $important  whether to append !important (default: false)
 @mixin svg-mask($svg, $size: contain, $position: center, $repeat: no-repeat, $important: false) {
   @if meta.type-of($svg) != 'string' {
-    @error "svg-mask(): $svg must be a URL-encoded string.";
+    @error "svg-mask(): $svg must be a string.";
   }
 
-  @if meta.type-of($important) != 'bool' {
-    @error "svg-mask(): $important must be a boolean.";
+  @if string.index($svg, 'data:') == 1 {
+    @error "svg-mask(): Please provide the SVG code only, not the 'data:...' prefix.";
   }
 
-  $imp: '';
+  $final-svg: $svg;
 
-  @if $important {
-    $imp: ' !important';
+  @if string.index($svg, '<') {
+    $final-svg: svg-encode($svg);
   }
+
+  $imp: if($important, ' !important', '');
+  $data-uri: url('data:image/svg+xml;charset=utf-8,#{$final-svg}');
 
   background-color: currentColor#{$imp};
-  -webkit-mask-image: url('data:image/svg+xml,#{$svg}') #{$imp};
-  mask-image: url('data:image/svg+xml,#{$svg}') #{$imp};
+  -webkit-mask-image: $data-uri #{$imp};
+  mask-image: $data-uri #{$imp};
   -webkit-mask-repeat: $repeat;
-  -webkit-mask-position: $position;
-  -webkit-mask-size: $size;
   mask-repeat: $repeat;
+  -webkit-mask-position: $position;
   mask-position: $position;
+  -webkit-mask-size: $size;
   mask-size: $size;
 }
 
 /// Usage
-
+///
 /// .arrow-down {
 ///   color: black;
 ///
 ///   @include svg-mask(
-///     "%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 9L8 13L12 9' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
+///     '<svg
+///       width="16"
+///       height="16"
+///       viewBox="0 0 16 16"
+///       fill="none"
+///       xmlns="http://www.w3.org/2000/svg">
+///       <path
+///         d="M4 9L8 13L12 9"
+///         stroke="currentColor"
+///         stroke-width="1.4"
+///         stroke-linecap="round"
+///         stroke-linejoin="round"/>
+///     </svg>'
 ///   );
 /// }
