@@ -8,9 +8,7 @@
 }
 
 .test-svg-mask {
-  width: 32px;
-  height: 32px;
-  color: red; // should control the icon color
+  color: var(--status-error);
 
   @include svg-mask(
     '<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">' + '<path d="M4 9L8 13L12 9" ' +
