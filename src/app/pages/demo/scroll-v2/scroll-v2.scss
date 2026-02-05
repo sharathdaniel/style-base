@@ -6,10 +6,6 @@
 }
 
 .page-layout {
-  display: flex;
-  flex: 1;
-  min-height: 0;
-
   @include mobile {
     flex-direction: column;
   }
