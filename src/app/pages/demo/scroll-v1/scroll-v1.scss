@@ -2,6 +2,8 @@
 
 :host {
   @include page-height;
+}
 
+.page-scroll {
   padding: var(--space-4);
 }

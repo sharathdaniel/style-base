@@ -5,7 +5,7 @@
   @include page-height;
 }
 
-.page-layout {
+.page-wrap {
   @include mobile {
     flex-direction: column;
   }

@@ -7,9 +7,15 @@
 }
 
 @layer components {
-  .page-layout {
+  .page-wrap {
     display: flex;
     flex: 1;
     min-height: 0;
+  }
+
+  .page-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
   }
 }
