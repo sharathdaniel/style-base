@@ -5,11 +5,8 @@
   @include page-height;
 }
 
-.page {
-  display: flex;
+.page-layout {
   flex-direction: column;
-  flex: 1;
-  min-height: 0;
 }
 
 .page-content {

@@ -7,7 +7,9 @@
 }
 
 @layer components {
-  .section-block {
-    border: 1px solid var(--neutral-black);
+  .page-layout {
+    display: flex;
+    flex: 1;
+    min-height: 0;
   }
 }
