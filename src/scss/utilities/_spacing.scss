@@ -65,20 +65,14 @@ $dirs: (
 /* Gap utilities */
 @each $key, $val in $space-scale {
   .u-gap-#{$key} {
-    --gap: #{$val};
-
     gap: $val;
   }
 
   .u-row-gap-#{$key} {
-    --row-gap: #{$val};
-
     row-gap: $val;
   }
 
   .u-col-gap-#{$key} {
-    --column-gap: #{$val};
-
     column-gap: $val;
   }
 }

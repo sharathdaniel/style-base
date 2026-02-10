@@ -16,7 +16,6 @@
 
 @use 'sass:math';
 @use '../mixins/breakpoint' as *;
-@use '../abstracts/scales' as *;
 
 /* --------------------------------------------------------------------------
    Configuration
@@ -30,32 +29,12 @@ $grid-gap: var(--space-4) !default;
    -------------------------------------------------------------------------- */
 
 .u-grid-row {
-  --gap: #{$grid-gap};
-  --row-gap: initial;
-  --column-gap: initial;
-  --grid-row-gap: var(--row-gap, var(--gap));
-  --grid-column-gap: var(--column-gap, var(--gap));
-
   display: grid;
   grid-template-columns: repeat(#{$grid-columns}, minmax(0, 1fr));
-  gap: var(--grid-row-gap) var(--grid-column-gap);
+  gap: #{$grid-gap};
 
   > [class*='u-col-'] {
     grid-column: span #{$grid-columns};
-  }
-
-  @each $key, $val in $space-scale {
-    &.u-gap-#{$key} {
-      --gap: #{$val};
-    }
-
-    &.u-col-gap-#{$key} {
-      --column-gap: #{$val};
-    }
-
-    &.u-row-gap-#{$key} {
-      --row-gap: #{$val};
-    }
   }
 
   /* --------------------------------------------------------------------------
