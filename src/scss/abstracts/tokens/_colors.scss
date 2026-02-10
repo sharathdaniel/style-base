@@ -170,7 +170,7 @@ $colors: (
   ),
 );
 
-[data-theme='light'] {
+:root {
   @each $group, $shades in $colors {
     @each $name, $value in $shades {
       --#{$group}-#{$name}: rgb(#{$value});
