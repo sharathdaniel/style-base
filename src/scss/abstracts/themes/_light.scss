@@ -47,6 +47,8 @@ $semantic-button: (
 );
 
 [data-theme='light'] {
+  color-scheme: light;
+
   @each $map in ($semantic-bg, $semantic-text, $semantic-border, $semantic-status, $semantic-button)
   {
     @each $token, $ref in $map {
