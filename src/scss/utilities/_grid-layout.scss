@@ -31,6 +31,8 @@ $grid-gap: var(--space-4) !default;
 
 .u-grid-row {
   --gap: #{$grid-gap};
+  --row-gap: initial;
+  --column-gap: initial;
   --grid-row-gap: var(--row-gap, var(--gap));
   --grid-column-gap: var(--column-gap, var(--gap));
 

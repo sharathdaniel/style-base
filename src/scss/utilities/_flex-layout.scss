@@ -24,6 +24,8 @@ $flex-gap: var(--space-4) !default;
 
 .u-flex-row {
   --gap: #{$flex-gap};
+  --row-gap: initial;
+  --column-gap: initial;
   --flex-row-gap: var(--row-gap, var(--gap));
   --flex-column-gap: var(--column-gap, var(--gap));
 
@@ -39,16 +41,15 @@ $flex-gap: var(--space-4) !default;
 
   @each $key, $val in $space-scale {
     &.u-gap-#{$key} {
-      --flex-column-gap: #{$val};
-      --flex-row-gap: #{$val};
+      --gap: #{$val};
     }
 
     &.u-col-gap-#{$key} {
-      --flex-column-gap: #{$val};
+      --column-gap: #{$val};
     }
 
     &.u-row-gap-#{$key} {
-      --flex-row-gap: #{$val};
+      --row-gap: #{$val};
     }
   }
 
