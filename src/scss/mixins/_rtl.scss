@@ -3,3 +3,12 @@
     @content;
   }
 }
+
+/// Usage
+///
+/// @include rtl {
+///   /* stylelint-disable property-disallowed-list */
+///   margin-left: 40px;
+///   padding-right: 16px;
+///   /* stylelint-enable property-disallowed-list */
+/// }
