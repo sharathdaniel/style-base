@@ -29,6 +29,41 @@
           "-webkit-user-select"
         ]
       }
+    ],
+    "property-disallowed-list": [
+      [
+        "margin-left",
+        "margin-right",
+        "padding-left",
+        "padding-right",
+        "left",
+        "right",
+        "border-left",
+        "border-right",
+        "border-left-width",
+        "border-right-width",
+        "border-left-style",
+        "border-right-style",
+        "border-left-color",
+        "border-right-color",
+        "border-top-left-radius",
+        "border-top-right-radius",
+        "border-bottom-left-radius",
+        "border-bottom-right-radius"
+      ],
+      {
+        "message": "Physical properties (left/right) are disallowed. Use logical properties (inline-start/inline-end) for RTL support."
+      }
+    ],
+    "declaration-property-value-disallowed-list": [
+      {
+        "text-align": ["left", "right"],
+        "float": ["left", "right"],
+        "clear": ["left", "right"]
+      },
+      {
+        "message": "Physical values (left/right) are disallowed. Use logical values (start/end/inline-start/inline-end) for RTL support."
+      }
     ]
   }
 }
