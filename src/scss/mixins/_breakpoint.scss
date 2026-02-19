@@ -154,7 +154,7 @@ $breakpoints: (
 
 /* Targets touch-first devices (coarse pointer) */
 @mixin is-touch {
-  @media (pointer: coarse) {
+  @media (pointer: coarse) and (hover: none) and (any-hover: none) {
     @content;
   }
 }
