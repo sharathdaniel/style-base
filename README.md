@@ -169,7 +169,7 @@ yarn add -D sass prettier stylelint stylelint-config-standard-scss husky lint-st
     "prepare": "husky"
   },
   "devDependencies": {
-    "sass": "^1.97.2",
+    "sass": "^1.97.3",
     "prettier": "^3.8.1",
     "stylelint": "^17.4.0",
     "stylelint-config-standard-scss": "^17",
