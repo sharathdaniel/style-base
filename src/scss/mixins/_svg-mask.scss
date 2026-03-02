@@ -14,8 +14,8 @@
   @return $string;
 }
 
-/// @param {String} $svg - The raw SVG string
-/// @return {String} - The encoded string
+/// @param {String} $svg
+/// @return {String}
 @function svg-encode($svg) {
   $svg: -str-replace($svg, '%', '%25');
   $encoded-chars: (
@@ -26,7 +26,7 @@
     ')': '%29',
     ';': '%3B',
     ':': '%3A',
-    '"': "'",
+    '"': '%22',
     "'": '%27',
     ' ': '%20',
   );
@@ -38,11 +38,11 @@
   @return $svg;
 }
 
-/// @param $svg        Raw SVG string OR URL-encoded string
-/// @param $size       mask-size (default: contain)
-/// @param $position   mask-position (default: center)
-/// @param $repeat     mask-repeat (default: no-repeat)
-/// @param $important  whether to append !important (default: false)
+/// @param $svg
+/// @param $size
+/// @param $position
+/// @param $repeat
+/// @param $important
 @mixin svg-mask($svg, $size: contain, $position: center, $repeat: no-repeat, $important: false) {
   @if meta.type-of($svg) != 'string' {
     @error "svg-mask(): $svg must be a string.";
