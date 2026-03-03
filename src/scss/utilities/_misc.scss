@@ -53,7 +53,7 @@
 
 @supports (scrollbar-width: auto) {
   .u-scrollbar {
-    scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-track);
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
     scrollbar-width: var(--scrollbar-width);
   }
 }
