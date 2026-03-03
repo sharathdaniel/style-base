@@ -61,8 +61,6 @@ specificity escalation.
 These uses are intentional, documented, and limited to utilities ---
 never components.
 
-------------------------------------------------------------------------
-
 ### Tokens First
 
 Design decisions live in tokens (base and semantic).
@@ -72,8 +70,6 @@ Design decisions live in tokens (base and semantic).
 -   Components consume semantic tokens only
 
 This keeps components theme-aware and prevents value duplication.
-
-------------------------------------------------------------------------
 
 ### Rem-Based Scaling
 
@@ -89,8 +85,6 @@ dividers).
 
 Media queries remain in `px` to avoid unexpected behavior from user
 font-size adjustments.
-
-------------------------------------------------------------------------
 
 ### Exceptions, Not Shortcuts
 
@@ -190,23 +184,17 @@ yarn add -D sass prettier stylelint stylelint-config-standard-scss husky lint-st
 
 You may skip `sass` if your framework already provides it.
 
-------------------------------------------------------------------------
-
 ### 2. Load the SCSS entrypoint
 
 ``` scss
 @use './src/scss/main.scss';
 ```
 
-------------------------------------------------------------------------
-
 ### 3. Maintain Layer Order
 
 ``` scss
 @layer reset, base, plugins, components, utilities;
 ```
-
-------------------------------------------------------------------------
 
 ### 4. Development Rules
 
