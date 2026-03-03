@@ -269,16 +269,3 @@ The reference app illustrates:
 StyleBase itself remains framework-agnostic and can be used with
 Angular, React, Vue, or any modern frontend stack.
 
-------------------------------------------------------------------------
-
-## Philosophy
-
-StyleBase prioritizes:
-
--   Predictable cascade behavior
--   Architectural clarity
--   Token consistency
--   Long-term maintainability
-
-It is designed for teams who want structure without surrendering
-flexibility.
