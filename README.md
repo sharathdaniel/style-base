@@ -240,6 +240,7 @@ Recommended VS Code extensions:
 
 -   Prettier
 -   Stylelint
+-   SonarLint (optional, for additional static analysis)
 
 ------------------------------------------------------------------------
 
