@@ -18,7 +18,7 @@ utility-first workflow.
 -   [Core Principles](#core-principles)
 -   [Architecture](#architecture)
 -   [Theming Model](#theming-model)
--   [Customization Points](#customization-points)
+-   [Customization](#customization)
 -   [CSS Layers](#css-layers)
 -   [Quick Start](#quick-start)
 -   [Tooling](#tooling)
@@ -158,7 +158,7 @@ This allows full theme changes without rewriting component styles.
 
 ------------------------------------------------------------------------
 
-## Customization Points
+## Customization
 
 StyleBase is designed to be adapted by editing tokens and scales first:
 
