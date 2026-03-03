@@ -166,6 +166,10 @@ StyleBase is designed to be adapted by editing tokens and scales first:
     `src/scss/abstracts/tokens/_font.scss`
 -   Spacing scale tokens: `src/scss/abstracts/tokens/_spacing.scss`
 -   Icon size tokens: `src/scss/abstracts/tokens/_icon.scss`
+-   Base color tokens: `src/scss/abstracts/tokens/_colors.scss`
+-   Theme palettes and semantic mappings:
+    `src/scss/abstracts/themes/_light.scss` (add additional theme files
+    in the same folder as needed)
 -   Shared scales/helpers: `src/scss/abstracts/_scales.scss`
 
 Update these files to match project needs, then let components and
