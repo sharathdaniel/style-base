@@ -7,7 +7,7 @@ DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/sharathdaniel/st
 scalable, token-driven design systems.**
 
 It provides a clean, extensible styling baseline that teams can evolve
-based on product needs --- without locking them into a UI kit or
+based on product needs - without locking them into a UI kit or
 utility-first workflow.
 
 ------------------------------------------------------------------------
@@ -127,11 +127,10 @@ All styling lives under `src/scss`:
 
     src/scss/
       abstracts/
-        tokens/
         themes/
+        tokens/
         variables/
         typography/
-      plugins/
       components/
       utilities/
       reset/
@@ -140,10 +139,9 @@ All styling lives under `src/scss`:
 
 -   **Abstracts**: Tokens, themes, and shared variables (no
     layout/component styles)
--   **Plugins**: Third-party/vendor styles meant to be overridden
--   **Components**: Reusable UI building blocks
+-   **Components**: Third-party/vendor styles meant to be overridden, reusable UI building blocks
 -   **Utilities**: Single-purpose helpers and controlled overrides
--   **Reset/Base**: Global normalization and element-level defaults
+-   **Reset**: Global normalization and element-level defaults
 
 ------------------------------------------------------------------------
 
@@ -215,8 +213,8 @@ You may skip `sass` if your framework already provides it.
 ``` json
 {
   "scripts": {
-    "lint:scss": "stylelint "src/**/*.scss"",
-    "format:check": "prettier --check "src/**/*.{scss,ts,html,json}"",
+    "lint:scss": "stylelint \"src/**/*.scss\"",
+    "format:check": "prettier --check \"src/**/*.{scss,ts,html,json}\"",
     "prepare": "husky"
   },
   "lint-staged": {
