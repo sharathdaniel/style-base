@@ -177,8 +177,13 @@ yarn add -D sass prettier stylelint stylelint-config-standard-scss husky lint-st
     "lint-staged": "^16.3.1"
   },
   "lint-staged": {
-    "src/**/*.{scss,ts,html,json}": ["prettier --write"],
-    "src/**/*.scss": ["stylelint --fix --cache"]
+    "src/**/*.scss": [
+      "stylelint --fix --cache",
+      "prettier --write"
+    ],
+    "src/**/*.{ts,html,json}": [
+      "prettier --write"
+    ]
   }
 }
 ```
