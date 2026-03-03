@@ -12,11 +12,12 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "src/**/*.{scss,ts,html,json}": [
+    "src/**/*.scss": [
+      "stylelint --fix --cache",
       "prettier --write"
     ],
-    "src/**/*.scss": [
-      "stylelint --fix --cache"
+    "src/**/*.{ts,html,json}": [
+      "prettier --write"
     ]
   },
   "private": true,
