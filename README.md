@@ -7,7 +7,7 @@ DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/sharathdaniel/st
 scalable, token-driven design systems.**
 
 It provides a clean, extensible styling baseline that teams can evolve
-based on product needs - without locking them into a UI kit or
+based on product needs without locking them into a UI kit or
 utility-first workflow.
 
 ------------------------------------------------------------------------
