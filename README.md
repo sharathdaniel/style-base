@@ -171,11 +171,11 @@ StyleBase uses native CSS Layers in global stylesheets only:
 @layer reset, base, plugins, components, utilities;
 ```
 
--   Tokens do not participate in the cascade
+-   Tokens do not participate in cascade order, so token files never
+    use `@layer`
 -   Layers define override order
--   Token files never use `@layer`
--   `plugins` is a reserved cascade slot for vendor CSS ordering; a
-    dedicated `plugins/` directory is optional
+-   `plugins` is a reserved cascade slot for vendor CSS ordering
+    (typically loaded from `node_modules`)
 
 ------------------------------------------------------------------------
 
