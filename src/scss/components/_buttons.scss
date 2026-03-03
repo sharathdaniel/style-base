@@ -4,6 +4,8 @@
     --btn-bg-hover: transparent;
     --btn-color: var(--text-primary);
     --btn-border: transparent;
+    --btn-focus-ring: var(--border-focus);
+    --btn-focus-ring-size: 2px;
 
     display: inline-flex;
     align-items: center;
@@ -30,6 +32,10 @@
       &:hover {
         background-color: var(--btn-bg-hover);
       }
+
+      &:focus-visible {
+        box-shadow: 0 0 0 var(--btn-focus-ring-size) var(--btn-focus-ring);
+      }
     }
 
     &:focus {
@@ -42,5 +48,6 @@
     --btn-bg-hover: var(--btn-primary-bg-hover);
     --btn-color: var(--btn-primary-color);
     --btn-border: var(--btn-primary-border);
+    --btn-focus-ring: var(--btn-primary-border);
   }
 }
