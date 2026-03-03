@@ -129,12 +129,11 @@ All styling lives under `src/scss`:
       abstracts/
         themes/
         tokens/
-        variables/
-        typography/
+        variables
+        typography
       components/
       utilities/
-      reset/
-      base/
+      reset
       main.scss
 
 -   **Abstracts**: Tokens, themes, and shared variables (no
