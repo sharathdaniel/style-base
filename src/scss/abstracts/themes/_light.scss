@@ -51,11 +51,28 @@ $semantic-button: (
   'btn-secondary-border': '--grey-2',
   'btn-secondary-focus-ring': '--grey-2',
 );
+$semantic-accordion: (
+  'accordion-bg': '--bg-surface',
+  'accordion-border': '--border-light',
+  'accordion-header-color': '--text-primary',
+  'accordion-header-color-disabled': '--text-disabled',
+  'accordion-expanded-bg': '--bg-surface-subtle',
+  'accordion-expanded-border': '--border-medium',
+  'accordion-focus-ring': '--border-focus',
+);
 
 [data-theme='light'] {
   color-scheme: light;
 
-  @each $map in ($semantic-bg, $semantic-text, $semantic-border, $semantic-status, $semantic-button)
+  @each $map
+    in (
+      $semantic-bg,
+      $semantic-text,
+      $semantic-border,
+      $semantic-status,
+      $semantic-button,
+      $semantic-accordion
+    )
   {
     @each $token, $ref in $map {
       --#{$token}: var(#{$ref});
