@@ -129,17 +129,26 @@ All styling lives under `src/scss`:
       abstracts/
         themes/
         tokens/
-        variables
-        typography
+        _scales.scss
+        _typography.scss
+        _variables.scss
       components/
+      functions/
+      mixins/
       utilities/
-      reset
+      _common.scss
+      _reset.scss
       main.scss
 
 -   **Abstracts**: Tokens, themes, and shared variables (no
     layout/component styles)
--   **Components**: Third-party/vendor styles meant to be overridden, reusable UI building blocks
+-   **Components**: Reusable UI building blocks, including local
+    overrides for third-party/plugin styles when needed
+-   **Mixins / Functions**: Reusable SCSS helpers and utilities
+    consumed by components and utilities
 -   **Utilities**: Single-purpose helpers and controlled overrides
+-   **Common**: Shared global styles used across multiple pages and
+    components
 -   **Reset**: Global normalization and element-level defaults
 
 ------------------------------------------------------------------------
@@ -165,6 +174,8 @@ StyleBase uses native CSS Layers in global stylesheets only:
 -   Tokens do not participate in the cascade
 -   Layers define override order
 -   Token files never use `@layer`
+-   `plugins` is a reserved cascade slot for vendor CSS ordering; a
+    dedicated `plugins/` directory is optional
 
 ------------------------------------------------------------------------
 
