@@ -48,6 +48,14 @@
     --btn-bg-hover: var(--btn-primary-bg-hover);
     --btn-color: var(--btn-primary-color);
     --btn-border: var(--btn-primary-border);
-    --btn-focus-ring: var(--btn-primary-border);
+    --btn-focus-ring: var(--btn-primary-focus-ring);
+  }
+
+  .app-c-btn-secondary {
+    --btn-bg: var(--btn-secondary-bg);
+    --btn-bg-hover: var(--btn-secondary-bg-hover);
+    --btn-color: var(--btn-secondary-color);
+    --btn-border: var(--btn-secondary-border);
+    --btn-focus-ring: var(--btn-secondary-focus-ring);
   }
 }
