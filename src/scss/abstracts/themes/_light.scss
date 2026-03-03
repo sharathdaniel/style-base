@@ -60,6 +60,9 @@ $semantic-accordion: (
   'accordion-expanded-border': '--border-medium',
   'accordion-focus-ring': '--border-focus',
 );
+$semantic-scrollbar: (
+  'scrollbar-thumb': '--text-secondary',
+);
 
 [data-theme='light'] {
   color-scheme: light;
@@ -71,7 +74,8 @@ $semantic-accordion: (
       $semantic-border,
       $semantic-status,
       $semantic-button,
-      $semantic-accordion
+      $semantic-accordion,
+      $semantic-scrollbar
     )
   {
     @each $token, $ref in $map {

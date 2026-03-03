@@ -15,7 +15,8 @@
   --radius-2xl: 1rem; /* 16px */
 
   /* Scrollbar */
-  --scrollbar-color-thumb: rgb(var(--grey-1-rgb) / 60%);
-  --scrollbar-color-track: transparent;
+  --scrollbar-color-thumb: rgb(var(--scrollbar-thumb-rgb) / 60%);
+  --scrollbar-track-default: transparent;
+  --scrollbar-track: var(--scrollbar-track-default);
   --scrollbar-width: thin;
 }
