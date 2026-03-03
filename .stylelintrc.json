@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "stylelint-config-standard-scss"
-  ],
+  "extends": ["stylelint-config-standard-scss"],
   "ignoreFiles": ["dist/**/*", "node_modules/**/*"],
   "rules": {
     "no-empty-source": null,
@@ -12,13 +10,7 @@
     "scss/at-rule-no-unknown": [
       true,
       {
-        "ignoreAtRules": [
-          "theme",
-          "utility",
-          "variant",
-          "custom-variant",
-          "source"
-        ]
+        "ignoreAtRules": ["theme", "utility", "variant", "custom-variant", "source"]
       }
     ],
     "scss/operator-no-newline-after": null,

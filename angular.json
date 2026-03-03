@@ -29,9 +29,7 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "stylePreprocessorOptions": {
@@ -43,9 +41,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/scss/main.scss"
-            ]
+            "styles": ["src/scss/main.scss"]
           },
           "configurations": {
             "production": {
@@ -89,10 +85,7 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "stylePreprocessorOptions": {
@@ -104,9 +97,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/scss/main.scss"
-            ]
+            "styles": ["src/scss/main.scss"]
           }
         }
       }
