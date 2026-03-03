@@ -125,7 +125,7 @@ All styling lives under `src/scss`:
         themes/
         tokens/
         _scales.scss
-        _typography.scss
+        _typography-tools.scss
         _variables.scss
       components/
       functions/
@@ -160,20 +160,20 @@ This allows full theme changes without rewriting component styles.
 
 ## Customization
 
-StyleBase is designed to be adapted by editing tokens and scales first:
+Customize in this order, then let components consume the updated values:
 
--   Font scale and typography tokens:
-    `src/scss/abstracts/tokens/_font.scss`
--   Spacing scale tokens: `src/scss/abstracts/tokens/_spacing.scss`
--   Icon size tokens: `src/scss/abstracts/tokens/_icon.scss`
--   Base color tokens: `src/scss/abstracts/tokens/_colors.scss`
--   Theme palettes and semantic mappings:
-    `src/scss/abstracts/themes/_light.scss` (add additional theme files
-    in the same folder as needed)
--   Shared scales/helpers: `src/scss/abstracts/_scales.scss`
-
-Update these files to match project needs, then let components and
-utilities consume the updated token values.
+1. **Typography foundation**
+   - `src/scss/abstracts/tokens/_font.scss` (sizes, line heights, weights, families)
+   - `src/scss/abstracts/_typography-tools.scss` (role mappings like `h-lg`, `body-md`, `ui-sm`)
+2. **Color foundation**
+   - `src/scss/abstracts/tokens/_colors.scss`
+   - `src/scss/abstracts/themes/_light.scss` (add additional theme files in the same folder as needed)
+3. **Layout and icon scales**
+   - `src/scss/abstracts/tokens/_spacing.scss`
+   - `src/scss/abstracts/tokens/_icon.scss`
+   - `src/scss/abstracts/_scales.scss`
+4. **Component-level overrides (only when needed)**
+   - `src/scss/components/_typography.scss` for class-level usage changes
 
 ------------------------------------------------------------------------
 
