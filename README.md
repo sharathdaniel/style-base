@@ -1,203 +1,261 @@
 # StyleBase
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/sharathdaniel/style-base)
+[![Ask
+DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/sharathdaniel/style-base)
 
-**StyleBase is a minimal, opinionated SCSS foundation for building custom design systems.**
+**StyleBase is a minimal, opinionated SCSS architecture for building
+scalable, token-driven design systems.**
 
-It provides a **clean, scalable styling baseline** that teams can extend and evolve based on their own product needs.
+It provides a clean, extensible styling baseline that teams can evolve
+based on product needs without locking them into a UI kit or
+utility-first workflow.
 
----
+------------------------------------------------------------------------
 
-## What StyleBase is (and is not)
+## Table of Contents
 
-### ✅ What it is
+-   [Purpose and Scope](#purpose-and-scope)
+-   [Core Principles](#core-principles)
+-   [Architecture](#architecture)
+-   [Theming Model](#theming-model)
+-   [CSS Layers](#css-layers)
+-   [Quick Start](#quick-start)
+-   [Tooling](#tooling)
+-   [Reference Implementation](#reference-implementation)
 
-- A **style foundation**, not a finished design system
-- Token-driven (colors, spacing, typography)
-- Uses **modern CSS Layers** for global styles and utilities
+------------------------------------------------------------------------
 
-### ❌ What it is not
+## Purpose and Scope
 
-- A drop-in UI kit
-- A utility-first framework
-- A replacement for Tailwind or Bootstrap
-- A collection of pre-styled components
+### What it is
 
----
+-   A style architecture, not a finished design system
+-   Token-driven (colors, spacing, typography)
+-   Built on modern CSS Layers for predictable overrides
+-   Framework-agnostic
+
+### What it is not
+
+-   A drop-in UI kit
+-   A utility-first framework
+-   A replacement for Tailwind or Bootstrap
+-   A collection of pre-styled components
+
+------------------------------------------------------------------------
 
 ## Core Principles
 
-- **Layers over `!important`**  
-  Style overrides are managed using CSS Layers, avoiding the need for high-specificity selectors or `!important`.
+### Layers over `!important`
 
-  In a few **intentional utility-level edge cases**, `!important` is used where:
-  - browser defaults must be forcefully neutralized (e.g. `pointer-events`, `visibility`)
-  - accessibility utilities must always win (e.g. screen-reader-only)
-  - component styles should never block a behavioral utility
+Override order is managed through native CSS Layers instead of
+specificity escalation.
 
-  These uses are **explicit, documented and limited to utilities**, never components.
+`!important` is used only in explicit utility-level edge cases where:
 
-- **Tokens first**  
-  Design decisions live in tokens (base and semantic), while components consume and locally configure them via scoped CSS variables.
-  Colors, typography and spacing are fully tokenized.
+-   Browser defaults must be forcefully neutralized (e.g.,
+    `pointer-events`, `visibility`)
+-   Accessibility utilities must always win (e.g., screen-reader-only
+    helpers)
+-   Behavioral utilities must override component styles
 
-- **Rem-based scaling**  
-  StyleBase uses `rem` units for typography, spacing and layout to ensure consistent scaling and accessibility.
-  - Spacing values are defined once in spacing tokens.
-  - Utilities and components consume spacing tokens directly.
-  - No pixel-to-rem conversion is performed at the utility level.
-  - For rare one-off layout adjustments, the `rem()` function in the `functions` folder may be used in component styles.
+These uses are intentional, documented, and limited to utilities ---
+never components.
 
-  Note:
-  - `1px` is used where visual precision is required (e.g. borders, dividers).
-  - Media queries use `px`, as `rem`-based breakpoints can be affected by user font-size settings.
+### Tokens First
 
-- **Exceptions, not shortcuts**  
-  Utilities exist to solve edge cases, not to replace components.
+Design decisions live in tokens (base and semantic).
 
-  **❌ Avoid using utilities as a substitute for components**
+-   Base tokens define raw values (colors, spacing, typography)
+-   Semantic tokens map meaning to those values
+-   Components consume semantic tokens only
 
-  ```html
-  <div class="u-d-flex u-align-center u-justify-between u-px-4 u-py-3 u-bg-primary u-text-white">
-    Submit
-  </div>
-  ```
+This keeps components theme-aware and prevents value duplication.
 
-  **✅ Prefer components for reusable UI**
+### Rem-Based Scaling
 
-  ```html
-  <button class="app-c-button app-c-button-primary">Submit</button>
-  ```
+Typography, spacing, and layout use `rem` units for accessibility and
+consistent scaling.
 
-  **✅ Utilities are acceptable for one-off exceptions**
+-   Spacing values are defined once in spacing tokens
+-   Utilities and components consume spacing tokens directly
+-   No pixel-to-rem conversion is performed at the utility level
 
-  ```html
-  <button class="app-c-button app-c-button-primary u-mt-4">Submit</button>
-  ```
+`1px` is used only where visual precision is required (e.g., borders,
+dividers).
 
----
+Media queries remain in `px` to avoid unexpected behavior from user
+font-size adjustments.
 
-## Architecture Overview
+### Exceptions, Not Shortcuts
 
-### SCSS Structure
+Utilities solve one-off layout or state problems.
 
-All styling lives under `src/scss`, organized by responsibility:
+They should not replace components.
 
-- **Abstracts**
-  - Design tokens (colors, typography, spacing)
-  - Theme definitions
-  - No component or layout styles
+``` html
+<!-- Avoid: utility chains as pseudo-components -->
+<div class="u-d-flex u-align-center u-justify-between u-px-4 u-py-3 u-bg-primary u-text-white">
+  Submit
+</div>
+```
 
-- **Plugins**
-  - Third-party or vendor styles (from node_modules)
-  - Base styles for external UI libraries
-  - Intended to be overridden by Components or Utilities
+``` html
+<!-- Prefer: reusable component -->
+<button class="app-c-button app-c-button-primary">
+  Submit
+</button>
+```
 
-- **Components**
-  - Reusable UI building blocks
-  - Application and design-system components
+``` html
+<!-- Acceptable: one-off override -->
+<button class="app-c-button app-c-button-primary u-mt-4">
+  Submit
+</button>
+```
 
-- **Utilities**
-  - Single-purpose helpers (spacing, sizing, typography)
-  - Intended as overrides
+------------------------------------------------------------------------
 
-### Theming model
+## Architecture
 
-StyleBase uses **theme-scoped color palettes**.
+All styling lives under `src/scss`:
 
-- Base color tokens are defined per theme (e.g. light, dark)
-- Semantic tokens map to the active theme palette
-- Components consume semantic tokens only
+    src/scss/
+      abstracts/
+        themes/
+        tokens/
+        _scales.scss
+        _typography.scss
+        _variables.scss
+      components/
+      functions/
+      mixins/
+      utilities/
+      _common.scss
+      _reset.scss
+      main.scss
 
-This allows entire color systems to change between themes without modifying components.
+-   **Abstracts**: Tokens, themes, and shared variables (no
+    layout/component styles)
+-   **Components**: Reusable UI building blocks, including local
+    overrides for third-party/plugin styles when needed
+-   **Mixins / Functions**: Reusable SCSS helpers and utilities
+    consumed by components and utilities
+-   **Utilities**: Single-purpose helpers and controlled overrides
+-   **Common**: Shared global styles used across multiple pages and
+    components
+-   **Reset**: Global normalization and element-level defaults
 
-### CSS Layers
+------------------------------------------------------------------------
 
-StyleBase uses native CSS Layers to guarantee predictable overrides.
-CSS Layers are used only in global stylesheets, not in page styles.
+## Theming Model
 
-```scss
+-   Base color tokens are defined per theme (e.g., light, dark)
+-   Semantic tokens map to the active theme palette
+-   Components consume semantic tokens only
+
+This allows full theme changes without rewriting component styles.
+
+------------------------------------------------------------------------
+
+## CSS Layers
+
+StyleBase uses native CSS Layers in global stylesheets only:
+
+``` scss
 @layer reset, base, plugins, components, utilities;
 ```
 
-### Tokens vs Layers (Important)
+-   Tokens do not participate in layer order, so token files never
+    use `@layer`
+-   Layers define layer order for global styles and keep overrides
+    predictable in cascade order without specificity escalation
+-   `plugins` is a reserved layer slot for vendor CSS ordering
+    (typically loaded from `node_modules`)
 
-- Tokens define values and never participate in the cascade
-- Layers control override order for global styles
-- Token files never use `@layer`
-- Only global CSS uses layers (`reset`, `base`, `components`, `utilities`)
+------------------------------------------------------------------------
 
-### Icon system (reference implementation)
+## Quick Start
 
-StyleBase itself is framework-agnostic.
+### 1. Install Tooling
 
-To illustrate how an icon system could be integrated, the repository includes an Angular-based example.
-
-The Angular-based example demonstrates:
-
-- SVG sprites to avoid multiple network requests
-- A reusable `<app-icon>` component using `<use>`
-- Accessibility support via `aria-label`
-
-These patterns are optional and can be adapted to any framework (React, Vue, etc).
-
-### Code Quality & Tooling
-
-- **Stylelint** for consistent and error-free SCSS
-- **Prettier** for automatic formatting
-- **Husky + lint-staged** to enforce quality checks before commits
-
-All configuration files are included in the repository and require no manual setup.
-
----
-
-## Installation
-
-```bash
+``` bash
 yarn add -D sass prettier stylelint stylelint-config-standard-scss husky lint-staged
 ```
 
-> **Note:** You can skip installing `sass` if your framework already provides it.
+You may skip `sass` if your framework already provides it.
 
-**package.json** setup
+### 2. Load the SCSS entrypoint
 
-```json
+``` scss
+@use './src/scss/main.scss';
+```
+
+### 3. Maintain Layer Order
+
+``` scss
+@layer reset, base, plugins, components, utilities;
+```
+
+### 4. Development Rules
+
+-   Use semantic tokens inside components
+-   Avoid hardcoded values
+-   Use utilities only for edge-case overrides
+-   Do not escalate specificity to solve ordering issues
+
+------------------------------------------------------------------------
+
+## Tooling
+
+### Recommended Scripts
+
+``` json
 {
   "scripts": {
     "lint:scss": "stylelint \"src/**/*.scss\"",
     "format:check": "prettier --check \"src/**/*.{scss,ts,html,json}\"",
     "prepare": "husky"
   },
-  "devDependencies": {
-    "sass": "^1.97.3",
-    "prettier": "^3.8.1",
-    "stylelint": "^17.4.0",
-    "stylelint-config-standard-scss": "^17",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.3.1"
-  },
   "lint-staged": {
-    "src/**/*.{scss,ts,html,json}": ["prettier --write"],
-    "src/**/*.scss": ["stylelint --fix --cache"]
+    "src/**/*.scss": [
+      "stylelint --fix --cache",
+      "prettier --write"
+    ],
+    "src/**/*.{ts,html,json}": [
+      "prettier --write"
+    ]
   }
 }
 ```
 
-## Editor setup (recommended)
+### Quality Stack
 
-For the best development experience, install the following extensions (VS Code):
+-   Stylelint for SCSS linting
+-   Prettier for formatting
+-   Husky + lint-staged for pre-commit enforcement
 
-- Prettier (formatting)
-- Stylelint (SCSS linting)
+### Editor Setup
 
-## Development
+Recommended VS Code extensions:
 
-An Angular application is included in this repository as a reference implementation demonstrating the consumption of StyleBase. Use of Angular is not required by StyleBase itself.
+-   Prettier
+-   Stylelint
+-   SonarLint (optional, for additional static analysis)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
+------------------------------------------------------------------------
 
-To start a local development server:
+## Reference Implementation
 
-```bash
-ng serve --open
-```
+The repository includes an Angular application demonstrating how
+StyleBase can be consumed in a real project.
+
+The reference app illustrates:
+
+-   Token-driven component styling
+-   Layered override strategy
+-   SVG sprite-based icon usage
+-   Accessibility considerations
+
+StyleBase itself remains framework-agnostic and can be used with
+Angular, React, Vue, or any modern frontend stack.
+
