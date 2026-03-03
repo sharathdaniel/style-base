@@ -10,39 +10,39 @@ It provides a clean, extensible styling baseline that teams can evolve
 based on product needs without locking them into a UI kit or
 utility-first workflow.
 
-------------------------------------------------------------------------
+---
 
 ## Table of Contents
 
--   [Purpose and Scope](#purpose-and-scope)
--   [Core Principles](#core-principles)
--   [Architecture](#architecture)
--   [Theming Model](#theming-model)
--   [Customization](#customization)
--   [CSS Layers](#css-layers)
--   [Quick Start](#quick-start)
--   [Tooling](#tooling)
--   [Reference Implementation](#reference-implementation)
+- [Purpose and Scope](#purpose-and-scope)
+- [Core Principles](#core-principles)
+- [Architecture](#architecture)
+- [Theming Model](#theming-model)
+- [Customization](#customization)
+- [CSS Layers](#css-layers)
+- [Quick Start](#quick-start)
+- [Tooling](#tooling)
+- [Reference Implementation](#reference-implementation)
 
-------------------------------------------------------------------------
+---
 
 ## Purpose and Scope
 
 ### What it is
 
--   A style architecture, not a finished design system
--   Token-driven (colors, spacing, typography)
--   Built on modern CSS Layers for predictable overrides
--   Framework-agnostic
+- A style architecture, not a finished design system
+- Token-driven (colors, spacing, typography)
+- Built on modern CSS Layers for predictable overrides
+- Framework-agnostic
 
 ### What it is not
 
--   A drop-in UI kit
--   A utility-first framework
--   A replacement for Tailwind or Bootstrap
--   A collection of pre-styled components
+- A drop-in UI kit
+- A utility-first framework
+- A replacement for Tailwind or Bootstrap
+- A collection of pre-styled components
 
-------------------------------------------------------------------------
+---
 
 ## Core Principles
 
@@ -53,11 +53,11 @@ specificity escalation.
 
 `!important` is used only in explicit utility-level edge cases where:
 
--   Browser defaults must be forcefully neutralized (e.g.,
-    `pointer-events`, `visibility`)
--   Accessibility utilities must always win (e.g., screen-reader-only
-    helpers)
--   Behavioral utilities must override component styles
+- Browser defaults must be forcefully neutralized (e.g.,
+  `pointer-events`, `visibility`)
+- Accessibility utilities must always win (e.g., screen-reader-only
+  helpers)
+- Behavioral utilities must override component styles
 
 These uses are intentional, documented, and limited to utilities ---
 never components.
@@ -66,9 +66,9 @@ never components.
 
 Design decisions live in tokens (base and semantic).
 
--   Base tokens define raw values (colors, spacing, typography)
--   Semantic tokens map meaning to those values
--   Components consume semantic tokens only
+- Base tokens define raw values (colors, spacing, typography)
+- Semantic tokens map meaning to those values
+- Components consume semantic tokens only
 
 This keeps components theme-aware and prevents value duplication.
 
@@ -77,9 +77,9 @@ This keeps components theme-aware and prevents value duplication.
 Typography, spacing, and layout use `rem` units for accessibility and
 consistent scaling.
 
--   Spacing values are defined once in spacing tokens
--   Utilities and components consume spacing tokens directly
--   No pixel-to-rem conversion is performed at the utility level
+- Spacing values are defined once in spacing tokens
+- Utilities and components consume spacing tokens directly
+- No pixel-to-rem conversion is performed at the utility level
 
 `1px` is used only where visual precision is required (e.g., borders,
 dividers).
@@ -93,28 +93,24 @@ Utilities solve one-off layout or state problems.
 
 They should not replace components.
 
-``` html
+```html
 <!-- Avoid: utility chains as pseudo-components -->
 <div class="u-d-flex u-align-center u-justify-between u-px-4 u-py-3 u-bg-primary u-text-white">
   Submit
 </div>
 ```
 
-``` html
+```html
 <!-- Prefer: reusable component -->
-<button class="app-c-button app-c-button-primary">
-  Submit
-</button>
+<button class="app-c-button app-c-button-primary">Submit</button>
 ```
 
-``` html
+```html
 <!-- Acceptable: one-off override -->
-<button class="app-c-button app-c-button-primary u-mt-4">
-  Submit
-</button>
+<button class="app-c-button app-c-button-primary u-mt-4">Submit</button>
 ```
 
-------------------------------------------------------------------------
+---
 
 ## Architecture
 
@@ -135,28 +131,28 @@ All styling lives under `src/scss`:
       _reset.scss
       main.scss
 
--   **Abstracts**: Tokens, themes, and shared variables (no
-    layout/component styles)
--   **Components**: Reusable UI building blocks, including local
-    overrides for third-party/plugin styles when needed
--   **Mixins / Functions**: Reusable SCSS helpers and utilities
-    consumed by components and utilities
--   **Utilities**: Single-purpose helpers and controlled overrides
--   **Common**: Shared global styles used across multiple pages and
-    components
--   **Reset**: Global normalization and element-level defaults
+- **Abstracts**: Tokens, themes, and shared variables (no
+  layout/component styles)
+- **Components**: Reusable UI building blocks, including local
+  overrides for third-party/plugin styles when needed
+- **Mixins / Functions**: Reusable SCSS helpers and utilities
+  consumed by components and utilities
+- **Utilities**: Single-purpose helpers and controlled overrides
+- **Common**: Shared global styles used across multiple pages and
+  components
+- **Reset**: Global normalization and element-level defaults
 
-------------------------------------------------------------------------
+---
 
 ## Theming Model
 
--   Base color tokens are defined per theme (e.g., light, dark)
--   Semantic tokens map to the active theme palette
--   Components consume semantic tokens only
+- Base color tokens are defined per theme (e.g., light, dark)
+- Semantic tokens map to the active theme palette
+- Components consume semantic tokens only
 
 This allows full theme changes without rewriting component styles.
 
-------------------------------------------------------------------------
+---
 
 ## Customization
 
@@ -175,30 +171,30 @@ Customize in this order, then let components consume the updated values:
 4. **Component-level overrides (only when needed)**
    - `src/scss/components/_typography.scss` for class-level usage changes
 
-------------------------------------------------------------------------
+---
 
 ## CSS Layers
 
 StyleBase uses native CSS Layers in global stylesheets only:
 
-``` scss
+```scss
 @layer reset, base, plugins, components, utilities;
 ```
 
--   Tokens do not participate in layer order, so token files never
-    use `@layer`
--   Layers define layer order for global styles and keep overrides
-    predictable in cascade order without specificity escalation
--   `plugins` is a reserved layer slot for vendor CSS ordering
-    (typically loaded from `node_modules`)
+- Tokens do not participate in layer order, so token files never
+  use `@layer`
+- Layers define layer order for global styles and keep overrides
+  predictable in cascade order without specificity escalation
+- `plugins` is a reserved layer slot for vendor CSS ordering
+  (typically loaded from `node_modules`)
 
-------------------------------------------------------------------------
+---
 
 ## Quick Start
 
 ### 1. Install Tooling
 
-``` bash
+```bash
 yarn add -D sass prettier stylelint stylelint-config-standard-scss husky lint-staged
 ```
 
@@ -206,30 +202,30 @@ You may skip `sass` if your framework already provides it.
 
 ### 2. Load the SCSS entrypoint
 
-``` scss
+```scss
 @use './src/scss/main.scss';
 ```
 
 ### 3. Maintain Layer Order
 
-``` scss
+```scss
 @layer reset, base, plugins, components, utilities;
 ```
 
 ### 4. Development Rules
 
--   Use semantic tokens inside components
--   Avoid hardcoded values
--   Use utilities only for edge-case overrides
--   Do not escalate specificity to solve ordering issues
+- Use semantic tokens inside components
+- Avoid hardcoded values
+- Use utilities only for edge-case overrides
+- Do not escalate specificity to solve ordering issues
 
-------------------------------------------------------------------------
+---
 
 ## Tooling
 
 ### Recommended Scripts
 
-``` json
+```json
 {
   "scripts": {
     "lint:scss": "stylelint \"src/**/*.scss\"",
@@ -237,32 +233,49 @@ You may skip `sass` if your framework already provides it.
     "prepare": "husky"
   },
   "lint-staged": {
-    "src/**/*.scss": [
-      "stylelint --fix --cache",
-      "prettier --write"
-    ],
-    "src/**/*.{ts,html,json}": [
-      "prettier --write"
-    ]
+    "src/**/*.scss": ["stylelint --fix --cache", "prettier --write"],
+    "src/**/*.{ts,html,json}": ["prettier --write"]
   }
 }
 ```
 
 ### Quality Stack
 
--   Stylelint for SCSS linting
--   Prettier for formatting
--   Husky + lint-staged for pre-commit enforcement
+- Stylelint for SCSS linting
+- Prettier for formatting
+- Husky + lint-staged for pre-commit enforcement
 
 ### Editor Setup
 
 Recommended VS Code extensions:
 
--   Prettier
--   Stylelint
--   SonarLint (optional, for additional static analysis)
+- Prettier
+- Stylelint
+- SonarLint (optional, for additional static analysis)
 
-------------------------------------------------------------------------
+### Git & Line Endings
+
+This repository uses `LF` line endings across text files.
+
+- `.gitattributes` enforces LF (`* text=auto eol=lf`)
+- `.editorconfig` sets `end_of_line = lf`
+- Prettier uses `endOfLine: "lf"`
+
+Recommended one-time Git setup (per developer machine):
+
+```bash
+git config --global core.autocrlf false
+git config --global core.eol lf
+```
+
+If your working tree has mixed line endings:
+
+```bash
+git add --renormalize .
+npx prettier --write .
+```
+
+---
 
 ## Reference Implementation
 
@@ -271,11 +284,10 @@ StyleBase can be consumed in a real project.
 
 The reference app illustrates:
 
--   Token-driven component styling
--   Layered override strategy
--   SVG sprite-based icon usage
--   Accessibility considerations
+- Token-driven component styling
+- Layered override strategy
+- SVG sprite-based icon usage
+- Accessibility considerations
 
 StyleBase itself remains framework-agnostic and can be used with
 Angular, React, Vue, or any modern frontend stack.
-
