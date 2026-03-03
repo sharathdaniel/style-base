@@ -18,6 +18,7 @@ utility-first workflow.
 -   [Core Principles](#core-principles)
 -   [Architecture](#architecture)
 -   [Theming Model](#theming-model)
+-   [Customization Points](#customization-points)
 -   [CSS Layers](#css-layers)
 -   [Quick Start](#quick-start)
 -   [Tooling](#tooling)
@@ -154,6 +155,21 @@ All styling lives under `src/scss`:
 -   Components consume semantic tokens only
 
 This allows full theme changes without rewriting component styles.
+
+------------------------------------------------------------------------
+
+## Customization Points
+
+StyleBase is designed to be adapted by editing tokens and scales first:
+
+-   Font scale and typography tokens:
+    `src/scss/abstracts/tokens/_font.scss`
+-   Spacing scale tokens: `src/scss/abstracts/tokens/_spacing.scss`
+-   Icon size tokens: `src/scss/abstracts/tokens/_icon.scss`
+-   Shared scales/helpers: `src/scss/abstracts/_scales.scss`
+
+Update these files to match project needs, then let components and
+utilities consume the updated token values.
 
 ------------------------------------------------------------------------
 
