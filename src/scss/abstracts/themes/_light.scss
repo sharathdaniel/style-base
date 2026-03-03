@@ -40,10 +40,16 @@ $semantic-status: (
   'status-info': '--blue-bold',
 );
 $semantic-button: (
-  'btn-primary-bg': '--bg-selected',
-  'btn-primary-bg-hover': '--bg-hover',
-  'btn-primary-color': '--text-primary',
-  'btn-primary-border': '--border-focus',
+  'btn-primary-bg': '--primary-selection-blue',
+  'btn-primary-bg-hover': '--grey-6',
+  'btn-primary-color': '--dark-1',
+  'btn-primary-border': '--primary-accent-blue',
+  'btn-primary-focus-ring': '--primary-accent-blue',
+  'btn-secondary-bg': '--neutral-white',
+  'btn-secondary-bg-hover': '--grey-6',
+  'btn-secondary-color': '--dark-1',
+  'btn-secondary-border': '--grey-2',
+  'btn-secondary-focus-ring': '--grey-2',
 );
 
 [data-theme='light'] {
