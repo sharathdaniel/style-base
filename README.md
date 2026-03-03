@@ -168,7 +168,7 @@ Customize in this order, then let components consume the updated values:
 2. **Color foundation**
    - `src/scss/abstracts/tokens/_colors.scss`
    - `src/scss/abstracts/themes/_light.scss` (add additional theme files in the same folder as needed)
-3. **Layout and icon scales**
+3. **Spacing and icon scales**
    - `src/scss/abstracts/tokens/_spacing.scss`
    - `src/scss/abstracts/tokens/_icon.scss`
    - `src/scss/abstracts/_scales.scss`
