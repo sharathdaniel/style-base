@@ -253,6 +253,28 @@ Recommended VS Code extensions:
 - Stylelint
 - SonarLint (optional, for additional static analysis)
 
+### Git & Line Endings
+
+This repository uses `LF` line endings across text files.
+
+- `.gitattributes` enforces LF (`* text=auto eol=lf`)
+- `.editorconfig` sets `end_of_line = lf`
+- Prettier uses `endOfLine: "lf"`
+
+Recommended one-time Git setup (per developer machine):
+
+```bash
+git config --global core.autocrlf false
+git config --global core.eol lf
+```
+
+If your working tree has mixed line endings:
+
+```bash
+git add --renormalize .
+npx prettier --write .
+```
+
 ---
 
 ## Reference Implementation
