@@ -5,11 +5,22 @@
   "ignoreFiles": ["dist/**/*", "node_modules/**/*"],
   "rules": {
     "no-empty-source": null,
-    "no-descending-specificity": null,
-    "selector-max-compound-selectors": null,
-    "selector-max-specificity": null,
-    "max-nesting-depth": null,
-    "scss/at-rule-no-unknown": null,
+    "no-descending-specificity": true,
+    "selector-max-compound-selectors": 4,
+    "selector-max-specificity": "0,4,0",
+    "max-nesting-depth": 4,
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "theme",
+          "utility",
+          "variant",
+          "custom-variant",
+          "source"
+        ]
+      }
+    ],
     "scss/operator-no-newline-after": null,
     "scss/operator-no-newline-before": null,
     "value-keyword-case": [
@@ -65,5 +76,16 @@
         "message": "Physical values (left/right) are disallowed. Use logical values (start/end/inline-start/inline-end) for RTL support."
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["src/scss/components/**/*.scss"],
+      "rules": {
+        "no-descending-specificity": null,
+        "selector-max-compound-selectors": null,
+        "selector-max-specificity": null,
+        "max-nesting-depth": null
+      }
+    }
+  ]
 }
