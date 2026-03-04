@@ -229,12 +229,12 @@ You may skip `sass` if your framework already provides it.
 {
   "scripts": {
     "lint:scss": "stylelint \"src/**/*.scss\"",
-    "format:check": "prettier --check \"src/**/*.{scss,ts,html,json}\"",
+    "format:check": "prettier --check \"src/**/*.{scss,ts,tsx,js,jsx,html,json}\"",
     "prepare": "husky"
   },
   "lint-staged": {
     "src/**/*.scss": ["stylelint --fix --cache", "prettier --write"],
-    "src/**/*.{ts,html,json}": ["prettier --write"]
+    "src/**/*.{ts,tsx,js,jsx,html,json}": ["prettier --write"]
   }
 }
 ```
