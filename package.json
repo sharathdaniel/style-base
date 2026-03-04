@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint:scss": "stylelint \"src/**/*.scss\"",
-    "format:check": "prettier --check \"src/**/*.{scss,ts,html,json}\"",
+    "format:check": "prettier --check \"src/**/*.{scss,ts,tsx,js,jsx,html,json}\"",
     "prepare": "husky"
   },
   "lint-staged": {
@@ -16,7 +16,7 @@
       "stylelint --fix --cache",
       "prettier --write"
     ],
-    "src/**/*.{ts,html,json}": [
+    "src/**/*.{ts,tsx,js,jsx,html,json}": [
       "prettier --write"
     ]
   },
