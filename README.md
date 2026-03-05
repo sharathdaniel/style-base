@@ -182,7 +182,8 @@ Customize in this order, then let components consume the updated values:
    - `src/scss/abstracts/_typography-tools.scss` (role mappings like `h-lg`, `body-md`, `ui-sm`)
 2. **Color foundation**
    - `src/scss/abstracts/tokens/_colors.scss`
-   - `src/scss/abstracts/themes/_light.scss` (add additional theme files in the same folder as needed)
+   - `src/scss/abstracts/themes/_light.scss`
+   - `src/scss/abstracts/themes/_dark.scss`
 3. **Spacing and icon scales**
    - `src/scss/abstracts/tokens/_spacing.scss`
    - `src/scss/abstracts/tokens/_icon.scss`

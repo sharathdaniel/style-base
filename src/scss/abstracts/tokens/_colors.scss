@@ -3,9 +3,13 @@
  * ------------
  * Defines source color values for StyleBase.
  *
- * Colors are stored in RGB format and exposed as:
+ * Colors can be defined as:
+ * - Hex color: #6366F1
+ * - Raw RGB string: '99, 102, 241'
+ *
+ * Tokens are exposed as:
  * - Full color token: rgb(...)
- * - Raw RGB token: <r>, <g>, <b>
+ * - Raw RGB token: <r> <g> <b>
  *
  * The raw RGB token enables modern alpha usage:
  * background-color: rgb(var(--primary-600-rgb) / 50%);
@@ -13,181 +17,139 @@
  * Tokens only - defines colors, not where they are used.
 */
 
+@use 'sass:color';
+@use 'sass:meta';
+@use 'sass:string';
+
+@function str-replace($source, $search, $replace: '') {
+  $index: string.index($source, $search);
+
+  @if not $index {
+    @return $source;
+  }
+
+  @return string.slice($source, 1, $index - 1) + $replace +
+    str-replace(string.slice($source, $index + string.length($search)), $search, $replace);
+}
+
+@function color-to-rgb-channels($value) {
+  @if meta.type-of($value) == 'color' {
+    @return "#{color.channel($value, 'red', $space: rgb)} #{color.channel($value, 'green', $space: rgb)} #{color.channel($value, 'blue', $space: rgb)}";
+  }
+
+  @if meta.type-of($value) == 'string' {
+    @return str-replace(string.unquote($value), ',', ' ');
+  }
+
+  @error "Color tokens must be a hex color or an 'r, g, b' string. Received #{meta.type-of($value)}: #{$value}";
+}
+
 $colors: (
   'primary': (
-    50: '238, 242, 255',
-    // #EEF2FF
-    100: '224, 231, 255',
-    // #E0E7FF
-    200: '199, 210, 254',
-    // #C7D2FE
-    300: '165, 180, 252',
-    // #A5B4FC
-    400: '129, 140, 248',
-    // #818CF8
-    500: '99, 102, 241',
-    // #6366F1
-    600: '79, 70, 229',
-    // #4F46E5
-    700: '67, 56, 202',
-    // #4338CA
-    800: '55, 48, 163',
-    // #3730A3
-    900: '49, 46, 129',
-    // #312E81
+    50: #eef2ff,
+    100: #e0e7ff,
+    200: #c7d2fe,
+    300: #a5b4fc,
+    400: #818cf8,
+    500: #6366f1,
+    600: #4f46e5,
+    700: #4338ca,
+    800: #3730a3,
+    900: #312e81,
   ),
 
   'accent': (
-    50: '236, 254, 255',
-    // #ECFEFF
-    100: '207, 250, 254',
-    // #CFFAFE
-    200: '165, 243, 252',
-    // #A5F3FC
-    300: '103, 232, 249',
-    // #67E8F9
-    400: '34, 211, 238',
-    // #22D3EE
-    500: '6, 182, 212',
-    // #06B6D4
-    600: '8, 145, 178',
-    // #0891B2
-    700: '14, 116, 144',
-    // #0E7490
-    800: '21, 94, 117',
-    // #155E75
-    900: '22, 78, 99',
-    // #164E63
+    50: #ecfeff,
+    100: #cffafe,
+    200: #a5f3fc,
+    300: #67e8f9,
+    400: #22d3ee,
+    500: #06b6d4,
+    600: #0891b2,
+    700: #0e7490,
+    800: #155e75,
+    900: #164e63,
   ),
 
   'neutral': (
-    50: '248, 250, 252',
-    // #F8FAFC
-    100: '241, 245, 249',
-    // #F1F5F9
-    200: '226, 232, 240',
-    // #E2E8F0
-    300: '203, 213, 225',
-    // #CBD5E1
-    400: '148, 163, 184',
-    // #94A3B8
-    500: '100, 116, 139',
-    // #64748B
-    600: '71, 85, 105',
-    // #475569
-    700: '51, 65, 85',
-    // #334155
-    800: '30, 41, 59',
-    // #1E293B
-    900: '15, 23, 42',
-    // #0F172A
-    950: '2, 6, 23',
-    // #020617
+    50: #f8fafc,
+    100: #f1f5f9,
+    200: #e2e8f0,
+    300: #cbd5e1,
+    400: #94a3b8,
+    500: #64748b,
+    600: #475569,
+    700: #334155,
+    800: #1e293b,
+    900: #0f172a,
+    950: #020617,
   ),
 
   'success': (
-    50: '240, 253, 244',
-    // #F0FDF4
-    100: '220, 252, 231',
-    // #DCFCE7
-    200: '187, 247, 208',
-    // #BBF7D0
-    300: '134, 239, 172',
-    // #86EFAC
-    400: '74, 222, 128',
-    // #4ADE80
-    500: '34, 197, 94',
-    // #22C55E
-    600: '22, 163, 74',
-    // #16A34A
-    700: '21, 128, 61',
-    // #15803D
-    800: '22, 101, 52',
-    // #166534
-    900: '20, 83, 45',
-    // #14532D
+    50: #f0fdf4,
+    100: #dcfce7,
+    200: #bbf7d0,
+    300: #86efac,
+    400: #4ade80,
+    500: #22c55e,
+    600: #16a34a,
+    700: #15803d,
+    800: #166534,
+    900: #14532d,
   ),
 
   'warning': (
-    50: '255, 251, 235',
-    // #FFFBEB
-    100: '254, 243, 199',
-    // #FEF3C7
-    200: '253, 230, 138',
-    // #FDE68A
-    300: '252, 211, 77',
-    // #FCD34D
-    400: '251, 191, 36',
-    // #FBBF24
-    500: '245, 158, 11',
-    // #F59E0B
-    600: '217, 119, 6',
-    // #D97706
-    700: '180, 83, 9',
-    // #B45309
-    800: '146, 64, 14',
-    // #92400E
-    900: '120, 53, 15',
-    // #78350F
+    50: #fffbeb,
+    100: #fef3c7,
+    200: #fde68a,
+    300: #fcd34d,
+    400: #fbbf24,
+    500: #f59e0b,
+    600: #d97706,
+    700: #b45309,
+    800: #92400e,
+    900: #78350f,
   ),
 
   'danger': (
-    50: '254, 242, 242',
-    // #FEF2F2
-    100: '254, 226, 226',
-    // #FEE2E2
-    200: '254, 202, 202',
-    // #FECACA
-    300: '252, 165, 165',
-    // #FCA5A5
-    400: '248, 113, 113',
-    // #F87171
-    500: '239, 68, 68',
-    // #EF4444
-    600: '220, 38, 38',
-    // #DC2626
-    700: '185, 28, 28',
-    // #B91C1C
-    800: '153, 27, 27',
-    // #991B1B
-    900: '127, 29, 29',
-    // #7F1D1D
+    50: #fef2f2,
+    100: #fee2e2,
+    200: #fecaca,
+    300: #fca5a5,
+    400: #f87171,
+    500: #ef4444,
+    600: #dc2626,
+    700: #b91c1c,
+    800: #991b1b,
+    900: #7f1d1d,
   ),
 
   'info': (
-    50: '239, 246, 255',
-    // #EFF6FF
-    100: '219, 234, 254',
-    // #DBEAFE
-    200: '191, 219, 254',
-    // #BFDBFE
-    300: '147, 197, 253',
-    // #93C5FD
-    400: '96, 165, 250',
-    // #60A5FA
-    500: '59, 130, 246',
-    // #3B82F6
-    600: '37, 99, 235',
-    // #2563EB
-    700: '29, 78, 216',
-    // #1D4ED8
-    800: '30, 64, 175',
-    // #1E40AF
-    900: '30, 58, 138',
-    // #1E3A8A
+    50: #eff6ff,
+    100: #dbeafe,
+    200: #bfdbfe,
+    300: #93c5fd,
+    400: #60a5fa,
+    500: #3b82f6,
+    600: #2563eb,
+    700: #1d4ed8,
+    800: #1e40af,
+    900: #1e3a8a,
   ),
 
   'common': (
-    'white': '255, 255, 255',
-    'black': '0, 0, 0',
+    'white': #fff,
+    'black': #000,
   ),
 );
 
 :root {
   @each $group, $shades in $colors {
     @each $name, $value in $shades {
-      --#{$group}-#{$name}: rgb(#{$value});
-      --#{$group}-#{$name}-rgb: #{$value};
+      $rgb: color-to-rgb-channels($value);
+
+      --#{$group}-#{$name}: rgb(#{$rgb});
+      --#{$group}-#{$name}-rgb: #{$rgb};
     }
   }
 }
