@@ -4,6 +4,5 @@ import { Component } from '@angular/core';
   selector: 'app-icon-registry',
   standalone: true,
   templateUrl: './icon-registry.component.html',
-  styles: [':host { display: none; }'],
 })
 export class IconRegistryComponent {}
