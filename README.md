@@ -17,6 +17,7 @@ utility-first workflow.
 - [Purpose and Scope](#purpose-and-scope)
 - [Core Principles](#core-principles)
 - [Architecture](#architecture)
+- [Layout Utilities](#layout-utilities)
 - [Theming Model](#theming-model)
 - [Customization](#customization)
 - [CSS Layers](#css-layers)
@@ -141,6 +142,22 @@ All styling lives under `src/scss`:
 - **Common**: Shared global styles used across multiple pages and
   components
 - **Reset**: Global normalization and element-level defaults
+
+---
+
+## Layout Utilities
+
+StyleBase includes both flex and grid utility systems:
+
+- `src/scss/utilities/_flex-layout.scss` for one-dimensional row-based layouts
+- `src/scss/utilities/_grid-layout.scss` for two-dimensional column/row layouts
+
+Both systems follow the same responsive tier names:
+
+- `tablet`
+- `laptop`
+- `desktop`
+- `large-desktop`
 
 ---
 
