@@ -1,16 +1,16 @@
 /* --------------------------------------------------------------------------
    Usage example
 
-   <div class="u-grid-row">
-     <div class="u-col-12 u-col-desktop-6">Item 1</div>
-     <div class="u-col-12 u-col-desktop-6">Item 2</div>
+  <div class="u-grid-row">
+    <div class="u-col-12 u-col-laptop-6">Item 1</div>
+    <div class="u-col-12 u-col-laptop-6">Item 2</div>
    </div>
 
    - Creates a 12-column grid
-   - Columns stack by default and split at defined breakpoints (tablet-up, desktop-up, etc.)
+  - Columns stack by default and split at defined breakpoints (tablet-up, laptop-up, etc.)
    - Grid gap uses spacing tokens (see spacing utilities)
    - Centering (The 13-Line Rule):
-     - Use .u-col-[size]-center (e.g., .u-col-desktop-6-center).
+    - Use .u-col-[size]-center (e.g., .u-col-laptop-6-center).
      - Automatically applies the formula: Start Line = ((12 - Width) / 2) + 1.
    -------------------------------------------------------------------------- */
 
@@ -90,19 +90,19 @@ $grid-gap: var(--space-4) !default;
     @include make-grid-columns('tablet');
   }
 
-  /* Desktop and up: ≥ 1024px */
+  /* Laptop and up: ≥ 1024px */
+  @include breakpoint-up(laptop) {
+    @include make-grid-columns('laptop');
+  }
+
+  /* Desktop and up: ≥ 1280px */
   @include breakpoint-up(desktop) {
     @include make-grid-columns('desktop');
   }
 
-  /* Wide and up: ≥ 1280px */
-  @include breakpoint-up(wide) {
-    @include make-grid-columns('wide');
-  }
-
-  /* Ultra-wide and up: ≥ 1536px */
-  @include breakpoint-up(ultrawide) {
-    @include make-grid-columns('ultrawide');
+  /* Large desktop and up: ≥ 1536px */
+  @include breakpoint-up(large-desktop) {
+    @include make-grid-columns('large-desktop');
   }
 }
 

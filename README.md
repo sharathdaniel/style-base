@@ -17,6 +17,7 @@ utility-first workflow.
 - [Purpose and Scope](#purpose-and-scope)
 - [Core Principles](#core-principles)
 - [Architecture](#architecture)
+- [Layout Utilities](#layout-utilities)
 - [Theming Model](#theming-model)
 - [Customization](#customization)
 - [CSS Layers](#css-layers)
@@ -144,6 +145,24 @@ All styling lives under `src/scss`:
 
 ---
 
+## Layout Utilities
+
+StyleBase includes both flex and grid utility systems:
+
+- `src/scss/utilities/_flex-layout.scss` for one-dimensional row-based layouts
+- `src/scss/utilities/_grid-layout.scss` for two-dimensional column/row layouts
+
+Both systems follow the same responsive tier names:
+
+- `tablet`
+- `laptop`
+- `desktop`
+- `large-desktop`
+
+Mobile is the default (no breakpoint suffix). Responsive class variants start at `tablet` and up.
+
+---
+
 ## Theming Model
 
 - Base color tokens are defined per theme (e.g., light, dark)
@@ -170,6 +189,14 @@ Customize in this order, then let components consume the updated values:
    - `src/scss/abstracts/_scales.scss`
 4. **Component-level overrides (only when needed)**
    - `src/scss/components/_typography.scss` for class-level usage changes
+5. **Responsive breakpoints**
+   - `src/scss/mixins/_breakpoint.scss`
+   - Semantic tiers:
+     - `mobile: 0px`
+     - `tablet: 768px`
+     - `laptop: 1024px`
+     - `desktop: 1280px`
+     - `large-desktop: 1536px`
 
 ---
 
