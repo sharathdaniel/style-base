@@ -9,7 +9,7 @@
  *
  * Tokens are exposed as:
  * - Full color token: rgb(...)
- * - Raw RGB token: <r>, <g>, <b>
+ * - Raw RGB token: <r> <g> <b>
  *
  * The raw RGB token enables modern alpha usage:
  * background-color: rgb(var(--primary-600-rgb) / 50%);
@@ -19,14 +19,26 @@
 
 @use 'sass:color';
 @use 'sass:meta';
+@use 'sass:string';
+
+@function str-replace($source, $search, $replace: '') {
+  $index: string.index($source, $search);
+
+  @if not $index {
+    @return $source;
+  }
+
+  @return string.slice($source, 1, $index - 1) + $replace +
+    str-replace(string.slice($source, $index + string.length($search)), $search, $replace);
+}
 
 @function color-to-rgb-channels($value) {
   @if meta.type-of($value) == 'color' {
-    @return "#{color.channel($value, 'red', $space: rgb)}, #{color.channel($value, 'green', $space: rgb)}, #{color.channel($value, 'blue', $space: rgb)}";
+    @return "#{color.channel($value, 'red', $space: rgb)} #{color.channel($value, 'green', $space: rgb)} #{color.channel($value, 'blue', $space: rgb)}";
   }
 
   @if meta.type-of($value) == 'string' {
-    @return $value;
+    @return str-replace(string.unquote($value), ',', ' ');
   }
 
   @error "Color tokens must be a hex color or an 'r, g, b' string. Received #{meta.type-of($value)}: #{$value}";
