@@ -4,6 +4,9 @@
     --btn-bg-hover: transparent;
     --btn-color: var(--text-primary);
     --btn-border: transparent;
+    --btn-bg-disabled: var(--btn-bg);
+    --btn-border-disabled: var(--btn-border);
+    --btn-color-disabled: var(--btn-color);
     --btn-focus-ring: var(--border-focus);
     --btn-focus-ring-size: 2px;
 
@@ -26,6 +29,9 @@
 
     &:disabled {
       cursor: not-allowed;
+      background-color: var(--btn-bg-disabled);
+      border-color: var(--btn-border-disabled);
+      color: var(--btn-color-disabled);
     }
 
     &:not(:disabled) {
@@ -48,6 +54,9 @@
     --btn-bg-hover: var(--btn-primary-bg-hover);
     --btn-color: var(--btn-primary-color);
     --btn-border: var(--btn-primary-border);
+    --btn-bg-disabled: rgb(var(--btn-primary-disabled-bg) / 60%);
+    --btn-border-disabled: rgb(var(--btn-primary-disabled-bg) / 60%);
+    --btn-color-disabled: var(--text-disabled);
     --btn-focus-ring: var(--btn-primary-focus-ring);
   }
 

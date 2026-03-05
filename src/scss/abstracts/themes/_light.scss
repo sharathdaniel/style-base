@@ -7,7 +7,7 @@
  * Components MUST consume semantic tokens (e.g. --bg-page, --text-primary),
  * never raw color values, to allow seamless theme switching.
  *
- * RGB variants are also exposed (--*-rgb) for opacity-based usage.
+ * RGB variants are added manually only where needed.
  *
  * Theme is activated via: [data-theme='light']
 */
@@ -42,6 +42,7 @@ $semantic-status: (
 $semantic-button: (
   'btn-primary-bg': '--primary-700',
   'btn-primary-bg-hover': '--primary-800',
+  'btn-primary-disabled-bg': '--primary-300-rgb',
   'btn-primary-color': '--common-white',
   'btn-primary-border': '--primary-700',
   'btn-primary-focus-ring': '--primary-400',
@@ -81,7 +82,6 @@ $semantic-scrollbar: (
   {
     @each $token, $ref in $map {
       --#{$token}: var(#{$ref});
-      --#{$token}-rgb: var(#{$ref}-rgb);
     }
   }
 }
