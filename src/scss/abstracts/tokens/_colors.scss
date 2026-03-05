@@ -41,7 +41,7 @@
     @return str-replace(string.unquote($value), ',', ' ');
   }
 
-  @error "Color tokens must be a hex color or an 'r, g, b' string. Received #{meta.type-of($value)}: #{$value}";
+  @error "Color tokens must be a hex color or an RGB channel string (e.g. '99 102 241' or '99, 102, 241'). Received #{meta.type-of($value)}: #{$value}";
 }
 
 $colors: (
