@@ -17,6 +17,7 @@
 
 /* Themes */
 @include meta.load-css('abstracts/themes/light');
+@include meta.load-css('abstracts/themes/dark');
 
 /* Vars */
 @include meta.load-css('abstracts/variables');
