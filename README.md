@@ -279,16 +279,17 @@ Recommended VS Code extensions:
 ### Git & Line Endings
 
 This repository uses `LF` line endings across text files.
+Using LF avoids cross-platform diffs, keeps commits cleaner, and matches most tooling and CI/Linux environments by default.
 
 - `.gitattributes` enforces LF (`* text=auto eol=lf`)
 - `.editorconfig` sets `end_of_line = lf`
 - Prettier uses `endOfLine: "lf"`
 
-Recommended one-time Git setup (per developer machine):
+Recommended Git setup for this repository only:
 
 ```bash
-git config --global core.autocrlf false
-git config --global core.eol lf
+git config core.autocrlf false
+git config core.eol lf
 ```
 
 If your working tree has mixed line endings:
