@@ -170,6 +170,38 @@ Customize in this order, then let components consume the updated values:
    - `src/scss/abstracts/_scales.scss`
 4. **Component-level overrides (only when needed)**
    - `src/scss/components/_typography.scss` for class-level usage changes
+5. **Responsive breakpoints**
+   - `src/scss/mixins/_breakpoint.scss`
+   - Semantic tiers:
+     - `mobile: 0px`
+     - `tablet: 768px`
+     - `laptop: 1024px`
+     - `desktop: 1280px`
+     - `large-desktop: 1536px`
+   - Core mixins:
+     - `breakpoint-up($size)`: target `$size` and above
+     - `breakpoint-down($size)`: target below the next tier
+     - `breakpoint-between($lower, $upper)`: target an inclusive tier range
+     - `breakpoint-only($size)`: shorthand for a single tier bucket
+   - Notes:
+     - `breakpoint-down(large-desktop)` throws by design (largest tier has no upper bound)
+     - `breakpoint-only(large-desktop)` is open-ended (`>= 1536px`)
+
+Example usage:
+
+```scss
+@include breakpoint-only(mobile) {
+  // < 768px
+}
+
+@include breakpoint-between(mobile, tablet) {
+  // >= 0 and < 1024px
+}
+
+@include breakpoint-up(laptop) {
+  // >= 1024px
+}
+```
 
 ---
 
