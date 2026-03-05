@@ -183,6 +183,7 @@ Customize in this order, then let components consume the updated values:
 1. **Typography foundation**
    - `src/scss/abstracts/tokens/_font.scss` (sizes, line heights, weights, families)
    - `src/scss/abstracts/_typography-tools.scss` (role mappings like `h-lg`, `body-md`, `ui-sm`)
+   - `src/scss/components/_typography.scss` for class-level usage changes (only when needed)
 2. **Color foundation**
    - `src/scss/abstracts/tokens/_colors.scss`
    - `src/scss/abstracts/themes/_light.scss`
@@ -191,9 +192,7 @@ Customize in this order, then let components consume the updated values:
    - `src/scss/abstracts/tokens/_spacing.scss`
    - `src/scss/abstracts/tokens/_icon.scss`
    - `src/scss/abstracts/_scales.scss`
-4. **Component-level overrides (only when needed)**
-   - `src/scss/components/_typography.scss` for class-level usage changes
-5. **Responsive breakpoints**
+4. **Responsive breakpoints**
    - `src/scss/mixins/_breakpoint.scss`
    - Semantic tiers:
      - `mobile: 0px`
