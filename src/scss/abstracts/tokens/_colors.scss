@@ -7,7 +7,7 @@
  * - Hex color: #6366F1
  *
  * Tokens are exposed as:
- * - Full color token: rgb(...)
+ * - Full color token: original hex value
  * - Raw RGB token: <r> <g> <b>
  *
  * The raw RGB token enables modern alpha usage:
@@ -131,7 +131,7 @@ $colors: (
     @each $name, $value in $shades {
       $rgb: color-to-rgb-channels($value);
 
-      --#{$group}-#{$name}: rgb(#{$rgb});
+      --#{$group}-#{$name}: #{$value};
       --#{$group}-#{$name}-rgb: #{$rgb};
     }
   }
