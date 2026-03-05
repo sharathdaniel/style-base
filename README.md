@@ -17,7 +17,7 @@ utility-first workflow.
 - [Purpose and Scope](#purpose-and-scope)
 - [Core Principles](#core-principles)
 - [Architecture](#architecture)
-- [Layout Utilities](#layout-utilities)
+- [Flex and Grid Layout Systems](#flex-and-grid-layout-systems)
 - [Theming Model](#theming-model)
 - [Customization](#customization)
 - [CSS Layers](#css-layers)
@@ -145,14 +145,14 @@ All styling lives under `src/scss`:
 
 ---
 
-## Layout Utilities
+## Flex and Grid Layout Systems
 
-StyleBase includes both flex and grid utility systems:
+StyleBase provides dedicated flex and grid layout systems:
 
 - `src/scss/utilities/_flex-layout.scss` for one-dimensional row-based layouts
 - `src/scss/utilities/_grid-layout.scss` for two-dimensional column/row layouts
 
-Both systems follow the same responsive tier names:
+Both layout systems use the same responsive tier names:
 
 - `tablet`
 - `laptop`
@@ -160,6 +160,9 @@ Both systems follow the same responsive tier names:
 - `large-desktop`
 
 Mobile is the default (no breakpoint suffix). Responsive class variants start at `tablet` and up.
+
+Start with flex layout for most common UI composition needs (row/column alignment, spacing, and distribution in a single axis).
+Choose grid layout when you need two-dimensional control across both rows and columns.
 
 ---
 
