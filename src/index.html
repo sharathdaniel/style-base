@@ -5,6 +5,33 @@
     <title>StyleBase</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      (() => {
+        const themeStorageKey = 'stylebase-theme';
+        const savedTheme = localStorage.getItem(themeStorageKey);
+        let resolvedTheme = 'light';
+
+        if (savedTheme === 'dark' || savedTheme === 'light') {
+          resolvedTheme = savedTheme;
+        } else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+          resolvedTheme = 'dark';
+        }
+
+        document.documentElement.dataset['theme'] = resolvedTheme;
+      })();
+    </script>
+    <style>
+      html,
+      body {
+        background-color: #f8fafc;
+      }
+
+      html[data-theme='dark'],
+      html[data-theme='dark'] body {
+        background-color: #020617;
+      }
+    </style>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"

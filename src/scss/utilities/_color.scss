@@ -10,6 +10,10 @@
   color: var(--text-tertiary);
 }
 
+.u-text-disabled {
+  color: var(--text-disabled);
+}
+
 .u-text-link {
   color: var(--text-link);
 }
@@ -20,4 +24,12 @@
 
 .u-text-success {
   color: var(--status-success);
+}
+
+.u-text-warning {
+  color: var(--status-warning);
+}
+
+.u-text-info {
+  color: var(--status-info);
 }

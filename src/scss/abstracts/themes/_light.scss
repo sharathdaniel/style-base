@@ -13,43 +13,43 @@
 */
 
 $semantic-bg: (
-  'bg-page': '--grey-6',
-  'bg-surface': '--neutral-white',
-  'bg-surface-subtle': '--grey-5',
-  'bg-hover': '--grey-6',
-  'bg-selected': '--primary-selection-blue',
+  'bg-page': '--neutral-50',
+  'bg-surface': '--common-white',
+  'bg-surface-subtle': '--neutral-100',
+  'bg-hover': '--neutral-200',
+  'bg-selected': '--primary-100',
 );
 $semantic-text: (
-  'text-primary': '--dark-1',
-  'text-secondary': '--grey-1',
-  'text-tertiary': '--grey-2',
-  'text-disabled': '--grey-3',
-  'text-link': '--primary-hyperlink-blue',
-  'text-link-hover': '--primary-navy-blue',
+  'text-primary': '--neutral-900',
+  'text-secondary': '--neutral-700',
+  'text-tertiary': '--neutral-600',
+  'text-disabled': '--neutral-400',
+  'text-link': '--primary-700',
+  'text-link-hover': '--primary-800',
 );
 $semantic-border: (
-  'border-light': '--grey-4',
-  'border-medium': '--grey-2',
-  'border-strong': '--grey-1',
-  'border-focus': '--primary-accent-blue',
+  'border-light': '--neutral-200',
+  'border-medium': '--neutral-300',
+  'border-strong': '--neutral-400',
+  'border-focus': '--primary-500',
 );
 $semantic-status: (
-  'status-success': '--green-success',
-  'status-error': '--red-alert',
-  'status-warning': '--pending-orange-light',
-  'status-info': '--blue-bold',
+  'status-success': '--success-700',
+  'status-error': '--danger-700',
+  'status-warning': '--warning-700',
+  'status-info': '--info-700',
 );
 $semantic-button: (
-  'btn-primary-bg': '--primary-selection-blue',
-  'btn-primary-bg-hover': '--grey-6',
-  'btn-primary-color': '--dark-1',
-  'btn-primary-border': '--primary-accent-blue',
-  'btn-primary-focus-ring': '--primary-accent-blue',
-  'btn-secondary-bg': '--neutral-white',
-  'btn-secondary-bg-hover': '--grey-6',
-  'btn-secondary-color': '--dark-1',
-  'btn-secondary-border': '--grey-2',
-  'btn-secondary-focus-ring': '--grey-2',
+  'btn-primary-bg': '--primary-700',
+  'btn-primary-bg-hover': '--primary-800',
+  'btn-primary-color': '--common-white',
+  'btn-primary-border': '--primary-700',
+  'btn-primary-focus-ring': '--primary-400',
+  'btn-secondary-bg': '--common-white',
+  'btn-secondary-bg-hover': '--neutral-100',
+  'btn-secondary-color': '--neutral-900',
+  'btn-secondary-border': '--neutral-300',
+  'btn-secondary-focus-ring': '--primary-400',
 );
 $semantic-accordion: (
   'accordion-bg': '--bg-surface',
@@ -61,7 +61,8 @@ $semantic-accordion: (
   'accordion-focus-ring': '--border-focus',
 );
 $semantic-scrollbar: (
-  'scrollbar-thumb': '--text-secondary',
+  'scrollbar-thumb': '--neutral-500',
+  'scrollbar-track': '--neutral-100',
 );
 
 [data-theme='light'] {

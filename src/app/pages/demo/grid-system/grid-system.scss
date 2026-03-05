@@ -9,28 +9,28 @@
 }
 
 .demo-box {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
+  background-color: var(--neutral-100);
+  border: 1px solid var(--neutral-300);
   padding: var(--space-4);
   text-align: center;
   font-size: var(--fs-md);
 
   &.alt {
-    background-color: #e0e0e0;
+    background-color: var(--neutral-200);
   }
 
   &.blue {
-    background-color: #dbeafe;
-    border-color: #93c5fd;
+    background-color: var(--info-100);
+    border-color: var(--info-300);
   }
 
   &.green {
-    background-color: #dcfce7;
-    border-color: #86efac;
+    background-color: var(--success-100);
+    border-color: var(--success-300);
   }
 }
 
 .app-c-individual-align {
   min-height: 150px;
-  background-color: #727272;
+  background-color: var(--neutral-600);
 }
