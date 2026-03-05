@@ -159,6 +159,8 @@ Both systems follow the same responsive tier names:
 - `desktop`
 - `large-desktop`
 
+Mobile is the default (no breakpoint suffix). Responsive class variants start at `tablet` and up.
+
 ---
 
 ## Theming Model
