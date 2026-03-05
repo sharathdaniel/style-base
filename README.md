@@ -17,10 +17,10 @@ utility-first workflow.
 - [Purpose and Scope](#purpose-and-scope)
 - [Core Principles](#core-principles)
 - [Architecture](#architecture)
-- [Flex and Grid Layout Systems](#flex-and-grid-layout-systems)
+- [CSS Layers](#css-layers)
 - [Theming Model](#theming-model)
 - [Customization](#customization)
-- [CSS Layers](#css-layers)
+- [Flex and Grid Layout Systems](#flex-and-grid-layout-systems)
 - [Quick Start](#quick-start)
 - [Tooling](#tooling)
 - [Reference Implementation](#reference-implementation)
@@ -49,19 +49,13 @@ utility-first workflow.
 
 ### Layers over `!important`
 
-Override order is managed through native CSS Layers instead of
-specificity escalation.
+Override order is managed through native CSS Layers and predictable
+cascade flow instead of specificity escalation.
 
-`!important` is used only in explicit utility-level edge cases where:
-
-- Browser defaults must be forcefully neutralized (e.g.,
-  `pointer-events`, `visibility`)
-- Accessibility utilities must always win (e.g., screen-reader-only
-  helpers)
-- Behavioral utilities must override component styles
-
-These uses are intentional, documented, and limited to utilities ---
-never components.
+Use `!important` only for rare, utility-level exceptions where a
+deterministic override is required (for example, accessibility helpers,
+forced behavioral resets, or targeted overrides against third-party
+inline styles). Keep it intentional, documented, and never the default.
 
 ### Tokens First
 
@@ -145,24 +139,20 @@ All styling lives under `src/scss`:
 
 ---
 
-## Flex and Grid Layout Systems
+## CSS Layers
 
-StyleBase provides dedicated flex and grid layout systems:
+StyleBase uses native CSS Layers in global stylesheets only:
 
-- `src/scss/utilities/_flex-layout.scss` for one-dimensional row-based layouts
-- `src/scss/utilities/_grid-layout.scss` for two-dimensional column/row layouts
+```scss
+@layer reset, base, plugins, components, utilities;
+```
 
-Both layout systems use the same responsive tier names:
-
-- `tablet`
-- `laptop`
-- `desktop`
-- `large-desktop`
-
-Mobile is the default (no breakpoint suffix). Responsive class variants start at `tablet` and up.
-
-Start with flex layout for most common UI composition needs (row/column alignment, spacing, and distribution in a single axis).
-Choose grid layout when you need two-dimensional control across both rows and columns.
+- Tokens do not participate in layer order, so token files never
+  use `@layer`
+- Layers define layer order for global styles and keep overrides
+  predictable in cascade order without specificity escalation
+- `plugins` is a reserved layer slot for vendor CSS ordering
+  (typically loaded from `node_modules`)
 
 ---
 
@@ -203,20 +193,24 @@ Customize in this order, then let components consume the updated values:
 
 ---
 
-## CSS Layers
+## Flex and Grid Layout Systems
 
-StyleBase uses native CSS Layers in global stylesheets only:
+StyleBase provides dedicated flex and grid layout systems:
 
-```scss
-@layer reset, base, plugins, components, utilities;
-```
+- `src/scss/utilities/_flex-layout.scss` for one-dimensional row-based layouts
+- `src/scss/utilities/_grid-layout.scss` for two-dimensional column/row layouts
 
-- Tokens do not participate in layer order, so token files never
-  use `@layer`
-- Layers define layer order for global styles and keep overrides
-  predictable in cascade order without specificity escalation
-- `plugins` is a reserved layer slot for vendor CSS ordering
-  (typically loaded from `node_modules`)
+Both layout systems use the same responsive tier names:
+
+- `tablet`
+- `laptop`
+- `desktop`
+- `large-desktop`
+
+Mobile is the default (no breakpoint suffix). Responsive class variants start at `tablet` and up.
+
+Start with flex layout for most common UI composition needs (row/column alignment, spacing, and distribution in a single axis).
+Choose grid layout when you need two-dimensional control across both rows and columns.
 
 ---
 
@@ -238,9 +232,8 @@ You may skip `sass` if your framework already provides it.
 
 ### 3. Maintain Layer Order
 
-```scss
-@layer reset, base, plugins, components, utilities;
-```
+Follow the layer order defined in the [CSS Layers](#css-layers)
+section.
 
 ### 4. Development Rules
 
