@@ -6,7 +6,7 @@
 }
 
 .page-wrap {
-  @include mobile {
+  @include breakpoint-only(mobile) {
     flex-direction: column;
   }
 }
@@ -18,7 +18,7 @@
   min-height: 0;
   padding: var(--space-4);
 
-  @include mobile {
+  @include breakpoint-only(mobile) {
     flex: initial;
     min-height: auto;
     overflow-y: unset;
@@ -30,7 +30,7 @@
   min-height: 0;
   overflow-y: auto;
 
-  @include mobile {
+  @include breakpoint-only(mobile) {
     overflow-y: unset;
     flex: initial;
   }

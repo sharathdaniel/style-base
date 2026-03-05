@@ -7,28 +7,28 @@
 
 /* Hide only on mobile: < 768px */
 .u-hidden-mobile {
-  @include mobile {
+  @include breakpoint-only(mobile) {
     display: none !important;
   }
 }
 
 /* Hide only on tablet: 768px – <1024px */
 .u-hidden-tablet {
-  @include tablet {
+  @include breakpoint-only(tablet) {
     display: none !important;
   }
 }
 
 /* Hide on mobile + tablet: < 1024px */
 .u-hidden-mobile-tablet {
-  @include mobile-and-tablet {
+  @include breakpoint-between(mobile, tablet) {
     display: none !important;
   }
 }
 
-/* Hide on desktop and up: ≥ 1024px */
-.u-hidden-desktop-up {
-  @include desktop-and-up {
+/* Hide on laptop and up: ≥ 1024px */
+.u-hidden-laptop-up {
+  @include breakpoint-up(laptop) {
     display: none !important;
   }
 }

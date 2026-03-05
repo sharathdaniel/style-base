@@ -13,9 +13,9 @@
 $breakpoints: (
   mobile: 0px,
   tablet: 768px,
-  desktop: 1024px,
-  wide: 1280px,
-  ultrawide: 1536px,
+  laptop: 1024px,
+  desktop: 1280px,
+  large-desktop: 1536px,
 );
 
 /* --------------------------------------------------------------------------
@@ -52,7 +52,7 @@ $breakpoints: (
       @content;
     }
   } @else {
-    @content;
+    @error "breakpoint-down(#{$size}) is invalid because '#{$size}' is the largest breakpoint.";
   }
 }
 
@@ -85,55 +85,10 @@ $breakpoints: (
   }
 }
 
-/* --------------------------------------------------------------------------
-   Semantic Helpers
-   -------------------------------------------------------------------------- */
-
-@mixin mobile {
-  @include breakpoint-between(mobile, mobile) {
-    @content;
-  } // < 768px
-}
-
-@mixin tablet {
-  @include breakpoint-between(tablet, tablet) {
-    @content;
-  } // 768px – < 1024px
-}
-
-@mixin mobile-and-tablet {
-  @include breakpoint-down(tablet) {
-    @content;
-  } // < 1024px
-}
-
-@mixin desktop-and-up {
-  @include breakpoint-up(desktop) {
-    @content;
-  } // ≥ 1024px
-}
-
-@mixin wide-and-up {
-  @include breakpoint-up(wide) {
-    @content;
-  } // ≥ 1280px
-}
-
-@mixin ultrawide {
-  @include breakpoint-up(ultrawide) {
-    @content;
-  } // ≥ 1536px
-}
-
-// Specific ranges
-@mixin desktop {
-  @include breakpoint-between(desktop, desktop) {
-    @content;
-  }
-}
-
-@mixin desktop-and-wide {
-  @include breakpoint-between(desktop, wide) {
+// Single range bucket: e.g. mobile only, tablet only.
+// Note: for the largest key (large-desktop), this resolves to an open-ended range.
+@mixin breakpoint-only($size) {
+  @include breakpoint-between($size, $size) {
     @content;
   }
 }
