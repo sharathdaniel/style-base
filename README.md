@@ -182,26 +182,26 @@ Customize in this order, then let components consume the updated values:
      - `breakpoint-up($size)`: target `$size` and above
      - `breakpoint-down($size)`: target below the next tier
      - `breakpoint-between($lower, $upper)`: target an inclusive tier range
-    - `breakpoint-only($size)`: target just one tier (for example, only `mobile`)
+     - `breakpoint-only($size)`: target just one tier (for example, only `mobile`)
    - Notes:
      - `breakpoint-down(large-desktop)` throws an error because there is no tier above `large-desktop`
      - `breakpoint-only(large-desktop)` applies to `1536px` and up
 
-Example usage:
+   - Example usage:
 
-```scss
-@include breakpoint-only(mobile) {
-  // < 768px
-}
+     ```scss
+     @include breakpoint-only(mobile) {
+       // < 768px
+     }
 
-@include breakpoint-between(mobile, tablet) {
-  // >= 0 and < 1024px
-}
+     @include breakpoint-between(mobile, tablet) {
+       // >= 0 and < 1024px
+     }
 
-@include breakpoint-up(laptop) {
-  // >= 1024px
-}
-```
+     @include breakpoint-up(laptop) {
+       // >= 1024px
+     }
+     ```
 
 ---
 
