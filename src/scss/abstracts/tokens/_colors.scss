@@ -11,7 +11,7 @@
  * - Raw RGB token: <r> <g> <b>
  *
  * The raw RGB token enables modern alpha usage:
- * background-color: rgb(var(--primary-600-rgb) / 50%);
+ * background-color: rgb(var(--primary-500-rgb) / 50%);
  *
  * Tokens only - defines colors, not where they are used.
 */
@@ -137,16 +137,13 @@ $colors: (
 );
 $rgb-tokens: (
   'primary': (
-    100,
     300,
     400,
     500,
-    900,
   ),
-  'neutral': (
-    200,
-    500,
-    700,
+  'common': (
+    'white',
+    'black',
   ),
 );
 
