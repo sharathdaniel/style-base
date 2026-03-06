@@ -195,7 +195,7 @@ Customize in this order, then let components consume the updated values:
 
 ## Flex and Grid Layout Systems
 
-StyleBase provides dedicated flex and grid layout systems:
+StyleBase provides dedicated flex and grid layout systems, both using a 12-column structure by default:
 
 - `src/scss/utilities/_flex-layout.scss` for one-dimensional row-based layouts
 - `src/scss/utilities/_grid-layout.scss` for two-dimensional column/row layouts
