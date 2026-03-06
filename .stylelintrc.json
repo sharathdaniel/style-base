@@ -76,7 +76,10 @@
       {
         "message": "Avoid `vh` for heights and custom properties. Prefer `dvh`/`svh`."
       }
-    ]
+    ],
+    "custom-property-pattern": "^[a-z][a-z0-9-]*$",
+    "scss/dollar-variable-pattern": "^[a-z][a-z0-9-]*$",
+    "media-feature-range-notation": "context"
   },
   "overrides": [
     {
