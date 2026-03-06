@@ -67,7 +67,19 @@
       {
         "message": "Physical values (left/right) are disallowed. Use logical values (start/end/inline-start/inline-end) for RTL support."
       }
-    ]
+    ],
+    "declaration-property-unit-disallowed-list": [
+      {
+        "/^(height|min-height|max-height)$/": ["vh"],
+        "/^--/": ["vh"]
+      },
+      {
+        "message": "Avoid `vh` for heights and custom properties. Prefer `dvh`/`svh`."
+      }
+    ],
+    "custom-property-pattern": "^[a-z][a-z0-9-]*$",
+    "scss/dollar-variable-pattern": "^[a-z][a-z0-9-]*$",
+    "media-feature-range-notation": "context"
   },
   "overrides": [
     {
