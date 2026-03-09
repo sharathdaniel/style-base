@@ -1,20 +1,9 @@
-/**
- * Color Tokens
- * ------------
- * Defines source color values for StyleBase.
- *
- * Colors can be defined as:
- * - Hex color: #6366F1
- *
- * Tokens are exposed as:
- * - Full color token: original hex value
- * - Raw RGB token: <r> <g> <b>
- *
- * The raw RGB token enables modern alpha usage:
- * background-color: rgb(var(--primary-500-rgb) / 50%);
- *
- * Tokens only - defines colors, not where they are used.
-*/
+/*
+ * Color tokens for StyleBase.
+ * Tokens expose both full color values and selected raw RGB channels.
+ * Raw RGB tokens support alpha usage, e.g. rgb(var(--primary-500-rgb) / 50%).
+ * This file defines token sources only, not semantic usage.
+ */
 
 @use 'sass:color';
 @use 'sass:list';

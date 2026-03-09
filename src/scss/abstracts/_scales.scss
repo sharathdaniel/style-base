@@ -1,68 +1,49 @@
-/* ==========================================================================
-   SYSTEM SCALES
-   --------------------------------------------------------------------------
-   This file declares all design system scales.
-   Each scale is independent.
-   ========================================================================== */
+/*
+ * System scales.
+ * Declares independent typography, icon, and spacing scales.
+ */
 
 /* Typography scale */
+
+/* px reference: xs=10, sm=12, label=13, md=14, lg=16, xl=18, 2xl=20, 3xl=22, 4xl=24 */
 $text-scale: (
   xs: var(--fs-xs),
-  // 10px
   sm: var(--fs-sm),
-  // 12px
   label: var(--fs-label),
-  // 13px
   md: var(--fs-md),
-  // 14px
   lg: var(--fs-lg),
-  // 16px
   xl: var(--fs-xl),
-  // 18px
   2xl: var(--fs-2xl),
-  // 20px
   3xl: var(--fs-3xl),
-  // 22px
-  4xl: var(--fs-4xl), // 24px
+  4xl: var(--fs-4xl),
 );
 
 /* Icon scale */
+
+/* px reference: xs=8, sm=12, md=16, lg=20, xl=24, 2xl=32, 3xl=48 */
 $icon-scale: (
   xs: var(--icon-xs),
-  // 8px
   sm: var(--icon-sm),
-  // 12px
   md: var(--icon-md),
-  // 16px
   lg: var(--icon-lg),
-  // 20px
   xl: var(--icon-xl),
-  // 24px
   2xl: var(--icon-2xl),
-  // 32px
-  3xl: var(--icon-3xl), // 48px
+  3xl: var(--icon-3xl),
 );
 
 /* Spacing scale */
+
+/* px reference: 0=0, 1=4, 2=8, 3=12, 4=16, 5=20, 6=24, 7=28, 8=32, 9=36, 10=40 */
 $space-scale: (
   0: var(--space-0),
   1: var(--space-1),
-  // 4px
   2: var(--space-2),
-  // 8px
   3: var(--space-3),
-  // 12px
   4: var(--space-4),
-  // 16px
   5: var(--space-5),
-  // 20px
   6: var(--space-6),
-  // 24px
   7: var(--space-7),
-  // 28px
   8: var(--space-8),
-  // 32px
   9: var(--space-9),
-  // 36px
-  10: var(--space-10), // 40px
+  10: var(--space-10),
 );

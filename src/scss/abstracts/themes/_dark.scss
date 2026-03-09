@@ -1,16 +1,9 @@
-/**
- * Dark Theme - Semantic Token Mapping
- * ----------------------------------
- * This file maps semantic design tokens (background, text, border, status)
- * to their corresponding base color tokens for the dark theme.
- *
- * Components MUST consume semantic tokens (e.g. --bg-page, --text-primary),
- * never raw color values, to allow seamless theme switching.
- *
- * RGB variants are added manually only where needed.
- *
- * Theme is activated via: [data-theme='dark']
-*/
+/*
+ * Dark theme semantic token mapping.
+ * Maps semantic tokens (background, text, border, status) to base color tokens.
+ * Components should consume semantic tokens only for theme switching.
+ * Theme selector: [data-theme='dark'].
+ */
 
 $semantic-bg: (
   'bg-page': '--neutral-950',

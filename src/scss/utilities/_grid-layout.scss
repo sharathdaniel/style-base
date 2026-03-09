@@ -1,32 +1,21 @@
-/* --------------------------------------------------------------------------
-   Usage example
-
-  <div class="u-grid-row">
-    <div class="u-col-12 u-col-laptop-6">Item 1</div>
-    <div class="u-col-12 u-col-laptop-6">Item 2</div>
-   </div>
-
-   - Creates a 12-column grid
-  - Columns stack by default and split at defined breakpoints (tablet-up, laptop-up, etc.)
-   - Grid gap uses spacing tokens (see spacing utilities)
-   - Centering (The 13-Line Rule):
-    - Use .u-col-[size]-center (e.g., .u-col-laptop-6-center).
-     - Automatically applies the formula: Start Line = ((12 - Width) / 2) + 1.
-   -------------------------------------------------------------------------- */
+/*
+ * Usage example:
+ * <div class="u-grid-row">
+ *   <div class="u-col-12 u-col-laptop-6">Item 1</div>
+ *   <div class="u-col-12 u-col-laptop-6">Item 2</div>
+ * </div>
+ * Creates a 12-column grid with token-based gaps.
+ */
 
 @use 'sass:math';
 @use '../mixins/breakpoint' as *;
 
-/* --------------------------------------------------------------------------
-   Configuration
-   -------------------------------------------------------------------------- */
+/* Configuration */
 
 $grid-columns: 12 !default;
 $grid-gap: var(--space-4) !default;
 
-/* --------------------------------------------------------------------------
-   Grid container
-   -------------------------------------------------------------------------- */
+/* Grid container */
 
 .u-grid-row {
   display: grid;
@@ -37,9 +26,7 @@ $grid-gap: var(--space-4) !default;
     grid-column: span #{$grid-columns};
   }
 
-  /* --------------------------------------------------------------------------
-    Mixin: Grid Columns
-    -------------------------------------------------------------------------- */
+  /* Grid column mixin */
 
   /* stylelint-disable declaration-block-no-redundant-longhand-properties */
 
@@ -78,9 +65,7 @@ $grid-gap: var(--space-4) !default;
 
   /* stylelint-enable declaration-block-no-redundant-longhand-properties */
 
-  /* --------------------------------------------------------------------------
-    Column span utilities
-    -------------------------------------------------------------------------- */
+  /* Column span utilities */
 
   /* Base: < 768px (mobile) */
   @include make-grid-columns;
@@ -106,9 +91,7 @@ $grid-gap: var(--space-4) !default;
   }
 }
 
-/* --------------------------------------------------------------------------
-   Auto-fit / Auto-fill grid helpers
-   -------------------------------------------------------------------------- */
+/* Auto-fit and auto-fill grid helpers */
 
 /* Default minimum column width */
 $grid-auto-min: 16rem !default;

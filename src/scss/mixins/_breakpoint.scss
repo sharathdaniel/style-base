@@ -1,11 +1,9 @@
-/* --------------------------------------------------------------------------
-   Note
-   --------------------------------------------------------------------------
-   For one-off custom breakpoints, use modern range syntax:
-
-   @media (width <= 640px) { ... }  // max-width
-   @media (width >= 1280px) { ... } // min-width
-   -------------------------------------------------------------------------- */
+/*
+ * Breakpoint mixins.
+ * For one-off custom breakpoints, prefer modern range syntax:
+ * @media (width <= 640px) { ... }  max-width
+ * @media (width >= 1280px) { ... } min-width
+ */
 
 @use 'sass:map';
 @use 'sass:list';
@@ -18,11 +16,9 @@ $breakpoints: (
   large-desktop: 1536px,
 );
 
-/* --------------------------------------------------------------------------
-   Core Logic Mixins
-   -------------------------------------------------------------------------- */
+/* Core logic mixins */
 
-// Min-width: Target $size and everything larger
+/* Min-width: target $size and everything larger. */
 @mixin breakpoint-up($size) {
   @if not map.has-key($breakpoints, $size) {
     @error "Breakpoint #{$size} not found. Available: #{map.keys($breakpoints)}";
@@ -35,7 +31,7 @@ $breakpoints: (
   }
 }
 
-// Max-width: Target $size and everything smaller
+/* Max-width: target $size and everything smaller. */
 @mixin breakpoint-down($size) {
   @if not map.has-key($breakpoints, $size) {
     @error "Breakpoint #{$size} not found. Available: #{map.keys($breakpoints)}";
@@ -85,22 +81,16 @@ $breakpoints: (
   }
 }
 
-// Single range bucket: e.g. mobile only, tablet only.
-// Note: for the largest key (large-desktop), this resolves to an open-ended range.
+/* Single range bucket (e.g. mobile only, tablet only); for large-desktop this resolves to an open-ended range. */
 @mixin breakpoint-only($size) {
   @include breakpoint-between($size, $size) {
     @content;
   }
 }
 
-/* --------------------------------------------------------------------------
-   Interaction & Capability Helpers
-   -------------------------------------------------------------------------- */
+/* Interaction and capability helpers */
 
-/**
- * Targets devices with a mouse/trackpad (fine pointer) that support hover.
- * Essential for 1024px screens (iPad landscape vs small Laptops).
- */
+/* Targets devices with a fine pointer that support hover (helps distinguish tablets from small laptops). */
 @mixin has-hover {
   @media (hover: hover) and (pointer: fine) {
     @content;

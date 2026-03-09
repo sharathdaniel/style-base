@@ -1,8 +1,6 @@
 @use 'sass:map';
 
-/* =====================================================
-   Typography Variants (System Roles)
-   ===================================================== */
+/* Typography variants (system roles) */
 
 $typography-variants: (
   /* Headings */
@@ -52,9 +50,7 @@ $typography-variants: (
   )
 );
 
-/* =====================================================
-   Internal Mixins (Private API)
-   ===================================================== */
+/* Internal mixins (private API) */
 
 @mixin text-style($variant) {
   $props: map.get($typography-variants, $variant);

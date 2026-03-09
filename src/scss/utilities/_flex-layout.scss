@@ -1,26 +1,21 @@
-/* --------------------------------------------------------------------------
-   Usage example
-
-  <div class="u-flex-row">
-    <div class="u-col-12 u-col-laptop-6">Item 1</div>
-    <div class="u-col-12 u-col-laptop-6">Item 2</div>
-   </div>
-   -------------------------------------------------------------------------- */
+/*
+ * Usage example:
+ * <div class="u-flex-row">
+ *   <div class="u-col-12 u-col-laptop-6">Item 1</div>
+ *   <div class="u-col-12 u-col-laptop-6">Item 2</div>
+ * </div>
+ */
 
 @use 'sass:math';
 @use '../mixins/breakpoint' as *;
 @use '../abstracts/scales' as *;
 
-/* --------------------------------------------------------------------------
-   Configuration
-   -------------------------------------------------------------------------- */
+/* Configuration */
 
 $flex-columns: 12 !default;
 $flex-gap: var(--space-4) !default;
 
-/* --------------------------------------------------------------------------
-   Flex row
-   -------------------------------------------------------------------------- */
+/* Flex row */
 
 .u-flex-row {
   --gap: #{$flex-gap};
@@ -51,9 +46,7 @@ $flex-gap: var(--space-4) !default;
     }
   }
 
-  /* --------------------------------------------------------------------------
-     Flex column widths
-     -------------------------------------------------------------------------- */
+  /* Flex column widths */
 
   @mixin make-flex-columns($infix: null) {
     $prefix: if($infix, '-#{$infix}', '');

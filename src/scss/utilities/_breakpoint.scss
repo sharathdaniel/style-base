@@ -1,7 +1,4 @@
-/**
- * '!important' is used on purpose so hiding always works,
- * even if a component sets its own 'display' value.
- */
+/* '!important' is used on purpose so hiding always works, even if a component sets its own display value. */
 
 @use '../mixins/breakpoint' as *;
 
