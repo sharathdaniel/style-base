@@ -58,6 +58,9 @@ $semantic-scrollbar: (
   'scrollbar-thumb': '--neutral-500',
   'scrollbar-track': '--neutral-100',
 );
+$semantic-sidebar: (
+  'sidebar-bg': '--primary-600',
+);
 
 [data-theme='light'] {
   color-scheme: light;
@@ -70,7 +73,8 @@ $semantic-scrollbar: (
       $semantic-status,
       $semantic-button,
       $semantic-accordion,
-      $semantic-scrollbar
+      $semantic-scrollbar,
+      $semantic-sidebar
     )
   {
     @each $token, $ref in $map {
