@@ -1,8 +1,11 @@
 <div class="app-root">
   <app-main-header></app-main-header>
-  <main class="route-container u-scrollbar">
-    <router-outlet />
-  </main>
+  <div class="app-body">
+    <app-sidebar></app-sidebar>
+    <main class="route-container u-scrollbar">
+      <router-outlet />
+    </main>
+  </div>
 </div>
 
 <app-icon-registry hidden></app-icon-registry>
