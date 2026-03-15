@@ -51,6 +51,10 @@ $typography-variants: (
 @mixin text-style($variant) {
   $props: map.get($typography-variants, $variant);
 
+  @if not $props {
+    @error "Unknown typography variant: #{$variant}";
+  }
+
   font-size: map.get($props, size);
   line-height: map.get($props, line);
 }
