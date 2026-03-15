@@ -4,25 +4,21 @@
 
 $typography-variants: (
   /* Headings */
-  h-sm: (
-      size: var(--fs-label),
+  h-md: (
+      size: var(--fs-lg),
       line: var(--lh-normal),
     ),
-  h-md: (
-    size: var(--fs-lg),
-    line: var(--lh-body),
-  ),
   h-lg: (
     size: var(--fs-2xl),
     line: var(--lh-normal),
   ),
   h-xl: (
     size: var(--fs-3xl),
-    line: var(--lh-body),
+    line: var(--lh-normal),
   ),
   h-xxl: (
     size: var(--fs-4xl),
-    line: var(--lh-body),
+    line: var(--lh-normal),
   ),
 
   /* Body text */
