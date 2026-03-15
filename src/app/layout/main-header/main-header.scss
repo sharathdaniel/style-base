@@ -1,5 +1,5 @@
-@use 'functions/rem' as *;
-@use 'mixins/breakpoint' as *;
+@use 'abstracts/functions/rem' as *;
+@use 'abstracts/mixins/breakpoint' as *;
 
 :host {
   --header-spacing: #{rem(16)};

@@ -1,4 +1,4 @@
-@use '../functions/rem' as *;
+@use '../abstracts/functions/rem' as *;
 
 @layer components {
   .app-c-badge {

@@ -7,23 +7,23 @@
 @layer reset, base, plugins, components, utilities;
 
 /* Reset */
-@include meta.load-css('reset');
+@include meta.load-css('base/reset');
 
 /* Tokens */
-@include meta.load-css('abstracts/tokens/colors');
-@include meta.load-css('abstracts/tokens/font');
-@include meta.load-css('abstracts/tokens/spacing');
-@include meta.load-css('abstracts/tokens/icon');
+@include meta.load-css('tokens/colors');
+@include meta.load-css('tokens/font');
+@include meta.load-css('tokens/spacing');
+@include meta.load-css('tokens/icon');
 
 /* Themes */
-@include meta.load-css('abstracts/themes/light');
-@include meta.load-css('abstracts/themes/dark');
+@include meta.load-css('tokens/themes/light');
+@include meta.load-css('tokens/themes/dark');
 
-/* Vars */
-@include meta.load-css('abstracts/variables');
+/* Global Variables */
+@include meta.load-css('tokens/variables');
 
 /* Common (Styles common for multiple pages or components) */
-@include meta.load-css('common');
+@include meta.load-css('layout/common');
 
 /* Plugins (node_modules) */
 @layer plugins {
@@ -33,9 +33,9 @@
 /* Components */
 @include meta.load-css('components/typography');
 @include meta.load-css('components/icon');
-@include meta.load-css('components/buttons');
+@include meta.load-css('components/button');
 @include meta.load-css('components/accordion');
-@include meta.load-css('components/badges');
+@include meta.load-css('components/badge');
 
 /* Utilities (Always load it last) */
 @include meta.load-css('utilities');

@@ -1,5 +1,5 @@
-@use 'mixins/page-height' as *;
-@use 'functions/rem' as *;
+@use 'abstracts/mixins/page-height' as *;
+@use 'abstracts/functions/rem' as *;
 
 :host {
   @include page-height;

@@ -1,5 +1,5 @@
-@use 'mixins/page-height' as *;
-@use 'mixins/svg-mask' as *;
+@use 'abstracts/mixins/page-height' as *;
+@use 'abstracts/mixins/svg-mask' as *;
 
 :host {
   @include page-height;

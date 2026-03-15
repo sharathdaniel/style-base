@@ -1,5 +1,5 @@
-@use 'mixins/page-height' as *;
-@use 'mixins/breakpoint' as *;
+@use 'abstracts/mixins/page-height' as *;
+@use 'abstracts/mixins/breakpoint' as *;
 
 :host {
   @include page-height;

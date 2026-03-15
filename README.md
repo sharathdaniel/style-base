@@ -113,29 +113,19 @@ All styling lives under `src/scss`:
 
     src/scss/
       abstracts/
-        themes/
-        tokens/
-        _scales.scss
-        _typography-tools.scss
-        _variables.scss
+      base/
       components/
-      functions/
-      mixins/
+      layout/
+      tokens/
       utilities/
-      _common.scss
-      _reset.scss
       main.scss
 
-- **Abstracts**: Tokens, themes, and shared variables (no
-  layout/component styles)
-- **Components**: Reusable UI building blocks, including local
-  overrides for third-party/plugin styles when needed
-- **Mixins / Functions**: Reusable SCSS helpers and utilities
-  consumed by components and utilities
-- **Utilities**: Single-purpose helpers and controlled overrides
-- **Common**: Shared global styles used across multiple pages and
-  components
-- **Reset**: Global normalization and element-level defaults
+- **Abstracts**: Shared Sass logic with no CSS output (functions, mixins, scales)
+- **Base**: Global normalization and document-level styles (like resets)
+- **Components**: Reusable UI building blocks (using singular file names)
+- **Layout**: Macro-level structures and shared page wrappers (e.g. `_common.scss`)
+- **Tokens**: CSS custom properties, variables, and themes (generates `:root` CSS)
+- **Utilities**: Single-purpose helpers and utility classes
 
 ---
 
@@ -171,16 +161,16 @@ This allows full theme changes without rewriting component styles.
 Customize in this order, then let components consume the updated values:
 
 1. **Typography foundation**
-   - `src/scss/abstracts/tokens/_font.scss` (sizes, line heights, weights, families)
+   - `src/scss/tokens/_font.scss` (sizes, line heights, weights, families)
    - `src/scss/abstracts/_typography-tools.scss` (role mappings like `h-lg`, `body-md`, `ui-sm`)
    - `src/scss/components/_typography.scss` for class-level usage changes (only when needed)
 2. **Color foundation**
-   - `src/scss/abstracts/tokens/_colors.scss`
-   - `src/scss/abstracts/themes/_light.scss`
-   - `src/scss/abstracts/themes/_dark.scss`
+   - `src/scss/tokens/_colors.scss`
+   - `src/scss/tokens/themes/_light.scss`
+   - `src/scss/tokens/themes/_dark.scss`
 3. **Spacing and icon scales**
-   - `src/scss/abstracts/tokens/_spacing.scss`
-   - `src/scss/abstracts/tokens/_icon.scss`
+   - `src/scss/tokens/_spacing.scss`
+   - `src/scss/tokens/_icon.scss`
    - `src/scss/abstracts/_scales.scss`
 4. **Responsive breakpoints**
    - `src/scss/mixins/_breakpoint.scss`
