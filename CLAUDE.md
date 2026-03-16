@@ -30,7 +30,7 @@ src/scss/
 │   ├── _badge.scss               # .app-c-badge
 │   ├── _button.scss              # .app-c-btn, .app-c-btn-primary, .app-c-btn-secondary
 │   ├── _icon.scss                # .app-c-icon + u-icon-* size utilities
-│   └── _typography.scss          # body base styles + .ui-page-title, .ui-section-title etc.
+│   └── _typography.scss          # body base styles + .app-c-page-title, .app-c-section-title etc.
 ├── layout/
 │   └── _common.scss              # html/body height + .page-wrap, .page-scroll
 ├── tokens/
