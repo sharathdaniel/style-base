@@ -4,6 +4,11 @@
   body {
     height: 100%;
   }
+
+  body {
+    font-family: var(--body-font);
+    font-weight: var(--fw-normal);
+  }
 }
 
 @layer components {
