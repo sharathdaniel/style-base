@@ -122,9 +122,9 @@ All styling lives under `src/scss`:
 
 - **Abstracts**: Shared Sass logic with no CSS output (functions, mixins, scales)
 - **Base**: Global reset styles
-- **Components**: Reusable UI building blocks (using singular file names)
-- **Layout**: Macro-level structures and shared page wrappers (e.g. `_common.scss`)
-- **Tokens**: CSS custom properties, variables, and themes (generates `:root` CSS)
+- **Components**: Reusable UI building blocks
+- **Layout**: Macro-level structures and shared page wrappers
+- **Tokens**: CSS custom properties, SCSS variables, and theme definitions
 - **Utilities**: Single-purpose helpers and utility classes
 
 ---
