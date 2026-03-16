@@ -266,6 +266,14 @@ Recommended VS Code extensions:
 - Stylelint
 - SonarLint (optional, for additional static analysis)
 
+### AI Assistants
+
+StyleBase includes architecture rules formatted for popular AI coding assistants. When adopting StyleBase, you can safely append your own framework-specific instructions to these files:
+
+- `CLAUDE.md` — Read automatically by Claude
+- `.cursor/rules/stylebase.mdc` — Read automatically by Cursor
+- `.agent/workflows/stylebase.md` — Read automatically by Antigravity and other agent CLI tools
+
 ### Git & Line Endings
 
 This repository uses `LF` line endings across text files.
