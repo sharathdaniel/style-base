@@ -121,7 +121,7 @@ All styling lives under `src/scss`:
       main.scss
 
 - **Abstracts**: Shared Sass logic with no CSS output (functions, mixins, scales)
-- **Base**: Global normalization and document-level styles (like resets)
+- **Base**: Global reset styles
 - **Components**: Reusable UI building blocks (using singular file names)
 - **Layout**: Macro-level structures and shared page wrappers (e.g. `_common.scss`)
 - **Tokens**: CSS custom properties, variables, and themes (generates `:root` CSS)
@@ -173,7 +173,7 @@ Customize in this order, then let components consume the updated values:
    - `src/scss/tokens/_icon.scss`
    - `src/scss/abstracts/_scales.scss`
 4. **Responsive breakpoints**
-   - `src/scss/mixins/_breakpoint.scss`
+   - `src/scss/abstracts/mixins/_breakpoint.scss`
    - Semantic tiers:
      - `mobile: 0px`
      - `tablet: 768px`
