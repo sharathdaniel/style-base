@@ -103,7 +103,7 @@ Use these — do not write raw equivalents.
 
 **Other mixins:** `truncate`, `line-clamp($n)`, `page-height`, `rtl { }`, `svg-mask($svg)`
 
-**rem()** (`abstracts/functions/_rem.scss`): `rem(16)` -> `1rem`
+**rem()** (`abstracts/functions/_rem.scss`): `rem(16)` converts to `1rem`
 
 ---
 
@@ -140,4 +140,4 @@ Before responding, verify:
 - Correct layer applied
 - Naming conventions followed
 
-If any rule is violated → fix before responding.
+If any rule is violated - fix before responding.
