@@ -79,10 +79,10 @@ These rules override everything else.
 
 ## FILE PLACEMENT
 
-- **Components:** `components/_{name}.scss` — must use `@layer components`
-- **Utilities:** `utilities/_{name}.scss` — imported via `utilities/_index.scss`, no `@layer` inside file
-- **Tokens:** `tokens/_*.scss` — only define values in `:root`, never use `@layer`
-- **Themes:** `tokens/themes/_light.scss` and `tokens/themes/_dark.scss` — define semantic tokens only; BOTH must always exist — never delete either
+- **Components:** `components/_{name}.scss` - must use `@layer components`
+- **Utilities:** `utilities/_{name}.scss` - imported via `utilities/_index.scss`, no `@layer` inside file
+- **Tokens:** `tokens/_*.scss` - only define values in `:root`, never use `@layer`
+- **Themes:** `tokens/themes/_light.scss` and `tokens/themes/_dark.scss` - define semantic tokens only; BOTH must always exist - never delete either
 - **Entry:** register new components in `main.scss` via `@include meta.load-css('components/{name}')`
 
 ---
@@ -92,18 +92,18 @@ These rules override everything else.
 Use these — do not write raw equivalents.
 
 **Breakpoints** (`abstracts/mixins/_breakpoint.scss`):
-- `breakpoint-up(tablet)` ≥768px | `breakpoint-down(laptop)` <1024px
+- `breakpoint-up(tablet)` >=768px | `breakpoint-down(laptop)` <1024px
 - `breakpoint-between(tablet, laptop)` | `breakpoint-only(mobile)`
 - Named points: mobile (0px), tablet (768px), laptop (1024px), desktop (1280px), large-desktop (1536px)
 
 **Typography** (`abstracts/_typography-tools.scss`):
-- `text-style(body-md)` — sets font-size + line-height
-- `text-weight(medium)` — sets font-weight
+- `text-style(body-md)` - sets font-size + line-height
+- `text-weight(medium)` - sets font-weight
 - Variants: h-md, h-lg, h-xl, h-xxl, body-md, body-sm, ui-md, ui-sm, ui-xs
 
 **Other mixins:** `truncate`, `line-clamp($n)`, `page-height`, `rtl { }`, `svg-mask($svg)`
 
-**rem()** (`abstracts/functions/_rem.scss`): `rem(16)` → `1rem`
+**rem()** (`abstracts/functions/_rem.scss`): `rem(16)` -> `1rem`
 
 ---
 
