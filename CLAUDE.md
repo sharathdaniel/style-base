@@ -1,4 +1,4 @@
-# CLAUDE.md --- StyleBase (Claude-Optimized)
+# CLAUDE.md - StyleBase
 
 ## ROLE
 
