@@ -11,7 +11,7 @@ system.
 
 ------------------------------------------------------------------------
 
-## CRITICAL RULES --- MUST FOLLOW
+## CRITICAL RULES - MUST FOLLOW
 
 These rules override everything else.
 
