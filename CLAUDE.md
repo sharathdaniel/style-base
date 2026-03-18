@@ -70,6 +70,8 @@ These rules override everything else.
     EXCEPT:
     - u-sr-only
     - u-d-none
+    - u-hidden-*
+    - u-pointer-none
 
 ### Utilities
 
