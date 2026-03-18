@@ -96,7 +96,7 @@ These rules override everything else.
 
 ## KEY ABSTRACTS
 
-Use these — do not write raw equivalents.
+Use these - do not write raw equivalents.
 
 **Breakpoints** (`abstracts/mixins/_breakpoint.scss`):
 - `breakpoint-up(tablet)` >=768px | `breakpoint-down(laptop)` <1024px
@@ -143,7 +143,7 @@ Prefer flex layout for most layouts (single-axis alignment, spacing, distributio
 
 ### New utility
 1. Add to existing utility file or create `utilities/_{name}.scss`
-2. No `@layer` in the file — `_index.scss` handles it
+2. No `@layer` in the file - `_index.scss` handles it
 3. If new file: add to `utilities/_index.scss`
 
 ### New breakpoint
