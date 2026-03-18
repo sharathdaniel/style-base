@@ -3,7 +3,6 @@
   "ignoreFiles": ["dist/**/*", "node_modules/**/*"],
   "rules": {
     "no-empty-source": null,
-    "no-descending-specificity": true,
     "selector-max-compound-selectors": 4,
     "selector-max-specificity": "0,4,0",
     "max-nesting-depth": 4,
