@@ -5,14 +5,14 @@
  * Theme selector: [data-theme='light'].
  */
 
-$semantic-bg: (
+$bg: (
   'bg-page': '--neutral-50',
   'bg-surface': '--common-white',
   'bg-surface-subtle': '--neutral-100',
   'bg-hover': '--neutral-200',
   'bg-selected': '--primary-100',
 );
-$semantic-text: (
+$text: (
   'text-primary': '--neutral-900',
   'text-secondary': '--neutral-700',
   'text-tertiary': '--neutral-600',
@@ -20,19 +20,19 @@ $semantic-text: (
   'text-link': '--primary-700',
   'text-link-hover': '--primary-800',
 );
-$semantic-border: (
+$border: (
   'border-light': '--neutral-200',
   'border-medium': '--neutral-300',
   'border-strong': '--neutral-400',
   'border-focus': '--primary-500',
 );
-$semantic-status: (
+$status: (
   'status-success': '--success-700',
   'status-error': '--danger-700',
   'status-warning': '--warning-700',
   'status-info': '--info-700',
 );
-$semantic-button: (
+$button: (
   'btn-primary-bg': '--primary-700',
   'btn-primary-bg-hover': '--primary-800',
   'btn-primary-disabled-bg': '--primary-300-rgb',
@@ -45,28 +45,18 @@ $semantic-button: (
   'btn-secondary-border': '--neutral-300',
   'btn-secondary-focus-ring': '--primary-400',
 );
-$semantic-scrollbar: (
+$scrollbar: (
   'scrollbar-thumb': '--neutral-500',
   'scrollbar-track': '--neutral-100',
 );
-$semantic-sidebar: (
+$sidebar: (
   'sidebar-bg': '--primary-600',
 );
 
 [data-theme='light'] {
   color-scheme: light;
 
-  @each $map
-    in (
-      $semantic-bg,
-      $semantic-text,
-      $semantic-border,
-      $semantic-status,
-      $semantic-button,
-      $semantic-scrollbar,
-      $semantic-sidebar
-    )
-  {
+  @each $map in ($bg, $text, $border, $status, $button, $scrollbar, $sidebar) {
     @each $token, $ref in $map {
       --#{$token}: var(#{$ref});
     }
