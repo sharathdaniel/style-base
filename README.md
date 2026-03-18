@@ -75,7 +75,7 @@ consistent scaling.
 - Spacing values are defined once in spacing tokens
 - Utilities consume spacing tokens for class generation
 - Components and layout use `rem()` directly for spacing (e.g., `rem(16)`)
-- Values follow the 4px scale: 0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 48, 56, 64
+- Values follow a 4px scale
 
 `1px` is used only where visual precision is required (e.g., borders,
 dividers).
