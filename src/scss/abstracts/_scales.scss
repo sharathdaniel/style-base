@@ -5,7 +5,7 @@
 
 /* Typography scale */
 
-/* px reference: xs=10, sm=12, label=13, md=14, lg=16, xl=18, 2xl=20, 3xl=22, 4xl=24, 5xl=28, 6xl=32 */
+/* px reference: xs=10, sm=12, label=13, md=14, lg=16, xl=18, 2xl=20, 3xl=24, 4xl=28, 5xl=32 */
 $text-scale: (
   xs: var(--fs-xs),
   sm: var(--fs-sm),
@@ -17,7 +17,6 @@ $text-scale: (
   3xl: var(--fs-3xl),
   4xl: var(--fs-4xl),
   5xl: var(--fs-5xl),
-  6xl: var(--fs-6xl),
 );
 
 /* Icon scale */
