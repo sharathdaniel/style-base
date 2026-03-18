@@ -1,4 +1,4 @@
-# CLAUDE.md - StyleBase
+# StyleBase Architecture
 
 ## ROLE
 
@@ -51,19 +51,21 @@ These rules override everything else.
 7. Use rem() for spacing and sizing
 8. EXCEPTION: borders/dividers → use 1px
 9. Use dvh NOT vh for viewport heights
+10. Media queries MUST use px, not rem (breakpoint mixins handle this automatically)
 
 ### Layers
 
-10. Respect CSS layers strictly:
+11. Respect CSS layers strictly:
+    - reset → @layer reset
+    - base → @layer base
+    - plugins → @layer plugins (reserved for vendor/third-party CSS)
     - components → @layer components
     - utilities → @layer utilities
-    - base → @layer base
-    - reset → @layer reset
-11. NEVER write utilities inside component files
+12. NEVER write utilities inside component files
 
 ### !important
 
-12. DO NOT use !important
+13. DO NOT use !important
 
     EXCEPT:
     - u-sr-only
@@ -71,7 +73,7 @@ These rules override everything else.
 
 ### Utilities
 
-13. Utility rules:
+14. Utility rules:
     - Prefix: u-
     - Single responsibility only
 
@@ -83,6 +85,7 @@ These rules override everything else.
 - **Utilities:** `utilities/_{name}.scss` - imported via `utilities/_index.scss`, no `@layer` inside file
 - **Tokens:** `tokens/_*.scss` - only define values in `:root`, never use `@layer`
 - **Themes:** `tokens/themes/_light.scss` and `tokens/themes/_dark.scss` - define semantic tokens only; BOTH must always exist - never delete either
+- **Layout:** `layout/_{name}.scss` - uses `@layer base` or `@layer components` depending on scope
 - **Entry:** register new components in `main.scss` via `@include meta.load-css('components/{name}')`
 
 ---
@@ -100,6 +103,21 @@ Use these — do not write raw equivalents.
 - `text-style(body-md)` - sets font-size + line-height
 - `text-weight(medium)` - sets font-weight
 - Variants: h-md, h-lg, h-xl, h-xxl, body-md, body-sm, ui-md, ui-sm, ui-xs
+
+**Flex Layout** (`utilities/_flex-layout.scss`):
+- Container: `u-flex-row` (flex wrap with default gap `--space-4`)
+- Columns: `u-col-{1-12}`, `u-col-auto`, `u-col-fill`
+- Responsive: `u-col-tablet-{1-12}`, `u-col-laptop-{1-12}`, `u-col-desktop-{1-12}`, `u-col-large-desktop-{1-12}`
+- Gaps: `u-gap-{key}`, `u-col-gap-{key}`, `u-row-gap-{key}`
+
+**Grid Layout** (`utilities/_grid-layout.scss`):
+- Container: `u-grid-row` (12-column CSS grid with default gap `--space-4`)
+- Spans: `u-col-{1-12}`, `u-col-full` (responsive variants same as flex)
+- Positioning: `u-col-start-{1-12}`, `u-col-{n}-center`, `u-col-end-last`
+- Auto helpers: `u-grid-auto-fit`, `u-grid-auto-fill`
+
+Both layout systems are 12-column, mobile-first. Mobile is the default (no suffix).
+Prefer flex layout for most layouts (single-axis alignment, spacing, distribution). Use grid layout only when you need two-dimensional control across both rows and columns.
 
 **Other mixins:** `truncate`, `line-clamp($n)`, `page-height`, `rtl { }`, `svg-mask($svg)`
 
