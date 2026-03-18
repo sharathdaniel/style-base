@@ -45,15 +45,6 @@ $semantic-button: (
   'btn-secondary-border': '--neutral-300',
   'btn-secondary-focus-ring': '--primary-400',
 );
-$semantic-accordion: (
-  'accordion-bg': '--bg-surface',
-  'accordion-border': '--border-light',
-  'accordion-header-color': '--text-primary',
-  'accordion-header-color-disabled': '--text-disabled',
-  'accordion-expanded-bg': '--bg-surface-subtle',
-  'accordion-expanded-border': '--border-medium',
-  'accordion-focus-ring': '--border-focus',
-);
 $semantic-scrollbar: (
   'scrollbar-thumb': '--neutral-500',
   'scrollbar-track': '--neutral-100',
@@ -72,7 +63,6 @@ $semantic-sidebar: (
       $semantic-border,
       $semantic-status,
       $semantic-button,
-      $semantic-accordion,
       $semantic-scrollbar,
       $semantic-sidebar
     )
