@@ -5,7 +5,7 @@
 
 /* Typography scale */
 
-/* px reference: xs=10, sm=12, label=13, md=14, lg=16, xl=18, 2xl=20, 3xl=22, 4xl=24 */
+/* px reference: xs=10, sm=12, label=13, md=14, lg=16, xl=18, 2xl=20, 3xl=22, 4xl=24, 5xl=28, 6xl=32 */
 $text-scale: (
   xs: var(--fs-xs),
   sm: var(--fs-sm),
@@ -16,6 +16,8 @@ $text-scale: (
   2xl: var(--fs-2xl),
   3xl: var(--fs-3xl),
   4xl: var(--fs-4xl),
+  5xl: var(--fs-5xl),
+  6xl: var(--fs-6xl),
 );
 
 /* Icon scale */
@@ -33,7 +35,7 @@ $icon-scale: (
 
 /* Spacing scale */
 
-/* px reference: 0=0, 1=4, 2=8, 3=12, 4=16, 5=20, 6=24, 7=28, 8=32, 9=36, 10=40 */
+/* px reference: 0=0, 1=4, 2=8, 3=12, 4=16, 5=20, 6=24, 7=28, 8=32, 9=36, 10=40, 11=48, 12=56, 13=64 */
 $space-scale: (
   0: var(--space-0),
   1: var(--space-1),
@@ -46,4 +48,7 @@ $space-scale: (
   8: var(--space-8),
   9: var(--space-9),
   10: var(--space-10),
+  11: var(--space-11),
+  12: var(--space-12),
+  13: var(--space-13),
 );
