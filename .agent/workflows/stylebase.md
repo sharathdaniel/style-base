@@ -19,29 +19,31 @@ These rules override everything else.
 
 1. NEVER hardcode:
    - colors (#, rgb, hsl)
-   - spacing (px, rem values)
    - font sizes
-2. ALWAYS use semantic tokens:
+2. ALWAYS use semantic tokens for colors and fonts:
    - --text-primary, --btn-primary-bg
    - NOT --primary-500, --neutral-200
+3. Spacing in components/layout: use `rem()` directly (e.g. `rem(16)`), NOT `var(--space-*)` tokens
+   - Spacing tokens (`--space-*`) are for utility class generation only
+   - Values should follow the 4px scale: 0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 48, 56, 64
 
 ### Components
 
-3. Components MUST:
+4. Components MUST:
    - use ONLY semantic tokens
    - NOT reference base tokens
    - NOT contain utility classes
-4. Component naming:
+5. Component naming:
    - app-c-{component}
    - app-c-{component}-{variant}
 
 ### CSS Properties
 
-5. ALWAYS use logical properties:
+6. ALWAYS use logical properties:
    - margin-inline-start NOT margin-left
    - padding-inline-end NOT padding-right
    - text-align: start/end NOT left/right
-6. NEVER use:
+7. NEVER use:
    - left, right
    - margin-left/right
    - padding-left/right
@@ -49,24 +51,24 @@ These rules override everything else.
 
 ### Units
 
-7. Use rem() for spacing and sizing
-8. EXCEPTION: borders/dividers → use 1px
-9. Use dvh NOT vh for viewport heights
-10. Media queries MUST use px, not rem (breakpoint mixins handle this automatically)
+8. Use rem() for spacing and sizing
+9. EXCEPTION: borders/dividers → use 1px
+10. Use dvh NOT vh for viewport heights
+11. Media queries MUST use px, not rem (breakpoint mixins handle this automatically)
 
 ### Layers
 
-11. Respect CSS layers strictly:
+12. Respect CSS layers strictly:
     - reset → @layer reset
     - base → @layer base
     - plugins → @layer plugins (reserved for vendor/third-party CSS)
     - components → @layer components
     - utilities → @layer utilities
-12. NEVER write utilities inside component files
+13. NEVER write utilities inside component files
 
 ### !important
 
-13. DO NOT use !important
+14. DO NOT use !important
 
     EXCEPT:
     - u-sr-only
@@ -76,7 +78,7 @@ These rules override everything else.
 
 ### Utilities
 
-14. Utility rules:
+15. Utility rules:
     - Prefix: u-
     - Single responsibility only
 
@@ -105,7 +107,7 @@ Use these — do not write raw equivalents.
 **Typography** (`abstracts/_typography-tools.scss`):
 - `text-style(body-md)` - sets font-size + line-height
 - `text-weight(medium)` - sets font-weight
-- Variants: h-md, h-lg, h-xl, h-xxl, body-md, body-sm, ui-md, ui-sm, ui-xs
+- Variants: h-md, h-lg, h-xl, h-xxl, h-2xl, body-md, body-sm, ui-md, ui-sm, ui-xs
 
 **Flex Layout** (`utilities/_flex-layout.scss`):
 - Container: `u-flex-row` (flex wrap with default gap `--space-4`)

@@ -1,9 +1,10 @@
 @use 'abstracts/mixins/page-height' as *;
+@use 'abstracts/functions/rem' as *;
 
 :host {
   @include page-height;
 }
 
 .app-c-page-scroll {
-  padding: var(--space-4);
+  padding: rem(16);
 }

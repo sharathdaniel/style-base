@@ -1,4 +1,5 @@
 @use 'abstracts/mixins/page-height' as *;
+@use 'abstracts/functions/rem' as *;
 @use 'abstracts/mixins/breakpoint' as *;
 
 :host {
@@ -16,7 +17,7 @@
   flex-direction: column;
   flex: 1;
   min-height: 0;
-  padding: var(--space-4);
+  padding: rem(16);
 
   @include breakpoint-only(mobile) {
     flex: initial;
