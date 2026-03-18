@@ -5,7 +5,7 @@
   @include page-height;
 }
 
-.page-wrap {
+.app-c-page-wrap {
   @include breakpoint-only(mobile) {
     flex-direction: column;
   }
