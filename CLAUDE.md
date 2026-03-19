@@ -38,10 +38,11 @@ These rules override everything else.
 
 ### CSS Properties
 
-6. ALWAYS use logical properties:
+6. ALWAYS use logical properties for inline (horizontal) axis:
    - margin-inline-start NOT margin-left
    - padding-inline-end NOT padding-right
    - text-align: start/end NOT left/right
+   - Physical top/bottom properties are allowed (margin-top, padding-bottom, etc.)
 7. NEVER use:
    - left, right
    - margin-left/right
