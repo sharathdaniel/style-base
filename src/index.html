@@ -21,6 +21,8 @@
         document.documentElement.dataset['theme'] = resolvedTheme;
       })();
     </script>
+    <!-- Hardcoded to prevent background flash before SCSS loads.
+         Must match --bg-page values in _light.scss / _dark.scss -->
     <style>
       html,
       body {

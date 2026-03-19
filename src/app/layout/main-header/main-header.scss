@@ -10,7 +10,8 @@
   flex-shrink: 0;
   height: var(--app-header-height);
   padding: var(--header-spacing);
-  background-color: var(--bg-page);
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
 
   @include breakpoint-between(mobile, tablet) {
     height: auto;
