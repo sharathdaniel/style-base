@@ -11,6 +11,10 @@
     @error "line-clamp(): The value `#{$lines}` must be a unitless integer.";
   }
 
+  @if $lines < 1 {
+    @error "line-clamp(): `#{$lines}` must be at least 1.";
+  }
+
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;

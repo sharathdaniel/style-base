@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use 'sass:map';
 
 /* Typography variants (system roles) */
@@ -63,5 +64,11 @@ $typography-variants: (
 }
 
 @mixin text-weight($weight) {
+  $valid-weights: normal, medium, bold;
+
+  @if not list.index($valid-weights, $weight) {
+    @error "text-weight(): Unknown weight `#{$weight}`. Expected one of: #{$valid-weights}.";
+  }
+
   font-weight: var(--fw-#{$weight});
 }

@@ -52,6 +52,10 @@
     @error "svg-mask(): Please provide the SVG code only, not the 'data:...' prefix.";
   }
 
+  @if meta.type-of($important) != 'bool' {
+    @error "svg-mask(): $important must be true or false, got `#{$important}`.";
+  }
+
   $final-svg: $svg;
 
   @if string.index($svg, '<') {
