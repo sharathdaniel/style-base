@@ -28,7 +28,8 @@
           "-webkit-mask-size",
           "-webkit-mask-position",
           "-webkit-mask-repeat",
-          "-webkit-user-select"
+          "-webkit-user-select",
+          "-webkit-text-size-adjust"
         ]
       }
     ],

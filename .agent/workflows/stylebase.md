@@ -76,6 +76,7 @@ These rules override everything else.
     - u-d-none
     - u-hidden-*
     - u-pointer-none
+    - [hidden] attribute reset
 
 ### Utilities
 
@@ -90,7 +91,7 @@ These rules override everything else.
 - **Components:** `components/_{name}.scss` - must use `@layer components`
 - **Utilities:** `utilities/_{name}.scss` - imported via `utilities/_index.scss`, no `@layer` inside file
 - **Tokens:** `tokens/_*.scss` - only define values in `:root`, never use `@layer`
-- **Themes:** `tokens/themes/_light.scss` and `tokens/themes/_dark.scss` - define semantic tokens only; BOTH must always exist - never delete either
+- **Themes:** `tokens/themes/_light.scss` and `tokens/themes/_dark.scss` - define semantic tokens only; BOTH must always exist - never delete either. Light is the `:root` default; dark auto-applies via `prefers-color-scheme: dark` when no `data-theme` is set. Explicit `data-theme` attribute always overrides system preference.
 - **Layout:** `layout/_{name}.scss` - uses `@layer base` or `@layer components` depending on scope
 - **Entry:** register new components in `main.scss` via `@include meta.load-css('components/{name}')`
 

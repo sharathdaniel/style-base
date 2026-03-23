@@ -2,7 +2,7 @@
  * Light theme semantic token mapping.
  * Maps semantic tokens (background, text, border, status) to base color tokens.
  * Components should consume semantic tokens only for theme switching.
- * Theme selector: [data-theme='light'].
+ * Theme selector: :root (default), [data-theme='light'].
  */
 
 $bg: (
@@ -54,6 +54,7 @@ $sidebar: (
   'sidebar-text': '--primary-700',
 );
 
+:root,
 [data-theme='light'] {
   color-scheme: light;
 

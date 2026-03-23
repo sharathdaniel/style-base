@@ -2,7 +2,7 @@
  * Dark theme semantic token mapping.
  * Maps semantic tokens (background, text, border, status) to base color tokens.
  * Components should consume semantic tokens only for theme switching.
- * Theme selector: [data-theme='dark'].
+ * Theme selector: [data-theme='dark'], or auto via prefers-color-scheme: dark.
  */
 
 $bg: (
@@ -53,6 +53,18 @@ $sidebar: (
   'sidebar-bg': '--primary-900',
   'sidebar-text': '--primary-200',
 );
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+
+    @each $map in ($bg, $text, $border, $status, $button, $scrollbar, $sidebar) {
+      @each $token, $ref in $map {
+        --#{$token}: var(#{$ref});
+      }
+    }
+  }
+}
 
 [data-theme='dark'] {
   color-scheme: dark;
