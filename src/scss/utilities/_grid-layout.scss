@@ -67,8 +67,13 @@ $grid-gap: var(--space-4) !default;
 
   /* Column span utilities */
 
-  /* Base: < 768px (mobile) */
+  /* Base: < 640px (mobile) */
   @include make-grid-columns;
+
+  /* Mobile large and up: ≥ 640px */
+  @include breakpoint-up(mobile-lg) {
+    @include make-grid-columns('mobile-lg');
+  }
 
   /* Tablet and up: ≥ 768px */
   @include breakpoint-up(tablet) {
@@ -85,9 +90,9 @@ $grid-gap: var(--space-4) !default;
     @include make-grid-columns('desktop');
   }
 
-  /* Large desktop and up: ≥ 1536px */
-  @include breakpoint-up(large-desktop) {
-    @include make-grid-columns('large-desktop');
+  /* Desktop large and up: ≥ 1536px */
+  @include breakpoint-up(desktop-lg) {
+    @include make-grid-columns('desktop-lg');
   }
 }
 

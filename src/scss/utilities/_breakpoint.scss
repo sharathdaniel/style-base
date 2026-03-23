@@ -2,14 +2,14 @@
 
 @use '../abstracts/mixins/breakpoint' as *;
 
-/* Hide only on mobile: < 768px */
+/* Hide on mobile: < 768px */
 .u-hidden-mobile {
-  @include breakpoint-only(mobile) {
+  @include breakpoint-down(mobile-lg) {
     display: none !important;
   }
 }
 
-/* Hide only on tablet: 768px – <1024px */
+/* Hide only on tablet: 768px - <1024px */
 .u-hidden-tablet {
   @include breakpoint-only(tablet) {
     display: none !important;

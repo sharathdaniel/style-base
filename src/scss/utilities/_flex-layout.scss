@@ -73,6 +73,11 @@ $flex-gap: var(--space-4) !default;
   /* Base */
   @include make-flex-columns;
 
+  /* Mobile large and up */
+  @include breakpoint-up(mobile-lg) {
+    @include make-flex-columns('mobile-lg');
+  }
+
   /* Tablet and up */
   @include breakpoint-up(tablet) {
     @include make-flex-columns('tablet');
@@ -88,8 +93,8 @@ $flex-gap: var(--space-4) !default;
     @include make-flex-columns('desktop');
   }
 
-  /* Large desktop and up */
-  @include breakpoint-up(large-desktop) {
-    @include make-flex-columns('large-desktop');
+  /* Desktop large and up */
+  @include breakpoint-up(desktop-lg) {
+    @include make-flex-columns('desktop-lg');
   }
 }

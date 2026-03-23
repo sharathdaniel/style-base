@@ -10,10 +10,11 @@
 
 $breakpoints: (
   mobile: 0px,
+  mobile-lg: 640px,
   tablet: 768px,
   laptop: 1024px,
   desktop: 1280px,
-  large-desktop: 1536px,
+  desktop-lg: 1536px,
 );
 
 /* Core logic mixins */
@@ -81,7 +82,7 @@ $breakpoints: (
   }
 }
 
-/* Single range bucket (e.g. mobile only, tablet only); for large-desktop this resolves to an open-ended range. */
+/* Single range bucket (e.g. mobile only, tablet only); for desktop-lg this resolves to an open-ended range. */
 @mixin breakpoint-only($size) {
   @include breakpoint-between($size, $size) {
     @content;

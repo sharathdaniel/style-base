@@ -104,7 +104,7 @@ Use these - do not write raw equivalents.
 **Breakpoints** (`abstracts/mixins/_breakpoint.scss`):
 - `breakpoint-up(tablet)` >=768px | `breakpoint-down(laptop)` <1024px
 - `breakpoint-between(tablet, laptop)` | `breakpoint-only(mobile)`
-- Named points: mobile (0px), tablet (768px), laptop (1024px), desktop (1280px), large-desktop (1536px)
+- Named points: mobile (0px), mobile-lg (640px), tablet (768px), laptop (1024px), desktop (1280px), desktop-lg (1536px)
 
 **Typography** (`abstracts/_typography-tools.scss`):
 - `text-style(body-md)` - sets font-size + line-height
@@ -114,7 +114,7 @@ Use these - do not write raw equivalents.
 **Flex Layout** (`utilities/_flex-layout.scss`):
 - Container: `u-flex-row` (flex wrap with default gap `--space-4`)
 - Columns: `u-col-{1-12}`, `u-col-auto`, `u-col-fill`
-- Responsive: `u-col-tablet-{1-12}`, `u-col-laptop-{1-12}`, `u-col-desktop-{1-12}`, `u-col-large-desktop-{1-12}`
+- Responsive: `u-col-mobile-lg-{1-12}`, `u-col-tablet-{1-12}`, `u-col-laptop-{1-12}`, `u-col-desktop-{1-12}`, `u-col-desktop-lg-{1-12}`
 - Gaps: `u-gap-{key}`, `u-col-gap-{key}`, `u-row-gap-{key}`
 
 **Grid Layout** (`utilities/_grid-layout.scss`):
