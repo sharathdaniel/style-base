@@ -172,7 +172,7 @@ Customize in this order, then let components consume the updated values:
    - `src/scss/tokens/_colors.scss`
    - `src/scss/tokens/themes/_light.scss`
    - `src/scss/tokens/themes/_dark.scss`
-3. **Spacing and icon scales**
+3. **System scales**
    - `src/scss/tokens/_spacing.scss`
    - `src/scss/tokens/_icon.scss`
    - `src/scss/abstracts/_scales.scss`
