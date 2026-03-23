@@ -7,6 +7,7 @@
  * Naming:
  * - u-p-4 -> padding: var(--space-4)
  * - u-mt-2 -> margin-top: var(--space-2)
+ * - u-ps-3 -> padding-inline-start: var(--space-3)
  * - u-px-3 -> padding-inline: var(--space-3)
  * - u-gap-5 -> gap: var(--space-5)
  */
@@ -19,8 +20,8 @@ $dirs: (
   '': '',
   't': '-top',
   'b': '-bottom',
-  'l': '-inline-start',
-  'r': '-inline-end',
+  's': '-inline-start',
+  'e': '-inline-end',
   'x': '-inline',
   'y': (
     '-top',
@@ -78,11 +79,11 @@ $dirs: (
   margin-top: auto;
 }
 
-.u-ml-auto {
+.u-ms-auto {
   margin-inline-start: auto;
 }
 
-.u-mr-auto {
+.u-me-auto {
   margin-inline-end: auto;
 }
 
