@@ -152,6 +152,9 @@ StyleBase uses native CSS Layers in global stylesheets only:
 - Base color tokens are defined per theme (e.g., light, dark)
 - Semantic tokens map to the active theme palette
 - Components consume semantic tokens only
+- Light theme is the `:root` default — works without any `data-theme` attribute
+- Dark theme auto-applies via `prefers-color-scheme: dark` when no explicit theme is set
+- Setting `data-theme="light"` or `data-theme="dark"` always overrides system preference
 
 This allows full theme changes without rewriting component styles.
 
