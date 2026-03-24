@@ -21,7 +21,7 @@ utility-first workflow.
 - [Theming Model](#theming-model)
 - [Customization](#customization)
 - [Flex and Grid Layout Systems](#flex-and-grid-layout-systems)
-- [Quick Start](#quick-start)
+- [Getting Started](#getting-started)
 - [Tooling](#tooling)
 - [Reference Implementation](#reference-implementation)
 
@@ -210,33 +210,9 @@ Choose grid layout when you need two-dimensional control across both rows and co
 
 ---
 
-## Quick Start
+## Getting Started
 
-### 1. Install Tooling
-
-```bash
-yarn add -D sass prettier stylelint stylelint-config-standard-scss husky lint-staged
-```
-
-You may skip `sass` if your framework already provides it.
-
-### 2. Load the SCSS entrypoint
-
-```scss
-@use './src/scss/main.scss';
-```
-
-### 3. Maintain Layer Order
-
-Follow the layer order defined in the [CSS Layers](#css-layers)
-section.
-
-### 4. Development Rules
-
-- Use semantic tokens inside components
-- Avoid hardcoded values
-- Use utilities only for edge-case overrides
-- Do not escalate specificity to solve ordering issues
+See [INSTALLATION.md](INSTALLATION.md) for the full adoption guide - what to copy, framework setup, and configuration.
 
 ---
 
