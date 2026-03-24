@@ -212,7 +212,7 @@ Choose grid layout when you need two-dimensional control across both rows and co
 
 ## Getting Started
 
-See [INSTALLATION.md](INSTALLATION.md) for the full adoption guide - what to copy, framework setup, and configuration.
+See [installation guide](INSTALLATION.md) for adopting StyleBase - what to copy, framework setup, and configuration.
 
 ---
 
