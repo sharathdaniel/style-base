@@ -20,7 +20,7 @@ utility-first workflow.
 - [CSS Layers](#css-layers)
 - [Theming Model](#theming-model)
 - [Customization](#customization)
-- [Flex and Grid Layout Systems](#flex-and-grid-layout-systems)
+- [Layout Systems](#layout-systems)
 - [Getting Started](#getting-started)
 - [Tooling](#tooling)
 - [Reference Implementation](#reference-implementation)
@@ -188,7 +188,7 @@ Customize in this order, then let components consume the updated values:
 
 ---
 
-## Flex and Grid Layout Systems
+## Layout Systems
 
 StyleBase provides dedicated flex and grid layout systems, both using a 12-column structure by default:
 
