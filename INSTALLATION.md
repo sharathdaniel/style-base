@@ -56,9 +56,7 @@ These are specific to the StyleBase reference repository:
     angular.json              Angular CLI config
     tsconfig.*                TypeScript configs
     package.json              Contains Angular-specific dependencies
-    dist/                     Build output
     public/                   Static assets
-    node_modules/             Dependencies
     README.md                 Repository documentation
     yarn.lock                 Dependency lock file
     .vscode/launch.json       Angular debugger config
