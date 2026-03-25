@@ -1,8 +1,8 @@
 /*
  * Usage example:
  * <div class="u-grid-row">
- *   <div class="u-col-12 u-col-laptop-6">Item 1</div>
- *   <div class="u-col-12 u-col-laptop-6">Item 2</div>
+ *   <div class="u-col-12 u-col-lg-6">Item 1</div>
+ *   <div class="u-col-12 u-col-lg-6">Item 2</div>
  * </div>
  * Creates a 12-column grid with token-based gaps.
  */
@@ -67,32 +67,32 @@ $grid-gap: var(--space-4) !default;
 
   /* Column span utilities */
 
-  /* Base: < 640px (mobile) */
+  /* Base: < 640px */
   @include make-grid-columns;
 
-  /* Mobile large and up: ≥ 640px */
-  @include breakpoint-up(mobile-lg) {
-    @include make-grid-columns('mobile-lg');
+  /* sm and up: ≥ 640px */
+  @include breakpoint-up(sm) {
+    @include make-grid-columns('sm');
   }
 
-  /* Tablet and up: ≥ 768px */
-  @include breakpoint-up(tablet) {
-    @include make-grid-columns('tablet');
+  /* md and up: ≥ 768px */
+  @include breakpoint-up(md) {
+    @include make-grid-columns('md');
   }
 
-  /* Laptop and up: ≥ 1024px */
-  @include breakpoint-up(laptop) {
-    @include make-grid-columns('laptop');
+  /* lg and up: ≥ 1024px */
+  @include breakpoint-up(lg) {
+    @include make-grid-columns('lg');
   }
 
-  /* Desktop and up: ≥ 1280px */
-  @include breakpoint-up(desktop) {
-    @include make-grid-columns('desktop');
+  /* xl and up: ≥ 1280px */
+  @include breakpoint-up(xl) {
+    @include make-grid-columns('xl');
   }
 
-  /* Desktop large and up: ≥ 1536px */
-  @include breakpoint-up(desktop-lg) {
-    @include make-grid-columns('desktop-lg');
+  /* 2xl and up: ≥ 1536px */
+  @include breakpoint-up(2xl) {
+    @include make-grid-columns('2xl');
   }
 }
 

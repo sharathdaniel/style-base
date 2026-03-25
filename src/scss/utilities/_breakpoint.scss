@@ -2,30 +2,30 @@
 
 @use '../abstracts/mixins/breakpoint' as *;
 
-/* Hide on mobile: < 768px */
-.u-hidden-mobile {
-  @include breakpoint-down(mobile-lg) {
+/* Hide below md: < 768px */
+.u-hidden-below-md {
+  @include breakpoint-down(sm) {
     display: none !important;
   }
 }
 
-/* Hide only on tablet: 768px - <1024px */
-.u-hidden-tablet {
-  @include breakpoint-only(tablet) {
+/* Hide only on md: 768px - <1024px */
+.u-hidden-md {
+  @include breakpoint-only(md) {
     display: none !important;
   }
 }
 
-/* Hide on mobile + tablet: < 1024px */
-.u-hidden-mobile-tablet {
-  @include breakpoint-between(mobile, tablet) {
+/* Hide below lg: < 1024px */
+.u-hidden-below-lg {
+  @include breakpoint-between(base, md) {
     display: none !important;
   }
 }
 
-/* Hide on laptop and up: ≥ 1024px */
-.u-hidden-laptop-up {
-  @include breakpoint-up(laptop) {
+/* Hide on lg and up: ≥ 1024px */
+.u-hidden-lg-up {
+  @include breakpoint-up(lg) {
     display: none !important;
   }
 }

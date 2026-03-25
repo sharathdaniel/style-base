@@ -178,13 +178,13 @@ Customize in this order, then let components consume the updated values:
    - `src/scss/abstracts/_scales.scss`
 4. **Responsive breakpoints**
    - `src/scss/abstracts/mixins/_breakpoint.scss`
-   - Semantic tiers:
-     - `mobile: 0px`
-     - `mobile-lg: 640px`
-     - `tablet: 768px`
-     - `laptop: 1024px`
-     - `desktop: 1280px`
-     - `desktop-lg: 1536px`
+   - Breakpoint tiers (aligned with Tailwind v4):
+     - `base: 0px`
+     - `sm: 640px`
+     - `md: 768px`
+     - `lg: 1024px`
+     - `xl: 1280px`
+     - `2xl: 1536px`
 
 ---
 
@@ -197,13 +197,13 @@ StyleBase provides dedicated flex and grid layout systems, both using a 12-colum
 
 Both layout systems use the same responsive tier names:
 
-- `mobile-lg`
-- `tablet`
-- `laptop`
-- `desktop`
-- `desktop-lg`
+- `sm`
+- `md`
+- `lg`
+- `xl`
+- `2xl`
 
-Mobile is the default (no breakpoint suffix). Responsive class variants start at `mobile-lg` and up.
+Base is the default (no breakpoint suffix). Responsive class variants start at `sm` and up.
 
 Start with flex layout for most common UI composition needs (row/column alignment, spacing, and distribution in a single axis).
 Choose grid layout when you need two-dimensional control across both rows and columns.

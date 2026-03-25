@@ -9,12 +9,12 @@
 @use 'sass:list';
 
 $breakpoints: (
-  mobile: 0px,
-  mobile-lg: 640px,
-  tablet: 768px,
-  laptop: 1024px,
-  desktop: 1280px,
-  desktop-lg: 1536px,
+  base: 0px,
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  2xl: 1536px,
 );
 
 /* Core logic mixins */
@@ -82,7 +82,7 @@ $breakpoints: (
   }
 }
 
-/* Single range bucket (e.g. mobile only, tablet only); for desktop-lg this resolves to an open-ended range. */
+/* Single range bucket (e.g. base only, md only); for 2xl this resolves to an open-ended range. */
 @mixin breakpoint-only($size) {
   @include breakpoint-between($size, $size) {
     @content;

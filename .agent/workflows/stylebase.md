@@ -102,9 +102,9 @@ These rules override everything else.
 Use these - do not write raw equivalents.
 
 **Breakpoints** (`abstracts/mixins/_breakpoint.scss`):
-- `breakpoint-up(tablet)` >=768px | `breakpoint-down(laptop)` <1024px
-- `breakpoint-between(tablet, laptop)` | `breakpoint-only(mobile)`
-- Named points: mobile (0px), mobile-lg (640px), tablet (768px), laptop (1024px), desktop (1280px), desktop-lg (1536px)
+- `breakpoint-up(md)` >=768px | `breakpoint-down(lg)` <1024px
+- `breakpoint-between(md, lg)` | `breakpoint-only(base)`
+- Named points: base (0px), sm (640px), md (768px), lg (1024px), xl (1280px), 2xl (1536px)
 
 **Typography** (`abstracts/_typography-tools.scss`):
 - `text-style(body-md)` - sets font-size + line-height
@@ -114,7 +114,7 @@ Use these - do not write raw equivalents.
 **Flex Layout** (`utilities/_flex-layout.scss`):
 - Container: `u-flex-row` (flex wrap with default gap `--space-4`)
 - Columns: `u-col-{1-12}`, `u-col-auto`, `u-col-fill`
-- Responsive: `u-col-mobile-lg-{1-12}`, `u-col-tablet-{1-12}`, `u-col-laptop-{1-12}`, `u-col-desktop-{1-12}`, `u-col-desktop-lg-{1-12}`
+- Responsive: `u-col-sm-{1-12}`, `u-col-md-{1-12}`, `u-col-lg-{1-12}`, `u-col-xl-{1-12}`, `u-col-2xl-{1-12}`
 - Gaps: `u-gap-{key}`, `u-col-gap-{key}`, `u-row-gap-{key}`
 
 **Grid Layout** (`utilities/_grid-layout.scss`):
@@ -123,7 +123,7 @@ Use these - do not write raw equivalents.
 - Positioning: `u-col-start-{1-12}`, `u-col-{n}-center`, `u-col-end-last`
 - Auto helpers: `u-grid-auto-fit`, `u-grid-auto-fill`
 
-Both layout systems are 12-column, mobile-first. Mobile is the default (no suffix).
+Both layout systems are 12-column, mobile-first. Base is the default (no breakpoint suffix).
 Prefer flex layout for most layouts (single-axis alignment, spacing, distribution). Use grid layout only when you need two-dimensional control across both rows and columns.
 
 **Other mixins:** `truncate`, `line-clamp($n)`, `page-height`, `rtl { }`, `svg-mask($svg)`

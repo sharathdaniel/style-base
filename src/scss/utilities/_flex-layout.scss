@@ -1,8 +1,8 @@
 /*
  * Usage example:
  * <div class="u-flex-row">
- *   <div class="u-col-12 u-col-laptop-6">Item 1</div>
- *   <div class="u-col-12 u-col-laptop-6">Item 2</div>
+ *   <div class="u-col-12 u-col-lg-6">Item 1</div>
+ *   <div class="u-col-12 u-col-lg-6">Item 2</div>
  * </div>
  */
 
@@ -73,28 +73,28 @@ $flex-gap: var(--space-4) !default;
   /* Base */
   @include make-flex-columns;
 
-  /* Mobile large and up */
-  @include breakpoint-up(mobile-lg) {
-    @include make-flex-columns('mobile-lg');
+  /* sm and up: ≥ 640px */
+  @include breakpoint-up(sm) {
+    @include make-flex-columns('sm');
   }
 
-  /* Tablet and up */
-  @include breakpoint-up(tablet) {
-    @include make-flex-columns('tablet');
+  /* md and up: ≥ 768px */
+  @include breakpoint-up(md) {
+    @include make-flex-columns('md');
   }
 
-  /* Laptop and up */
-  @include breakpoint-up(laptop) {
-    @include make-flex-columns('laptop');
+  /* lg and up: ≥ 1024px */
+  @include breakpoint-up(lg) {
+    @include make-flex-columns('lg');
   }
 
-  /* Desktop and up */
-  @include breakpoint-up(desktop) {
-    @include make-flex-columns('desktop');
+  /* xl and up: ≥ 1280px */
+  @include breakpoint-up(xl) {
+    @include make-flex-columns('xl');
   }
 
-  /* Desktop large and up */
-  @include breakpoint-up(desktop-lg) {
-    @include make-flex-columns('desktop-lg');
+  /* 2xl and up: ≥ 1536px */
+  @include breakpoint-up(2xl) {
+    @include make-flex-columns('2xl');
   }
 }

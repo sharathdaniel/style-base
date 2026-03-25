@@ -7,7 +7,7 @@
 }
 
 .app-c-page-wrap {
-  @include breakpoint-down(mobile-lg) {
+  @include breakpoint-down(sm) {
     flex-direction: column;
   }
 }
@@ -19,7 +19,7 @@
   min-height: 0;
   padding: rem(16);
 
-  @include breakpoint-down(mobile-lg) {
+  @include breakpoint-down(sm) {
     flex: initial;
     min-height: auto;
     overflow-y: unset;
@@ -31,7 +31,7 @@
   min-height: 0;
   overflow-y: auto;
 
-  @include breakpoint-down(mobile-lg) {
+  @include breakpoint-down(sm) {
     overflow-y: unset;
     flex: initial;
   }
