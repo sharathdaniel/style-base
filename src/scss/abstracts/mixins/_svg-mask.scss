@@ -82,18 +82,15 @@
 ///   color: black;
 ///
 ///   @include svg-mask(
-///     '<svg
-///       width="16"
-///       height="16"
-///       viewBox="0 0 16 16"
-///       fill="none"
-///       xmlns="http://www.w3.org/2000/svg">
-///       <path
-///         d="M4 9L8 13L12 9"
-///         stroke="currentColor"
-///         stroke-width="1.4"
-///         stroke-linecap="round"
-///         stroke-linejoin="round"/>
-///     </svg>'
+///     '<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M4 9L8 13L12 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 ///   );
 /// }
+///
+/// Note: If Prettier breaks a long SVG string across lines, use `+` to
+/// concatenate or add `// prettier-ignore` above the `@include` line.
+///
+/// @include svg-mask(
+///   '<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">' +
+///   '<path d="M4 9L8 13L12 9" stroke="currentColor" stroke-width="1.4"/>' +
+///   '</svg>'
+/// );
