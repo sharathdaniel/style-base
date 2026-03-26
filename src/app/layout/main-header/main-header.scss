@@ -13,7 +13,7 @@
   background-color: var(--bg-surface);
   border-bottom: 1px solid var(--border-light);
 
-  @include breakpoint-between(base, md) {
+  @include breakpoint-down(md) {
     height: auto;
     min-height: var(--app-header-height);
     row-gap: rem(16);
@@ -33,7 +33,7 @@ ul {
     }
   }
 
-  @include breakpoint-between(base, md) {
+  @include breakpoint-down(md) {
     order: 3;
     width: 100%;
     overflow-x: auto;

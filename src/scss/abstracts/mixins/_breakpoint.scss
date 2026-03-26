@@ -66,6 +66,10 @@ $breakpoints: (
     @error "Invalid breakpoint range: '#{$lower}' comes after '#{$upper}'. " + "Ensure your lower bound is smaller than your upper bound.";
   }
 
+  @if $lower == base {
+    @warn "breakpoint-between(base, #{$upper}) is redundant. Use breakpoint-down(#{$upper}) instead.";
+  }
+
   $min-width: map.get($breakpoints, $lower);
 
   @if $upper-index < list.length($keys) {
