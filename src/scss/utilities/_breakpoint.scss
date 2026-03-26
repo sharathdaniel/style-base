@@ -2,28 +2,28 @@
 
 @use '../abstracts/mixins/breakpoint' as *;
 
-/* Hide below md: < 768px */
-.u-hidden-below-md {
+/* Hide sm-down: < 768px */
+.u-hidden-sm-down {
   @include breakpoint-down(sm) {
     display: none !important;
   }
 }
 
-/* Hide only on md: 768px - <1024px */
+/* Hide md only: 768px - <1024px */
 .u-hidden-md {
   @include breakpoint-only(md) {
     display: none !important;
   }
 }
 
-/* Hide below lg: < 1024px */
-.u-hidden-below-lg {
+/* Hide md-down: < 1024px */
+.u-hidden-md-down {
   @include breakpoint-down(md) {
     display: none !important;
   }
 }
 
-/* Hide on lg and up: ≥ 1024px */
+/* Hide lg-up: >= 1024px */
 .u-hidden-lg-up {
   @include breakpoint-up(lg) {
     display: none !important;
