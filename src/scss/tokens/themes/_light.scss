@@ -45,6 +45,39 @@ $button: (
   'btn-secondary-disabled-border': '--neutral-200',
   'btn-secondary-focus-ring': '--primary-400',
 );
+$textfield: (
+  'textfield-bg': '--common-white',
+  'textfield-color': '--neutral-900',
+  'textfield-placeholder': '--neutral-600',
+  'textfield-border': '--neutral-300',
+  'textfield-border-hover': '--neutral-400',
+  'textfield-bg-disabled': '--neutral-100',
+  'textfield-border-disabled': '--neutral-200',
+  'textfield-color-disabled': '--neutral-400',
+  'textfield-focus-ring': '--primary-400',
+);
+$checkbox: (
+  'checkbox-bg': '--common-white',
+  'checkbox-bg-checked': '--primary-700',
+  'checkbox-bg-checked-disabled': '--primary-300',
+  'checkbox-border': '--neutral-300',
+  'checkbox-border-hover': '--neutral-400',
+  'checkbox-border-checked': '--primary-700',
+  'checkbox-mark': '--common-white',
+  'checkbox-focus-ring': '--primary-400',
+);
+$badge: (
+  'badge-neutral-bg': '--neutral-100',
+  'badge-neutral-color': '--neutral-700',
+  'badge-success-bg': '--success-100',
+  'badge-success-color': '--success-700',
+  'badge-error-bg': '--danger-100',
+  'badge-error-color': '--danger-700',
+  'badge-warning-bg': '--warning-100',
+  'badge-warning-color': '--warning-700',
+  'badge-info-bg': '--info-100',
+  'badge-info-color': '--info-700',
+);
 $scrollbar: (
   'scrollbar-thumb': '--neutral-500',
   'scrollbar-track': '--neutral-100',
@@ -58,7 +91,9 @@ $sidebar: (
 [data-theme='light'] {
   color-scheme: light;
 
-  @each $map in ($bg, $text, $border, $status, $button, $scrollbar, $sidebar) {
+  @each $map
+    in ($bg, $text, $border, $status, $button, $textfield, $checkbox, $badge, $scrollbar, $sidebar)
+  {
     @each $token, $ref in $map {
       --#{$token}: var(#{$ref});
     }

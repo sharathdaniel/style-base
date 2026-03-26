@@ -36,6 +36,8 @@
 @include meta.load-css('components/badge');
 @include meta.load-css('components/button');
 @include meta.load-css('components/textfield');
+@include meta.load-css('components/checkbox');
+@include meta.load-css('components/radio');
 
 /* Utilities (Always load it last) */
 @include meta.load-css('utilities');

@@ -45,6 +45,39 @@ $button: (
   'btn-secondary-disabled-border': '--neutral-700',
   'btn-secondary-focus-ring': '--primary-300',
 );
+$textfield: (
+  'textfield-bg': '--neutral-900',
+  'textfield-color': '--neutral-50',
+  'textfield-placeholder': '--neutral-400',
+  'textfield-border': '--neutral-600',
+  'textfield-border-hover': '--neutral-500',
+  'textfield-bg-disabled': '--neutral-800',
+  'textfield-border-disabled': '--neutral-700',
+  'textfield-color-disabled': '--neutral-500',
+  'textfield-focus-ring': '--primary-300',
+);
+$checkbox: (
+  'checkbox-bg': '--neutral-800',
+  'checkbox-bg-checked': '--primary-500',
+  'checkbox-bg-checked-disabled': '--primary-700',
+  'checkbox-border': '--neutral-600',
+  'checkbox-border-hover': '--neutral-500',
+  'checkbox-border-checked': '--primary-500',
+  'checkbox-mark': '--common-white',
+  'checkbox-focus-ring': '--primary-300',
+);
+$badge: (
+  'badge-neutral-bg': '--neutral-800',
+  'badge-neutral-color': '--neutral-300',
+  'badge-success-bg': '--success-900',
+  'badge-success-color': '--success-400',
+  'badge-error-bg': '--danger-900',
+  'badge-error-color': '--danger-400',
+  'badge-warning-bg': '--warning-900',
+  'badge-warning-color': '--warning-400',
+  'badge-info-bg': '--info-900',
+  'badge-info-color': '--info-400',
+);
 $scrollbar: (
   'scrollbar-thumb': '--neutral-500',
   'scrollbar-track': '--neutral-800',
@@ -58,7 +91,20 @@ $sidebar: (
   :root:not([data-theme]) {
     color-scheme: dark;
 
-    @each $map in ($bg, $text, $border, $status, $button, $scrollbar, $sidebar) {
+    @each $map
+      in (
+        $bg,
+        $text,
+        $border,
+        $status,
+        $button,
+        $textfield,
+        $checkbox,
+        $badge,
+        $scrollbar,
+        $sidebar
+      )
+    {
       @each $token, $ref in $map {
         --#{$token}: var(#{$ref});
       }
@@ -69,7 +115,9 @@ $sidebar: (
 [data-theme='dark'] {
   color-scheme: dark;
 
-  @each $map in ($bg, $text, $border, $status, $button, $scrollbar, $sidebar) {
+  @each $map
+    in ($bg, $text, $border, $status, $button, $textfield, $checkbox, $badge, $scrollbar, $sidebar)
+  {
     @each $token, $ref in $map {
       --#{$token}: var(#{$ref});
     }

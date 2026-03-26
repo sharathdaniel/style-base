@@ -2,23 +2,12 @@
 
 @layer components {
   .app-c-textfield {
-    --textfield-bg: var(--bg-surface);
-    --textfield-bg-hover: var(--bg-surface);
-    --textfield-color: var(--text-primary);
-    --textfield-border: var(--border-medium);
-    --textfield-border-hover: var(--border-strong);
-    --textfield-placeholder: var(--text-tertiary);
-    --textfield-bg-disabled: var(--bg-surface-subtle);
-    --textfield-border-disabled: var(--border-light);
-    --textfield-color-disabled: var(--text-disabled);
-    --textfield-focus-ring: var(--border-focus);
-    --textfield-focus-ring-size: 2px;
-
     display: block;
     width: 100%;
     border: 1px solid var(--textfield-border);
     background-color: var(--textfield-bg);
     color: var(--textfield-color);
+    caret-color: var(--textfield-focus-ring);
     transition:
       border-color var(--transition-1),
       box-shadow var(--transition-1);
@@ -34,15 +23,21 @@
       color: var(--textfield-color-disabled);
     }
 
-    &:not(:disabled) {
+    &:read-only {
+      background-color: var(--textfield-bg-disabled);
+      border-color: var(--textfield-border-disabled);
+      cursor: default;
+    }
+
+    &:not(:disabled, :read-only) {
       &:hover {
         border-color: var(--textfield-border-hover);
       }
+    }
 
-      &:focus-visible {
-        border-color: var(--textfield-focus-ring);
-        box-shadow: 0 0 0 var(--textfield-focus-ring-size) var(--textfield-focus-ring);
-      }
+    &:not(:disabled):focus-visible {
+      border-color: var(--textfield-focus-ring);
+      box-shadow: 0 0 0 2px var(--textfield-focus-ring);
     }
 
     &:focus {

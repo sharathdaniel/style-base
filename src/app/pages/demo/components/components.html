@@ -1,0 +1,205 @@
+<div class="app-c-page-scroll u-scrollbar">
+  <h1 class="u-mb-4">Components</h1>
+
+  <!-- ===== BUTTONS ===== -->
+  <section class="demo-section">
+    <h2 class="u-mb-3">Buttons</h2>
+
+    <h3 class="u-mb-2">Primary</h3>
+    <div class="demo-row">
+      <button class="app-c-btn app-c-btn-primary app-c-btn-sm">Small</button>
+      <button class="app-c-btn app-c-btn-primary app-c-btn-md">Medium</button>
+      <button class="app-c-btn app-c-btn-primary app-c-btn-lg">Large</button>
+      <button class="app-c-btn app-c-btn-primary app-c-btn-md" disabled>Disabled</button>
+    </div>
+
+    <h3 class="u-mb-2">Secondary</h3>
+    <div class="demo-row">
+      <button class="app-c-btn app-c-btn-secondary app-c-btn-sm">Small</button>
+      <button class="app-c-btn app-c-btn-secondary app-c-btn-md">Medium</button>
+      <button class="app-c-btn app-c-btn-secondary app-c-btn-lg">Large</button>
+      <button class="app-c-btn app-c-btn-secondary app-c-btn-md" disabled>Disabled</button>
+    </div>
+
+    <h3 class="u-mb-2">Icon Buttons</h3>
+    <div class="demo-row">
+      <button class="app-c-btn app-c-btn-primary app-c-btn-icon-sm" aria-label="Small icon">
+        S
+      </button>
+      <button class="app-c-btn app-c-btn-primary app-c-btn-icon-md" aria-label="Medium icon">
+        M
+      </button>
+      <button class="app-c-btn app-c-btn-primary app-c-btn-icon-lg" aria-label="Large icon">
+        L
+      </button>
+      <button class="app-c-btn app-c-btn-secondary app-c-btn-icon-sm" aria-label="Small icon">
+        S
+      </button>
+      <button class="app-c-btn app-c-btn-secondary app-c-btn-icon-md" aria-label="Medium icon">
+        M
+      </button>
+      <button class="app-c-btn app-c-btn-secondary app-c-btn-icon-lg" aria-label="Large icon">
+        L
+      </button>
+    </div>
+  </section>
+
+  <!-- ===== TEXT FIELDS ===== -->
+  <section class="demo-section">
+    <h2 class="u-mb-3">Text Fields</h2>
+
+    <h3 class="u-mb-2">Input Sizes</h3>
+    <div class="demo-stack">
+      <input
+        type="text"
+        class="app-c-textfield app-c-textfield-sm"
+        placeholder="Small input"
+        aria-label="Small input"
+      />
+      <input
+        type="text"
+        class="app-c-textfield app-c-textfield-md"
+        placeholder="Medium input"
+        aria-label="Medium input"
+      />
+      <input
+        type="text"
+        class="app-c-textfield app-c-textfield-lg"
+        placeholder="Large input"
+        aria-label="Large input"
+      />
+    </div>
+
+    <h3 class="u-mb-2">States</h3>
+    <div class="demo-stack">
+      <input
+        type="text"
+        class="app-c-textfield app-c-textfield-md"
+        value="Default"
+        aria-label="Default input"
+      />
+      <input
+        type="text"
+        class="app-c-textfield app-c-textfield-md app-c-textfield-error"
+        value="Error state"
+        aria-label="Error input"
+      />
+      <input
+        type="text"
+        class="app-c-textfield app-c-textfield-md"
+        readonly
+        value="Readonly"
+        aria-label="Readonly input"
+      />
+      <input
+        type="text"
+        class="app-c-textfield app-c-textfield-md"
+        disabled
+        value="Disabled"
+        aria-label="Disabled input"
+      />
+    </div>
+
+    <h3 class="u-mb-2">Textarea</h3>
+    <div class="demo-stack">
+      <textarea
+        class="app-c-textfield app-c-textarea"
+        rows="3"
+        placeholder="Write something..."
+        aria-label="Default textarea"
+      ></textarea>
+      <textarea
+        class="app-c-textfield app-c-textarea app-c-textfield-error"
+        rows="3"
+        placeholder="Error textarea..."
+        aria-label="Error textarea"
+      ></textarea>
+      <textarea
+        class="app-c-textfield app-c-textarea"
+        rows="3"
+        disabled
+        placeholder="Disabled textarea..."
+        aria-label="Disabled textarea"
+      ></textarea>
+    </div>
+  </section>
+
+  <!-- ===== CHECKBOXES ===== -->
+  <section class="demo-section">
+    <h2 class="u-mb-3">Checkboxes</h2>
+
+    <div class="demo-row">
+      <label class="app-c-checkbox">
+        <input type="checkbox" aria-label="Unchecked" />
+        <span class="app-c-checkbox-text">Unchecked</span>
+      </label>
+
+      <label class="app-c-checkbox">
+        <input type="checkbox" checked aria-label="Checked" />
+        <span class="app-c-checkbox-text">Checked</span>
+      </label>
+
+      <label class="app-c-checkbox">
+        <input type="checkbox" disabled aria-label="Disabled" />
+        <span class="app-c-checkbox-text">Disabled</span>
+      </label>
+
+      <label class="app-c-checkbox">
+        <input type="checkbox" checked disabled aria-label="Checked disabled" />
+        <span class="app-c-checkbox-text">Checked disabled</span>
+      </label>
+    </div>
+  </section>
+
+  <!-- ===== RADIO BUTTONS ===== -->
+  <section class="demo-section">
+    <h2 class="u-mb-3">Radio Buttons</h2>
+
+    <div class="demo-row">
+      <label class="app-c-radio">
+        <input type="radio" name="demo-radio" value="a" checked aria-label="Option A" />
+        <span class="app-c-radio-text">Option A</span>
+      </label>
+
+      <label class="app-c-radio">
+        <input type="radio" name="demo-radio" value="b" aria-label="Option B" />
+        <span class="app-c-radio-text">Option B</span>
+      </label>
+
+      <label class="app-c-radio">
+        <input type="radio" name="demo-radio" value="c" aria-label="Option C" />
+        <span class="app-c-radio-text">Option C</span>
+      </label>
+
+      <label class="app-c-radio">
+        <input type="radio" name="demo-disabled" value="d" disabled aria-label="Disabled" />
+        <span class="app-c-radio-text">Disabled</span>
+      </label>
+
+      <label class="app-c-radio">
+        <input
+          type="radio"
+          name="demo-disabled-checked"
+          value="e"
+          checked
+          disabled
+          aria-label="Checked disabled"
+        />
+        <span class="app-c-radio-text">Checked disabled</span>
+      </label>
+    </div>
+  </section>
+
+  <!-- ===== BADGES ===== -->
+  <section class="demo-section">
+    <h2 class="u-mb-3">Badges</h2>
+
+    <div class="demo-row">
+      <span class="app-c-badge">Neutral</span>
+      <span class="app-c-badge app-c-badge-success">Success</span>
+      <span class="app-c-badge app-c-badge-error">Error</span>
+      <span class="app-c-badge app-c-badge-warning">Warning</span>
+      <span class="app-c-badge app-c-badge-info">Info</span>
+    </div>
+  </section>
+</div>

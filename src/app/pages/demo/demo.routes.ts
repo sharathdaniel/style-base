@@ -4,6 +4,7 @@ import { ScrollV2 } from './scroll-v2/scroll-v2';
 import { ScrollV3 } from './scroll-v3/scroll-v3';
 import { GridSystem } from './grid-system/grid-system';
 import { IconSystem } from './icon-system/icon-system';
+import { Components } from './components/components';
 
 export const routes: Routes = [
   {
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path: 'icon-system',
     component: IconSystem,
+  },
+  {
+    path: 'components',
+    component: Components,
   },
 ];
