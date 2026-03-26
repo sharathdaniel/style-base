@@ -1,0 +1,85 @@
+@use '../abstracts/functions/rem' as *;
+
+@layer components {
+  .app-c-textfield {
+    --textfield-bg: var(--bg-surface);
+    --textfield-bg-hover: var(--bg-surface);
+    --textfield-color: var(--text-primary);
+    --textfield-border: var(--border-medium);
+    --textfield-border-hover: var(--border-strong);
+    --textfield-placeholder: var(--text-tertiary);
+    --textfield-bg-disabled: var(--bg-surface-subtle);
+    --textfield-border-disabled: var(--border-light);
+    --textfield-color-disabled: var(--text-disabled);
+    --textfield-focus-ring: var(--border-focus);
+    --textfield-focus-ring-size: 2px;
+
+    display: block;
+    width: 100%;
+    border: 1px solid var(--textfield-border);
+    background-color: var(--textfield-bg);
+    color: var(--textfield-color);
+    transition:
+      border-color var(--transition-1),
+      box-shadow var(--transition-1);
+
+    &::placeholder {
+      color: var(--textfield-placeholder);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      background-color: var(--textfield-bg-disabled);
+      border-color: var(--textfield-border-disabled);
+      color: var(--textfield-color-disabled);
+    }
+
+    &:not(:disabled) {
+      &:hover {
+        border-color: var(--textfield-border-hover);
+      }
+
+      &:focus-visible {
+        border-color: var(--textfield-focus-ring);
+        box-shadow: 0 0 0 var(--textfield-focus-ring-size) var(--textfield-focus-ring);
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .app-c-textfield-error {
+    --textfield-border: var(--status-error);
+    --textfield-border-hover: var(--status-error);
+    --textfield-focus-ring: var(--status-error);
+  }
+
+  .app-c-textfield-sm {
+    height: var(--form-item-height-sm);
+    padding-inline: rem(12);
+    font-size: var(--fs-sm);
+    border-radius: var(--radius-sm);
+  }
+
+  .app-c-textfield-md {
+    height: var(--form-item-height-md);
+    padding-inline: rem(16);
+    font-size: var(--fs-md);
+    border-radius: var(--radius-md);
+  }
+
+  .app-c-textfield-lg {
+    height: var(--form-item-height-lg);
+    padding-inline: rem(24);
+    font-size: var(--fs-lg);
+    border-radius: var(--radius-md);
+  }
+
+  .app-c-textarea {
+    padding: rem(12) rem(24);
+    font-size: var(--fs-lg);
+    border-radius: var(--radius-md);
+  }
+}

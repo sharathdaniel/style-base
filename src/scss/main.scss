@@ -33,8 +33,9 @@
 /* Components */
 @include meta.load-css('components/typography');
 @include meta.load-css('components/icon');
-@include meta.load-css('components/button');
 @include meta.load-css('components/badge');
+@include meta.load-css('components/button');
+@include meta.load-css('components/textfield');
 
 /* Utilities (Always load it last) */
 @include meta.load-css('utilities');
