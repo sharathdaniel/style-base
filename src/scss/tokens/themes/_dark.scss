@@ -66,6 +66,16 @@ $checkbox: (
   'checkbox-mark': '--common-white',
   'checkbox-focus-ring': '--primary-300',
 );
+$toggle: (
+  'toggle-track': '--neutral-600',
+  'toggle-track-hover': '--neutral-500',
+  'toggle-track-checked': '--primary-500',
+  'toggle-track-checked-hover': '--primary-400',
+  'toggle-track-disabled': '--neutral-700',
+  'toggle-track-checked-disabled': '--primary-700',
+  'toggle-knob': '--common-white',
+  'toggle-focus-ring': '--primary-300',
+);
 $badge: (
   'badge-neutral-bg': '--neutral-800',
   'badge-neutral-color': '--neutral-300',
@@ -100,6 +110,7 @@ $sidebar: (
         $button,
         $textfield,
         $checkbox,
+        $toggle,
         $badge,
         $scrollbar,
         $sidebar
@@ -116,7 +127,19 @@ $sidebar: (
   color-scheme: dark;
 
   @each $map
-    in ($bg, $text, $border, $status, $button, $textfield, $checkbox, $badge, $scrollbar, $sidebar)
+    in (
+      $bg,
+      $text,
+      $border,
+      $status,
+      $button,
+      $textfield,
+      $checkbox,
+      $toggle,
+      $badge,
+      $scrollbar,
+      $sidebar
+    )
   {
     @each $token, $ref in $map {
       --#{$token}: var(#{$ref});

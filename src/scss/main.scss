@@ -38,6 +38,7 @@
 @include meta.load-css('components/textfield');
 @include meta.load-css('components/checkbox');
 @include meta.load-css('components/radio');
+@include meta.load-css('components/toggle');
 
 /* Utilities (Always load it last) */
 @include meta.load-css('utilities');

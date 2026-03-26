@@ -1,0 +1,85 @@
+@use '../abstracts/functions/rem' as *;
+
+@layer components {
+  .app-c-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: rem(8);
+    user-select: none;
+    cursor: pointer;
+
+    &:has(input:disabled) {
+      cursor: not-allowed;
+    }
+
+    input[type='checkbox'] {
+      appearance: none;
+      flex-shrink: 0;
+      width: rem(36);
+      height: rem(20);
+      margin: 0;
+      border: none;
+      border-radius: rem(10);
+      background-color: var(--toggle-track);
+      cursor: pointer;
+      position: relative;
+      transition:
+        background-color var(--transition-1),
+        box-shadow var(--transition-1);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: rem(2);
+        inset-inline-start: rem(2);
+        width: rem(16);
+        height: rem(16);
+        border-radius: 50%;
+        background-color: var(--toggle-knob);
+        transition: inset-inline-start var(--transition-1);
+      }
+
+      &:checked {
+        background-color: var(--toggle-track-checked);
+
+        &::before {
+          inset-inline-start: rem(18);
+        }
+      }
+
+      &:not(:disabled):hover {
+        background-color: var(--toggle-track-hover);
+
+        &:checked {
+          background-color: var(--toggle-track-checked-hover);
+        }
+      }
+
+      &:focus-visible {
+        box-shadow: 0 0 0 2px var(--toggle-focus-ring);
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: var(--toggle-track-disabled);
+
+        &:checked {
+          background-color: var(--toggle-track-checked-disabled);
+        }
+      }
+    }
+  }
+
+  .app-c-toggle-text {
+    font-size: var(--fs-md);
+    color: var(--text-primary);
+
+    .app-c-toggle:has(input:disabled) & {
+      color: var(--text-disabled);
+    }
+  }
+}
