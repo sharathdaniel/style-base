@@ -2,7 +2,6 @@ import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-icon',
-  standalone: true,
   template: `
     <svg
       class="app-c-svg-icon"
