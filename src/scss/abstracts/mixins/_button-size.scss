@@ -1,0 +1,23 @@
+@use '../functions/rem' as *;
+
+@mixin btn-size($size) {
+  @if $size == sm {
+    height: var(--form-item-height-sm);
+    padding-inline: rem(12);
+    gap: rem(8);
+    font-size: var(--fs-sm);
+    border-radius: var(--radius-sm);
+  } @else if $size == md {
+    height: var(--form-item-height-md);
+    padding-inline: rem(16);
+    gap: rem(8);
+    font-size: var(--fs-md);
+    border-radius: var(--radius-md);
+  } @else if $size == lg {
+    height: var(--form-item-height-lg);
+    padding-inline: rem(24);
+    gap: rem(8);
+    font-size: var(--fs-lg);
+    border-radius: var(--radius-md);
+  }
+}
