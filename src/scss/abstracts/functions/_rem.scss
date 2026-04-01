@@ -11,20 +11,13 @@
     @error "rem(): Expected a number, got `#{$px}`.";
   }
 
-  @if not math.is-unitless($px) and math.unit($px) != 'px' {
-    @error "rem(): Expected a unitless value or px, got `#{$px}`.";
-  }
-
-  /* Strip px unit if present. */
-  $value: $px;
-
   @if not math.is-unitless($px) {
-    $value: math.div($px, 1px);
+    @error "rem(): Expected a unitless number, got `#{$px}`. Do not pass units.";
   }
 
-  @if $value == 1 {
+  @if $px == 1 {
     @error "rem(): Do not use rem(1). Use 1px directly.";
   }
 
-  @return math.div($value, 16) * 1rem;
+  @return math.div($px, 16) * 1rem;
 }
