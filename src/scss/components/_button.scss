@@ -77,9 +77,11 @@
   .app-c-btn-sm {
     @include btn-size(sm);
   }
+
   .app-c-btn-md {
     @include btn-size(md);
   }
+
   .app-c-btn-lg {
     @include btn-size(lg);
   }
