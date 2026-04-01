@@ -74,16 +74,10 @@
     --btn-focus-ring: var(--btn-secondary-focus-ring);
   }
 
-  .app-c-btn-sm {
-    @include btn-size(sm);
-  }
-
-  .app-c-btn-md {
-    @include btn-size(md);
-  }
-
-  .app-c-btn-lg {
-    @include btn-size(lg);
+  @each $size in sm, md, lg {
+    .app-c-btn-#{$size} {
+      @include btn-size($size);
+    }
   }
 
   [class*='app-c-btn-icon'] {
