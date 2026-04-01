@@ -31,7 +31,11 @@ $grid-gap: var(--space-4) !default;
   /* stylelint-disable declaration-block-no-redundant-longhand-properties */
 
   @mixin make-grid-columns($infix: null) {
-    $prefix: if($infix, '-#{$infix}', '');
+    $prefix: '';
+
+    @if $infix {
+      $prefix: '-#{$infix}';
+    }
 
     > .u-col#{$prefix}-full {
       grid-column-start: 1;

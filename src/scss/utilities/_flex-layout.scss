@@ -49,7 +49,11 @@ $flex-gap: var(--space-4) !default;
   /* Flex column widths */
 
   @mixin make-flex-columns($infix: null) {
-    $prefix: if($infix, '-#{$infix}', '');
+    $prefix: '';
+
+    @if $infix {
+      $prefix: '-#{$infix}';
+    }
 
     @for $i from 1 through $flex-columns {
       > .u-col#{$prefix}-#{$i} {
