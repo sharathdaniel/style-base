@@ -62,7 +62,12 @@
     $final-svg: svg-encode($svg);
   }
 
-  $imp: if($important, ' !important', '');
+  $imp: '';
+
+  @if $important {
+    $imp: ' !important';
+  }
+
   $data-uri: url('data:image/svg+xml;charset=utf-8,#{$final-svg}');
 
   background-color: currentColor#{$imp};

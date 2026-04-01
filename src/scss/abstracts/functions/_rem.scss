@@ -16,7 +16,11 @@
   }
 
   /* Strip px unit if present. */
-  $value: if(math.is-unitless($px), $px, math.div($px, 1px));
+  $value: $px;
+
+  @if not math.is-unitless($px) {
+    $value: math.div($px, 1px);
+  }
 
   @if $value == 1 {
     @error "rem(): Do not use rem(1). Use 1px directly.";
