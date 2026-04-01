@@ -228,7 +228,7 @@ See [installation guide](INSTALLATION.md) for adopting StyleBase - what to copy,
     "prepare": "husky"
   },
   "lint-staged": {
-    "src/**/*.scss": ["stylelint --fix --cache", "prettier --write"],
+    "src/**/*.scss": ["stylelint --fix", "prettier --write"],
     "src/**/*.{ts,tsx,js,jsx,html,json}": ["prettier --write"]
   }
 }

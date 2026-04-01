@@ -13,7 +13,7 @@
   },
   "lint-staged": {
     "src/**/*.scss": [
-      "stylelint --fix --cache",
+      "stylelint --fix",
       "prettier --write"
     ],
     "src/**/*.{ts,tsx,js,jsx,html,json}": [
