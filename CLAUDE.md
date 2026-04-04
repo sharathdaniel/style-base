@@ -35,6 +35,7 @@ These rules override everything else.
 5. Component naming:
    - app-c-{component}
    - app-c-{component}-{variant}
+   - State and modifier classes (`active`, `disabled`, `bg1`, `bg2`, etc.) are plain classes — no prefix, always scoped inside the component, never standalone
 
 ### CSS Properties
 
