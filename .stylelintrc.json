@@ -77,7 +77,13 @@
         "message": "Avoid `vh` for heights and custom properties. Prefer `dvh`/`svh`."
       }
     ],
-    "scss/dollar-variable-pattern": "^[a-z][a-z0-9-]*$"
+    "scss/dollar-variable-pattern": "^[a-z][a-z0-9-]*$",
+    "selector-pseudo-element-disallowed-list": [
+      ["ng-deep"],
+      {
+        "message": "::ng-deep is deprecated. Use proper component encapsulation or global styles instead."
+      }
+    ]
   },
   "overrides": [
     {
