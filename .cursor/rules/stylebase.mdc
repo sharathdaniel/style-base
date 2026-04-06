@@ -36,7 +36,10 @@ These rules override everything else.
    - NOT contain utility classes
 5. Component naming:
    - app-c-{component}
+   - app-c-{component}-{element}
    - app-c-{component}-{variant}
+   - Use ONLY single hyphens — NO double underscores (`__`) and NO double hyphens (`--`) in class names
+   - `--` is reserved exclusively for CSS custom properties, never for class names
    - State and modifier classes (`active`, `disabled`, `bg1`, `bg2`, etc.) are plain classes — no prefix, always scoped inside the component, never standalone
 
 ### CSS Properties
