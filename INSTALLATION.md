@@ -61,6 +61,7 @@ These are specific to the StyleBase reference repository:
     yarn.lock                 Dependency lock file
     .vscode/launch.json       Angular debugger config
     .vscode/tasks.json        Angular dev/test tasks
+    .github/                  CI/CD workflows for this repository
 
 ---
 
