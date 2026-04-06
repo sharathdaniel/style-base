@@ -8,6 +8,11 @@ import { Components } from './components/components';
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'scroll-v1',
+    pathMatch: 'full',
+  },
+  {
     path: 'scroll-v1',
     component: ScrollV1,
   },

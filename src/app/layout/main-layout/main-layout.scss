@@ -1,0 +1,21 @@
+@use 'abstracts/mixins/page-height' as *;
+@use 'abstracts/functions/rem' as *;
+
+:host {
+  @include page-height;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.app-c-layout-body {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.app-c-layout-content {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-y: auto;
+}
