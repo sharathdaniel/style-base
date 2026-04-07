@@ -7,16 +7,16 @@
   @include page-height;
 }
 
-// ---- Shared ----
-
 .app-c-landing-section {
   width: 100%;
   max-width: rem(1280);
   margin-inline: auto;
   padding-inline: rem(32);
-}
 
-// ---- Navigation ----
+  &.narrow {
+    max-width: rem(896);
+  }
+}
 
 .app-c-landing-nav {
   --landing-nav-bg: color-mix(in srgb, var(--bg-page) 80%, transparent);
@@ -50,7 +50,7 @@
 .app-c-landing-nav-brand {
   @include text-weight(bold);
 
-  font-size: rem(20);
+  font-size: var(--fs-2xl);
   letter-spacing: -0.04em;
   color: var(--text-primary);
   text-decoration: none;
@@ -100,8 +100,6 @@
   }
 }
 
-// ---- Hero ----
-
 .app-c-landing-hero {
   padding-block: rem(128) rem(160);
   overflow: hidden;
@@ -136,7 +134,7 @@
 }
 
 .app-c-landing-hero-badge-icon {
-  font-size: rem(16);
+  font-size: var(--fs-lg);
 }
 
 .app-c-landing-hero-title {
@@ -155,7 +153,7 @@
 }
 
 .app-c-landing-hero-desc {
-  font-size: rem(18);
+  font-size: var(--fs-xl);
   color: var(--text-secondary);
   max-width: rem(576);
   margin-block-end: rem(40);
@@ -221,7 +219,7 @@
 }
 
 .app-c-landing-hero-filename {
-  font-size: rem(10);
+  font-size: var(--fs-xs);
   color: var(--text-tertiary);
   font-family: monospace;
 }
@@ -231,7 +229,7 @@
   flex-direction: column;
   gap: rem(16);
   font-family: monospace;
-  font-size: rem(14);
+  font-size: var(--fs-md);
   line-height: var(--lh-relaxed);
 }
 
@@ -244,6 +242,10 @@
   padding-block-start: rem(16);
   border-block-start: 1px solid rgb(var(--common-white-rgb) / 5%);
   margin-block-start: rem(4);
+
+  .app-c-landing-hero-code-row {
+    margin-block-start: rem(8);
+  }
 }
 
 .app-c-landing-hero-code-comment {
@@ -258,8 +260,6 @@
   color: var(--accent-300);
 }
 
-// ---- Comparison Bento ----
-
 .app-c-landing-compare {
   padding-block-end: rem(160);
 }
@@ -268,7 +268,7 @@
   display: flex;
   align-items: center;
   gap: rem(12);
-  font-size: rem(28);
+  font-size: var(--fs-4xl);
   font-weight: var(--fw-bold);
   color: var(--text-primary);
   margin-block-end: rem(48);
@@ -331,20 +331,20 @@
 }
 
 .app-c-landing-compare-card-title {
-  font-size: rem(20);
+  font-size: var(--fs-2xl);
   font-weight: var(--fw-bold);
   color: var(--text-primary);
   margin-block-end: rem(8);
 
   .featured & {
-    font-size: rem(24);
+    font-size: var(--fs-3xl);
     margin-block-end: rem(16);
   }
 }
 
 .app-c-landing-compare-card-desc {
   color: var(--text-secondary);
-  font-size: rem(14);
+  font-size: var(--fs-md);
   line-height: var(--lh-relaxed);
 }
 
@@ -352,7 +352,7 @@
   display: flex;
   align-items: center;
   gap: rem(8);
-  font-size: rem(12);
+  font-size: var(--fs-sm);
   margin-block-start: rem(32);
 
   &.warning {
@@ -374,7 +374,7 @@
   padding-inline: rem(16);
   padding-block: rem(8);
   border-radius: rem(8);
-  font-size: rem(12);
+  font-size: var(--fs-sm);
   font-weight: var(--fw-bold);
 
   &.primary {
@@ -387,8 +387,6 @@
     color: var(--accent-300);
   }
 }
-
-// ---- Core Principles ----
 
 .app-c-landing-principles {
   padding-block-end: rem(160);
@@ -450,14 +448,14 @@
 }
 
 .app-c-landing-principles-item-title {
-  font-size: rem(18);
+  font-size: var(--fs-xl);
   font-weight: var(--fw-bold);
   color: var(--text-primary);
   margin-block-end: rem(4);
 }
 
 .app-c-landing-principles-item-desc {
-  font-size: rem(14);
+  font-size: var(--fs-md);
   color: var(--text-secondary);
   line-height: var(--lh-relaxed);
 }
@@ -514,6 +512,10 @@
   font-size: rem(40);
   color: var(--primary-400);
   margin-block-end: rem(16);
+
+  &.accent {
+    color: var(--accent-400);
+  }
 }
 
 .app-c-landing-principles-media-card-label {
@@ -549,8 +551,6 @@
   font-weight: var(--fw-bold);
   color: var(--text-primary);
 }
-
-// ---- Folder Structure ----
 
 .app-c-landing-structure {
   padding-block-end: rem(160);
@@ -600,7 +600,7 @@
 }
 
 .app-c-landing-structure-desc {
-  font-size: rem(16);
+  font-size: var(--fs-lg);
   color: var(--text-secondary);
   margin-block-end: rem(32);
   line-height: var(--lh-relaxed);
@@ -633,13 +633,13 @@
 }
 
 .app-c-landing-structure-dir-name {
-  font-size: rem(14);
+  font-size: var(--fs-md);
   color: var(--text-primary);
   font-family: monospace;
 }
 
 .app-c-landing-structure-dir-desc {
-  font-size: rem(12);
+  font-size: var(--fs-sm);
   color: var(--text-tertiary);
   margin-inline-start: auto;
 }
@@ -657,13 +657,13 @@
   align-items: center;
   gap: rem(8);
   margin-block-end: rem(16);
-  font-size: rem(12);
+  font-size: var(--fs-sm);
   color: var(--text-tertiary);
 }
 
 .app-c-landing-code-block-pre {
   font-family: monospace;
-  font-size: rem(14);
+  font-size: var(--fs-md);
   line-height: var(--lh-relaxed);
   overflow-x: auto;
   color: var(--primary-200);
@@ -686,8 +686,6 @@
   color: var(--primary-300);
 }
 
-// ---- CTA ----
-
 .app-c-landing-cta {
   padding-block-end: rem(160);
   text-align: center;
@@ -701,7 +699,7 @@
 }
 
 .app-c-landing-cta-desc {
-  font-size: rem(18);
+  font-size: var(--fs-xl);
   color: var(--text-secondary);
   margin-block-end: rem(48);
 }
@@ -742,7 +740,7 @@
   padding-block: rem(8);
   border-radius: rem(8);
   font-family: monospace;
-  font-size: rem(14);
+  font-size: var(--fs-md);
   color: var(--text-primary);
 }
 
@@ -760,8 +758,6 @@
     width: auto;
   }
 }
-
-// ---- Footer ----
 
 .app-c-landing-footer {
   background-color: var(--bg-page);
@@ -784,12 +780,12 @@
 .app-c-landing-footer-brand {
   @include text-weight(bold);
 
-  font-size: rem(18);
+  font-size: var(--fs-xl);
   color: var(--text-primary);
 }
 
 .app-c-landing-footer-copy {
-  font-size: rem(14);
+  font-size: var(--fs-md);
   color: var(--text-tertiary);
   margin-block-start: rem(8);
 }
@@ -801,7 +797,7 @@
 }
 
 .app-c-landing-footer-link {
-  font-size: rem(14);
+  font-size: var(--fs-md);
   color: var(--text-tertiary);
   text-decoration: none;
   text-underline-offset: rem(4);

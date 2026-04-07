@@ -1,43 +1,28 @@
 <div class="app-c-page-scroll">
-  <!-- Navigation -->
   <nav class="app-c-landing-nav">
     <div class="app-c-landing-nav-inner">
       <div class="app-c-landing-nav-start">
-        <a class="app-c-landing-nav-brand" href="#">StyleBase</a>
+        <a class="app-c-landing-nav-brand" routerLink="/">StyleBase</a>
         <div class="app-c-landing-nav-links">
-          <a class="app-c-landing-nav-link active" href="#">Architecture</a>
-          <a class="app-c-landing-nav-link" href="#">Tokens</a>
-          <a class="app-c-landing-nav-link" href="#">Components</a>
-          <a class="app-c-landing-nav-link" href="#">Showcase</a>
+          <a class="app-c-landing-nav-link active" href="#architecture">Architecture</a>
+          <a class="app-c-landing-nav-link" href="#tokens">Tokens</a>
+          <a class="app-c-landing-nav-link" routerLink="/demo/components">Components</a>
+          <a class="app-c-landing-nav-link" routerLink="/demo/grid-system">Showcase</a>
         </div>
       </div>
       <div class="app-c-landing-nav-end">
-        <div class="app-c-landing-nav-search">
-          <input
-            class="app-c-textfield"
-            placeholder="Search architecture..."
-            type="text"
-            aria-label="Search architecture"
-          />
-        </div>
-        <button class="app-c-btn app-c-btn-primary app-c-btn-sm">Get Started</button>
+        <a class="app-c-btn app-c-btn-primary app-c-btn-sm" routerLink="/demo/components"
+          >Get Started</a
+        >
       </div>
     </div>
   </nav>
 
   <main>
-    <!-- Hero Section -->
-    <section class="app-c-landing-hero">
+    <section id="architecture" class="app-c-landing-hero">
       <div class="app-c-landing-section">
         <div class="app-c-landing-hero-inner">
-          <!-- Left: Copy -->
           <div>
-            <div class="app-c-landing-hero-badge">
-              <span class="material-symbols-outlined app-c-landing-hero-badge-icon"
-                >rocket_launch</span
-              >
-              v2.4.0 Now Available
-            </div>
             <h1 class="app-c-landing-hero-title">
               Design scale, <br />
               <span class="app-c-landing-hero-gradient">defined by tokens.</span>
@@ -47,12 +32,19 @@
               over speed. Build scalable, token-driven systems that survive the long game.
             </p>
             <div class="app-c-landing-hero-actions">
-              <button class="app-c-btn app-c-btn-primary app-c-btn-lg">Get Started</button>
-              <button class="app-c-btn app-c-btn-secondary app-c-btn-lg">Documentation</button>
+              <a class="app-c-btn app-c-btn-primary app-c-btn-lg" routerLink="/demo/components"
+                >Get Started</a
+              >
+              <a
+                class="app-c-btn app-c-btn-secondary app-c-btn-lg"
+                href="https://github.com/sharathdaniel/style-base"
+                target="_blank"
+                rel="noopener"
+                >Documentation</a
+              >
             </div>
           </div>
 
-          <!-- Right: Code Card -->
           <div class="app-c-landing-hero-code-panel">
             <div class="app-c-landing-hero-glow"></div>
             <div class="app-c-landing-hero-code-card">
@@ -62,26 +54,26 @@
                   <div class="app-c-landing-hero-dot amber"></div>
                   <div class="app-c-landing-hero-dot green"></div>
                 </div>
-                <span class="app-c-landing-hero-filename">_variables.scss</span>
+                <span class="app-c-landing-hero-filename">_colors.scss</span>
               </div>
               <div class="app-c-landing-hero-code-body">
                 <div class="app-c-landing-hero-code-row">
-                  <span class="app-c-landing-hero-code-key">$color-primary:</span>
-                  <span class="app-c-landing-hero-code-val">#4648d4;</span>
+                  <span class="app-c-landing-hero-code-key">--primary-500:</span>
+                  <span class="app-c-landing-hero-code-val">#6366f1;</span>
                 </div>
                 <div class="app-c-landing-hero-code-row">
-                  <span class="app-c-landing-hero-code-key">$spacing-unit:</span>
+                  <span class="app-c-landing-hero-code-key">--fs-md:</span>
+                  <span class="app-c-landing-hero-code-val">0.875rem;</span>
+                </div>
+                <div class="app-c-landing-hero-code-row">
+                  <span class="app-c-landing-hero-code-key">--radius-lg:</span>
                   <span class="app-c-landing-hero-code-val">0.5rem;</span>
-                </div>
-                <div class="app-c-landing-hero-code-row">
-                  <span class="app-c-landing-hero-code-key">$radius-lg:</span>
-                  <span class="app-c-landing-hero-code-val">1.25rem;</span>
                 </div>
                 <div class="app-c-landing-hero-code-divider">
                   <span class="app-c-landing-hero-code-comment">// Semantic Tokens</span>
-                  <div class="app-c-landing-hero-code-row" style="margin-top: 0.5rem">
-                    <span class="app-c-landing-hero-code-key">$surface-base:</span>
-                    <span class="app-c-landing-hero-code-val">map-get($grays, 950);</span>
+                  <div class="app-c-landing-hero-code-row">
+                    <span class="app-c-landing-hero-code-key">--text-primary:</span>
+                    <span class="app-c-landing-hero-code-val">var(--neutral-900);</span>
                   </div>
                 </div>
               </div>
@@ -91,7 +83,6 @@
       </div>
     </section>
 
-    <!-- Comparison Table -->
     <section class="app-c-landing-compare">
       <div class="app-c-landing-section">
         <h2 class="app-c-landing-compare-heading">
@@ -138,18 +129,16 @@
             </div>
             <div class="app-c-landing-compare-card-tags">
               <span class="app-c-landing-compare-tag primary">100% Control</span>
-              <span class="app-c-landing-compare-tag accent">Zero Dependencies</span>
+              <span class="app-c-landing-compare-tag accent">Framework Agnostic</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Core Principles -->
-    <section class="app-c-landing-principles">
+    <section id="tokens" class="app-c-landing-principles">
       <div class="app-c-landing-section">
         <div class="app-c-landing-principles-inner">
-          <!-- Left: Text content -->
           <div class="app-c-landing-principles-content">
             <h2 class="app-c-landing-principles-heading">
               Built on principles, <br />
@@ -176,7 +165,7 @@
                 <div>
                   <h4 class="app-c-landing-principles-item-title">CSS Cascade Layers</h4>
                   <p class="app-c-landing-principles-item-desc">
-                    Harnessing &#64;layer to solve specificity wars forever. Base, Objects,
+                    Harnessing &#64;layer to solve specificity wars forever. Reset, Base, Plugins,
                     Components, and Utilities separated by design.
                   </p>
                 </div>
@@ -187,17 +176,16 @@
                   <span class="material-symbols-outlined">straighten</span>
                 </div>
                 <div>
-                  <h4 class="app-c-landing-principles-item-title">REM Units Only</h4>
+                  <h4 class="app-c-landing-principles-item-title">REM-based Sizing</h4>
                   <p class="app-c-landing-principles-item-desc">
-                    Accessibility is not optional. StyleBase enforces a strict REM-based system for
-                    fluid and inclusive typography.
+                    Accessibility is not optional. StyleBase enforces REM for all spacing and
+                    sizing. Borders use px; media queries are always written in px.
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Right: Media grid -->
           <div class="app-c-landing-principles-grid">
             <div class="app-c-landing-principles-col">
               <div class="app-c-landing-principles-media-card sq">
@@ -209,8 +197,8 @@
               <div class="app-c-landing-principles-media-card tall primary-tint">
                 <img
                   class="app-c-landing-principles-media-img"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIFbIzcgX-VTA6xjokG5g5_MPoGfyikLwB9HJJ_2w_3EOH7dnpwlbFeTMdg4MwyvXXKaHAaM0ORDrRsCegc6ROMl2WGOkNj7qmgYH4sG8l_PGbIyGERsBBtJG6elmzoFhhC7uqB3zIT7iEQuvh753g5zCIVf6ZoQyL7kZJijt3T3uIE0Cb4wKAsYyDqHmV0bdktRQbBt3cIS4Xrd7yaN9j5TQWdoj7H1SKi4tS5f9nkE3QGs9_NcyGfSlofQ1zKZeV6nvzAYScxJU"
-                  alt="Abstract flowing 3D shapes in deep indigo"
+                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&fit=crop&q=80"
+                  alt="JavaScript code on a screen"
                 />
                 <div class="app-c-landing-principles-media-overlay">
                   <span class="app-c-landing-principles-media-caption">Pure Logic</span>
@@ -221,8 +209,8 @@
               <div class="app-c-landing-principles-media-card tall accent-tint">
                 <img
                   class="app-c-landing-principles-media-img"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9EMlUeZV5TsNFGcWeLAT5LN8Wjcx-JFazfjPya3RaPhPUMrb-1LzYtH17s1-yw4S7xiX6kL0u-NYXDLf17cp5AwmFidiWkVUuLUEFuwnX0WCmaT-aLBOjWHjpgCZKP6sX3Stsu4-WPxMTVjWMF483NMiJOimKCH622KoGG-21rXLbd-jfWfxJqxDhiwc0ttZ7PcPj8RTZ_otsaSiDV7HNDy2tX-roQ5Zo4YyJ7xBJc1sZ8DXyetrxPx7KqmESbJL5gD58PTZ-zo"
-                  alt="Minimalist architectural detail with sharp shadows"
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&fit=crop&q=80"
+                  alt="CSS code with colorful syntax highlighting"
                 />
                 <div class="app-c-landing-principles-media-overlay">
                   <span class="app-c-landing-principles-media-caption">Token Driven</span>
@@ -230,8 +218,7 @@
               </div>
               <div class="app-c-landing-principles-media-card sq">
                 <span
-                  class="material-symbols-outlined app-c-landing-principles-media-card-icon"
-                  style="color: var(--accent-400)"
+                  class="material-symbols-outlined app-c-landing-principles-media-card-icon accent"
                   >auto_awesome</span
                 >
                 <span class="app-c-landing-principles-media-card-label">Scalable</span>
@@ -242,13 +229,11 @@
       </div>
     </section>
 
-    <!-- Folder Structure Visualization -->
     <section class="app-c-landing-structure">
       <div class="app-c-landing-section">
         <div class="app-c-landing-structure-card">
           <div class="app-c-landing-structure-card-glow"></div>
           <div class="app-c-landing-structure-inner">
-            <!-- Left: Description + directory listing -->
             <div>
               <h2 class="app-c-landing-structure-heading">Structured for the long game.</h2>
               <p class="app-c-landing-structure-desc">
@@ -260,36 +245,35 @@
                   <span class="material-symbols-outlined app-c-landing-structure-dir-icon"
                     >folder</span
                   >
-                  <span class="app-c-landing-structure-dir-name">abstracts/</span>
-                  <span class="app-c-landing-structure-dir-desc">Mixins, Functions, Tokens</span>
-                </div>
-                <div class="app-c-landing-structure-dir">
-                  <span class="material-symbols-outlined app-c-landing-structure-dir-icon"
-                    >folder</span
-                  >
-                  <span class="app-c-landing-structure-dir-name">base/</span>
+                  <span class="app-c-landing-structure-dir-name">tokens/</span>
                   <span class="app-c-landing-structure-dir-desc"
-                    >Reset, Typography, Boilerplate</span
+                    >Colors, Font, Spacing, Themes</span
                   >
                 </div>
                 <div class="app-c-landing-structure-dir">
                   <span class="material-symbols-outlined app-c-landing-structure-dir-icon"
                     >folder</span
                   >
-                  <span class="app-c-landing-structure-dir-name">layout/</span>
-                  <span class="app-c-landing-structure-dir-desc">Grid, Navigation, Footer</span>
+                  <span class="app-c-landing-structure-dir-name">abstracts/</span>
+                  <span class="app-c-landing-structure-dir-desc">Mixins, Functions, Tools</span>
                 </div>
                 <div class="app-c-landing-structure-dir">
                   <span class="material-symbols-outlined app-c-landing-structure-dir-icon"
                     >folder</span
                   >
                   <span class="app-c-landing-structure-dir-name">components/</span>
-                  <span class="app-c-landing-structure-dir-desc">Buttons, Cards, Modals</span>
+                  <span class="app-c-landing-structure-dir-desc">Button, Badge, Textfield…</span>
+                </div>
+                <div class="app-c-landing-structure-dir">
+                  <span class="material-symbols-outlined app-c-landing-structure-dir-icon"
+                    >folder</span
+                  >
+                  <span class="app-c-landing-structure-dir-name">utilities/</span>
+                  <span class="app-c-landing-structure-dir-desc">Flex, Grid, Spacing, Display</span>
                 </div>
               </div>
             </div>
 
-            <!-- Right: Code preview -->
             <div>
               <div class="app-c-landing-code-block">
                 <div class="app-c-landing-code-block-header">
@@ -298,21 +282,20 @@
                 </div>
                 <pre
                   class="app-c-landing-code-block-pre"
-                ><span class="app-c-landing-code-block-comment">// Abstracts</span>
-&#64;forward 'abstracts/tokens';
-&#64;forward 'abstracts/mixins';
+                ><span class="app-c-landing-code-block-comment">// Tokens</span>
+<span class="app-c-landing-code-block-keyword">&#64;include</span> meta.load-css('tokens/colors');
+<span class="app-c-landing-code-block-keyword">&#64;include</span> meta.load-css('tokens/themes/light');
 
-<span class="app-c-landing-code-block-comment">// Base &amp; Layout</span>
-&#64;use 'base/reset';
-&#64;use 'layout/main-grid';
+<span class="app-c-landing-code-block-comment">// Base</span>
+<span class="app-c-landing-code-block-keyword">&#64;include</span> meta.load-css('base/reset');
 
 <span class="app-c-landing-code-block-comment">// Components</span>
-&#64;use 'components/buttons';
-&#64;use 'components/cards';
+<span class="app-c-landing-code-block-keyword">&#64;include</span> meta.load-css('components/button');
+<span class="app-c-landing-code-block-keyword">&#64;include</span> meta.load-css('components/badge');
 
 <span class="app-c-landing-code-block-selector">.app-c-card &#123;</span>
-  <span class="app-c-landing-code-block-keyword">&#64;include</span> respond-to('md') &#123;
-    <span class="app-c-landing-code-block-prop">padding:</span> var(--space-xl);
+  <span class="app-c-landing-code-block-keyword">&#64;include</span> breakpoint-up(md) &#123;
+    <span class="app-c-landing-code-block-prop">padding:</span> rem(24);
   &#125;
 <span class="app-c-landing-code-block-selector">&#125;</span></pre>
               </div>
@@ -322,48 +305,50 @@
       </div>
     </section>
 
-    <!-- Final CTA Section -->
     <section class="app-c-landing-cta">
-      <div class="app-c-landing-section" style="max-width: 56rem">
-        <h2 class="app-c-landing-cta-heading">Ready to refine your architecture?</h2>
+      <div class="app-c-landing-section narrow">
+        <h2 class="app-c-landing-cta-heading">Explore the system</h2>
         <p class="app-c-landing-cta-desc">
-          Join 500+ teams building more maintainable systems with StyleBase.
+          From tokens to components — everything is live and explorable. Start with the component
+          library or dive into the grid system.
         </p>
         <div class="app-c-landing-cta-card">
           <div class="app-c-landing-cta-install">
-            <div class="app-c-landing-cta-install-label">Package Manager</div>
-            <code class="app-c-landing-cta-install-code">npm install &#64;stylebase/core</code>
+            <div class="app-c-landing-cta-install-label">Entry Point</div>
+            <code class="app-c-landing-cta-install-code">src/scss/main.scss</code>
           </div>
           <div class="app-c-landing-cta-actions">
-            <button class="app-c-btn app-c-btn-primary app-c-btn-lg">
-              <span class="material-symbols-outlined app-c-icon app-c-icon-md">download</span>
-              Download PDF
-            </button>
-            <button class="app-c-btn app-c-btn-secondary app-c-btn-lg">
-              <span class="material-symbols-outlined app-c-icon app-c-icon-md">terminal</span>
-              Try Demo
-            </button>
+            <a class="app-c-btn app-c-btn-primary app-c-btn-lg" routerLink="/demo/components">
+              <span class="material-symbols-outlined app-c-icon app-c-icon-md">widgets</span>
+              Browse Components
+            </a>
+            <a class="app-c-btn app-c-btn-secondary app-c-btn-lg" routerLink="/demo/icon-system">
+              <span class="material-symbols-outlined app-c-icon app-c-icon-md">category</span>
+              Icon System
+            </a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="app-c-landing-footer">
     <div class="app-c-landing-section">
       <div class="app-c-landing-footer-inner">
         <div>
           <div class="app-c-landing-footer-brand">StyleBase</div>
           <p class="app-c-landing-footer-copy">
-            © 2024 StyleBase Architecture. Built for the modern web.
+            © {{ currentYear }} StyleBase Architecture. Built for the modern web.
           </p>
         </div>
         <div class="app-c-landing-footer-links">
-          <a class="app-c-landing-footer-link" href="#">Github</a>
-          <a class="app-c-landing-footer-link" href="#">Discord</a>
-          <a class="app-c-landing-footer-link" href="#">Twitter</a>
-          <a class="app-c-landing-footer-link" href="#">Changelog</a>
+          <a
+            class="app-c-landing-footer-link"
+            href="https://github.com/sharathdaniel/style-base"
+            target="_blank"
+            rel="noopener"
+            >Github</a
+          >
         </div>
       </div>
     </div>
