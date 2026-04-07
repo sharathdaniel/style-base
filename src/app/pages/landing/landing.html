@@ -1,22 +1,35 @@
 <a class="u-sr-only" href="#main-content">Skip to main content</a>
-<div class="app-c-page-scroll">
+<div class="app-c-page-scroll u-scrollbar">
   <nav class="app-c-landing-nav" aria-label="Main navigation">
     <div class="app-c-landing-nav-inner">
       <div class="app-c-landing-nav-start">
         <a class="app-c-landing-nav-brand" routerLink="/">StyleBase</a>
         <div class="app-c-landing-nav-links">
-          <a class="app-c-landing-nav-link active" href="#architecture" aria-current="page"
-            >Architecture</a
-          >
+          <a class="app-c-landing-nav-link" href="#architecture">Architecture</a>
           <a class="app-c-landing-nav-link" href="#tokens">Tokens</a>
-          <a class="app-c-landing-nav-link" routerLink="/demo/components">Components</a>
-          <a class="app-c-landing-nav-link" routerLink="/demo/grid-system">Showcase</a>
+          <a class="app-c-landing-nav-link" href="#structure">Structure</a>
         </div>
       </div>
       <div class="app-c-landing-nav-end">
-        <a class="app-c-btn app-c-btn-primary app-c-btn-sm" routerLink="/demo/components"
-          >Get Started</a
+        <a
+          class="app-c-landing-nav-github"
+          href="https://github.com/sharathdaniel/style-base"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View on GitHub"
         >
+          <svg
+            class="app-c-landing-nav-github-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+            />
+          </svg>
+          <span>GitHub</span>
+        </a>
         <button
           type="button"
           class="app-c-landing-nav-mobile-toggle"
@@ -43,17 +56,8 @@
       <a class="app-c-landing-nav-mobile-link" href="#tokens" (click)="toggleMobileMenu()"
         >Tokens</a
       >
-      <a
-        class="app-c-landing-nav-mobile-link"
-        routerLink="/demo/components"
-        (click)="toggleMobileMenu()"
-        >Components</a
-      >
-      <a
-        class="app-c-landing-nav-mobile-link"
-        routerLink="/demo/grid-system"
-        (click)="toggleMobileMenu()"
-        >Showcase</a
+      <a class="app-c-landing-nav-mobile-link" href="#structure" (click)="toggleMobileMenu()"
+        >Structure</a
       >
     </div>
   </nav>
@@ -72,7 +76,11 @@
               over speed. Build scalable, token-driven systems that survive the long game.
             </p>
             <div class="app-c-landing-hero-actions">
-              <a class="app-c-btn app-c-btn-primary app-c-btn-lg" routerLink="/demo/components"
+              <a
+                class="app-c-btn app-c-btn-primary app-c-btn-lg"
+                href="https://github.com/sharathdaniel/style-base/blob/main/INSTALLATION.md"
+                target="_blank"
+                rel="noopener noreferrer"
                 >Get Started</a
               >
               <a
@@ -80,7 +88,7 @@
                 href="https://github.com/sharathdaniel/style-base"
                 target="_blank"
                 rel="noopener noreferrer"
-                >GitHub</a
+                >Learn More</a
               >
             </div>
           </div>
@@ -98,7 +106,7 @@
               </div>
               <div class="app-c-landing-hero-code-body">
                 <span class="app-c-landing-hero-code-comment"
-                  >// Base tokens — raw values, not for components</span
+                  >// Base tokens - raw values, not for components</span
                 >
                 <div class="app-c-landing-hero-code-row">
                   <span class="app-c-landing-hero-code-key">--primary-500:</span>
@@ -114,7 +122,7 @@
                 </div>
                 <div class="app-c-landing-hero-code-divider">
                   <span class="app-c-landing-hero-code-comment success"
-                    >// Semantic tokens — use these in components</span
+                    >// Semantic tokens - use these in components</span
                   >
                   <div class="app-c-landing-hero-code-row">
                     <span class="app-c-landing-hero-code-key">--text-primary:</span>
@@ -325,21 +333,20 @@
                     </div>
                     <div class="app-c-landing-principles-logic-line">
                       <span class="app-c-landing-principles-logic-kw">@mixin</span>
-                      <span class="app-c-landing-principles-logic-name"> breakpoint-up</span>(md)
+                      <span class="app-c-landing-principles-logic-name">breakpoint-up</span>(md)
                       &#123;
                     </div>
                     <div class="app-c-landing-principles-logic-line indent">
                       <span class="app-c-landing-principles-logic-prop">padding:</span>
-                      <span class="app-c-landing-principles-logic-val"> rem(24)</span>;
+                      <span class="app-c-landing-principles-logic-val">rem(24)</span>;
                     </div>
                     <div class="app-c-landing-principles-logic-line">&#125;</div>
                     <div class="app-c-landing-principles-logic-sep" aria-hidden="true"></div>
                     <div class="app-c-landing-principles-logic-line">
-                      <span class="app-c-landing-principles-logic-kw">@layer</span> components
-                      &#123;
+                      <span class="app-c-landing-principles-logic-kw">@layer</span>components &#123;
                     </div>
                     <div class="app-c-landing-principles-logic-line indent">
-                      <span class="app-c-landing-principles-logic-sel">.app-c-btn</span> &#123; …
+                      <span class="app-c-landing-principles-logic-sel">.app-c-btn</span>&#123; …
                       &#125;
                     </div>
                     <div class="app-c-landing-principles-logic-line">&#125;</div>
@@ -395,7 +402,7 @@
       </div>
     </section>
 
-    <section class="app-c-landing-structure">
+    <section id="structure" class="app-c-landing-structure">
       <div class="app-c-landing-section">
         <div class="app-c-landing-structure-card">
           <div class="app-c-landing-structure-card-glow" aria-hidden="true"></div>
@@ -473,12 +480,7 @@
 <span class="app-c-landing-code-block-comment">// Components</span>
 <span class="app-c-landing-code-block-keyword">&#64;include</span> meta.load-css('components/button');
 <span class="app-c-landing-code-block-keyword">&#64;include</span> meta.load-css('components/badge');
-
-<span class="app-c-landing-code-block-selector">.app-c-card &#123;</span>
-  <span class="app-c-landing-code-block-keyword">&#64;include</span> breakpoint-up(md) &#123;
-    <span class="app-c-landing-code-block-prop">padding:</span> rem(24);
-  &#125;
-<span class="app-c-landing-code-block-selector">&#125;</span></pre>
+</pre>
               </figure>
             </div>
           </div>
@@ -502,7 +504,7 @@
             <div class="app-c-landing-step-num" aria-hidden="true">02</div>
             <h3 class="app-c-landing-step-title">Configure your tokens</h3>
             <p class="app-c-landing-step-desc">
-              Edit the token files to match your brand — colors, type scale, spacing. One change
+              Edit the token files to match your brand - colors, type scale, spacing. One change
               propagates everywhere.
             </p>
           </div>
@@ -522,7 +524,7 @@
       <div class="app-c-landing-section narrow">
         <h2 class="app-c-landing-cta-heading">Everything is live. Nothing is locked.</h2>
         <p class="app-c-landing-cta-desc">
-          Browse every component, token, and utility — all explorable in the reference app. Start
+          Browse every component, token, and utility - all explorable in the reference app. Start
           with the component library or dive straight into the grid system.
         </p>
         <div class="app-c-landing-cta-card">
@@ -552,30 +554,10 @@
   <footer class="app-c-landing-footer">
     <div class="app-c-landing-section">
       <div class="app-c-landing-footer-inner">
-        <div>
-          <div class="app-c-landing-footer-brand">StyleBase</div>
-          <p class="app-c-landing-footer-copy">
-            &copy; {{ currentYear }} StyleBase Architecture. Built for the modern web.
-          </p>
-        </div>
-        <nav class="app-c-landing-footer-nav" aria-label="Footer navigation">
-          <div class="app-c-landing-footer-nav-group">
-            <span class="app-c-landing-footer-nav-heading">Explore</span>
-            <a class="app-c-landing-footer-link" routerLink="/demo/components">Components</a>
-            <a class="app-c-landing-footer-link" routerLink="/demo/grid-system">Showcase</a>
-            <a class="app-c-landing-footer-link" routerLink="/demo/icon-system">Icon System</a>
-          </div>
-          <div class="app-c-landing-footer-nav-group">
-            <span class="app-c-landing-footer-nav-heading">Project</span>
-            <a
-              class="app-c-landing-footer-link"
-              href="https://github.com/sharathdaniel/style-base"
-              target="_blank"
-              rel="noopener noreferrer"
-              >GitHub</a
-            >
-          </div>
-        </nav>
+        <div class="app-c-landing-footer-brand">StyleBase</div>
+        <p class="app-c-landing-footer-copy">
+          &copy; {{ currentYear }} StyleBase Architecture. Built for the modern web.
+        </p>
       </div>
     </div>
   </footer>
