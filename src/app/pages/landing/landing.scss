@@ -7,6 +7,14 @@
   @include page-height;
 }
 
+.app-c-page-scroll {
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
 .app-c-landing-section {
   width: 100%;
   max-width: rem(1280);
