@@ -1,10 +1,13 @@
+<a class="u-sr-only" href="#main-content">Skip to main content</a>
 <div class="app-c-page-scroll">
-  <nav class="app-c-landing-nav">
+  <nav class="app-c-landing-nav" aria-label="Main navigation">
     <div class="app-c-landing-nav-inner">
       <div class="app-c-landing-nav-start">
         <a class="app-c-landing-nav-brand" routerLink="/">StyleBase</a>
         <div class="app-c-landing-nav-links">
-          <a class="app-c-landing-nav-link active" href="#architecture">Architecture</a>
+          <a class="app-c-landing-nav-link active" href="#architecture" aria-current="page"
+            >Architecture</a
+          >
           <a class="app-c-landing-nav-link" href="#tokens">Tokens</a>
           <a class="app-c-landing-nav-link" routerLink="/demo/components">Components</a>
           <a class="app-c-landing-nav-link" routerLink="/demo/grid-system">Showcase</a>
@@ -14,11 +17,48 @@
         <a class="app-c-btn app-c-btn-primary app-c-btn-sm" routerLink="/demo/components"
           >Get Started</a
         >
+        <button
+          type="button"
+          class="app-c-landing-nav-mobile-toggle"
+          [attr.aria-expanded]="mobileMenuOpen"
+          aria-controls="mobile-nav"
+          aria-label="Toggle navigation"
+          (click)="toggleMobileMenu()"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true"
+            >{{ mobileMenuOpen ? 'close' : 'menu' }}</span
+          >
+        </button>
       </div>
+    </div>
+    <div
+      class="app-c-landing-nav-mobile"
+      id="mobile-nav"
+      [class.open]="mobileMenuOpen"
+      aria-label="Mobile navigation"
+    >
+      <a class="app-c-landing-nav-mobile-link" href="#architecture" (click)="toggleMobileMenu()"
+        >Architecture</a
+      >
+      <a class="app-c-landing-nav-mobile-link" href="#tokens" (click)="toggleMobileMenu()"
+        >Tokens</a
+      >
+      <a
+        class="app-c-landing-nav-mobile-link"
+        routerLink="/demo/components"
+        (click)="toggleMobileMenu()"
+        >Components</a
+      >
+      <a
+        class="app-c-landing-nav-mobile-link"
+        routerLink="/demo/grid-system"
+        (click)="toggleMobileMenu()"
+        >Showcase</a
+      >
     </div>
   </nav>
 
-  <main>
+  <main id="main-content">
     <section id="architecture" class="app-c-landing-hero">
       <div class="app-c-landing-section">
         <div class="app-c-landing-hero-inner">
@@ -39,17 +79,17 @@
                 class="app-c-btn app-c-btn-secondary app-c-btn-lg"
                 href="https://github.com/sharathdaniel/style-base"
                 target="_blank"
-                rel="noopener"
-                >Documentation</a
+                rel="noopener noreferrer"
+                >GitHub</a
               >
             </div>
           </div>
 
           <div class="app-c-landing-hero-code-panel">
-            <div class="app-c-landing-hero-glow"></div>
+            <div class="app-c-landing-hero-glow" aria-hidden="true"></div>
             <div class="app-c-landing-hero-code-card">
               <div class="app-c-landing-hero-code-card-header">
-                <div class="app-c-landing-hero-dots">
+                <div class="app-c-landing-hero-dots" aria-hidden="true">
                   <div class="app-c-landing-hero-dot red"></div>
                   <div class="app-c-landing-hero-dot amber"></div>
                   <div class="app-c-landing-hero-dot green"></div>
@@ -57,6 +97,9 @@
                 <span class="app-c-landing-hero-filename">_colors.scss</span>
               </div>
               <div class="app-c-landing-hero-code-body">
+                <span class="app-c-landing-hero-code-comment"
+                  >// Base tokens — raw values, not for components</span
+                >
                 <div class="app-c-landing-hero-code-row">
                   <span class="app-c-landing-hero-code-key">--primary-500:</span>
                   <span class="app-c-landing-hero-code-val">#6366f1;</span>
@@ -70,7 +113,9 @@
                   <span class="app-c-landing-hero-code-val">0.5rem;</span>
                 </div>
                 <div class="app-c-landing-hero-code-divider">
-                  <span class="app-c-landing-hero-code-comment">// Semantic Tokens</span>
+                  <span class="app-c-landing-hero-code-comment success"
+                    >// Semantic tokens — use these in components</span
+                  >
                   <div class="app-c-landing-hero-code-row">
                     <span class="app-c-landing-hero-code-key">--text-primary:</span>
                     <span class="app-c-landing-hero-code-val">var(--neutral-900);</span>
@@ -83,14 +128,55 @@
       </div>
     </section>
 
+    <section class="app-c-landing-stats" aria-label="Key metrics">
+      <div class="app-c-landing-section">
+        <div class="app-c-landing-stats-inner">
+          <div class="app-c-landing-stats-item">
+            <span class="material-symbols-outlined app-c-landing-stats-icon" aria-hidden="true"
+              >layers</span
+            >
+            <span class="app-c-landing-stats-value">5</span>
+            <span class="app-c-landing-stats-label">CSS Layers</span>
+          </div>
+          <div class="app-c-landing-stats-item">
+            <span class="material-symbols-outlined app-c-landing-stats-icon" aria-hidden="true"
+              >token</span
+            >
+            <span class="app-c-landing-stats-value">2</span>
+            <span class="app-c-landing-stats-label">Token Tiers</span>
+          </div>
+          <div class="app-c-landing-stats-item">
+            <span class="material-symbols-outlined app-c-landing-stats-icon" aria-hidden="true"
+              >code</span
+            >
+            <span class="app-c-landing-stats-value">Pure</span>
+            <span class="app-c-landing-stats-label">SCSS</span>
+          </div>
+          <div class="app-c-landing-stats-item">
+            <span class="material-symbols-outlined app-c-landing-stats-icon" aria-hidden="true"
+              >lock_open</span
+            >
+            <span class="app-c-landing-stats-value">Zero</span>
+            <span class="app-c-landing-stats-label">Vendor Lock-in</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="app-c-landing-compare">
       <div class="app-c-landing-section">
         <h2 class="app-c-landing-compare-heading">
-          <span class="material-symbols-outlined app-c-landing-compare-heading-icon"
+          <span
+            class="material-symbols-outlined app-c-landing-compare-heading-icon"
+            aria-hidden="true"
             >compare_arrows</span
           >
           The Architecture Landscape
         </h2>
+        <p class="app-c-landing-compare-subheading">
+          Not a UI kit. Not a utility framework. Not Tailwind or Bootstrap.<br />
+          A design architecture built to last.
+        </p>
         <div class="app-c-landing-compare-grid">
           <div class="app-c-landing-compare-card">
             <div>
@@ -101,7 +187,8 @@
               </p>
             </div>
             <div class="app-c-landing-compare-card-status error">
-              <span class="material-symbols-outlined">close</span> Low Flexibility
+              <span class="material-symbols-outlined" aria-hidden="true">close</span> Low
+              Flexibility
             </div>
           </div>
 
@@ -114,7 +201,7 @@
               </p>
             </div>
             <div class="app-c-landing-compare-card-status warning">
-              <span class="material-symbols-outlined">warning</span> Logic Bloat
+              <span class="material-symbols-outlined" aria-hidden="true">warning</span> Logic Bloat
             </div>
           </div>
 
@@ -136,6 +223,20 @@
       </div>
     </section>
 
+    <section class="app-c-landing-frameworks" aria-label="Framework compatibility">
+      <div class="app-c-landing-section">
+        <div class="app-c-landing-frameworks-inner">
+          <span class="app-c-landing-frameworks-label">Works with</span>
+          <span class="app-c-landing-frameworks-item">Angular</span>
+          <span class="app-c-landing-frameworks-item">React</span>
+          <span class="app-c-landing-frameworks-item">Vue</span>
+          <span class="app-c-landing-frameworks-item">Next.js</span>
+          <span class="app-c-landing-frameworks-item">Svelte</span>
+          <span class="app-c-landing-frameworks-item">Webpack</span>
+        </div>
+      </div>
+    </section>
+
     <section id="tokens" class="app-c-landing-principles">
       <div class="app-c-landing-section">
         <div class="app-c-landing-principles-inner">
@@ -146,7 +247,7 @@
             </h2>
             <div class="app-c-landing-principles-list">
               <div class="app-c-landing-principles-item">
-                <div class="app-c-landing-principles-icon primary">
+                <div class="app-c-landing-principles-icon primary" aria-hidden="true">
                   <span class="material-symbols-outlined">data_object</span>
                 </div>
                 <div>
@@ -159,7 +260,7 @@
               </div>
 
               <div class="app-c-landing-principles-item">
-                <div class="app-c-landing-principles-icon accent">
+                <div class="app-c-landing-principles-icon accent" aria-hidden="true">
                   <span class="material-symbols-outlined">layers</span>
                 </div>
                 <div>
@@ -172,7 +273,7 @@
               </div>
 
               <div class="app-c-landing-principles-item">
-                <div class="app-c-landing-principles-icon primary">
+                <div class="app-c-landing-principles-icon primary" aria-hidden="true">
                   <span class="material-symbols-outlined">straighten</span>
                 </div>
                 <div>
@@ -183,42 +284,107 @@
                   </p>
                 </div>
               </div>
+
+              <div class="app-c-landing-principles-item">
+                <div class="app-c-landing-principles-icon accent" aria-hidden="true">
+                  <span class="material-symbols-outlined">contrast</span>
+                </div>
+                <div>
+                  <h4 class="app-c-landing-principles-item-title">Theme-Aware by Default</h4>
+                  <p class="app-c-landing-principles-item-desc">
+                    Light and dark themes auto-switch via <code>prefers-color-scheme</code>. A
+                    <code>data-theme</code> attribute always wins. Change a semantic token, update
+                    every component.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="app-c-landing-principles-grid">
             <div class="app-c-landing-principles-col">
               <div class="app-c-landing-principles-media-card sq">
-                <span class="material-symbols-outlined app-c-landing-principles-media-card-icon"
+                <span
+                  class="material-symbols-outlined app-c-landing-principles-media-card-icon"
+                  aria-hidden="true"
                   >settings_input_component</span
                 >
                 <span class="app-c-landing-principles-media-card-label">Component First</span>
               </div>
               <div class="app-c-landing-principles-media-card tall primary-tint">
-                <img
-                  class="app-c-landing-principles-media-img"
-                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&fit=crop&q=80"
-                  alt="JavaScript code on a screen"
-                />
-                <div class="app-c-landing-principles-media-overlay">
-                  <span class="app-c-landing-principles-media-caption">Pure Logic</span>
+                <div class="app-c-landing-principles-logic-panel">
+                  <div class="app-c-landing-principles-logic-header">
+                    <span class="app-c-landing-principles-logic-dot" aria-hidden="true"></span>
+                    <span class="app-c-landing-principles-logic-dot" aria-hidden="true"></span>
+                    <span class="app-c-landing-principles-logic-dot" aria-hidden="true"></span>
+                    <span class="app-c-landing-principles-logic-filename">_component.scss</span>
+                  </div>
+                  <div class="app-c-landing-principles-logic-body" aria-label="SCSS code example">
+                    <div class="app-c-landing-principles-logic-comment">
+                      // No runtime. No config.
+                    </div>
+                    <div class="app-c-landing-principles-logic-line">
+                      <span class="app-c-landing-principles-logic-kw">@mixin</span>
+                      <span class="app-c-landing-principles-logic-name"> breakpoint-up</span>(md)
+                      &#123;
+                    </div>
+                    <div class="app-c-landing-principles-logic-line indent">
+                      <span class="app-c-landing-principles-logic-prop">padding:</span>
+                      <span class="app-c-landing-principles-logic-val"> rem(24)</span>;
+                    </div>
+                    <div class="app-c-landing-principles-logic-line">&#125;</div>
+                    <div class="app-c-landing-principles-logic-sep" aria-hidden="true"></div>
+                    <div class="app-c-landing-principles-logic-line">
+                      <span class="app-c-landing-principles-logic-kw">@layer</span> components
+                      &#123;
+                    </div>
+                    <div class="app-c-landing-principles-logic-line indent">
+                      <span class="app-c-landing-principles-logic-sel">.app-c-btn</span> &#123; …
+                      &#125;
+                    </div>
+                    <div class="app-c-landing-principles-logic-line">&#125;</div>
+                  </div>
+                  <div class="app-c-landing-principles-logic-caption">Pure Logic</div>
                 </div>
               </div>
             </div>
             <div class="app-c-landing-principles-col offset">
               <div class="app-c-landing-principles-media-card tall accent-tint">
-                <img
-                  class="app-c-landing-principles-media-img"
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&fit=crop&q=80"
-                  alt="CSS code with colorful syntax highlighting"
-                />
-                <div class="app-c-landing-principles-media-overlay">
-                  <span class="app-c-landing-principles-media-caption">Token Driven</span>
+                <div class="app-c-landing-principles-token-panel">
+                  <div class="app-c-landing-principles-token-chain" aria-label="Token hierarchy">
+                    <div class="app-c-landing-principles-token-tier base">
+                      <span class="app-c-landing-principles-token-tier-badge">Base</span>
+                      <code class="app-c-landing-principles-token-tier-code"
+                        >--primary-500: #6366f1</code
+                      >
+                    </div>
+                    <div class="app-c-landing-principles-token-arrow" aria-hidden="true">
+                      <span class="material-symbols-outlined">arrow_downward</span>
+                    </div>
+                    <div class="app-c-landing-principles-token-tier semantic">
+                      <span class="app-c-landing-principles-token-tier-badge">Semantic</span>
+                      <code class="app-c-landing-principles-token-tier-code"
+                        >--btn-primary-bg:<br />
+                        var(--primary-500)</code
+                      >
+                    </div>
+                    <div class="app-c-landing-principles-token-arrow" aria-hidden="true">
+                      <span class="material-symbols-outlined">arrow_downward</span>
+                    </div>
+                    <div class="app-c-landing-principles-token-tier component">
+                      <span class="app-c-landing-principles-token-tier-badge">Component</span>
+                      <code class="app-c-landing-principles-token-tier-code"
+                        >.app-c-btn &#123; … &#125;</code
+                      >
+                    </div>
+                  </div>
+                  <div class="app-c-landing-principles-token-caption">Token Driven</div>
                 </div>
               </div>
               <div class="app-c-landing-principles-media-card sq">
                 <span
                   class="material-symbols-outlined app-c-landing-principles-media-card-icon accent"
+                  aria-hidden="true"
                   >auto_awesome</span
                 >
                 <span class="app-c-landing-principles-media-card-label">Scalable</span>
@@ -232,7 +398,7 @@
     <section class="app-c-landing-structure">
       <div class="app-c-landing-section">
         <div class="app-c-landing-structure-card">
-          <div class="app-c-landing-structure-card-glow"></div>
+          <div class="app-c-landing-structure-card-glow" aria-hidden="true"></div>
           <div class="app-c-landing-structure-inner">
             <div>
               <h2 class="app-c-landing-structure-heading">Structured for the long game.</h2>
@@ -242,7 +408,9 @@
               </p>
               <div class="app-c-landing-structure-dirs">
                 <div class="app-c-landing-structure-dir">
-                  <span class="material-symbols-outlined app-c-landing-structure-dir-icon"
+                  <span
+                    class="material-symbols-outlined app-c-landing-structure-dir-icon"
+                    aria-hidden="true"
                     >folder</span
                   >
                   <span class="app-c-landing-structure-dir-name">tokens/</span>
@@ -251,35 +419,48 @@
                   >
                 </div>
                 <div class="app-c-landing-structure-dir">
-                  <span class="material-symbols-outlined app-c-landing-structure-dir-icon"
+                  <span
+                    class="material-symbols-outlined app-c-landing-structure-dir-icon"
+                    aria-hidden="true"
                     >folder</span
                   >
                   <span class="app-c-landing-structure-dir-name">abstracts/</span>
                   <span class="app-c-landing-structure-dir-desc">Mixins, Functions, Tools</span>
                 </div>
                 <div class="app-c-landing-structure-dir">
-                  <span class="material-symbols-outlined app-c-landing-structure-dir-icon"
+                  <span
+                    class="material-symbols-outlined app-c-landing-structure-dir-icon"
+                    aria-hidden="true"
                     >folder</span
                   >
                   <span class="app-c-landing-structure-dir-name">components/</span>
                   <span class="app-c-landing-structure-dir-desc">Button, Badge, Textfield…</span>
                 </div>
                 <div class="app-c-landing-structure-dir">
-                  <span class="material-symbols-outlined app-c-landing-structure-dir-icon"
+                  <span
+                    class="material-symbols-outlined app-c-landing-structure-dir-icon"
+                    aria-hidden="true"
                     >folder</span
                   >
                   <span class="app-c-landing-structure-dir-name">utilities/</span>
                   <span class="app-c-landing-structure-dir-desc">Flex, Grid, Spacing, Display</span>
                 </div>
               </div>
+              <div class="app-c-landing-structure-tools" aria-label="Quality tooling">
+                <span class="app-c-landing-structure-tools-label">Ships with</span>
+                <span class="app-c-landing-structure-tool">Stylelint</span>
+                <span class="app-c-landing-structure-tool">Prettier</span>
+                <span class="app-c-landing-structure-tool">Husky</span>
+                <span class="app-c-landing-structure-tool">lint-staged</span>
+              </div>
             </div>
 
             <div>
-              <div class="app-c-landing-code-block">
-                <div class="app-c-landing-code-block-header">
-                  <span class="material-symbols-outlined">description</span>
+              <figure class="app-c-landing-code-block">
+                <figcaption class="app-c-landing-code-block-header">
+                  <span class="material-symbols-outlined" aria-hidden="true">description</span>
                   main.scss
-                </div>
+                </figcaption>
                 <pre
                   class="app-c-landing-code-block-pre"
                 ><span class="app-c-landing-code-block-comment">// Tokens</span>
@@ -298,8 +479,40 @@
     <span class="app-c-landing-code-block-prop">padding:</span> rem(24);
   &#125;
 <span class="app-c-landing-code-block-selector">&#125;</span></pre>
-              </div>
+              </figure>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="app-c-landing-steps">
+      <div class="app-c-landing-section">
+        <h2 class="app-c-landing-steps-heading">Up and running in three steps.</h2>
+        <div class="app-c-landing-steps-grid">
+          <div class="app-c-landing-step">
+            <div class="app-c-landing-step-num" aria-hidden="true">01</div>
+            <h3 class="app-c-landing-step-title">Copy the scaffold</h3>
+            <p class="app-c-landing-step-desc">
+              Drop the <code class="app-c-landing-step-code">src/scss/</code> directory into your
+              project. No install, no CLI, no lock-in.
+            </p>
+          </div>
+          <div class="app-c-landing-step">
+            <div class="app-c-landing-step-num" aria-hidden="true">02</div>
+            <h3 class="app-c-landing-step-title">Configure your tokens</h3>
+            <p class="app-c-landing-step-desc">
+              Edit the token files to match your brand — colors, type scale, spacing. One change
+              propagates everywhere.
+            </p>
+          </div>
+          <div class="app-c-landing-step">
+            <div class="app-c-landing-step-num" aria-hidden="true">03</div>
+            <h3 class="app-c-landing-step-title">Import and build</h3>
+            <p class="app-c-landing-step-desc">
+              Import <code class="app-c-landing-step-code">main.scss</code> in your app and start
+              writing semantic, scalable CSS.
+            </p>
           </div>
         </div>
       </div>
@@ -307,10 +520,10 @@
 
     <section class="app-c-landing-cta">
       <div class="app-c-landing-section narrow">
-        <h2 class="app-c-landing-cta-heading">Explore the system</h2>
+        <h2 class="app-c-landing-cta-heading">Everything is live. Nothing is locked.</h2>
         <p class="app-c-landing-cta-desc">
-          From tokens to components — everything is live and explorable. Start with the component
-          library or dive into the grid system.
+          Browse every component, token, and utility — all explorable in the reference app. Start
+          with the component library or dive straight into the grid system.
         </p>
         <div class="app-c-landing-cta-card">
           <div class="app-c-landing-cta-install">
@@ -319,11 +532,15 @@
           </div>
           <div class="app-c-landing-cta-actions">
             <a class="app-c-btn app-c-btn-primary app-c-btn-lg" routerLink="/demo/components">
-              <span class="material-symbols-outlined app-c-icon app-c-icon-md">widgets</span>
+              <span class="material-symbols-outlined app-c-icon app-c-icon-md" aria-hidden="true"
+                >widgets</span
+              >
               Browse Components
             </a>
             <a class="app-c-btn app-c-btn-secondary app-c-btn-lg" routerLink="/demo/icon-system">
-              <span class="material-symbols-outlined app-c-icon app-c-icon-md">category</span>
+              <span class="material-symbols-outlined app-c-icon app-c-icon-md" aria-hidden="true"
+                >category</span
+              >
               Icon System
             </a>
           </div>
@@ -338,18 +555,27 @@
         <div>
           <div class="app-c-landing-footer-brand">StyleBase</div>
           <p class="app-c-landing-footer-copy">
-            © {{ currentYear }} StyleBase Architecture. Built for the modern web.
+            &copy; {{ currentYear }} StyleBase Architecture. Built for the modern web.
           </p>
         </div>
-        <div class="app-c-landing-footer-links">
-          <a
-            class="app-c-landing-footer-link"
-            href="https://github.com/sharathdaniel/style-base"
-            target="_blank"
-            rel="noopener"
-            >Github</a
-          >
-        </div>
+        <nav class="app-c-landing-footer-nav" aria-label="Footer navigation">
+          <div class="app-c-landing-footer-nav-group">
+            <span class="app-c-landing-footer-nav-heading">Explore</span>
+            <a class="app-c-landing-footer-link" routerLink="/demo/components">Components</a>
+            <a class="app-c-landing-footer-link" routerLink="/demo/grid-system">Showcase</a>
+            <a class="app-c-landing-footer-link" routerLink="/demo/icon-system">Icon System</a>
+          </div>
+          <div class="app-c-landing-footer-nav-group">
+            <span class="app-c-landing-footer-nav-heading">Project</span>
+            <a
+              class="app-c-landing-footer-link"
+              href="https://github.com/sharathdaniel/style-base"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+          </div>
+        </nav>
       </div>
     </div>
   </footer>

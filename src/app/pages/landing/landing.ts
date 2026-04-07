@@ -9,4 +9,9 @@ import { RouterLink } from '@angular/router';
 })
 export class Landing {
   currentYear = new Date().getFullYear();
+  mobileMenuOpen = false;
+
+  toggleMobileMenu(): void {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
 }
