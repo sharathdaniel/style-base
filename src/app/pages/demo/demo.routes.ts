@@ -9,7 +9,7 @@ import { Components } from './components/components';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'scroll-v1',
+    redirectTo: 'components',
     pathMatch: 'full',
   },
   {
