@@ -58,8 +58,7 @@
 }
 
 .app-c-landing-nav-brand {
-  @include text-weight(bold);
-
+  font-weight: var(--fw-bold);
   font-size: var(--fs-2xl);
   letter-spacing: -0.04em;
   color: var(--text-primary);
@@ -78,8 +77,8 @@
 
 .app-c-landing-nav-link {
   @include text-style(ui-sm);
-  @include text-weight(medium);
 
+  font-weight: var(--fw-medium);
   color: var(--text-secondary);
   text-decoration: none;
   letter-spacing: -0.02em;
@@ -143,8 +142,16 @@
 }
 
 .app-c-landing-hero {
-  padding-block: rem(128) rem(80);
+  padding-block: rem(64) rem(48);
   overflow: hidden;
+
+  @include breakpoint-up(md) {
+    padding-block: rem(96) rem(64);
+  }
+
+  @include breakpoint-up(lg) {
+    padding-block: rem(128) rem(80);
+  }
 }
 
 .app-c-landing-hero-inner {
@@ -307,7 +314,11 @@
 }
 
 .app-c-landing-compare {
-  padding-block: rem(80) rem(160);
+  padding-block: rem(48) rem(64);
+
+  @include breakpoint-up(md) {
+    padding-block: rem(64) rem(96);
+  }
 }
 
 .app-c-landing-compare-heading {
@@ -435,7 +446,11 @@
 }
 
 .app-c-landing-principles {
-  padding-block-end: rem(160);
+  padding-block-end: rem(64);
+
+  @include breakpoint-up(md) {
+    padding-block-end: rem(96);
+  }
 }
 
 .app-c-landing-principles-inner {
@@ -443,6 +458,10 @@
   grid-template-columns: 1fr;
   gap: rem(96);
   align-items: center;
+
+  > * {
+    min-width: 0;
+  }
 
   @include breakpoint-up(lg) {
     grid-template-columns: 1fr 1fr;
@@ -456,10 +475,14 @@
 }
 
 .app-c-landing-principles-heading {
-  font-size: rem(40);
+  font-size: rem(28);
   font-weight: var(--fw-bold);
   color: var(--text-primary);
   line-height: var(--lh-tight);
+
+  @include breakpoint-up(md) {
+    font-size: rem(40);
+  }
 }
 
 .app-c-landing-principles-list {
@@ -509,16 +532,26 @@
 .app-c-landing-principles-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: rem(16);
+  gap: rem(12);
+
+  @include breakpoint-up(sm) {
+    gap: rem(16);
+  }
 }
 
 .app-c-landing-principles-col {
   display: flex;
   flex-direction: column;
-  gap: rem(16);
+  gap: rem(12);
+
+  @include breakpoint-up(sm) {
+    gap: rem(16);
+  }
 
   &.offset {
-    margin-block-start: rem(48);
+    @include breakpoint-up(sm) {
+      margin-block-start: rem(48);
+    }
   }
 }
 
@@ -599,16 +632,24 @@
 }
 
 .app-c-landing-structure {
-  padding-block-end: rem(160);
+  padding-block-end: rem(64);
+
+  @include breakpoint-up(md) {
+    padding-block-end: rem(96);
+  }
 }
 
 .app-c-landing-structure-card {
   background-color: var(--bg-surface);
   border: 1px solid rgb(var(--common-white-rgb) / 5%);
   border-radius: rem(40);
-  padding: rem(48);
+  padding: rem(24);
   position: relative;
   overflow: hidden;
+
+  @include breakpoint-up(md) {
+    padding: rem(48);
+  }
 
   @include breakpoint-up(lg) {
     padding: rem(80);
@@ -629,9 +670,17 @@
 .app-c-landing-structure-inner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: rem(64);
+  gap: rem(40);
   align-items: center;
   position: relative;
+
+  > * {
+    min-width: 0;
+  }
+
+  @include breakpoint-up(md) {
+    gap: rem(64);
+  }
 
   @include breakpoint-up(lg) {
     grid-template-columns: 1fr 1fr;
@@ -639,10 +688,18 @@
 }
 
 .app-c-landing-structure-heading {
-  font-size: rem(30);
+  font-size: rem(22);
   font-weight: var(--fw-bold);
   color: var(--text-primary);
   margin-block-end: rem(24);
+
+  @include breakpoint-up(sm) {
+    font-size: rem(26);
+  }
+
+  @include breakpoint-up(md) {
+    font-size: rem(30);
+  }
 }
 
 .app-c-landing-structure-desc {
@@ -685,17 +742,27 @@
 }
 
 .app-c-landing-structure-dir-desc {
+  display: none;
   font-size: var(--fs-sm);
   color: var(--text-tertiary);
   margin-inline-start: auto;
+
+  @include breakpoint-up(sm) {
+    display: block;
+  }
 }
 
 .app-c-landing-code-block {
   background-color: var(--neutral-900);
   border-inline-start: 2px solid var(--primary-600);
   border-radius: rem(16);
-  padding: rem(32);
+  padding: rem(20);
+  overflow-x: auto;
   box-shadow: 0 rem(25) rem(50) rem(-12) rgb(0 0 0 / 50%);
+
+  @include breakpoint-up(md) {
+    padding: rem(32);
+  }
 }
 
 .app-c-landing-code-block-header {
@@ -733,8 +800,12 @@
 }
 
 .app-c-landing-cta {
-  padding-block-end: rem(160);
+  padding-block-end: rem(64);
   text-align: center;
+
+  @include breakpoint-up(md) {
+    padding-block-end: rem(96);
+  }
 }
 
 .app-c-landing-cta-heading {
@@ -820,8 +891,7 @@
 }
 
 .app-c-landing-footer-brand {
-  @include text-weight(bold);
-
+  font-weight: var(--fw-bold);
   font-size: var(--fs-xl);
   color: var(--text-primary);
 }
@@ -854,7 +924,6 @@
   }
 }
 
-// Mobile nav
 .app-c-landing-nav-mobile-toggle {
   display: flex;
   align-items: center;
@@ -896,8 +965,8 @@
 
 .app-c-landing-nav-mobile-link {
   @include text-style(ui-md);
-  @include text-weight(medium);
 
+  font-weight: var(--fw-medium);
   display: block;
   padding-block: rem(12);
   padding-inline: rem(16);
@@ -914,7 +983,6 @@
   }
 }
 
-// Stats strip
 .app-c-landing-stats {
   padding-block: rem(48);
   border-block: 1px solid rgb(var(--common-white-rgb) / 5%);
@@ -954,17 +1022,25 @@
   text-transform: uppercase;
 }
 
-// Steps section
 .app-c-landing-steps {
-  padding-block-end: rem(160);
+  padding-block-end: rem(64);
+
+  @include breakpoint-up(md) {
+    padding-block-end: rem(96);
+  }
 }
 
 .app-c-landing-steps-heading {
-  font-size: rem(40);
+  font-size: rem(28);
   font-weight: var(--fw-bold);
   color: var(--text-primary);
-  margin-block-end: rem(64);
+  margin-block-end: rem(40);
   text-align: center;
+
+  @include breakpoint-up(md) {
+    font-size: rem(40);
+    margin-block-end: rem(64);
+  }
 }
 
 .app-c-landing-steps-grid {
@@ -1021,7 +1097,6 @@
   border-radius: rem(4);
 }
 
-// Footer nav
 .app-c-landing-footer-nav {
   display: flex;
   gap: rem(48);
@@ -1036,21 +1111,19 @@
 
 .app-c-landing-footer-nav-heading {
   @include text-style(ui-xs);
-  @include text-weight(bold);
 
+  font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-tertiary);
 }
 
-// Stats icons
 .app-c-landing-stats-icon {
-  font-size: rem(24);
+  font-size: var(--fs-3xl);
   color: var(--primary-400);
   opacity: 0.6;
 }
 
-// Compare subheading
 .app-c-landing-compare-subheading {
   font-size: var(--fs-lg);
   color: var(--text-tertiary);
@@ -1058,7 +1131,6 @@
   line-height: var(--lh-relaxed);
 }
 
-// Framework compatibility strip
 .app-c-landing-frameworks {
   padding-block: rem(28);
   border-block-end: 1px solid rgb(var(--common-white-rgb) / 5%);
@@ -1074,16 +1146,16 @@
 
 .app-c-landing-frameworks-label {
   @include text-style(ui-sm);
-  @include text-weight(medium);
 
+  font-weight: var(--fw-medium);
   color: var(--text-tertiary);
   padding-inline-end: rem(4);
 }
 
 .app-c-landing-frameworks-item {
   @include text-style(ui-sm);
-  @include text-weight(medium);
 
+  font-weight: var(--fw-medium);
   padding-inline: rem(12);
   padding-block: rem(4);
   border-radius: rem(6);
@@ -1092,7 +1164,6 @@
   color: var(--text-secondary);
 }
 
-// Structure tooling callout
 .app-c-landing-structure-tools {
   display: flex;
   flex-wrap: wrap;
@@ -1112,8 +1183,8 @@
 
 .app-c-landing-structure-tool {
   @include text-style(ui-sm);
-  @include text-weight(medium);
 
+  font-weight: var(--fw-medium);
   padding-inline: rem(10);
   padding-block: rem(4);
   border-radius: rem(6);
@@ -1122,7 +1193,6 @@
   color: var(--text-tertiary);
 }
 
-// Principles: Pure Logic code panel
 .app-c-landing-principles-logic-panel {
   display: flex;
   flex-direction: column;
@@ -1206,14 +1276,13 @@
 
 .app-c-landing-principles-logic-caption {
   @include text-style(ui-xs);
-  @include text-weight(bold);
 
+  font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--primary-400);
 }
 
-// Principles: Token Driven panel
 .app-c-landing-principles-token-panel {
   display: flex;
   flex-direction: column;
@@ -1273,14 +1342,14 @@
   color: var(--text-tertiary);
 
   .material-symbols-outlined {
-    font-size: rem(18);
+    font-size: var(--fs-xl);
   }
 }
 
 .app-c-landing-principles-token-caption {
   @include text-style(ui-xs);
-  @include text-weight(bold);
 
+  font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--accent-400);
