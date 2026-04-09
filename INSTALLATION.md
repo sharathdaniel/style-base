@@ -58,6 +58,7 @@ These are specific to the StyleBase reference repository:
     package.json              Contains Angular-specific dependencies
     public/                   Static assets
     README.md                 Repository documentation
+    INSTALLATION.md           This setup guide
     yarn.lock                 Dependency lock file
     .vscode/launch.json       Angular debugger config
     .vscode/tasks.json        Angular dev/test tasks
