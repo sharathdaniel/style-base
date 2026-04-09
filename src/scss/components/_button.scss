@@ -75,6 +75,17 @@
     --btn-focus-ring: var(--btn-secondary-focus-ring);
   }
 
+  .app-c-btn-tertiary {
+    --btn-bg: transparent;
+    --btn-bg-hover: var(--btn-tertiary-bg-hover);
+    --btn-color: var(--btn-tertiary-color);
+    --btn-border: transparent;
+    --btn-bg-disabled: transparent;
+    --btn-border-disabled: transparent;
+    --btn-color-disabled: var(--btn-tertiary-color-disabled);
+    --btn-focus-ring: var(--btn-tertiary-focus-ring);
+  }
+
   @each $size in sm, md, lg {
     .app-c-btn-#{$size} {
       @include btn-size($size);
