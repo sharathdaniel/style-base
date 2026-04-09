@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -7,11 +7,52 @@ import { RouterLink } from '@angular/router';
   styleUrl: './landing.scss',
   imports: [RouterLink],
 })
-export class Landing {
+export class Landing implements OnInit, OnDestroy {
   currentYear = new Date().getFullYear();
   mobileMenuOpen = false;
+  protected readonly theme = signal<'light' | 'dark'>('light');
+
+  private readonly themeStorageKey = 'stylebase-theme';
+  private readonly darkQuery = globalThis.matchMedia('(prefers-color-scheme: dark)');
+  private readonly onSystemThemeChange = (e: MediaQueryListEvent): void => {
+    this.applyTheme(e.matches ? 'dark' : 'light', false);
+  };
+
+  ngOnInit(): void {
+    const savedTheme = localStorage.getItem(this.themeStorageKey);
+    let resolvedTheme: 'light' | 'dark' = 'light';
+
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      resolvedTheme = savedTheme;
+    } else {
+      if (this.darkQuery.matches) {
+        resolvedTheme = 'dark';
+      }
+      this.darkQuery.addEventListener('change', this.onSystemThemeChange);
+    }
+
+    this.applyTheme(resolvedTheme, false);
+  }
+
+  ngOnDestroy(): void {
+    this.darkQuery.removeEventListener('change', this.onSystemThemeChange);
+  }
 
   toggleMobileMenu(): void {
     this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  protected toggleTheme(): void {
+    this.darkQuery.removeEventListener('change', this.onSystemThemeChange);
+    const nextTheme = this.theme() === 'light' ? 'dark' : 'light';
+    this.applyTheme(nextTheme, true);
+  }
+
+  private applyTheme(theme: 'light' | 'dark', persist: boolean): void {
+    this.theme.set(theme);
+    document.documentElement.dataset['theme'] = theme;
+    if (persist) {
+      localStorage.setItem(this.themeStorageKey, theme);
+    }
   }
 }

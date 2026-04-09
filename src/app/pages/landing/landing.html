@@ -1,5 +1,5 @@
 <a class="u-sr-only" href="#main-content">Skip to main content</a>
-<div class="app-c-page-scroll u-scrollbar">
+<div class="app-c-page-scroll u-scrollbar app-c-landing">
   <nav class="app-c-landing-nav" aria-label="Main navigation">
     <div class="app-c-landing-nav-inner">
       <div class="app-c-landing-nav-start">
@@ -19,6 +19,17 @@
         </div>
       </div>
       <div class="app-c-landing-nav-end">
+        <button
+          type="button"
+          class="app-c-landing-nav-theme"
+          [attr.aria-label]="theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+          [attr.aria-pressed]="theme() === 'dark'"
+          (click)="toggleTheme()"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true"
+            >{{ theme() === 'dark' ? 'light_mode' : 'dark_mode' }}</span
+          >
+        </button>
         <a
           class="app-c-landing-nav-github"
           href="https://github.com/sharathdaniel/style-base"
