@@ -979,9 +979,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: rem(8);
+  width: rem(36);
+  height: rem(36);
+  padding: 0;
   background: none;
   border: none;
+
+  .material-symbols-outlined {
+    font-size: rem(20);
+  }
+
   color: var(--text-secondary);
   cursor: pointer;
   border-radius: rem(8);
