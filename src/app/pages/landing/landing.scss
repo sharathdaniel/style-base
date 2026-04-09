@@ -104,10 +104,20 @@
 .app-c-landing-nav-github {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: rem(8);
-  padding-inline: rem(14);
-  padding-block: rem(8);
+  width: rem(36);
+  height: rem(36);
+  padding: 0;
   border-radius: rem(8);
+
+  @include breakpoint-up(md) {
+    width: auto;
+    height: auto;
+    padding-inline: rem(14);
+    padding-block: rem(8);
+  }
+
   border: 1px solid rgb(var(--common-white-rgb) / 12%);
   background-color: rgb(var(--common-white-rgb) / 5%);
   color: var(--text-secondary);
@@ -150,6 +160,14 @@
     color: var(--text-primary);
     border-color: rgb(var(--common-white-rgb) / 25%);
     background-color: rgb(var(--common-white-rgb) / 10%);
+  }
+}
+
+.app-c-landing-nav-github-label {
+  display: none;
+
+  @include breakpoint-up(md) {
+    display: inline;
   }
 }
 
