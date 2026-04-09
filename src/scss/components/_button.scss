@@ -86,6 +86,11 @@
     aspect-ratio: 1;
   }
 
+  .app-c-btn-icon-xs {
+    height: rem(16);
+    border-radius: var(--radius-sm);
+  }
+
   .app-c-btn-icon-sm {
     height: var(--form-item-height-sm);
     border-radius: var(--radius-sm);
