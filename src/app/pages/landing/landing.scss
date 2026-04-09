@@ -362,7 +362,7 @@
   padding-block: rem(48) rem(64);
 
   @include breakpoint-up(md) {
-    padding-block: rem(64) rem(96);
+    padding-block: rem(64) rem(80);
   }
 }
 
@@ -681,7 +681,7 @@
   padding-block-end: rem(64);
 
   @include breakpoint-up(md) {
-    padding-block-end: rem(96);
+    padding-block-end: rem(80);
   }
 }
 
@@ -855,7 +855,7 @@
   text-align: center;
 
   @include breakpoint-up(md) {
-    padding-block-end: rem(96);
+    padding-block-end: rem(80);
   }
 }
 
@@ -1084,7 +1084,7 @@
   padding-block-end: rem(64);
 
   @include breakpoint-up(md) {
-    padding-block-end: rem(96);
+    padding-block-end: rem(80);
   }
 }
 
@@ -1191,7 +1191,7 @@
 
 .app-c-landing-frameworks {
   padding-block: rem(28);
-  border-block-end: 1px solid rgb(var(--common-white-rgb) / 5%);
+  border-block-end: 1px solid rgb(var(--common-white-rgb) / 10%);
 }
 
 .app-c-landing-frameworks-inner {
