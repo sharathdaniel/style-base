@@ -32,7 +32,7 @@ $status: (
 );
 $button: (
   'btn-primary-bg': '--primary-500',
-  'btn-primary-bg-hover': '--primary-400',
+  'btn-primary-bg-hover': '--primary-600',
   'btn-primary-disabled-bg': '--primary-400-rgb',
   'btn-primary-color': '--common-white',
   'btn-primary-border': '--primary-500',
@@ -82,11 +82,11 @@ $badge: (
   'badge-success-bg': '--success-900',
   'badge-success-color': '--success-400',
   'badge-error-bg': '--danger-900',
-  'badge-error-color': '--danger-400',
+  'badge-error-color': '--danger-300',
   'badge-warning-bg': '--warning-900',
   'badge-warning-color': '--warning-400',
   'badge-info-bg': '--info-900',
-  'badge-info-color': '--info-400',
+  'badge-info-color': '--info-300',
 );
 $scrollbar: (
   'scrollbar-thumb': '--neutral-500',
