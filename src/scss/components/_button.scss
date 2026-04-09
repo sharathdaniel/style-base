@@ -98,7 +98,7 @@
   }
 
   .app-c-btn-icon-xs {
-    height: rem(16);
+    height: var(--form-item-height-xs);
     border-radius: var(--radius-sm);
   }
 
