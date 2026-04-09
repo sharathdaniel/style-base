@@ -717,10 +717,16 @@
 }
 
 .app-c-landing-structure-dir {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  gap: rem(16);
+  gap: rem(4) rem(16);
   padding: rem(16);
+
+  @include breakpoint-up(sm) {
+    display: flex;
+  }
+
   border-radius: rem(12);
   background-color: rgb(var(--common-white-rgb) / 3%);
   border: 1px solid rgb(var(--common-white-rgb) / 5%);
@@ -743,13 +749,12 @@
 }
 
 .app-c-landing-structure-dir-desc {
-  display: none;
+  grid-column: 2;
   font-size: var(--fs-sm);
   color: var(--text-tertiary);
-  margin-inline-start: auto;
 
   @include breakpoint-up(sm) {
-    display: block;
+    margin-inline-start: auto;
   }
 }
 
