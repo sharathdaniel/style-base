@@ -491,10 +491,10 @@
 }
 
 .app-c-landing-principles {
-  padding-block-end: rem(64);
+  padding-block: rem(40);
 
   @include breakpoint-up(md) {
-    padding-block-end: rem(96);
+    padding-block: rem(64);
   }
 }
 
@@ -1430,35 +1430,22 @@
     }
   }
 
-  .app-c-landing-hero-code-card {
-    border-color: var(--neutral-200);
-    box-shadow: 0 rem(20) rem(40) rem(-16) rgb(15 23 42 / 12%);
-  }
+  .app-c-landing-hero-code-card,
+  .app-c-landing-principles-media-card.tall.primary-tint,
+  .app-c-landing-principles-media-card.tall.accent-tint {
+    --text-primary: var(--neutral-50);
+    --text-secondary: var(--neutral-300);
+    --text-tertiary: var(--neutral-400);
 
-  .app-c-landing-hero-code-divider {
-    border-block-start-color: var(--neutral-200);
+    background-color: var(--neutral-900);
+    border-color: var(--neutral-800);
+    box-shadow: 0 rem(20) rem(40) rem(-16) rgb(15 23 42 / 18%);
   }
 
   .app-c-landing-hero-badge {
     background-color: rgb(var(--primary-500-rgb) / 8%);
     border-color: rgb(var(--primary-500-rgb) / 25%);
     color: var(--primary-700);
-  }
-
-  .app-c-landing-hero-code-comment {
-    color: var(--neutral-500);
-
-    &.success {
-      color: var(--accent-700);
-    }
-  }
-
-  .app-c-landing-hero-code-key {
-    color: var(--primary-700);
-  }
-
-  .app-c-landing-hero-code-val {
-    color: var(--accent-700);
   }
 
   .app-c-landing-stats {
@@ -1511,13 +1498,13 @@
 
   .app-c-landing-compare-tag {
     &.primary {
-      background-color: rgb(var(--primary-500-rgb) / 12%);
-      color: var(--primary-700);
+      background-color: var(--primary-700);
+      color: var(--common-white);
     }
 
     &.accent {
-      background-color: rgb(6 182 212 / 12%);
-      color: var(--accent-700);
+      background-color: var(--neutral-800);
+      color: var(--common-white);
     }
   }
 
@@ -1540,16 +1527,9 @@
   .app-c-landing-principles-media-card {
     &.sq {
       border-color: var(--neutral-200);
-    }
-
-    &.primary-tint {
-      background-color: rgb(var(--primary-500-rgb) / 6%);
-      border-color: rgb(var(--primary-500-rgb) / 25%);
-    }
-
-    &.accent-tint {
-      background-color: rgb(6 182 212 / 6%);
-      border-color: rgb(6 182 212 / 25%);
+      box-shadow:
+        0 1px rem(3) rgb(15 23 42 / 6%),
+        0 rem(8) rem(24) rgb(15 23 42 / 4%);
     }
   }
 
@@ -1563,73 +1543,6 @@
 
   .app-c-landing-principles-media-card-label {
     color: var(--neutral-600);
-  }
-
-  .app-c-landing-principles-logic-body {
-    color: var(--neutral-700);
-  }
-
-  .app-c-landing-principles-logic-comment {
-    color: var(--neutral-500);
-  }
-
-  .app-c-landing-principles-logic-kw {
-    color: var(--primary-700);
-  }
-
-  .app-c-landing-principles-logic-prop {
-    color: var(--primary-700);
-  }
-
-  .app-c-landing-principles-logic-val,
-  .app-c-landing-principles-logic-sel {
-    color: var(--accent-700);
-  }
-
-  .app-c-landing-principles-logic-sep {
-    background-color: var(--primary-200);
-  }
-
-  .app-c-landing-principles-logic-caption {
-    color: var(--primary-700);
-  }
-
-  .app-c-landing-principles-logic-filename {
-    color: var(--neutral-600);
-  }
-
-  .app-c-landing-principles-logic-dot {
-    background-color: var(--neutral-300);
-  }
-
-  .app-c-landing-principles-token-tier {
-    border-color: var(--neutral-200);
-
-    &.base,
-    &.component {
-      background-color: var(--neutral-50);
-    }
-
-    &.semantic {
-      background-color: rgb(6 182 212 / 8%);
-      border-color: rgb(6 182 212 / 25%);
-    }
-  }
-
-  .app-c-landing-principles-token-tier-badge {
-    color: var(--neutral-600);
-  }
-
-  .app-c-landing-principles-token-tier-code {
-    color: var(--accent-700);
-  }
-
-  .app-c-landing-principles-token-arrow {
-    color: var(--neutral-500);
-  }
-
-  .app-c-landing-principles-token-caption {
-    color: var(--accent-700);
   }
 
   .app-c-landing-structure-card {
@@ -1712,12 +1625,12 @@
   }
 }
 
-[data-theme='light'] .app-c-landing {
+:host-context([data-theme='light']) {
   @include landing-light;
 }
 
 @media (prefers-color-scheme: light) {
-  :root:not([data-theme]) .app-c-landing {
+  :host-context(:root:not([data-theme])) {
     @include landing-light;
   }
 }
