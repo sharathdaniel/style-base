@@ -884,10 +884,6 @@
   }
 }
 
-.app-c-landing-cta-install {
-  text-align: start;
-}
-
 .app-c-landing-cta-install-label {
   font-size: rem(11);
   font-weight: var(--fw-bold);
@@ -1065,7 +1061,7 @@
   font-weight: var(--fw-bold);
   color: var(--text-primary);
   letter-spacing: -0.04em;
-  line-height: 1;
+  line-height: var(--lh-none);
 }
 
 .app-c-landing-stats-label {
@@ -1124,7 +1120,7 @@
   font-weight: var(--fw-bold);
   color: rgb(var(--primary-500-rgb) / 20%);
   letter-spacing: -0.04em;
-  line-height: 1;
+  line-height: var(--lh-none);
   margin-block-end: rem(24);
 }
 
