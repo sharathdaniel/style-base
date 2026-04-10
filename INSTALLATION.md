@@ -76,6 +76,16 @@ yarn add -D sass prettier stylelint stylelint-config-standard-scss husky lint-st
 
 Skip `sass` if your framework already bundles it.
 
+#### Framework-Specific Tooling
+
+The default Prettier and Stylelint configs cover `.html`, `.ts`, `.tsx`, `.jsx`, `.scss`, and `.css`. If you are using Vue, Svelte, or Astro, add the relevant plugins:
+
+- **Vue**: Add `stylelint-config-standard-vue` and include `"vue"` in `stylelint.validate` (VS Code settings)
+- **Svelte**: Add `prettier-plugin-svelte` and include `"svelte"` in `stylelint.validate` (VS Code settings)
+- **Astro**: Add `prettier-plugin-astro`
+
+Also add matching VS Code formatter entries (e.g., `[vue]`, `[svelte]`) to `.vscode/settings.json`.
+
 ### 2. Add Scripts
 
 Add the linting and formatting scripts to your `package.json`. See the [Tooling](README.md#tooling) section in README for the recommended configuration.
