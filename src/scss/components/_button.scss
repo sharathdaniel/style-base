@@ -76,12 +76,12 @@
   }
 
   .app-c-btn-tertiary {
-    --btn-bg: transparent;
+    --btn-bg: var(--btn-tertiary-bg);
     --btn-bg-hover: var(--btn-tertiary-bg-hover);
     --btn-color: var(--btn-tertiary-color);
-    --btn-border: transparent;
-    --btn-bg-disabled: transparent;
-    --btn-border-disabled: transparent;
+    --btn-border: var(--btn-tertiary-border);
+    --btn-bg-disabled: var(--btn-tertiary-bg-disabled);
+    --btn-border-disabled: var(--btn-tertiary-border-disabled);
     --btn-color-disabled: var(--btn-tertiary-color-disabled);
     --btn-focus-ring: var(--btn-tertiary-focus-ring);
   }
