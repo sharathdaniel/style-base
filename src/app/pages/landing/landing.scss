@@ -1261,7 +1261,18 @@
   width: rem(10);
   height: rem(10);
   border-radius: rem(9999);
-  background-color: rgb(var(--common-white-rgb) / 15%);
+
+  &.red {
+    background-color: rgb(var(--danger-500-rgb) / 50%);
+  }
+
+  &.amber {
+    background-color: rgb(var(--warning-500-rgb) / 50%);
+  }
+
+  &.green {
+    background-color: rgb(var(--success-500-rgb) / 50%);
+  }
 }
 
 .app-c-landing-principles-logic-filename {
