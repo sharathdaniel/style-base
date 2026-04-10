@@ -516,7 +516,7 @@
 }
 
 .app-c-landing-principles-heading {
-  font-size: rem(28);
+  font-size: var(--fs-4xl);
   font-weight: var(--fw-bold);
   color: var(--text-primary);
   line-height: var(--lh-tight);
@@ -1081,7 +1081,7 @@
 }
 
 .app-c-landing-steps-heading {
-  font-size: rem(28);
+  font-size: var(--fs-4xl);
   font-weight: var(--fw-bold);
   color: var(--text-primary);
   margin-block-end: rem(40);
