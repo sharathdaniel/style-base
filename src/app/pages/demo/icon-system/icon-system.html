@@ -4,10 +4,20 @@
   <section class="u-mb-5">
     <h2 class="u-mb-3">1. Icon Registry System</h2>
     <p class="u-mb-3">
-      This icon is rendered using the <code>&lt;app-icon&gt;</code> component, which fetches the SVG
-      definition from the <code>IconRegistry</code>.
+      Icons are rendered using the <code>&lt;app-icon&gt;</code> component, which fetches the SVG
+      definition from the <code>IconRegistry</code>. Use <code>ariaLabel</code> for standalone
+      icons; omit it when the icon is inside an interactive element that already has a label.
     </p>
-    <app-icon name="icon-user" class="app-c-icon u-icon-sm"></app-icon>
+    <div class="u-d-flex u-items-center u-gap-4">
+      <app-icon name="icon-user" ariaLabel="User" class="app-c-icon u-icon-sm"></app-icon>
+      <button
+        type="button"
+        class="app-c-btn app-c-btn-secondary app-c-btn-icon-sm"
+        aria-label="User profile"
+      >
+        <app-icon name="icon-user" class="app-c-icon u-icon-sm"></app-icon>
+      </button>
+    </div>
   </section>
 
   <section>

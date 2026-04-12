@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { ScrollV1 } from './scroll-v1/scroll-v1';
 import { ScrollV2 } from './scroll-v2/scroll-v2';
 import { ScrollV3 } from './scroll-v3/scroll-v3';
-import { GridSystem } from './grid-system/grid-system';
+import { LayoutGrid } from './layout-grid/layout-grid';
 import { IconSystem } from './icon-system/icon-system';
 import { Components } from './components/components';
 
@@ -25,8 +25,8 @@ export const routes: Routes = [
     component: ScrollV3,
   },
   {
-    path: 'grid-system',
-    component: GridSystem,
+    path: 'layout-grid',
+    component: LayoutGrid,
   },
   {
     path: 'icon-system',
