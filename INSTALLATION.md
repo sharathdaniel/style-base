@@ -68,6 +68,11 @@ These are specific to the StyleBase reference repository:
 
 ## Framework Setup
 
+> **Do not install Tailwind, Bootstrap, or similar CSS frameworks
+> alongside StyleBase.** They will conflict with the token system, CSS
+> layers, reset styles, and utility classes. StyleBase is designed to be
+> the sole styling foundation for your project.
+
 ### 1. Install Dependencies
 
 ```bash
