@@ -59,10 +59,12 @@ $textfield: (
   'textfield-placeholder': '--neutral-400',
   'textfield-border': '--neutral-600',
   'textfield-border-hover': '--neutral-500',
+  'textfield-border-error': '--danger-400',
   'textfield-bg-disabled': '--neutral-800',
   'textfield-border-disabled': '--neutral-700',
   'textfield-color-disabled': '--neutral-500',
   'textfield-focus-ring': '--primary-300',
+  'textfield-focus-ring-error': '--danger-300',
 );
 $checkbox: (
   'checkbox-bg': '--neutral-800',

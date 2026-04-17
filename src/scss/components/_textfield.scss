@@ -46,9 +46,9 @@
   }
 
   .app-c-textfield-error {
-    --textfield-border: var(--status-error);
-    --textfield-border-hover: var(--status-error);
-    --textfield-focus-ring: var(--status-error);
+    --textfield-border: var(--textfield-border-error);
+    --textfield-border-hover: var(--textfield-border-error);
+    --textfield-focus-ring: var(--textfield-focus-ring-error);
   }
 
   .app-c-textfield-sm {
