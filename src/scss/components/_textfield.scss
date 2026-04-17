@@ -23,7 +23,7 @@
       color: var(--textfield-color-disabled);
     }
 
-    &:read-only {
+    &:read-only:not(:disabled) {
       background-color: var(--textfield-bg-disabled);
       border-color: var(--textfield-border-disabled);
       cursor: default;
