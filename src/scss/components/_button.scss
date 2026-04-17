@@ -91,7 +91,10 @@
     }
   }
 
-  [class*='app-c-btn-icon'] {
+  .app-c-btn-icon-xs,
+  .app-c-btn-icon-sm,
+  .app-c-btn-icon-md,
+  .app-c-btn-icon-lg {
     padding-inline: 0;
     aspect-ratio: 1;
   }
