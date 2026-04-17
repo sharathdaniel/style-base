@@ -8,6 +8,7 @@
  */
 
 @use 'sass:math';
+@use '../abstracts/functions/rem' as *;
 @use '../abstracts/mixins/breakpoint' as *;
 
 /* Configuration */
@@ -102,8 +103,8 @@ $grid-gap: var(--space-4) !default;
 
 /* Auto-fit and auto-fill grid helpers */
 
-/* Default minimum column width */
-$grid-auto-min: 16rem !default;
+/* Default minimum column width. Override per-instance via --grid-auto-min, or project-wide by redefining $grid-auto-min before this file is loaded. */
+$grid-auto-min: rem(256) !default;
 
 /* Auto-fit: collapses empty tracks */
 .u-grid-auto-fit {
