@@ -11,7 +11,6 @@
     --btn-border-disabled: var(--btn-border);
     --btn-color-disabled: var(--btn-color);
     --btn-focus-ring: var(--border-focus);
-    --btn-focus-ring-size: 2px;
 
     display: inline-flex;
     align-items: center;
@@ -44,7 +43,7 @@
       }
 
       &:focus-visible {
-        box-shadow: 0 0 0 var(--btn-focus-ring-size) var(--btn-focus-ring);
+        box-shadow: 0 0 0 var(--focus-ring-size) var(--btn-focus-ring);
       }
     }
 

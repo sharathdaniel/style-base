@@ -37,7 +37,7 @@
 
     &:not(:disabled):focus-visible {
       border-color: var(--textfield-focus-ring);
-      box-shadow: 0 0 0 2px var(--textfield-focus-ring);
+      box-shadow: 0 0 0 var(--focus-ring-size) var(--textfield-focus-ring);
     }
 
     &:focus {

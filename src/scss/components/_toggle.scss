@@ -56,7 +56,7 @@
       }
 
       &:focus-visible {
-        box-shadow: 0 0 0 2px var(--toggle-focus-ring);
+        box-shadow: 0 0 0 var(--focus-ring-size) var(--toggle-focus-ring);
       }
 
       &:focus {

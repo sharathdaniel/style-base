@@ -43,7 +43,7 @@
       }
 
       &:focus-visible {
-        box-shadow: 0 0 0 2px var(--checkbox-focus-ring);
+        box-shadow: 0 0 0 var(--focus-ring-size) var(--checkbox-focus-ring);
       }
 
       &:focus {
@@ -78,8 +78,8 @@
 
       &:disabled {
         cursor: not-allowed;
-        background-color: var(--bg-surface-subtle);
-        border-color: var(--border-light);
+        background-color: var(--checkbox-bg-disabled);
+        border-color: var(--checkbox-border-disabled);
 
         &:checked,
         &:indeterminate {

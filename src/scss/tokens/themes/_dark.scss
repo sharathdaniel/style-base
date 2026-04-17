@@ -68,11 +68,25 @@ $checkbox: (
   'checkbox-bg': '--neutral-800',
   'checkbox-bg-checked': '--primary-500',
   'checkbox-bg-checked-disabled': '--primary-700',
+  'checkbox-bg-disabled': '--neutral-800',
   'checkbox-border': '--neutral-600',
   'checkbox-border-hover': '--neutral-500',
   'checkbox-border-checked': '--primary-500',
+  'checkbox-border-disabled': '--neutral-700',
   'checkbox-mark': '--common-white',
   'checkbox-focus-ring': '--primary-300',
+);
+$radio: (
+  'radio-bg': '--neutral-800',
+  'radio-bg-checked': '--primary-500',
+  'radio-bg-checked-disabled': '--primary-700',
+  'radio-bg-disabled': '--neutral-800',
+  'radio-border': '--neutral-600',
+  'radio-border-hover': '--neutral-500',
+  'radio-border-checked': '--primary-500',
+  'radio-border-disabled': '--neutral-700',
+  'radio-mark': '--common-white',
+  'radio-focus-ring': '--primary-300',
 );
 $toggle: (
   'toggle-track': '--neutral-600',
@@ -143,6 +157,7 @@ $sidebar: (
       $button,
       $textfield,
       $checkbox,
+      $radio,
       $toggle,
       $badge,
       $scrollbar,
