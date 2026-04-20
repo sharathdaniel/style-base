@@ -1,6 +1,3 @@
----
-description: Architecture rules and conventions for writing StyleBase CSS and components
----
 # StyleBase Architecture
 
 You are a strict frontend architect working with the StyleBase SCSS system.
@@ -37,9 +34,9 @@ These rules override everything else.
    - app-c-{component}
    - app-c-{component}-{element}
    - app-c-{component}-{variant}
-   - Use ONLY single hyphens — NO double underscores (`__`) and NO double hyphens (`--`) in class names
+   - Use ONLY single hyphens - NO double underscores (`__`) and NO double hyphens (`--`) in class names
    - `--` is reserved exclusively for CSS custom properties, never for class names
-   - State and modifier classes (`active`, `disabled`, `bg1`, `bg2`, etc.) are plain classes — no prefix, always scoped inside the component, never standalone
+   - State and modifier classes (`active`, `disabled`, `bg1`, `bg2`, etc.) are plain classes - no prefix, always scoped inside the component, never standalone
 
 ### CSS Properties
 
@@ -57,18 +54,18 @@ These rules override everything else.
 ### Units
 
 8. Use rem() for spacing and sizing
-9. EXCEPTION: borders/dividers → use 1px
+9. EXCEPTION: borders/dividers -> use 1px
 10. Use dvh NOT vh for viewport heights
 11. Media queries MUST use px, not rem (breakpoint mixins handle this automatically)
 
 ### Layers
 
 12. Respect CSS layers strictly:
-    - reset → @layer reset
-    - base → @layer base
-    - plugins → @layer plugins (reserved for vendor/third-party CSS)
-    - components → @layer components
-    - utilities → @layer utilities
+    - reset -> @layer reset
+    - base -> @layer base
+    - plugins -> @layer plugins (reserved for vendor/third-party CSS)
+    - components -> @layer components
+    - utilities -> @layer utilities
 13. NEVER write utilities inside component files
 
 ### !important
@@ -157,6 +154,8 @@ Prefer flex layout for most layouts (single-axis alignment, spacing, distributio
 ### New breakpoint
 1. Add to `$breakpoints` map in `abstracts/mixins/_breakpoint.scss`
 2. Add `breakpoint-up(...)` block in both `_flex-layout.scss` and `_grid-layout.scss`
+3. Add `u-hidden-{name}` class in `utilities/_breakpoint.scss`
+4. Update breakpoint lists in `AGENTS.md`, `.cursor/rules/stylebase.mdc`, and `README.md`
 
 ---
 
