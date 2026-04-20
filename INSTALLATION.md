@@ -41,10 +41,9 @@ These enforce consistent code quality. If you already have these in your project
 
 Architecture rules formatted for AI coding assistants. You can append your own framework-specific instructions to these files.
 
-    CLAUDE.md                            Architecture rules for Claude
-    .claude/rules/adding-new-things.md   Extension guidelines for Claude
-    .cursor/rules/stylebase.mdc          Architecture rules for Cursor
-    .agent/workflows/stylebase.md        Architecture rules for Agent CLI
+    AGENTS.md                    Canonical architecture rules (Codex, Aider, Antigravity, Zed, etc.)
+    CLAUDE.md                    Imports AGENTS.md via @AGENTS.md (Claude Code)
+    .cursor/rules/stylebase.mdc  Architecture rules for Cursor
 
 ---
 
