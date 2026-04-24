@@ -4,40 +4,40 @@
   .app-c-textfield {
     display: block;
     width: 100%;
-    border: 1px solid var(--textfield-border);
-    background-color: var(--textfield-bg);
-    color: var(--textfield-color);
-    caret-color: var(--textfield-focus-ring);
+    border: 1px solid var(--field-border);
+    background-color: var(--field-bg);
+    color: var(--field-color);
+    caret-color: var(--field-focus-ring);
     transition:
       border-color var(--transition-1),
       box-shadow var(--transition-1);
 
     &::placeholder {
-      color: var(--textfield-placeholder);
+      color: var(--field-placeholder);
     }
 
     &:disabled {
       cursor: not-allowed;
-      background-color: var(--textfield-bg-disabled);
-      border-color: var(--textfield-border-disabled);
-      color: var(--textfield-color-disabled);
+      background-color: var(--field-bg-disabled);
+      border-color: var(--field-border-disabled);
+      color: var(--field-color-disabled);
     }
 
     &:read-only:not(:disabled) {
-      background-color: var(--textfield-bg-disabled);
-      border-color: var(--textfield-border-disabled);
+      background-color: var(--field-bg-disabled);
+      border-color: var(--field-border-disabled);
       cursor: default;
     }
 
     &:not(:disabled, :read-only) {
       &:hover {
-        border-color: var(--textfield-border-hover);
+        border-color: var(--field-border-hover);
       }
     }
 
     &:not(:disabled):focus-visible {
-      border-color: var(--textfield-focus-ring);
-      box-shadow: 0 0 0 var(--focus-ring-size) var(--textfield-focus-ring);
+      border-color: var(--field-focus-ring);
+      box-shadow: 0 0 0 var(--focus-ring-size) var(--field-focus-ring);
     }
 
     &:focus {
@@ -46,9 +46,9 @@
   }
 
   .app-c-textfield-error {
-    --textfield-border: var(--textfield-border-error);
-    --textfield-border-hover: var(--textfield-border-error);
-    --textfield-focus-ring: var(--textfield-focus-ring-error);
+    --field-border: var(--field-border-error);
+    --field-border-hover: var(--field-border-error);
+    --field-focus-ring: var(--field-focus-ring-error);
   }
 
   .app-c-textfield-sm {
