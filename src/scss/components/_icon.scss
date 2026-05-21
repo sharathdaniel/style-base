@@ -5,6 +5,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: var(--icon-size);
+    height: var(--icon-size);
 
     .app-c-svg-icon {
       display: block;
@@ -17,8 +19,7 @@
 @layer utilities {
   @each $name, $value in $icon-scale {
     .u-icon-#{$name} {
-      width: $value;
-      height: $value;
+      --icon-size: #{$value};
     }
   }
 }

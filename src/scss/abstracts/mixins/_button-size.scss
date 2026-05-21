@@ -2,22 +2,56 @@
 
 @mixin btn-size($size) {
   @if $size == sm {
+    --icon-size: var(--icon-md);
+
     height: var(--form-item-height-sm);
     padding-inline: rem(12);
     gap: rem(8);
     font-size: var(--fs-sm);
     border-radius: var(--radius-sm);
   } @else if $size == md {
+    --icon-size: var(--icon-md);
+
     height: var(--form-item-height-md);
     padding-inline: rem(16);
     gap: rem(8);
     font-size: var(--fs-md);
     border-radius: var(--radius-md);
   } @else if $size == lg {
+    --icon-size: var(--icon-lg);
+
     height: var(--form-item-height-lg);
     padding-inline: rem(20);
     gap: rem(8);
     font-size: var(--fs-lg);
+    border-radius: var(--radius-md);
+  }
+}
+
+@mixin btn-icon-size($size) {
+  padding-inline: 0;
+  aspect-ratio: 1;
+
+  @if $size == xs {
+    --icon-size: var(--icon-sm);
+
+    height: var(--form-item-height-xs);
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+  } @else if $size == sm {
+    --icon-size: var(--icon-md);
+
+    height: var(--form-item-height-sm);
+    border-radius: var(--radius-sm);
+  } @else if $size == md {
+    --icon-size: var(--icon-lg);
+
+    height: var(--form-item-height-md);
+    border-radius: var(--radius-md);
+  } @else if $size == lg {
+    --icon-size: var(--icon-xl);
+
+    height: var(--form-item-height-lg);
     border-radius: var(--radius-md);
   }
 }

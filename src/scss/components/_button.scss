@@ -1,4 +1,3 @@
-@use '../abstracts/functions/rem' as *;
 @use '../abstracts/mixins/button-size' as *;
 
 @layer components {
@@ -91,32 +90,9 @@
     }
   }
 
-  .app-c-btn-icon-xs,
-  .app-c-btn-icon-sm,
-  .app-c-btn-icon-md,
-  .app-c-btn-icon-lg {
-    padding-inline: 0;
-    aspect-ratio: 1;
-  }
-
-  .app-c-btn-icon-xs {
-    height: var(--form-item-height-xs);
-    overflow: hidden;
-    border-radius: var(--radius-sm);
-  }
-
-  .app-c-btn-icon-sm {
-    height: var(--form-item-height-sm);
-    border-radius: var(--radius-sm);
-  }
-
-  .app-c-btn-icon-md {
-    height: var(--form-item-height-md);
-    border-radius: var(--radius-md);
-  }
-
-  .app-c-btn-icon-lg {
-    height: var(--form-item-height-lg);
-    border-radius: var(--radius-md);
+  @each $size in xs, sm, md, lg {
+    .app-c-btn-icon-#{$size} {
+      @include btn-icon-size($size);
+    }
   }
 }
