@@ -128,6 +128,10 @@ Use these - do not write raw equivalents.
 Both layout systems are 12-column, mobile-first. Base is the default (no breakpoint suffix).
 Prefer flex layout for most layouts (single-axis alignment, spacing, distribution). Use grid layout only when you need two-dimensional control across both rows and columns.
 
+**Button sizing** (`abstracts/mixins/_button-size.scss`):
+- `btn-size(sm|md|lg)` - text-button per-size dimensions (height, padding, font, `--icon-size`)
+- `btn-icon-size(xs|sm|md|lg)` - icon-only button shape + per-size dimensions
+
 **Other mixins:** `truncate`, `line-clamp($n)`, `page-height`, `rtl { }`, `svg-mask($svg)`
 
 **rem()** (`abstracts/functions/_rem.scss`): `rem(16)` converts to `1rem`
