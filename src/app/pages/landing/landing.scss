@@ -340,7 +340,6 @@
   height: auto;
   padding-block: rem(12);
   padding-inline: rem(20);
-  border-radius: rem(10);
   font-weight: var(--fw-medium);
   white-space: nowrap;
 
@@ -358,28 +357,6 @@
   height: rem(16);
   fill: currentcolor;
   flex-shrink: 0;
-}
-
-.app-c-landing-btn.app-c-btn-primary {
-  --l-cta-glow: 0 rem(6) rem(22) rem(-6) rgb(var(--primary-500-rgb) / 45%);
-  --l-cta-inset: inset 0 1px 0 rgb(var(--common-white-rgb) / 18%);
-
-  background: linear-gradient(180deg, var(--primary-500), var(--primary-600));
-  box-shadow: var(--l-cta-glow), var(--l-cta-inset);
-
-  &:not(:disabled):hover {
-    background: linear-gradient(180deg, var(--primary-400), var(--primary-500));
-    box-shadow:
-      0 rem(14) rem(36) rem(-8) rgb(var(--primary-500-rgb) / 50%),
-      var(--l-cta-inset);
-  }
-
-  &:not(:disabled):focus-visible {
-    box-shadow:
-      var(--l-cta-glow),
-      var(--l-cta-inset),
-      0 0 0 var(--focus-ring-size) var(--btn-focus-ring);
-  }
 }
 
 .app-c-landing-hero {
