@@ -1,6 +1,7 @@
 {
   "name": "style-base",
   "version": "0.0.0",
+  "license": "0BSD",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

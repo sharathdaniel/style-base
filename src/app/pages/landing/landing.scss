@@ -1,6 +1,7 @@
 @use 'abstracts/mixins/page-height' as *;
 @use 'abstracts/functions/rem' as *;
 @use 'abstracts/mixins/breakpoint' as *;
+@use 'abstracts/mixins/button-size' as *;
 @use 'abstracts/typography-tools' as *;
 
 :host {
@@ -229,6 +230,12 @@
   font-size: rem(18);
 }
 
+.app-c-landing-nav-github {
+  @include breakpoint-down(md) {
+    @include btn-icon-size(md);
+  }
+}
+
 .app-c-landing-nav-github-label {
   display: none;
 
@@ -372,6 +379,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: rem(12);
+
+  @include breakpoint-down(sm) {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .app-c-landing-hero-code-panel {
@@ -1266,32 +1278,6 @@
   color: var(--text-secondary);
 }
 
-.app-c-landing-demo-card {
-  padding: rem(20);
-  background-color: var(--l-surface-2);
-  border: 1px solid var(--l-border-default);
-  border-radius: rem(10);
-}
-
-.app-c-landing-demo-card-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-block-end: rem(8);
-}
-
-.app-c-landing-demo-card-title {
-  font-size: var(--fs-md);
-  font-weight: var(--fw-bold);
-  color: var(--text-primary);
-}
-
-.app-c-landing-demo-card-body {
-  font-size: var(--fs-label);
-  color: var(--text-secondary);
-  line-height: var(--lh-relaxed);
-}
-
 .app-c-landing-cta {
   position: relative;
   text-align: center;
@@ -1342,6 +1328,12 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: rem(12);
+
+  @include breakpoint-down(sm) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .app-c-landing-footer {

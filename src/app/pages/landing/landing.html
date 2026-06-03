@@ -714,16 +714,36 @@
                 />
               </div>
 
-              <h4 class="app-c-landing-demo-label">Card</h4>
-              <div class="app-c-landing-demo-card">
-                <div class="app-c-landing-demo-card-head">
-                  <span class="app-c-landing-demo-card-title">Token preview</span>
-                  <span class="app-c-badge app-c-badge-info">Live</span>
-                </div>
-                <p class="app-c-landing-demo-card-body">
-                  Every element here is styled with the same token cascade - change one base value
-                  and the whole demo re-skins.
-                </p>
+              <h4 class="app-c-landing-demo-label">Checkboxes</h4>
+              <div class="app-c-landing-demo-row">
+                <label class="app-c-checkbox">
+                  <input type="checkbox" checked aria-label="Semantic tokens" />
+                  <span class="app-c-checkbox-text">Semantic tokens</span>
+                </label>
+                <label class="app-c-checkbox">
+                  <input type="checkbox" aria-label="Base tokens" />
+                  <span class="app-c-checkbox-text">Base tokens</span>
+                </label>
+                <label class="app-c-checkbox">
+                  <input type="checkbox" disabled aria-label="Hardcoded values" />
+                  <span class="app-c-checkbox-text">Hardcoded</span>
+                </label>
+              </div>
+
+              <h4 class="app-c-landing-demo-label">Radios</h4>
+              <div class="app-c-landing-demo-row">
+                <label class="app-c-radio">
+                  <input type="radio" name="demo-theme" checked aria-label="Light theme" />
+                  <span class="app-c-radio-text">Light</span>
+                </label>
+                <label class="app-c-radio">
+                  <input type="radio" name="demo-theme" aria-label="Dark theme" />
+                  <span class="app-c-radio-text">Dark</span>
+                </label>
+                <label class="app-c-radio">
+                  <input type="radio" name="demo-theme" aria-label="Auto theme" />
+                  <span class="app-c-radio-text">Auto</span>
+                </label>
               </div>
             </div>
           </div>
@@ -856,7 +876,7 @@
                 href="https://github.com/sharathdaniel/style-base/blob/main/LICENSE"
                 target="_blank"
                 rel="noopener noreferrer"
-                >License (MIT)</a
+                >License (0BSD)</a
               >
             </li>
           </ul>
@@ -866,7 +886,7 @@
         <div class="app-c-landing-footer-meta-start">
           <span>&copy; {{ currentYear }} StyleBase Architecture. Built for the modern web.</span>
         </div>
-        <span>Released under the MIT License</span>
+        <span>Released under the Zero-Clause BSD License</span>
       </div>
     </div>
   </footer>
