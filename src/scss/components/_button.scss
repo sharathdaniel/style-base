@@ -84,7 +84,7 @@
     --btn-focus-ring: var(--btn-tertiary-focus-ring);
   }
 
-  @each $size in sm, md, lg {
+  @each $size in sm, md, lg, xl {
     .app-c-btn-#{$size} {
       @include btn-size($size);
     }

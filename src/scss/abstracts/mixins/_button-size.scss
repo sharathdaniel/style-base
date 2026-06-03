@@ -25,6 +25,14 @@
     gap: rem(8);
     font-size: var(--fs-lg);
     border-radius: var(--radius-md);
+  } @else if $size == xl {
+    --icon-size: var(--icon-xl);
+
+    height: var(--form-item-height-xl);
+    padding-inline: rem(24);
+    gap: rem(8);
+    font-size: var(--fs-xl);
+    border-radius: var(--radius-lg);
   }
 }
 
