@@ -18,6 +18,17 @@
   --l-border-default: rgb(var(--common-white-rgb) / 10%);
   --l-border-strong: rgb(var(--common-white-rgb) / 16%);
   --l-border-accent: rgb(var(--primary-500-rgb) / 55%);
+  --l-accent-text: var(--primary-300);
+  --l-accent-text-strong: var(--primary-400);
+  --l-syntax-comment: var(--neutral-500);
+  --l-syntax-var: var(--neutral-300);
+  --l-syntax-key: var(--primary-300);
+  --l-syntax-string: var(--success-400);
+  --l-syntax-number: var(--warning-400);
+  --l-syntax-punct: var(--neutral-500);
+  --l-tag-positive: var(--primary-300);
+  --l-tag-negative: var(--danger-400);
+  --l-tag-warning: var(--warning-400);
 
   position: relative;
   background-color: var(--bg-page);
@@ -71,7 +82,7 @@
   font-weight: var(--fw-bold);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--primary-400);
+  color: var(--l-accent-text-strong);
   padding-inline: rem(12);
   padding-block: rem(6);
   border-radius: rem(6);
@@ -104,32 +115,32 @@
 .app-c-landing-inline-code {
   font-family: monospace;
   font-size: 0.9em;
-  color: var(--primary-300);
+  color: var(--l-accent-text);
 }
 
 .app-c-landing-code-c {
-  color: var(--neutral-500);
+  color: var(--l-syntax-comment);
   font-style: italic;
 }
 
 .app-c-landing-code-v {
-  color: var(--neutral-300);
+  color: var(--l-syntax-var);
 }
 
 .app-c-landing-code-k {
-  color: var(--primary-300);
+  color: var(--l-syntax-key);
 }
 
 .app-c-landing-code-s {
-  color: var(--success-400);
+  color: var(--l-syntax-string);
 }
 
 .app-c-landing-code-n {
-  color: var(--warning-400);
+  color: var(--l-syntax-number);
 }
 
 .app-c-landing-code-p {
-  color: var(--neutral-500);
+  color: var(--l-syntax-punct);
 }
 
 .app-c-landing-nav {
@@ -214,46 +225,8 @@
   gap: rem(8);
 }
 
-.app-c-landing-nav-theme,
-.app-c-landing-nav-github {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: rem(8);
-  width: rem(36);
-  height: rem(36);
-  padding: 0;
-  border-radius: rem(8);
-  border: 1px solid var(--l-border-default);
-  background-color: var(--l-surface-2);
-  color: var(--text-secondary);
-  text-decoration: none;
-  cursor: pointer;
-  transition:
-    color var(--transition-1),
-    border-color var(--transition-1),
-    background-color var(--transition-1);
-
-  &:hover {
-    color: var(--text-primary);
-    border-color: var(--l-border-strong);
-  }
-}
-
 .app-c-landing-nav-theme .material-symbols-outlined {
-  font-size: rem(20);
-}
-
-.app-c-landing-nav-github {
-  font-size: var(--fs-label);
-  font-weight: var(--fw-medium);
-
-  @include breakpoint-up(md) {
-    width: auto;
-    height: auto;
-    padding-inline: rem(14);
-    padding-block: rem(8);
-  }
+  font-size: rem(18);
 }
 
 .app-c-landing-nav-github-label {
@@ -272,28 +245,8 @@
 }
 
 .app-c-landing-nav-mobile-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: rem(36);
-  height: rem(36);
-  padding: 0;
-  background: none;
-  border: none;
-  color: var(--text-secondary);
-  cursor: pointer;
-  border-radius: rem(8);
-  transition:
-    color var(--transition-1),
-    background-color var(--transition-1);
-
   .material-symbols-outlined {
     font-size: rem(20);
-  }
-
-  &:hover {
-    color: var(--text-primary);
-    background-color: var(--l-surface-2);
   }
 
   @include breakpoint-up(md) {
@@ -337,9 +290,6 @@
 }
 
 .app-c-landing-btn {
-  height: auto;
-  padding-block: rem(12);
-  padding-inline: rem(20);
   font-weight: var(--fw-medium);
   white-space: nowrap;
 
@@ -386,34 +336,6 @@
     grid-template-columns: 1.05fr 1fr;
     gap: rem(64);
   }
-}
-
-.app-c-landing-hero-status {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: rem(12);
-  margin-block-end: rem(28);
-  font-size: var(--fs-label);
-  color: var(--text-tertiary);
-}
-
-.app-c-landing-hero-status-dot {
-  width: rem(6);
-  height: rem(6);
-  border-radius: 50%;
-  background-color: var(--success-400);
-  box-shadow: 0 0 rem(10) rgb(var(--success-500-rgb) / 70%);
-}
-
-.app-c-landing-hero-status-code {
-  font-family: monospace;
-  font-size: var(--fs-sm);
-  padding-inline: rem(8);
-  padding-block: rem(2);
-  border-radius: rem(4);
-  background-color: var(--l-surface-2);
-  color: var(--text-secondary);
 }
 
 .app-c-landing-hero-title {
@@ -696,7 +618,7 @@
   margin-block-end: rem(12);
 
   .featured & {
-    color: var(--primary-400);
+    color: var(--l-accent-text-strong);
   }
 }
 
@@ -738,21 +660,21 @@
   }
 
   &.negative {
-    color: var(--danger-400);
-    background-color: rgb(var(--danger-400-rgb) / 7%);
-    border-color: rgb(var(--danger-400-rgb) / 18%);
+    color: var(--l-tag-negative);
+    background-color: rgb(var(--danger-500-rgb) / 7%);
+    border-color: rgb(var(--danger-500-rgb) / 22%);
   }
 
   &.warning {
-    color: var(--warning-400);
-    background-color: rgb(var(--warning-400-rgb) / 7%);
-    border-color: rgb(var(--warning-400-rgb) / 18%);
+    color: var(--l-tag-warning);
+    background-color: rgb(var(--warning-500-rgb) / 7%);
+    border-color: rgb(var(--warning-500-rgb) / 22%);
   }
 
   &.positive {
-    color: var(--primary-300);
-    background-color: rgb(var(--primary-500-rgb) / 12%);
-    border-color: rgb(var(--primary-500-rgb) / 25%);
+    color: var(--l-tag-positive);
+    background-color: rgb(var(--primary-500-rgb) / 10%);
+    border-color: rgb(var(--primary-500-rgb) / 22%);
   }
 }
 
@@ -889,7 +811,7 @@
   justify-content: center;
   background-color: rgb(var(--primary-500-rgb) / 12%);
   border: 1px solid rgb(var(--primary-500-rgb) / 22%);
-  color: var(--primary-300);
+  color: var(--l-accent-text);
 
   .material-symbols-outlined {
     font-size: rem(22);
@@ -937,7 +859,7 @@
     background: linear-gradient(180deg, rgb(var(--primary-500-rgb) / 10%), var(--l-surface-2));
 
     .app-c-landing-tier-label {
-      color: var(--primary-300);
+      color: var(--l-accent-text);
     }
   }
 }
@@ -1071,7 +993,7 @@
 
 .app-c-landing-structure-row-icon {
   font-size: rem(20);
-  color: var(--primary-400);
+  color: var(--l-accent-text-strong);
   flex-shrink: 0;
 }
 
@@ -1198,7 +1120,7 @@
 
   &::before {
     content: '$';
-    color: var(--primary-400);
+    color: var(--l-accent-text-strong);
     font-weight: var(--fw-bold);
   }
 }
@@ -1216,18 +1138,6 @@
   background-color: var(--l-surface-1);
   border: 1px solid var(--l-border-subtle);
   border-radius: rem(20);
-
-  &[data-theme='dark'] {
-    --l-border-subtle: rgb(var(--common-white-rgb) / 6%);
-    --l-border-default: rgb(var(--common-white-rgb) / 10%);
-    --l-border-strong: rgb(var(--common-white-rgb) / 16%);
-  }
-
-  &[data-theme='light'] {
-    --l-border-subtle: var(--neutral-200);
-    --l-border-default: var(--neutral-200);
-    --l-border-strong: var(--neutral-300);
-  }
 }
 
 .app-c-landing-demo-toolbar {
@@ -1401,7 +1311,7 @@
 .app-c-landing-cta-emphasis {
   font-style: italic;
   font-family: Georgia, 'Times New Roman', serif;
-  color: var(--primary-300);
+  color: var(--l-accent-text);
 }
 
 .app-c-landing-cta-desc {
@@ -1508,17 +1418,30 @@
     --l-border-subtle: var(--neutral-200);
     --l-border-default: var(--neutral-200);
     --l-border-strong: var(--neutral-300);
+    --l-accent-text: var(--primary-700);
+    --l-accent-text-strong: var(--primary-600);
+    --l-syntax-comment: var(--neutral-500);
+    --l-syntax-var: var(--neutral-900);
+    --l-syntax-key: var(--primary-700);
+    --l-syntax-string: var(--success-700);
+    --l-syntax-number: var(--warning-700);
+    --l-syntax-punct: var(--neutral-600);
+    --l-tag-positive: var(--primary-700);
+    --l-tag-negative: var(--danger-700);
+    --l-tag-warning: var(--warning-700);
   }
 
   .app-c-landing-code-window,
   .app-c-landing-step-cmd {
-    border-color: var(--neutral-800);
-  }
+    --l-syntax-comment: var(--neutral-500);
+    --l-syntax-var: var(--neutral-300);
+    --l-syntax-key: var(--primary-300);
+    --l-syntax-string: var(--success-400);
+    --l-syntax-number: var(--warning-400);
+    --l-syntax-punct: var(--neutral-500);
+    --l-accent-text-strong: var(--primary-400);
 
-  .app-c-landing-hero-status-code,
-  .app-c-landing-nav-theme,
-  .app-c-landing-nav-github {
-    background-color: var(--neutral-100);
+    border-color: var(--neutral-800);
   }
 
   .app-c-landing-stats-value {
@@ -1535,8 +1458,14 @@
     background: linear-gradient(180deg, rgb(var(--primary-500-rgb) / 8%), var(--bg-surface-subtle));
   }
 
-  .app-c-landing-cta-emphasis {
-    color: var(--primary-700);
+  .app-c-landing-hero-glow {
+    background-color: rgb(var(--primary-500-rgb) / 6%);
+  }
+
+  .app-c-landing-glow {
+    background:
+      radial-gradient(60% 60% at 25% 0%, rgb(var(--primary-500-rgb) / 8%), transparent 70%),
+      radial-gradient(50% 50% at 80% 10%, rgb(var(--primary-500-rgb) / 5%), transparent 70%);
   }
 }
 

@@ -11,15 +11,12 @@ type HeroTab = 'colors' | 'spacing' | 'typography';
   imports: [RouterLink],
 })
 export class Landing implements OnInit, OnDestroy {
-  currentYear = new Date().getFullYear();
-  mobileMenuOpen = false;
+  protected readonly currentYear = new Date().getFullYear();
+  protected mobileMenuOpen = false;
   protected readonly theme = signal<ThemeName>('light');
 
   /** Active tab in the hero code window. */
   protected readonly heroTab = signal<HeroTab>('colors');
-
-  /** Theme applied to the live demo canvas only (visual, independent of page theme). */
-  protected readonly demoTheme = signal<ThemeName>('dark');
 
   private readonly themeStorageKey = 'stylebase-theme';
   private readonly darkQuery = globalThis.matchMedia('(prefers-color-scheme: dark)');
@@ -47,22 +44,21 @@ export class Landing implements OnInit, OnDestroy {
     this.darkQuery.removeEventListener('change', this.onSystemThemeChange);
   }
 
-  toggleMobileMenu(): void {
+  protected toggleMobileMenu(): void {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
 
   protected toggleTheme(): void {
+    this.setTheme(this.theme() === 'light' ? 'dark' : 'light');
+  }
+
+  protected setTheme(theme: ThemeName): void {
     this.darkQuery.removeEventListener('change', this.onSystemThemeChange);
-    const nextTheme = this.theme() === 'light' ? 'dark' : 'light';
-    this.applyTheme(nextTheme, true);
+    this.applyTheme(theme, true);
   }
 
   protected setHeroTab(tab: HeroTab): void {
     this.heroTab.set(tab);
-  }
-
-  protected setDemoTheme(theme: ThemeName): void {
-    this.demoTheme.set(theme);
   }
 
   private applyTheme(theme: ThemeName, persist: boolean): void {

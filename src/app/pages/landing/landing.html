@@ -26,7 +26,7 @@
       <div class="app-c-landing-nav-end">
         <button
           type="button"
-          class="app-c-landing-nav-theme"
+          class="app-c-btn app-c-btn-secondary app-c-btn-icon-md app-c-landing-nav-theme"
           [attr.aria-label]="theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
           [attr.aria-pressed]="theme() === 'dark'"
           (click)="toggleTheme()"
@@ -36,7 +36,7 @@
           >
         </button>
         <a
-          class="app-c-landing-nav-github"
+          class="app-c-btn app-c-btn-secondary app-c-btn-md app-c-landing-nav-github"
           href="https://github.com/sharathdaniel/style-base"
           target="_blank"
           rel="noopener noreferrer"
@@ -56,7 +56,7 @@
         </a>
         <button
           type="button"
-          class="app-c-landing-nav-mobile-toggle"
+          class="app-c-btn app-c-btn-tertiary app-c-btn-icon-md app-c-landing-nav-mobile-toggle"
           [attr.aria-expanded]="mobileMenuOpen"
           aria-controls="mobile-nav"
           aria-label="Toggle navigation"
@@ -111,7 +111,7 @@
             </p>
             <div class="app-c-landing-hero-actions">
               <a
-                class="app-c-btn app-c-btn-primary app-c-btn-lg app-c-landing-btn"
+                class="app-c-btn app-c-btn-primary app-c-btn-xl app-c-landing-btn"
                 href="https://github.com/sharathdaniel/style-base/blob/main/INSTALLATION.md"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -122,7 +122,7 @@
                 >
               </a>
               <a
-                class="app-c-btn app-c-btn-secondary app-c-btn-lg app-c-landing-btn"
+                class="app-c-btn app-c-btn-secondary app-c-btn-xl app-c-landing-btn"
                 href="https://github.com/sharathdaniel/style-base"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -616,7 +616,7 @@
           </p>
         </div>
 
-        <div class="app-c-landing-demo-wrap" [attr.data-theme]="demoTheme()">
+        <div class="app-c-landing-demo-wrap">
           <div class="app-c-landing-demo-toolbar">
             <div class="app-c-landing-demo-toolbar-start">
               <div class="app-c-landing-code-dots" aria-hidden="true">
@@ -626,13 +626,13 @@
               </div>
               <code class="app-c-landing-demo-path">src/scss/main.scss</code>
             </div>
-            <div class="app-c-landing-demo-toolbar-end" aria-label="Demo theme">
+            <div class="app-c-landing-demo-toolbar-end">
               <button
                 type="button"
                 class="app-c-landing-demo-theme-btn"
-                [class.active]="demoTheme() === 'dark'"
-                [attr.aria-pressed]="demoTheme() === 'dark'"
-                (click)="setDemoTheme('dark')"
+                [class.active]="theme() === 'dark'"
+                [attr.aria-pressed]="theme() === 'dark'"
+                (click)="setTheme('dark')"
               >
                 <span class="material-symbols-outlined" aria-hidden="true">dark_mode</span>
                 Dark
@@ -640,9 +640,9 @@
               <button
                 type="button"
                 class="app-c-landing-demo-theme-btn"
-                [class.active]="demoTheme() === 'light'"
-                [attr.aria-pressed]="demoTheme() === 'light'"
-                (click)="setDemoTheme('light')"
+                [class.active]="theme() === 'light'"
+                [attr.aria-pressed]="theme() === 'light'"
+                (click)="setTheme('light')"
               >
                 <span class="material-symbols-outlined" aria-hidden="true">light_mode</span>
                 Light
@@ -738,7 +738,7 @@
         </p>
         <div class="app-c-landing-cta-actions">
           <a
-            class="app-c-btn app-c-btn-primary app-c-btn-lg app-c-landing-btn"
+            class="app-c-btn app-c-btn-primary app-c-btn-xl app-c-landing-btn"
             href="https://github.com/sharathdaniel/style-base/blob/main/INSTALLATION.md"
             target="_blank"
             rel="noopener noreferrer"
@@ -749,7 +749,7 @@
             >
           </a>
           <a
-            class="app-c-btn app-c-btn-secondary app-c-btn-lg app-c-landing-btn"
+            class="app-c-btn app-c-btn-secondary app-c-btn-xl app-c-landing-btn"
             href="https://github.com/sharathdaniel/style-base"
             target="_blank"
             rel="noopener noreferrer"
