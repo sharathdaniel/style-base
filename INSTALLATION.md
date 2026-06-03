@@ -195,3 +195,12 @@ git config core.eol lf
 - [ ] Husky pre-commit hook fires on commit
 - [ ] Light and dark themes render correctly
 - [ ] Your application serves the styles
+
+---
+
+## License
+
+StyleBase is released under the **Zero-Clause BSD License (0BSD)**. Use it
+freely in personal, commercial, or enterprise projects - no attribution
+required, and no need to retain any notice in your source. See [LICENSE](LICENSE)
+for the full text.
