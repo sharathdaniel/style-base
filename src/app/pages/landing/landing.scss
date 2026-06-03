@@ -504,7 +504,7 @@
     border-inline-end: none;
   }
 
-  @include breakpoint-down(md) {
+  @include breakpoint-down(sm) {
     &:nth-child(2) {
       border-inline-end: none;
     }
@@ -1029,6 +1029,11 @@
   text-transform: uppercase;
   color: var(--text-tertiary);
   margin-inline-end: rem(4);
+
+  @include breakpoint-down(sm) {
+    width: 100%;
+    margin-inline-end: 0;
+  }
 }
 
 .app-c-landing-ships-chip {
@@ -1142,12 +1147,17 @@
 
 .app-c-landing-demo-toolbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: rem(12);
   padding: rem(14) rem(20);
   background-color: var(--l-surface-2);
   border-block-end: 1px solid var(--l-border-subtle);
+
+  @include breakpoint-down(sm) {
+    padding: rem(10) rem(14);
+  }
 }
 
 .app-c-landing-demo-toolbar-start {
@@ -1164,6 +1174,10 @@
   border-radius: rem(5);
   background-color: var(--l-surface-1);
   color: var(--text-tertiary);
+
+  @include breakpoint-down(sm) {
+    display: none;
+  }
 }
 
 .app-c-landing-demo-toolbar-end {
