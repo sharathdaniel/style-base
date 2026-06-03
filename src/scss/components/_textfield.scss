@@ -72,9 +72,16 @@
     border-radius: var(--radius-md);
   }
 
+  .app-c-textfield-xl {
+    height: var(--form-item-height-xl);
+    padding-inline: rem(24);
+    font-size: var(--fs-xl);
+    border-radius: var(--radius-lg);
+  }
+
   /*
    * Compose with .app-c-textfield: <textarea class="app-c-textfield app-c-textarea">.
-   * Do not stack with .app-c-textfield-{sm,md,lg} — those set a fixed height
+   * Do not stack with .app-c-textfield-{sm,md,lg,xl} — those set a fixed height
    * which breaks multi-line textareas.
    */
   .app-c-textarea {
