@@ -28,6 +28,9 @@ jobs:
           cache: yarn
       - run: yarn install --frozen-lockfile
       - run: yarn ng build --configuration production --base-href /style-base/
+      # SPA fallback: GitHub Pages serves 404.html for unmatched paths.
+      # Copying index.html lets Angular's router handle deep links / refreshes.
+      - run: cp dist/style-base/browser/index.html dist/style-base/browser/404.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/style-base/browser
