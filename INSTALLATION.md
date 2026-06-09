@@ -13,7 +13,7 @@ Copy the entire `src/scss/` directory into your project:
 
     src/scss/                -> your-project/src/scss/
       abstracts/                 Shared Sass logic (functions, mixins, scales)
-      base/                      Global reset styles
+      base/                      Reset and global base styles (html/body defaults)
       components/                Reusable UI blocks
       layout/                    Page-level structures
       tokens/                    CSS custom properties and theme definitions
@@ -23,6 +23,15 @@ Copy the entire `src/scss/` directory into your project:
 This is the full style system. Do not cherry-pick individual folders - the system is designed to work as a whole.
 
 > **Path note:** You can place the SCSS directory anywhere in your project. Just update your framework's `includePaths` and the import path to match.
+
+### Theme Bootstrap (Optional)
+
+If you support manual theme switching, copy two snippets from this repo's `src/index.html` into your own HTML entry:
+
+- the inline `<script>` in `<head>` that resolves the saved/system theme and sets `data-theme` before first paint
+- the inline `<style>` FOUC guard that paints `--bg-page` (with a hardcoded fallback) before the stylesheet loads
+
+Without these, automatic dark mode still works via `prefers-color-scheme`, but manually selected themes won't persist and dark-mode users may see a background flash on load.
 
 ### Tooling Config (Recommended)
 
