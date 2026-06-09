@@ -111,7 +111,7 @@ Use these - do not write raw equivalents.
 - Never use `base` as the lower bound in `breakpoint-between` - use `breakpoint-down` instead
 - Named points: base (0px), sm (640px), md (768px), lg (1024px), xl (1280px), 2xl (1536px)
 
-**Typography** (`abstracts/_typography-tools.scss`):
+**Typography** (`abstracts/mixins/_typography.scss`):
 - `text-style(body-md)` - sets font-size + line-height
 - `text-weight(medium)` - sets font-weight
 - Variants: h-md, h-lg, h-xl, h-2xl, h-3xl, body-md, body-sm, ui-md, ui-sm, ui-xs

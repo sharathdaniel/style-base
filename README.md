@@ -166,7 +166,7 @@ Customize in this order, then let components consume the updated values:
 
 1. **Typography foundation**
    - `src/scss/tokens/_font.scss` (sizes, line heights, weights, families)
-   - `src/scss/abstracts/_typography-tools.scss` (role mappings like `h-lg`, `body-md`, `ui-sm`)
+   - `src/scss/abstracts/mixins/_typography.scss` (role mappings like `h-lg`, `body-md`, `ui-sm`)
    - `src/scss/components/_typography.scss` for class-level usage changes (only when needed)
 2. **Color foundation**
    - `src/scss/tokens/_colors.scss`

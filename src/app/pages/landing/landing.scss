@@ -2,7 +2,7 @@
 @use 'abstracts/functions/rem' as *;
 @use 'abstracts/mixins/breakpoint' as *;
 @use 'abstracts/mixins/button-size' as *;
-@use 'abstracts/typography-tools' as *;
+@use 'abstracts/mixins/typography' as *;
 
 :host {
   @include page-height;
