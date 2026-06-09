@@ -1,0 +1,14 @@
+@layer base {
+  /* Ensure full-height layouts (sticky footer, flex layouts, etc.) */
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    font-family: var(--body-font);
+    font-weight: var(--fw-normal);
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+  }
+}

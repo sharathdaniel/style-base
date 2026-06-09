@@ -160,7 +160,7 @@ Prefer flex layout for most layouts (single-axis alignment, spacing, distributio
 ### New breakpoint
 1. Add to `$breakpoints` map in `abstracts/mixins/_breakpoint.scss`
 2. Add `breakpoint-up(...)` block in both `_flex-layout.scss` and `_grid-layout.scss`
-3. Add `u-hidden-{name}` class in `utilities/_breakpoint.scss`
+3. Add `u-hidden-{name}` class in `utilities/_visibility.scss`
 4. Update breakpoint lists in `AGENTS.md`, `.cursor/rules/stylebase.mdc`, and `README.md`
 
 ---
