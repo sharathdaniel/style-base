@@ -18,10 +18,13 @@ $grid-gap: var(--space-4) !default;
 
 /* Grid container */
 
+:where(.u-grid-row) {
+  gap: #{$grid-gap};
+}
+
 .u-grid-row {
   display: grid;
   grid-template-columns: repeat(#{$grid-columns}, minmax(0, 1fr));
-  gap: #{$grid-gap};
 
   > [class*='u-col-'] {
     grid-column: span #{$grid-columns};
