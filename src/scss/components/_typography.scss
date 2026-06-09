@@ -2,7 +2,7 @@
 
 @layer components {
   .app-c-page-title {
-    @include text-style(h-xxl);
+    @include text-style(h-2xl);
     @include text-weight(bold);
   }
 

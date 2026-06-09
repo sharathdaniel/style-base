@@ -113,7 +113,7 @@ Use these - do not write raw equivalents.
 **Typography** (`abstracts/_typography-tools.scss`):
 - `text-style(body-md)` - sets font-size + line-height
 - `text-weight(medium)` - sets font-weight
-- Variants: h-md, h-lg, h-xl, h-xxl, h-2xl, body-md, body-sm, ui-md, ui-sm, ui-xs
+- Variants: h-md, h-lg, h-xl, h-2xl, h-3xl, body-md, body-sm, ui-md, ui-sm, ui-xs
 
 **Flex Layout** (`utilities/_flex-layout.scss`):
 - Container: `u-flex-row` (flex wrap with default gap `--space-4`)
