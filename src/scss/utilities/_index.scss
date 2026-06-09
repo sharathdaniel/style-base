@@ -8,7 +8,6 @@
   @include meta.load-css('./grid-layout');
   @include meta.load-css('./spacing');
   @include meta.load-css('./typography');
-  @include meta.load-css('./text');
   @include meta.load-css('./color');
   @include meta.load-css('./misc');
 }
