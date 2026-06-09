@@ -56,8 +56,8 @@
     --btn-bg-hover: var(--btn-primary-bg-hover);
     --btn-color: var(--btn-primary-color);
     --btn-border: var(--btn-primary-border);
-    --btn-bg-disabled: rgb(var(--btn-primary-disabled-bg) / 60%);
-    --btn-border-disabled: rgb(var(--btn-primary-disabled-bg) / 60%);
+    --btn-bg-disabled: var(--btn-primary-disabled-bg);
+    --btn-border-disabled: var(--btn-primary-disabled-bg);
     --btn-color-disabled: var(--text-disabled);
     --btn-focus-ring: var(--btn-primary-focus-ring);
   }

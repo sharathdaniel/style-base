@@ -5,6 +5,8 @@
  * Theme selector: [data-theme='dark'], or auto via prefers-color-scheme: dark.
  */
 
+@use 'sass:string';
+
 $bg: (
   'bg-page': '--neutral-950',
   'bg-surface': '--neutral-900',
@@ -33,7 +35,7 @@ $status: (
 $button: (
   'btn-primary-bg': '--primary-500',
   'btn-primary-bg-hover': '--primary-600',
-  'btn-primary-disabled-bg': '--primary-400-rgb',
+  'btn-primary-disabled-bg': 'rgb(var(--primary-400-rgb) / 60%)',
   'btn-primary-color': '--common-white',
   'btn-primary-border': '--primary-500',
   'btn-primary-focus-ring': '--primary-300',
@@ -129,7 +131,11 @@ $sidebar: (
       )
     {
       @each $token, $ref in $map {
-        --#{$token}: var(#{$ref});
+        @if string.index($ref, '--') == 1 {
+          --#{$token}: var(#{$ref});
+        } @else {
+          --#{$token}: #{$ref};
+        }
       }
     }
   }
@@ -154,7 +160,11 @@ $sidebar: (
     )
   {
     @each $token, $ref in $map {
-      --#{$token}: var(#{$ref});
+      @if string.index($ref, '--') == 1 {
+        --#{$token}: var(#{$ref});
+      } @else {
+        --#{$token}: #{$ref};
+      }
     }
   }
 }
