@@ -67,6 +67,7 @@ These rules override everything else.
     - components -> @layer components
     - utilities -> @layer utilities
 13. NEVER write utilities inside component files
+    - EXCEPTION: the `u-icon-*` size utilities are co-located in `components/_icon.scss` (inside `@layer utilities`) - this is intentional, do not flag or move them
 
 ### !important
 
