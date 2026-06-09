@@ -15,12 +15,12 @@
 @include meta.load-css('tokens/spacing');
 @include meta.load-css('tokens/icon');
 
+/* Global Variables */
+@include meta.load-css('tokens/variables');
+
 /* Themes */
 @include meta.load-css('tokens/themes/light');
 @include meta.load-css('tokens/themes/dark');
-
-/* Global Variables */
-@include meta.load-css('tokens/variables');
 
 /* Common (Styles common for multiple pages or components) */
 @include meta.load-css('layout/common');
