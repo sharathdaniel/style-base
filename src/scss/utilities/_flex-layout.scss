@@ -18,6 +18,8 @@ $flex-gap: var(--space-4) !default;
 /* Flex row */
 
 .u-flex-row {
+  --row-gap: initial;
+  --column-gap: initial;
   --gap: #{$flex-gap};
   --flex-row-gap: var(--row-gap, var(--gap));
   --flex-column-gap: var(--column-gap, var(--gap));
