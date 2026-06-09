@@ -21,17 +21,17 @@
         document.documentElement.dataset['theme'] = resolvedTheme;
       })();
     </script>
-    <!-- Hardcoded to prevent background flash before SCSS loads.
-         Must match --bg-page values in _light.scss / _dark.scss -->
+    <!-- Prevents background flash before SCSS loads: the fallbacks paint first,
+         then --bg-page from the theme takes over once the stylesheet is in. -->
     <style>
       html,
       body {
-        background-color: #f8fafc;
+        background-color: var(--bg-page, #f8fafc);
       }
 
       html[data-theme='dark'],
       html[data-theme='dark'] body {
-        background-color: #020617;
+        background-color: var(--bg-page, #020617);
       }
     </style>
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
