@@ -122,7 +122,7 @@ All styling lives under `src/scss`:
       main.scss
 
 - **Abstracts**: Shared Sass logic with no CSS output (functions, mixins, scales)
-- **Base**: Global reset styles
+- **Base**: Reset and global base styles (html/body defaults)
 - **Components**: Reusable UI building blocks
 - **Layout**: Macro-level structures and shared page wrappers
 - **Tokens**: CSS custom properties, SCSS variables, and theme definitions
