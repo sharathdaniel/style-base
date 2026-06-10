@@ -71,7 +71,6 @@
         "message": "Avoid `vh` for heights and custom properties. Prefer `dvh`/`svh`."
       }
     ],
-    "scss/dollar-variable-pattern": "^[a-z][a-z0-9-]*$",
     "selector-pseudo-element-disallowed-list": [
       ["ng-deep"],
       {
