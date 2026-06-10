@@ -91,7 +91,7 @@ They should not replace components.
 
 ```html
 <!-- Avoid: utility chains as pseudo-components -->
-<div class="u-d-flex u-align-center u-justify-between u-px-4 u-py-3 u-bg-primary u-text-white">
+<div class="u-d-flex u-items-center u-justify-between u-px-4 u-py-3">
   Submit
 </div>
 ```
@@ -149,8 +149,8 @@ StyleBase uses native CSS Layers in global stylesheets only:
 
 ## Theming Model
 
-- Base color tokens are defined per theme (e.g., light, dark)
-- Semantic tokens map to the active theme palette
+- A single base color palette is defined once in `tokens/_colors.scss`
+- Each theme (light, dark) maps semantic tokens to that palette
 - Components consume semantic tokens only
 - Light theme is the `:root` default - works without any `data-theme` attribute
 - Dark theme auto-applies via `prefers-color-scheme: dark` when no explicit theme is set
