@@ -5,6 +5,10 @@
  *   <div class="u-col-12 u-col-lg-6">Item 2</div>
  * </div>
  * Creates a 12-column grid with token-based gaps.
+ *
+ * Nesting is supported; gaps never leak into nested rows. Prefer
+ * starting the inner row inside a u-col-* wrapper:
+ * <div class="u-col-6"><div class="u-grid-row">...</div></div>
  */
 
 @use 'sass:math';

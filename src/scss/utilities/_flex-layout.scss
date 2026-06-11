@@ -4,6 +4,10 @@
  *   <div class="u-col-12 u-col-lg-6">Item 1</div>
  *   <div class="u-col-12 u-col-lg-6">Item 2</div>
  * </div>
+ *
+ * Nesting is supported, but never combine u-flex-row and u-col-* on
+ * the same element - start the inner row inside a u-col-* wrapper:
+ * <div class="u-col-6"><div class="u-flex-row">...</div></div>
  */
 
 @use 'sass:math';
