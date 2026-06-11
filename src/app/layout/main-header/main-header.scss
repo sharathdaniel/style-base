@@ -22,26 +22,33 @@
   }
 }
 
-ul {
-  display: flex;
-  align-items: center;
-  gap: rem(24);
+.app-c-header-nav {
+  @include breakpoint-down(md) {
+    order: 3;
+    width: 100%;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    gap: rem(24);
+
+    @include breakpoint-down(md) {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: rem(4);
+    }
+  }
 
   a {
-    &:hover:not(.active) {
-      color: var(--text-link-hover);
+    @include has-hover {
+      &:hover:not(.active) {
+        color: var(--text-link-hover);
+      }
     }
 
     &.active {
       color: var(--text-link);
     }
-  }
-
-  @include breakpoint-down(md) {
-    order: 3;
-    width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-    padding-bottom: rem(4);
   }
 }
