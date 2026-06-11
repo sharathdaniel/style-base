@@ -105,7 +105,7 @@ These rules override everything else.
 Use these - do not write raw equivalents.
 
 **Breakpoints** (`abstracts/mixins/_breakpoint.scss`):
-- `breakpoint-up(md)` >=768px | `breakpoint-down(lg)` <1024px
+- `breakpoint-up(md)` >=768px | `breakpoint-down(lg)` <1280px (lg and below - inclusive)
 - `breakpoint-between(md, lg)` | `breakpoint-only(base)`
 - `has-hover { }` (hover + fine pointer) | `is-touch { }` (coarse pointer, no hover) - device capability queries
 - Never use `base` as the lower bound in `breakpoint-between` - use `breakpoint-down` instead
