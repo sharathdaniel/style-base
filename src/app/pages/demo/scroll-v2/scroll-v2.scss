@@ -22,7 +22,6 @@
   @include breakpoint-down(sm) {
     flex: initial;
     min-height: auto;
-    overflow-y: unset;
   }
 }
 
