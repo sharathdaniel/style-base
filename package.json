@@ -47,7 +47,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "lint-staged": "^17.0.8",
     "prettier": "^3.8.4",
-    "stylelint": "17.13.0",
+    "stylelint": "17.14.0",
     "stylelint-config-standard-scss": "^17",
     "typescript": "~5.9.3"
   }
