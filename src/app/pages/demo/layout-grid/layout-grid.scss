@@ -10,7 +10,7 @@
   padding: rem(16);
 }
 
-.demo-box {
+.app-c-demo-box {
   @include text-style(ui-md);
 
   background-color: var(--neutral-100);
@@ -26,11 +26,6 @@
   &.blue {
     background-color: var(--info-100);
     border-color: var(--info-300);
-  }
-
-  &.green {
-    background-color: var(--success-100);
-    border-color: var(--success-300);
   }
 }
 

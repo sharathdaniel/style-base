@@ -8,45 +8,49 @@
   <section class="u-mb-5">
     <h2 class="u-mb-3">1. Flexbox Layout (Recommended)</h2>
     <p class="u-mb-3">
-      Use <strong>Flexbox Grid</strong> (<code>.u-flex-row</code>) for simpler components, card
-      rows, and standard uniform layouts.
+      Use <strong>Flex Layout</strong> (<code>.u-flex-row</code>) for simpler components, card rows,
+      and standard uniform layouts.
     </p>
 
     <!-- Basic -->
     <h3 class="u-mb-3">Standard Columns</h3>
     <div class="u-flex-row u-mb-4">
-      <div class="u-col-4 demo-box">Col 4</div>
-      <div class="u-col-4 demo-box alt">Col 4</div>
-      <div class="u-col-4 demo-box">Col 4</div>
+      <div class="u-col-4 app-c-demo-box">Col 4</div>
+      <div class="u-col-4 app-c-demo-box alt">Col 4</div>
+      <div class="u-col-4 app-c-demo-box">Col 4</div>
     </div>
 
     <div class="u-flex-row u-mb-4">
-      <div class="u-col-4 demo-box">
+      <div class="u-col-4 app-c-demo-box">
         <div class="u-flex-row u-gap-0">
-          <div class="u-col-6 demo-box">1</div>
-          <div class="u-col-6 demo-box alt">2</div>
+          <div class="u-col-6 app-c-demo-box">1</div>
+          <div class="u-col-6 app-c-demo-box alt">2</div>
         </div>
       </div>
-      <div class="u-col-4 demo-box alt">Col 4</div>
-      <div class="u-col-4 demo-box">Col 4</div>
+      <div class="u-col-4 app-c-demo-box alt">Col 4</div>
+      <div class="u-col-4 app-c-demo-box">Col 4</div>
     </div>
 
     <!-- Responsive -->
     <h3 class="u-mb-3">Responsive Wrap</h3>
     <div class="u-flex-row u-mb-4">
-      <div class="u-col-12 u-col-sm-6 u-col-md-4 u-col-lg-3 demo-box">12 -> 6 -> 4 -> 3</div>
-      <div class="u-col-12 u-col-sm-6 u-col-md-4 u-col-lg-3 demo-box alt">12 -> 6 -> 4 -> 3</div>
-      <div class="u-col-12 u-col-sm-6 u-col-md-4 u-col-lg-3 demo-box">12 -> 6 -> 4 -> 3</div>
-      <div class="u-col-12 u-col-sm-6 u-col-md-4 u-col-lg-3 demo-box alt">12 -> 6 -> 4 -> 3</div>
+      <div class="u-col-12 u-col-sm-6 u-col-md-4 u-col-lg-3 app-c-demo-box">12 -> 6 -> 4 -> 3</div>
+      <div class="u-col-12 u-col-sm-6 u-col-md-4 u-col-lg-3 app-c-demo-box alt">
+        12 -> 6 -> 4 -> 3
+      </div>
+      <div class="u-col-12 u-col-sm-6 u-col-md-4 u-col-lg-3 app-c-demo-box">12 -> 6 -> 4 -> 3</div>
+      <div class="u-col-12 u-col-sm-6 u-col-md-4 u-col-lg-3 app-c-demo-box alt">
+        12 -> 6 -> 4 -> 3
+      </div>
     </div>
 
     <!-- Alignment (Self) -->
     <h3 class="u-mb-3">Vertical Alignment (Items)</h3>
     <p class="u-mb-2">Flex items support <code>align-self</code> via <code>.u-self-*</code>.</p>
     <div class="u-flex-row app-c-individual-align">
-      <div class="u-col-4 u-self-start demo-box alt">Top</div>
-      <div class="u-col-4 u-self-center demo-box">Middle</div>
-      <div class="u-col-4 u-self-end demo-box alt">Bottom</div>
+      <div class="u-col-4 u-self-start app-c-demo-box alt">Top</div>
+      <div class="u-col-4 u-self-center app-c-demo-box">Middle</div>
+      <div class="u-col-4 u-self-end app-c-demo-box alt">Bottom</div>
     </div>
   </section>
 
@@ -60,29 +64,31 @@
     <h2 class="u-mb-3">2. CSS Grid Layout (Advanced)</h2>
     <p class="u-mb-3">
       Use <strong>CSS Grid</strong> (<code>.u-grid-row</code>) for advanced layouts requiring
-      explicit track placement, overlapping items, or auto-fit magic.
+      explicit track placement or auto-fit columns.
     </p>
 
     <!-- Explicit Placement -->
     <h3 class="u-mb-3">Automated Centering</h3>
     <div class="u-grid-row u-mb-4">
-      <div class="u-col-6-center demo-box blue">Centered 6-col</div>
+      <div class="u-col-6-center app-c-demo-box blue">Centered 6-col</div>
     </div>
 
     <!-- Edge Helpers -->
     <h3 class="u-mb-3">Edge Helpers</h3>
     <div class="u-grid-row u-mb-4">
-      <div class="u-col-start-4 u-col-end-last demo-box">u-col-end-last (Stretch to end)</div>
+      <div class="u-col-start-4 u-col-end-last app-c-demo-box">
+        u-col-start-4 + u-col-end-last (Start at 4, stretch to end)
+      </div>
     </div>
 
     <!-- Auto Fit -->
     <h3 class="u-mb-3">Auto Fit (Dynamic)</h3>
     <div class="u-grid-row u-grid-auto-fit">
-      <div class="demo-box alt">Item</div>
-      <div class="demo-box">Item</div>
-      <div class="demo-box alt">Item</div>
-      <div class="demo-box">Item</div>
-      <div class="demo-box alt">Item</div>
+      <div class="app-c-demo-box alt">Item</div>
+      <div class="app-c-demo-box">Item</div>
+      <div class="app-c-demo-box alt">Item</div>
+      <div class="app-c-demo-box">Item</div>
+      <div class="app-c-demo-box alt">Item</div>
     </div>
   </section>
 </div>
