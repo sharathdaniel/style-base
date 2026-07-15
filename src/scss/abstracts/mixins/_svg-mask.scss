@@ -1,6 +1,5 @@
 @use 'sass:string';
 @use 'sass:meta';
-@use 'sass:list';
 
 /// @access private
 @function -str-replace($string, $search, $replace: '') {
