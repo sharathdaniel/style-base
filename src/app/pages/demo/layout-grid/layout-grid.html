@@ -64,7 +64,7 @@
     <h2 class="u-mb-3">2. CSS Grid Layout (Advanced)</h2>
     <p class="u-mb-3">
       Use <strong>CSS Grid</strong> (<code>.u-grid-row</code>) for advanced layouts requiring
-      explicit track placement or auto-fit columns.
+      explicit track placement, two-dimensional row + column placement, or auto-fit columns.
     </p>
 
     <!-- Explicit Placement -->
@@ -83,12 +83,35 @@
 
     <!-- Auto Fit -->
     <h3 class="u-mb-3">Auto Fit (Dynamic)</h3>
-    <div class="u-grid-row u-grid-auto-fit">
+    <div class="u-grid-row u-grid-auto-fit u-mb-4">
       <div class="app-c-demo-box alt">Item</div>
       <div class="app-c-demo-box">Item</div>
       <div class="app-c-demo-box alt">Item</div>
       <div class="app-c-demo-box">Item</div>
       <div class="app-c-demo-box alt">Item</div>
+    </div>
+
+    <!-- Row Placement -->
+    <h3 class="u-mb-3">Two-Dimensional Placement (Rows + Columns)</h3>
+    <p class="u-mb-2">
+      Row utilities (<code>u-row-*</code>, <code>u-row-start-*</code>, <code>u-row-end-last</code>)
+      mirror the column utilities on the row axis.
+    </p>
+    <div class="u-grid-row u-mb-4">
+      <div class="u-col-4 u-row-2 app-c-demo-box blue">u-col-4 + u-row-2</div>
+      <div class="u-col-4 app-c-demo-box alt">Col 4</div>
+      <div class="u-col-4 app-c-demo-box">Col 4</div>
+      <div class="u-col-4 app-c-demo-box alt">Col 4</div>
+    </div>
+
+    <!-- Row Edge Helpers -->
+    <h3 class="u-mb-3">Row Edge Helpers</h3>
+    <div class="u-grid-row u-mb-4">
+      <div class="u-col-4 app-c-demo-box">Col 4</div>
+      <div class="u-col-4 app-c-demo-box alt">Col 4</div>
+      <div class="u-col-4 u-row-start-2 u-row-end-last app-c-demo-box blue">
+        u-row-start-2 + u-row-end-last
+      </div>
     </div>
   </section>
 </div>

@@ -124,8 +124,10 @@ Use these - do not write raw equivalents.
 
 **Grid Layout** (`utilities/_grid-layout.scss`):
 - Container: `u-grid-row` (12-column CSS grid with default gap `--space-4`)
-- Spans: `u-col-{1-12}`, `u-col-full` (responsive variants same as flex)
-- Positioning: `u-col-start-{1-12}`, `u-col-{n}-center`, `u-col-end-last`
+- Column spans: `u-col-{1-12}`, `u-col-full` (responsive variants same as flex)
+- Column positioning: `u-col-start-{1-12}`, `u-col-{n}-center`, `u-col-end-last`
+- Row spans: `u-row-{1-6}` (responsive variants same as columns)
+- Row positioning: `u-row-start-{1-6}`, `u-row-{n}-center`, `u-row-end-last`
 - Auto helpers: `u-grid-auto-fit`, `u-grid-auto-fill`
 
 Both layout systems are 12-column, mobile-first. Base is the default (no breakpoint suffix).

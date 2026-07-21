@@ -9,6 +9,10 @@
  * Nesting is supported; gaps never leak into nested rows. Prefer
  * starting the inner row inside a u-col-* wrapper:
  * <div class="u-col-6"><div class="u-grid-row">...</div></div>
+ *
+ * Row placement (u-row-*, u-row-start-*, u-row-end-last) mirrors the
+ * column utilities on the row axis, for two-dimensional placement:
+ * <div class="u-col-4 u-row-2">Spans 4 columns, 2 rows</div>
  */
 
 @use 'sass:math';
@@ -18,6 +22,7 @@
 /* Configuration */
 
 $grid-columns: 12 !default;
+$grid-rows: 6 !default;
 $grid-gap: var(--space-4) !default;
 
 /* Grid container */
@@ -34,16 +39,18 @@ $grid-gap: var(--space-4) !default;
     grid-column: span #{$grid-columns};
   }
 
-  /* Grid column mixin */
+  /* Grid placement mixin */
 
   /* stylelint-disable declaration-block-no-redundant-longhand-properties */
 
-  @mixin make-grid-columns($infix: null) {
+  @mixin make-grid-utilities($infix: null) {
     $prefix: '';
 
     @if $infix {
       $prefix: '-#{$infix}';
     }
+
+    /* Column placement: span / start / end */
 
     > .u-col#{$prefix}-full {
       grid-column-start: 1;
@@ -73,38 +80,64 @@ $grid-gap: var(--space-4) !default;
     > .u-col-end#{$prefix}-last {
       grid-column-end: -1;
     }
+
+    /* Row placement: span / start / end */
+
+    @for $i from 1 through $grid-rows {
+      > .u-row#{$prefix}-#{$i} {
+        grid-row-start: auto;
+        grid-row-end: span #{$i};
+      }
+
+      @if ($grid-rows - $i) % 2 == 0 {
+        > .u-row#{$prefix}-#{$i}-center {
+          grid-row-end: span #{$i};
+          grid-row-start: #{math.div($grid-rows - $i, 2) + 1};
+        }
+      }
+    }
+
+    @for $i from 1 through $grid-rows {
+      > .u-row-start#{$prefix}-#{$i} {
+        grid-row-start: #{$i};
+      }
+    }
+
+    > .u-row-end#{$prefix}-last {
+      grid-row-end: -1;
+    }
   }
 
   /* stylelint-enable declaration-block-no-redundant-longhand-properties */
 
-  /* Column span utilities */
+  /* Column and row placement utilities */
 
   /* Base: < 640px */
-  @include make-grid-columns;
+  @include make-grid-utilities;
 
   /* sm and up: ≥ 640px */
   @include breakpoint-up(sm) {
-    @include make-grid-columns('sm');
+    @include make-grid-utilities('sm');
   }
 
   /* md and up: ≥ 768px */
   @include breakpoint-up(md) {
-    @include make-grid-columns('md');
+    @include make-grid-utilities('md');
   }
 
   /* lg and up: ≥ 1024px */
   @include breakpoint-up(lg) {
-    @include make-grid-columns('lg');
+    @include make-grid-utilities('lg');
   }
 
   /* xl and up: ≥ 1280px */
   @include breakpoint-up(xl) {
-    @include make-grid-columns('xl');
+    @include make-grid-utilities('xl');
   }
 
   /* 2xl and up: ≥ 1536px */
   @include breakpoint-up(2xl) {
-    @include make-grid-columns('2xl');
+    @include make-grid-utilities('2xl');
   }
 }
 
@@ -115,10 +148,16 @@ $grid-auto-min: rem(256) !default;
 
 /* Auto-fit: collapses empty tracks */
 .u-grid-auto-fit {
-  grid-template-columns: repeat(auto-fit, minmax(var(--grid-auto-min, #{$grid-auto-min}), 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(var(--grid-auto-min, #{$grid-auto-min}), 100%), 1fr)
+  );
 }
 
 /* Auto-fill: preserves empty tracks */
 .u-grid-auto-fill {
-  grid-template-columns: repeat(auto-fill, minmax(var(--grid-auto-min, #{$grid-auto-min}), 1fr));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(var(--grid-auto-min, #{$grid-auto-min}), 100%), 1fr)
+  );
 }
