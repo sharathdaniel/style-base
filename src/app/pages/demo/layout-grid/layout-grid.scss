@@ -33,3 +33,8 @@
   min-height: rem(150);
   background-color: var(--neutral-600);
 }
+
+/* Gives row-track demos a height, so 1fr tracks have space to divide */
+.app-c-demo-rows {
+  min-height: rem(220);
+}

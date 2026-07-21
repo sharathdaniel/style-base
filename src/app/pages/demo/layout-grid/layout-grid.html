@@ -116,5 +116,35 @@
       <div class="u-col-6 app-c-demo-box alt">Auto placed</div>
       <div class="u-col-4 u-row-start-3 app-c-demo-box blue">u-row-start-3 (row 2 stays empty)</div>
     </div>
+
+    <!-- Explicit Row Tracks -->
+    <h3 class="u-mb-3">Explicit Row Tracks</h3>
+    <p class="u-mb-2">
+      By default a grid only has the rows its content creates.
+      <code>u-grid-rows-*</code> declares real row tracks on the container, so
+      <code>u-row-start-*</code> lands on a known row. Responsive variants
+      (<code>u-grid-rows-lg-3</code>) work like the column ones.
+    </p>
+    <div class="u-grid-row u-grid-rows-3 app-c-demo-rows u-mb-4">
+      <div class="u-col-4 app-c-demo-box">Auto placed (row 1)</div>
+      <div class="u-col-4 u-row-start-2 app-c-demo-box blue">u-row-start-2</div>
+      <div class="u-col-4 u-row-start-3 app-c-demo-box alt">u-row-start-3</div>
+    </div>
+
+    <!-- Implicit Row Sizing -->
+    <h3 class="u-mb-3">Implicit Row Sizing</h3>
+    <p class="u-mb-2">
+      <code>u-auto-rows-*</code> sizes the rows a grid creates on its own - <code>auto</code>,
+      <code>min</code>, <code>max</code>, or <code>fr</code> for equal heights. It applies without
+      declaring any row template.
+    </p>
+    <div class="u-grid-row u-auto-rows-fr app-c-demo-rows u-mb-4">
+      <div class="u-col-6 app-c-demo-box">Short</div>
+      <div class="u-col-6 app-c-demo-box alt">
+        Taller content that wraps across several lines, yet both rows keep the same height
+      </div>
+      <div class="u-col-6 app-c-demo-box alt">Row 2</div>
+      <div class="u-col-6 app-c-demo-box">Row 2</div>
+    </div>
   </section>
 </div>

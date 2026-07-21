@@ -126,8 +126,10 @@ Use these - do not write raw equivalents.
 - Container: `u-grid-row` (12-column CSS grid with default gap `--space-4`)
 - Column spans: `u-col-{1-12}`, `u-col-full` (responsive variants same as flex)
 - Column positioning: `u-col-start-{1-12}`, `u-col-{n}-center`, `u-col-end-last`
+- Row tracks (container): `u-grid-rows-{1-6}` declares explicit rows (responsive variants same as columns); `u-auto-rows-{auto|min|max|fr}` sizes implicit rows (base only)
 - Row spans: `u-row-{1-6}` (responsive variants same as columns)
-- Row positioning: `u-row-start-{1-6}` (rows are implicit, so there is no row equivalent of `u-col-end-last` or `u-col-{n}-center`; use `u-self-center` to centre within a row)
+- Row positioning: `u-row-start-{1-6}` - pair with `u-grid-rows-{n}` when the item must land on a known row
+- No row equivalent of `u-col-end-last` or `u-col-{n}-center`: columns can offer them because the container always declares 12 tracks, the row count is not fixed, and grid line numbers must be literal integers (no `calc()`). Use `u-self-center` to centre within a row.
 - Auto helpers: `u-grid-auto-fit`, `u-grid-auto-fill`
 
 Both layout systems are 12-column, mobile-first. Base is the default (no breakpoint suffix).

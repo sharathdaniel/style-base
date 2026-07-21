@@ -14,10 +14,17 @@
  * the row axis, for two-dimensional placement:
  * <div class="u-col-4 u-row-2">Spans 4 columns, 2 rows</div>
  *
- * Note: rows are implicit (no grid-template-rows), so the row axis has no
- * equivalent of u-col-end-last or u-col-{n}-center - there is no known row
- * count to measure an end or a midpoint against. Use u-row-{n} to span and
- * u-self-center to centre an item within its own row.
+ * Rows are implicit by default. Add u-grid-rows-{n} to the container to
+ * declare explicit row tracks, or u-auto-rows-{key} to size the implicit
+ * ones:
+ * <div class="u-grid-row u-grid-rows-3">...</div>
+ *
+ * Note: there is no row equivalent of u-col-end-last or u-col-{n}-center.
+ * Columns can offer them because the container always declares 12 tracks;
+ * the row count is not fixed. Grid line numbers must be literal integers
+ * (calc() is not allowed), so a row midpoint cannot be computed to follow
+ * a variable row count. Use u-row-start-{n} against a known u-grid-rows-{n},
+ * or u-self-center to centre an item within its own row.
  */
 
 @use 'sass:math';
@@ -154,4 +161,76 @@ $grid-auto-min: rem(256) !default;
     auto-fill,
     minmax(min(var(--grid-auto-min, #{$grid-auto-min}), 100%), 1fr)
   );
+}
+
+/*
+ * Explicit row tracks (container-level).
+ *
+ * Pair with u-row-start-{n} when an item must land on a known row:
+ * <div class="u-grid-row u-grid-rows-3">
+ *   <div class="u-col-4 u-row-start-2">Second row</div>
+ * </div>
+ */
+
+@mixin make-row-track-utilities($infix: null) {
+  $prefix: '';
+
+  @if $infix {
+    $prefix: '-#{$infix}';
+  }
+
+  @for $i from 1 through $grid-rows {
+    .u-grid-rows#{$prefix}-#{$i} {
+      grid-template-rows: repeat(#{$i}, minmax(0, 1fr));
+    }
+  }
+}
+
+/* Base: < 640px */
+@include make-row-track-utilities;
+
+/* sm and up: ≥ 640px */
+@include breakpoint-up(sm) {
+  @include make-row-track-utilities('sm');
+}
+
+/* md and up: ≥ 768px */
+@include breakpoint-up(md) {
+  @include make-row-track-utilities('md');
+}
+
+/* lg and up: ≥ 1024px */
+@include breakpoint-up(lg) {
+  @include make-row-track-utilities('lg');
+}
+
+/* xl and up: ≥ 1280px */
+@include breakpoint-up(xl) {
+  @include make-row-track-utilities('xl');
+}
+
+/* 2xl and up: ≥ 1536px */
+@include breakpoint-up(2xl) {
+  @include make-row-track-utilities('2xl');
+}
+
+/*
+ * Implicit row sizing.
+ *
+ * Applies to rows the grid creates on its own, so it affects every
+ * u-grid-row without an explicit u-grid-rows-{n}. Base only - implicit
+ * row sizing is rarely varied per breakpoint (matches u-grid-auto-fit).
+ */
+
+$grid-auto-row-sizes: (
+  'auto': auto,
+  'min': min-content,
+  'max': max-content,
+  'fr': minmax(0, 1fr),
+) !default;
+
+@each $key, $size in $grid-auto-row-sizes {
+  .u-auto-rows-#{$key} {
+    grid-auto-rows: #{$size};
+  }
 }
