@@ -119,7 +119,7 @@ Use these - do not write raw equivalents.
 **Flex Layout** (`utilities/_flex-layout.scss`):
 - Container: `u-flex-row` (flex wrap with default gap `--space-4`)
 - Columns: `u-col-{1-12}`, `u-col-auto`, `u-col-fill`
-- Responsive: `u-col-sm-{1-12}`, `u-col-md-{1-12}`, `u-col-lg-{1-12}`, `u-col-xl-{1-12}`, `u-col-2xl-{1-12}`
+- Responsive: `u-col-sm-{1-12}`, `u-col-md-{1-12}`, `u-col-lg-{1-12}`, `u-col-xl-{1-12}`, `u-col-2xl-{1-12}` (applies to `auto`/`fill` too, e.g. `u-col-lg-fill`)
 - Gaps: `u-gap-{key}`, `u-col-gap-{key}`, `u-row-gap-{key}`
 
 **Grid Layout** (`utilities/_grid-layout.scss`):

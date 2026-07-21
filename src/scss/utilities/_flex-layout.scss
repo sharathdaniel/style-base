@@ -77,6 +77,7 @@ $flex-gap: var(--space-4) !default;
 
     > .u-col#{$prefix}-fill {
       flex: 1 1 0%;
+      max-width: 100%;
     }
   }
 
