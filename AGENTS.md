@@ -127,7 +127,7 @@ Use these - do not write raw equivalents.
 - Column spans: `u-col-{1-12}`, `u-col-full` (responsive variants same as flex)
 - Column positioning: `u-col-start-{1-12}`, `u-col-{n}-center`, `u-col-end-last`
 - Row spans: `u-row-{1-6}` (responsive variants same as columns)
-- Row positioning: `u-row-start-{1-6}`, `u-row-{n}-center`, `u-row-end-last`
+- Row positioning: `u-row-start-{1-6}` (rows are implicit, so there is no row equivalent of `u-col-end-last` or `u-col-{n}-center`; use `u-self-center` to centre within a row)
 - Auto helpers: `u-grid-auto-fit`, `u-grid-auto-fill`
 
 Both layout systems are 12-column, mobile-first. Base is the default (no breakpoint suffix).

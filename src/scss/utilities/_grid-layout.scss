@@ -10,9 +10,14 @@
  * starting the inner row inside a u-col-* wrapper:
  * <div class="u-col-6"><div class="u-grid-row">...</div></div>
  *
- * Row placement (u-row-*, u-row-start-*, u-row-end-last) mirrors the
- * column utilities on the row axis, for two-dimensional placement:
+ * Row placement (u-row-*, u-row-start-*) mirrors the column utilities on
+ * the row axis, for two-dimensional placement:
  * <div class="u-col-4 u-row-2">Spans 4 columns, 2 rows</div>
+ *
+ * Note: rows are implicit (no grid-template-rows), so the row axis has no
+ * equivalent of u-col-end-last or u-col-{n}-center - there is no known row
+ * count to measure an end or a midpoint against. Use u-row-{n} to span and
+ * u-self-center to centre an item within its own row.
  */
 
 @use 'sass:math';
@@ -88,23 +93,12 @@ $grid-gap: var(--space-4) !default;
         grid-row-start: auto;
         grid-row-end: span #{$i};
       }
-
-      @if ($grid-rows - $i) % 2 == 0 {
-        > .u-row#{$prefix}-#{$i}-center {
-          grid-row-end: span #{$i};
-          grid-row-start: #{math.div($grid-rows - $i, 2) + 1};
-        }
-      }
     }
 
     @for $i from 1 through $grid-rows {
       > .u-row-start#{$prefix}-#{$i} {
         grid-row-start: #{$i};
       }
-    }
-
-    > .u-row-end#{$prefix}-last {
-      grid-row-end: -1;
     }
   }
 

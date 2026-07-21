@@ -94,8 +94,8 @@
     <!-- Row Placement -->
     <h3 class="u-mb-3">Two-Dimensional Placement (Rows + Columns)</h3>
     <p class="u-mb-2">
-      Row utilities (<code>u-row-*</code>, <code>u-row-start-*</code>, <code>u-row-end-last</code>)
-      mirror the column utilities on the row axis.
+      Row utilities (<code>u-row-*</code>, <code>u-row-start-*</code>) mirror the column utilities
+      on the row axis.
     </p>
     <div class="u-grid-row u-mb-4">
       <div class="u-col-4 u-row-2 app-c-demo-box blue">u-col-4 + u-row-2</div>
@@ -104,14 +104,17 @@
       <div class="u-col-4 app-c-demo-box alt">Col 4</div>
     </div>
 
-    <!-- Row Edge Helpers -->
-    <h3 class="u-mb-3">Row Edge Helpers</h3>
+    <!-- Row Start -->
+    <h3 class="u-mb-3">Explicit Row Start</h3>
+    <p class="u-mb-2">
+      <code>u-row-start-*</code> pins an item to a specific row, leaving any skipped rows empty.
+      There is no row equivalent of <code>u-col-end-last</code>: rows are implicit, so a negative
+      row line has nothing to count back from. Use <code>u-row-*</code> to span downwards.
+    </p>
     <div class="u-grid-row u-mb-4">
-      <div class="u-col-4 app-c-demo-box">Col 4</div>
-      <div class="u-col-4 app-c-demo-box alt">Col 4</div>
-      <div class="u-col-4 u-row-start-2 u-row-end-last app-c-demo-box blue">
-        u-row-start-2 + u-row-end-last
-      </div>
+      <div class="u-col-6 app-c-demo-box">Auto placed</div>
+      <div class="u-col-6 app-c-demo-box alt">Auto placed</div>
+      <div class="u-col-4 u-row-start-3 app-c-demo-box blue">u-row-start-3 (row 2 stays empty)</div>
     </div>
   </section>
 </div>
