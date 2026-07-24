@@ -1,0 +1,9 @@
+@use '../abstracts/scales' as *;
+
+// Sets the --icon-size contract consumed by .app-c-icon (components/_icon.scss)
+// and by the btn-size / btn-icon-size mixins (abstracts/mixins/_button-size.scss).
+@each $name, $value in $icon-scale {
+  .u-icon-#{$name} {
+    --icon-size: #{$value};
+  }
+}

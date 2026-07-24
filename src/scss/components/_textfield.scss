@@ -1,92 +1,90 @@
 @use '../abstracts/functions/rem' as *;
 
-@layer components {
-  .app-c-textfield {
-    display: block;
-    width: 100%;
-    border: 1px solid var(--field-border);
-    background-color: var(--field-bg);
-    color: var(--field-color);
-    caret-color: var(--field-focus-ring);
-    transition:
-      border-color var(--transition-1),
-      box-shadow var(--transition-1);
+.app-c-textfield {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--field-border);
+  background-color: var(--field-bg);
+  color: var(--field-color);
+  caret-color: var(--field-focus-ring);
+  transition:
+    border-color var(--transition-1),
+    box-shadow var(--transition-1);
 
-    &::placeholder {
-      color: var(--field-placeholder);
-    }
+  &::placeholder {
+    color: var(--field-placeholder);
+  }
 
-    &:disabled {
-      cursor: not-allowed;
-      background-color: var(--field-bg-disabled);
-      border-color: var(--field-border-disabled);
-      color: var(--field-color-disabled);
-    }
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--field-bg-disabled);
+    border-color: var(--field-border-disabled);
+    color: var(--field-color-disabled);
+  }
 
-    &:read-only:not(:disabled) {
-      background-color: var(--field-bg-disabled);
-      border-color: var(--field-border-disabled);
-      cursor: default;
-    }
+  &:read-only:not(:disabled) {
+    background-color: var(--field-bg-disabled);
+    border-color: var(--field-border-disabled);
+    cursor: default;
+  }
 
-    &:not(:disabled, :read-only) {
-      &:hover {
-        border-color: var(--field-border-hover);
-      }
-    }
-
-    &:not(:disabled):focus-visible {
-      border-color: var(--field-focus-ring);
-      box-shadow: 0 0 0 var(--focus-ring-size) var(--field-focus-ring);
-    }
-
-    &:focus {
-      outline: none;
+  &:not(:disabled, :read-only) {
+    &:hover {
+      border-color: var(--field-border-hover);
     }
   }
 
-  .app-c-textfield-error {
-    --field-border: var(--field-border-error);
-    --field-border-hover: var(--field-border-error);
-    --field-focus-ring: var(--field-focus-ring-error);
+  &:not(:disabled):focus-visible {
+    border-color: var(--field-focus-ring);
+    box-shadow: 0 0 0 var(--focus-ring-size) var(--field-focus-ring);
   }
 
-  .app-c-textfield-sm {
-    height: var(--form-item-height-sm);
-    padding-inline: rem(12);
-    font-size: var(--fs-sm);
-    border-radius: var(--radius-sm);
+  &:focus {
+    outline: none;
   }
+}
 
-  .app-c-textfield-md {
-    height: var(--form-item-height-md);
-    padding-inline: rem(16);
-    font-size: var(--fs-md);
-    border-radius: var(--radius-md);
-  }
+.app-c-textfield-error {
+  --field-border: var(--field-border-error);
+  --field-border-hover: var(--field-border-error);
+  --field-focus-ring: var(--field-focus-ring-error);
+}
 
-  .app-c-textfield-lg {
-    height: var(--form-item-height-lg);
-    padding-inline: rem(20);
-    font-size: var(--fs-lg);
-    border-radius: var(--radius-md);
-  }
+.app-c-textfield-sm {
+  height: var(--form-item-height-sm);
+  padding-inline: rem(12);
+  font-size: var(--fs-sm);
+  border-radius: var(--radius-sm);
+}
 
-  .app-c-textfield-xl {
-    height: var(--form-item-height-xl);
-    padding-inline: rem(24);
-    font-size: var(--fs-xl);
-    border-radius: var(--radius-lg);
-  }
+.app-c-textfield-md {
+  height: var(--form-item-height-md);
+  padding-inline: rem(16);
+  font-size: var(--fs-md);
+  border-radius: var(--radius-md);
+}
 
-  /*
-   * Compose with .app-c-textfield: <textarea class="app-c-textfield app-c-textarea">.
-   * Do not stack with .app-c-textfield-{sm,md,lg,xl} — those set a fixed height
-   * which breaks multi-line textareas.
-   */
-  .app-c-textarea {
-    padding: rem(12) rem(20);
-    font-size: var(--fs-lg);
-    border-radius: var(--radius-md);
-  }
+.app-c-textfield-lg {
+  height: var(--form-item-height-lg);
+  padding-inline: rem(20);
+  font-size: var(--fs-lg);
+  border-radius: var(--radius-md);
+}
+
+.app-c-textfield-xl {
+  height: var(--form-item-height-xl);
+  padding-inline: rem(24);
+  font-size: var(--fs-xl);
+  border-radius: var(--radius-lg);
+}
+
+/*
+ * Compose with .app-c-textfield: <textarea class="app-c-textfield app-c-textarea">.
+ * Do not stack with .app-c-textfield-{sm,md,lg,xl} — those set a fixed height
+ * which breaks multi-line textareas.
+ */
+.app-c-textarea {
+  padding: rem(12) rem(20);
+  font-size: var(--fs-lg);
+  border-radius: var(--radius-md);
 }

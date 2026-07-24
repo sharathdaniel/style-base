@@ -1,0 +1,13 @@
+@use 'sass:meta';
+
+@layer components {
+  @include meta.load-css('./typography');
+  @include meta.load-css('./icon');
+  @include meta.load-css('./badge');
+  @include meta.load-css('./button');
+  @include meta.load-css('./textfield');
+  @include meta.load-css('./checkbox');
+  @include meta.load-css('./radio');
+  @include meta.load-css('./toggle');
+  @include meta.load-css('./group');
+}

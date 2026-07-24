@@ -1,28 +1,26 @@
 @use '../abstracts/mixins/typography' as *;
 
-@layer components {
-  .app-c-page-title {
-    @include text-style(h-2xl);
-    @include text-weight(bold);
-  }
+.app-c-page-title {
+  @include text-style(h-2xl);
+  @include text-weight(bold);
+}
 
-  .app-c-section-title {
-    @include text-style(h-lg);
-    @include text-weight(medium);
-  }
+.app-c-section-title {
+  @include text-style(h-lg);
+  @include text-weight(medium);
+}
 
-  .app-c-field-label {
-    @include text-style(ui-sm);
-    @include text-weight(medium);
-  }
+.app-c-field-label {
+  @include text-style(ui-sm);
+  @include text-weight(medium);
+}
 
-  .app-c-input-text {
-    @include text-style(body-md);
-    @include text-weight(normal);
-  }
+.app-c-input-text {
+  @include text-style(body-md);
+  @include text-weight(normal);
+}
 
-  .app-c-helper-text {
-    @include text-style(ui-xs);
-    @include text-weight(normal);
-  }
+.app-c-helper-text {
+  @include text-style(ui-xs);
+  @include text-weight(normal);
 }

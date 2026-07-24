@@ -67,7 +67,6 @@ These rules override everything else.
     - components -> @layer components
     - utilities -> @layer utilities
 13. NEVER write utilities inside component files
-    - EXCEPTION: the `u-icon-*` size utilities are co-located in `components/_icon.scss` (inside `@layer utilities`) - this is intentional, do not flag or move them
 
 ### !important
 
@@ -91,12 +90,12 @@ These rules override everything else.
 ## FILE PLACEMENT
 
 - **Base:** `base/_{name}.scss` - `@layer base` only (reset, global html/body defaults in `_global.scss`)
-- **Components:** `components/_{name}.scss` - must use `@layer components`
+- **Components:** `components/_{name}.scss` - imported via `components/_index.scss`, no `@layer` inside file
 - **Utilities:** `utilities/_{name}.scss` - imported via `utilities/_index.scss`, no `@layer` inside file
 - **Tokens:** `tokens/_*.scss` - only define values in `:root`, never use `@layer`
 - **Themes:** `tokens/themes/_light.scss` and `tokens/themes/_dark.scss` - define semantic tokens only; BOTH must always exist - never delete either. Light is the `:root` default; dark auto-applies via `prefers-color-scheme: dark` when no `data-theme` is set. Explicit `data-theme` attribute always overrides system preference.
 - **Layout:** `layout/_{name}.scss` - uses `@layer components`; styles shared across multiple pages go in `layout/_common.scss`
-- **Entry:** register new components in `main.scss` via `@include meta.load-css('components/{name}')`
+- **Entry:** register new components in `components/_index.scss` via `@include meta.load-css('./{name}')`
 
 ---
 
@@ -148,9 +147,9 @@ Prefer flex layout for most layouts (single-axis alignment, spacing, distributio
 ## ADDING NEW THINGS
 
 ### New component
-1. Create `components/_{name}.scss`, wrap all styles in `@layer components`
+1. Create `components/_{name}.scss` - no `@layer` inside file (`components/_index.scss` wraps all components in `@layer components`)
 2. Name base class `app-c-{name}`, use only semantic tokens
-3. Register in `main.scss`: `@include meta.load-css('components/{name}')`
+3. Register in `components/_index.scss`: `@include meta.load-css('./{name}')`
 
 ### New token
 1. Add raw value to appropriate `tokens/_*.scss`

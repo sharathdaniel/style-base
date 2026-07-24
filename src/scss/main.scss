@@ -34,15 +34,7 @@
 }
 
 /* Components */
-@include meta.load-css('components/typography');
-@include meta.load-css('components/icon');
-@include meta.load-css('components/badge');
-@include meta.load-css('components/button');
-@include meta.load-css('components/textfield');
-@include meta.load-css('components/checkbox');
-@include meta.load-css('components/radio');
-@include meta.load-css('components/toggle');
-@include meta.load-css('components/group');
+@include meta.load-css('components');
 
 /* Utilities (Always load it last) */
 @include meta.load-css('utilities');
