@@ -19,6 +19,11 @@
  * ones:
  * <div class="u-grid-row u-grid-rows-3">...</div>
  *
+ * u-col-end-last anchors the item's end edge to the last line. Pair it
+ * with u-col-start-{n}, not with a span: u-col-6 u-col-end-last leaves
+ * the start at auto, which resolves to a single column. Use
+ * u-col-start-7 u-col-end-last for a 6-wide item flush to the end.
+ *
  * Note: there is no row equivalent of u-col-end-last or u-col-{n}-center.
  * Columns can offer them because the container always declares 12 tracks;
  * the row count is not fixed. Grid line numbers must be literal integers
@@ -53,6 +58,14 @@ $grid-gap: var(--space-4) !default;
 
   /* Grid placement mixin */
 
+  /*
+   * The span rules below must stay in longhand form. `grid-column: span 6`
+   * expands to `grid-column-start: span 6; grid-column-end: auto`, so a
+   * later `u-col-start-4` would overwrite the start and leave the end at
+   * `auto`, collapsing the item to a single column. Writing
+   * `grid-column-start: auto; grid-column-end: span 6` keeps
+   * `u-col-6 u-col-start-4` working (columns 4-9).
+   */
   /* stylelint-disable declaration-block-no-redundant-longhand-properties */
 
   @mixin make-grid-utilities($infix: null) {
@@ -113,7 +126,7 @@ $grid-gap: var(--space-4) !default;
 
   /* Column and row placement utilities */
 
-  /* Base: < 640px */
+  /* Base */
   @include make-grid-utilities;
 
   /* sm and up: ≥ 640px */
@@ -186,7 +199,7 @@ $grid-auto-min: rem(256) !default;
   }
 }
 
-/* Base: < 640px */
+/* Base */
 @include make-row-track-utilities;
 
 /* sm and up: ≥ 640px */

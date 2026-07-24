@@ -129,11 +129,13 @@ Use these - do not write raw equivalents.
 **Grid Layout** (`utilities/_grid-layout.scss`):
 - Container: `u-grid-row` (12-column CSS grid with default gap `--space-4`)
 - Column spans: `u-col-{1-12}`, `u-col-full` (responsive variants same as flex)
-- Column positioning: `u-col-start-{1-12}`, `u-col-{n}-center`, `u-col-end-last`
-- Row tracks (container): `u-grid-rows-{1-6}` declares explicit rows (responsive variants same as columns); `u-auto-rows-{auto|min|max|fr}` sizes implicit rows (base only)
+- Column positioning: `u-col-start-{1-12}`, `u-col-{n}-center` (even n only: 2, 4, 6, 8, 10, 12), `u-col-end-last` (pairs with `u-col-start-{n}`, not a span - `u-col-6 u-col-end-last` leaves the start at `auto`, collapsing to one column)
+- Responsive infix sits immediately before the value: `u-col-lg-6`, `u-col-lg-6-center`, `u-col-start-lg-4` (not `u-col-lg-start-4`), `u-col-end-lg-last` (not `u-col-end-last-lg`), `u-grid-rows-lg-3`
+- Row tracks (container): `u-grid-rows-{1-6}` declares n equal rows (`repeat(n, minmax(0, 1fr))`; responsive variants same as columns); `u-auto-rows-{auto|min|max|fr}` sizes implicit rows (base only)
 - Row spans: `u-row-{1-6}` (responsive variants same as columns)
 - Row positioning: `u-row-start-{1-6}` - pair with `u-grid-rows-{n}` when the item must land on a known row
 - No row equivalent of `u-col-end-last` or `u-col-{n}-center`: columns can offer them because the container always declares 12 tracks, the row count is not fixed, and grid line numbers must be literal integers (no `calc()`). Use `u-self-center` to centre within a row.
+- Placement utilities (`u-col-*`, `u-row-*`, `u-col-start-*`, etc.) require `.u-grid-row` on the parent; container-level track utilities (`u-grid-rows-*`, `u-auto-rows-*`, `u-grid-auto-fit`, `u-grid-auto-fill`) are unscoped and work on any grid
 - Auto helpers: `u-grid-auto-fit`, `u-grid-auto-fill`
 
 Both layout systems are 12-column, mobile-first. Base is the default (no breakpoint suffix).
@@ -168,7 +170,7 @@ Prefer flex layout for most layouts (single-axis alignment, spacing, distributio
 
 ### New breakpoint
 1. Add to `$breakpoints` map in `abstracts/mixins/_breakpoint.scss`
-2. Add `breakpoint-up(...)` block in both `_flex-layout.scss` and `_grid-layout.scss`
+2. Add `breakpoint-up(...)` block in `_flex-layout.scss`, and in **both** ladders in `_grid-layout.scss` - the one inside `.u-grid-row` (placement utilities) and the top-level one (`make-row-track-utilities`, for `u-grid-rows-*`)
 3. Add `u-hidden-{name}` class in `utilities/_visibility.scss`
 4. Update breakpoint lists in `AGENTS.md`, `.cursor/rules/stylebase.mdc`, and `README.md`
 
