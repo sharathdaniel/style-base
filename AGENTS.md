@@ -139,6 +139,13 @@ Use these - do not write raw equivalents.
 Both layout systems are 12-column, mobile-first. Base is the default (no breakpoint suffix).
 Prefer flex layout for most layouts (single-axis alignment, spacing, distribution). Use grid layout only when you need two-dimensional control across both rows and columns.
 
+**Visibility** (`utilities/_visibility.scss`):
+- `u-hidden-{bp}` hides in that band only | `u-hidden-{bp}-up` hides at that breakpoint and larger | `u-hidden-{bp}-down` hides at that breakpoint and smaller
+- Generated from `$breakpoints` - every named point gets the full set
+- Combine one `-up` and one `-down` for any range: `u-hidden-sm-down u-hidden-xl-up` shows md and lg only. There is no `u-visible-*` counterpart by design.
+- No `base-up`, `base-down`, or `2xl-down` - those mean "hidden always"; use `u-d-none`
+- Never duplicate markup and hide one copy per breakpoint - reflow with `u-col-*` instead. Duplicated form controls break `id`/`label` pairing and bind twice.
+
 **Button sizing** (`abstracts/mixins/_button-size.scss`):
 - `btn-size(sm|md|lg|xl)` - text-button per-size dimensions (height, padding, font, `--icon-size`)
 - `btn-icon-size(xs|sm|md|lg)` - icon-only button shape + per-size dimensions
@@ -169,7 +176,7 @@ Prefer flex layout for most layouts (single-axis alignment, spacing, distributio
 ### New breakpoint
 1. Add to `$breakpoints` map in `abstracts/mixins/_breakpoint.scss`
 2. Add `breakpoint-up(...)` block in `_flex-layout.scss`, and in **both** ladders in `_grid-layout.scss` - the one inside `.u-grid-row` (placement utilities) and the top-level one (`make-row-track-utilities`, for `u-grid-rows-*`)
-3. Add `u-hidden-{name}` class in `utilities/_visibility.scss`
+3. Nothing to do in `utilities/_visibility.scss` - `u-hidden-*` is generated from `$breakpoints`
 4. Update breakpoint lists in `AGENTS.md`, `.cursor/rules/stylebase.mdc`, and `README.md`
 
 ---

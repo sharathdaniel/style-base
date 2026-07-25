@@ -1,31 +1,57 @@
-/* '!important' is used on purpose so hiding always works, even if a component sets its own display value. */
+/*
+ * Responsive visibility, generated from the $breakpoints map.
+ *
+ *   u-hidden-{bp}        that band only
+ *   u-hidden-{bp}-up     that breakpoint and larger
+ *   u-hidden-{bp}-down   that breakpoint and smaller
+ *
+ * Combine one -up and one -down for any range: u-hidden-sm-down
+ * u-hidden-xl-up shows md and lg only. No u-visible-* by design.
+ *
+ * Skipped: base-up and 2xl-down mean "always" (use u-d-none); base-down
+ * is the same range as u-hidden-base. u-hidden-2xl and u-hidden-2xl-up
+ * are the same query - both emitted so neither is a silent no-op.
+ *
+ * '!important' is used on purpose so hiding always works, even if a
+ * component sets its own display value.
+ */
 
+@use 'sass:list';
+@use 'sass:map';
 @use '../abstracts/mixins/breakpoint' as *;
 
-/* Hide sm-down: < 768px */
-.u-hidden-sm-down {
-  @include breakpoint-down(sm) {
-    display: none !important;
+$breakpoint-keys: map.keys($breakpoints);
+$breakpoint-count: list.length($breakpoint-keys);
+
+/* Single band */
+@each $key in $breakpoint-keys {
+  .u-hidden-#{$key} {
+    @include breakpoint-only($key) {
+      display: none !important;
+    }
   }
 }
 
-/* Hide md only: 768px - <1024px */
-.u-hidden-md {
-  @include breakpoint-only(md) {
-    display: none !important;
+/* Breakpoint and up */
+@each $key in $breakpoint-keys {
+  @if list.index($breakpoint-keys, $key) > 1 {
+    .u-hidden-#{$key}-up {
+      @include breakpoint-up($key) {
+        display: none !important;
+      }
+    }
   }
 }
 
-/* Hide md-down: < 1024px */
-.u-hidden-md-down {
-  @include breakpoint-down(md) {
-    display: none !important;
-  }
-}
+/* Breakpoint and down */
+@each $key in $breakpoint-keys {
+  $index: list.index($breakpoint-keys, $key);
 
-/* Hide lg-up: >= 1024px */
-.u-hidden-lg-up {
-  @include breakpoint-up(lg) {
-    display: none !important;
+  @if $index > 1 and $index < $breakpoint-count {
+    .u-hidden-#{$key}-down {
+      @include breakpoint-down($key) {
+        display: none !important;
+      }
+    }
   }
 }
