@@ -125,6 +125,9 @@ Use these - do not write raw equivalents.
 - Columns: `u-col-{1-12}`, `u-col-auto`, `u-col-fill`
 - Responsive: `u-col-sm-{1-12}`, `u-col-md-{1-12}`, `u-col-lg-{1-12}`, `u-col-xl-{1-12}`, `u-col-2xl-{1-12}`
 - Gaps: `u-gap-{key}`, `u-col-gap-{key}`, `u-row-gap-{key}`
+- Always set the base tier: `u-col-md-6` alone matches no rule below `md` (unlike grid, which falls back to full width). Write `u-col-12 u-col-md-6`.
+- Never put `u-flex-row` and `u-col-*` on the same element - the nested row rebinds `--flex-column-gap` and its children compute the wrong width. Wrap instead: `<div class="u-col-6"><div class="u-flex-row">`
+- No `u-col-full` in flex - that is grid-only; `u-col-12` is the flex equivalent
 
 **Grid Layout** (`utilities/_grid-layout.scss`):
 - Container: `u-grid-row` (12-column CSS grid with default gap `--space-4`)
