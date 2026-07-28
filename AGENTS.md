@@ -110,7 +110,6 @@ Use these - do not write raw equivalents.
 **Breakpoints** (`abstracts/mixins/_breakpoint.scss`):
 - `breakpoint-up(md)` >=768px | `breakpoint-down(lg)` <1280px (lg and below - inclusive)
 - `breakpoint-between(md, lg)` | `breakpoint-only(base)`
-- Visibility: `u-hidden-{bp}` (that range only), `u-hidden-{bp}-up`, `u-hidden-{bp}-down` - generated for every breakpoint
 - `has-hover { }` (hover + fine pointer) | `is-touch { }` (coarse pointer, no hover) - device capability queries
 - Never use `base` as the lower bound in `breakpoint-between` - use `breakpoint-down` instead
 - Named points: base (0px), sm (640px), md (768px), lg (1024px), xl (1280px), 2xl (1536px)
@@ -127,19 +126,32 @@ Use these - do not write raw equivalents.
 - Columns: `u-col-{1-12}`, `u-col-auto`, `u-col-fill`
 - Responsive: `u-col-sm-{1-12}`, `u-col-md-{1-12}`, `u-col-lg-{1-12}`, `u-col-xl-{1-12}`, `u-col-2xl-{1-12}` (applies to `auto`/`fill` too, e.g. `u-col-lg-fill`)
 - Gaps: `u-gap-{key}`, `u-col-gap-{key}`, `u-row-gap-{key}`
+- Always set the base tier: `u-col-md-6` alone matches no rule below `md` (unlike grid, which falls back to full width). Write `u-col-12 u-col-md-6`.
+- Never put `u-flex-row` and `u-col-*` on the same element - the nested row rebinds `--flex-column-gap` and its children compute the wrong width. Wrap instead: `<div class="u-col-6"><div class="u-flex-row">`
+- No `u-col-full` in flex - that is grid-only; `u-col-12` is the flex equivalent
 
 **Grid Layout** (`utilities/_grid-layout.scss`):
 - Container: `u-grid-row` (12-column CSS grid with default gap `--space-4`)
 - Column spans: `u-col-{1-12}`, `u-col-full` (responsive variants same as flex)
-- Column positioning: `u-col-start-{1-12}`, `u-col-{n}-center`, `u-col-end-last`
-- Row tracks (container): `u-grid-rows-{1-6}` declares explicit rows (responsive variants same as columns); `u-auto-rows-{auto|min|max|fr}` sizes implicit rows (base only)
+- Column positioning: `u-col-start-{1-12}`, `u-col-{n}-center` (even n only: 2, 4, 6, 8, 10, 12), `u-col-end-last` (pairs with `u-col-start-{n}`, not a span - `u-col-6 u-col-end-last` leaves the start at `auto`, collapsing to one column)
+- Responsive infix sits immediately before the value: `u-col-lg-6`, `u-col-lg-6-center`, `u-col-start-lg-4` (not `u-col-lg-start-4`), `u-col-end-lg-last` (not `u-col-end-last-lg`), `u-grid-rows-lg-3`
+- Row tracks (container): `u-grid-rows-{1-6}` declares n equal rows (`repeat(n, minmax(0, 1fr))`; responsive variants same as columns); `u-auto-rows-{auto|min|max|fr}` sizes implicit rows (base only)
 - Row spans: `u-row-{1-6}` (responsive variants same as columns)
 - Row positioning: `u-row-start-{1-6}` - pair with `u-grid-rows-{n}` when the item must land on a known row
 - No row equivalent of `u-col-end-last` or `u-col-{n}-center`: columns can offer them because the container always declares 12 tracks, the row count is not fixed, and grid line numbers must be literal integers (no `calc()`). Use `u-self-center` to centre within a row.
+- Placement utilities (`u-col-*`, `u-row-*`, `u-col-start-*`, etc.) require `.u-grid-row` on the parent; container-level track utilities (`u-grid-rows-*`, `u-auto-rows-*`, `u-grid-auto-fit`, `u-grid-auto-fill`) are unscoped and work on any grid
 - Auto helpers: `u-grid-auto-fit`, `u-grid-auto-fill`
 
 Both layout systems are 12-column, mobile-first. Base is the default (no breakpoint suffix).
 Prefer flex layout for most layouts (single-axis alignment, spacing, distribution). Use grid layout only when you need two-dimensional control across both rows and columns.
+
+**Visibility** (`utilities/_visibility.scss`):
+- `u-hidden-{bp}` hides in that band only | `u-hidden-{bp}-up` hides at that breakpoint and larger | `u-hidden-{bp}-down` hides at that breakpoint and smaller
+- Generated from `$breakpoints`, minus the combinations noted below
+- Combine one `-up` and one `-down` for any range: `u-hidden-sm-down u-hidden-xl-up` shows md and lg only. There is no `u-visible-*` counterpart by design.
+- No `base-up` or `2xl-down` - those mean "hidden always"; use `u-d-none`. No `base-down` either - it is the same range as `u-hidden-base`
+- `u-hidden-2xl` and `u-hidden-2xl-up` are the same query; both are emitted so neither is a silent no-op
+- Never duplicate markup and hide one copy per breakpoint - reflow with `u-col-*` instead. Duplicated form controls break `id`/`label` pairing and bind twice.
 
 **Button sizing** (`abstracts/mixins/_button-size.scss`):
 - `btn-size(sm|md|lg|xl)` - text-button per-size dimensions (height, padding, font, `--icon-size`)
@@ -178,10 +190,9 @@ Prefer flex layout for most layouts (single-axis alignment, spacing, distributio
 
 ### New breakpoint
 1. Add to `$breakpoints` map in `abstracts/mixins/_breakpoint.scss`
-2. Add `breakpoint-up(...)` block in both `_flex-layout.scss` and `_grid-layout.scss`
-3. Update breakpoint lists in `AGENTS.md`, `.cursor/rules/stylebase.mdc`, and `README.md`
-
-`utilities/_visibility.scss` needs no edit - `u-hidden-*` is generated from the `$breakpoints` map.
+2. Add `breakpoint-up(...)` block in `_flex-layout.scss`, and in **both** ladders in `_grid-layout.scss` - the one inside `.u-grid-row` (placement utilities) and the top-level one (`make-row-track-utilities`, for `u-grid-rows-*`)
+3. Nothing to do in `utilities/_visibility.scss` - `u-hidden-*` is generated from `$breakpoints`
+4. Update breakpoint lists in `AGENTS.md`, `.cursor/rules/stylebase.mdc`, and `README.md`
 
 ---
 

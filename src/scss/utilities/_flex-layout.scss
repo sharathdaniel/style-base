@@ -8,6 +8,11 @@
  * Nesting is supported, but never combine u-flex-row and u-col-* on
  * the same element - start the inner row inside a u-col-* wrapper:
  * <div class="u-col-6"><div class="u-flex-row">...</div></div>
+ *
+ * Such an element rebinds --flex-column-gap on itself, so its own width
+ * calc reads its own default gap instead of the parent row's. At the
+ * default gap the two coincide and it appears to work; add u-gap-* to
+ * the parent and every item wraps.
  */
 
 @use 'sass:math';
@@ -21,6 +26,17 @@ $flex-gap: var(--space-4) !default;
 
 /* Flex row */
 
+/*
+ * Child defaults at zero specificity, so a single-class flex utility on an
+ * item (u-flex-1, u-grow) still wins. At 0,1,0 these would override it and
+ * leave flex-basis untouched - u-flex-1 would compute to `0 0 0%`.
+ */
+:where(.u-flex-row) > * {
+  min-width: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
 .u-flex-row {
   --row-gap: initial;
   --column-gap: initial;
@@ -31,12 +47,6 @@ $flex-gap: var(--space-4) !default;
   display: flex;
   flex-wrap: wrap;
   gap: var(--flex-row-gap) var(--flex-column-gap);
-
-  > * {
-    min-width: 0;
-    flex-grow: 0;
-    flex-shrink: 0;
-  }
 
   @each $key, $val in $space-scale {
     &.u-gap-#{$key} {
@@ -65,6 +75,10 @@ $flex-gap: var(--space-4) !default;
       > .u-col#{$prefix}-#{$i} {
         $multiplier: math.div($i, $flex-columns);
 
+        // flex-basis and max-width are deliberately both set. For a plain u-col-4
+        // max-width is inert, but u-col-fill u-col-lg-4 leaves flex-grow: 1 behind
+        // from u-col-fill's shorthand - the lg rule overrides basis but not grow,
+        // so max-width is what clamps the item to its 4-column width.
         flex-basis: calc((100% * #{$multiplier}) - (var(--flex-column-gap) * (1 - #{$multiplier})));
         max-width: calc((100% * #{$multiplier}) - (var(--flex-column-gap) * (1 - #{$multiplier})));
       }

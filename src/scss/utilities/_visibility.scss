@@ -1,52 +1,55 @@
-/* '!important' is used on purpose so hiding always works, even if a component sets its own display value. */
+/*
+ * Responsive visibility, generated from the $breakpoints map.
+ *
+ *   u-hidden-{bp}        that band only
+ *   u-hidden-{bp}-up     that breakpoint and larger
+ *   u-hidden-{bp}-down   that breakpoint and smaller
+ *
+ * Combine one -up and one -down for any range: u-hidden-sm-down
+ * u-hidden-xl-up shows md and lg only. No u-visible-* by design.
+ *
+ * Skipped: base-up and 2xl-down mean "always" (use u-d-none); base-down
+ * is the same range as u-hidden-base. u-hidden-2xl and u-hidden-2xl-up
+ * are the same query - both emitted so neither is a silent no-op.
+ *
+ * '!important' is used on purpose so hiding always works, even if a
+ * component sets its own display value.
+ */
 
 @use 'sass:list';
 @use 'sass:map';
 @use '../abstracts/mixins/breakpoint' as *;
 
-/*
- * Generated from the $breakpoints map, so adding a breakpoint picks these up
- * with no edit here.
- *
- * u-hidden-{bp}       hidden only within that breakpoint's own range
- * u-hidden-{bp}-up    hidden at that breakpoint and wider
- * u-hidden-{bp}-down  hidden at that breakpoint and narrower
- *
- * `-up` is skipped for the smallest breakpoint (it would hide at every width)
- * and `-down` for the largest (it has no breakpoint above it to sit below).
- *
- * Current output: u-hidden-{base,sm,md,lg,xl,2xl},
- * u-hidden-{sm,md,lg,xl,2xl}-up, u-hidden-{base,sm,md,lg,xl}-down.
- *
- * Two pairs are equivalent by definition, since the outermost breakpoints are
- * open-ended on one side. Both names are kept so the generated set stays
- * predictable:
- *   u-hidden-base == u-hidden-base-down  (< 640px)
- *   u-hidden-2xl  == u-hidden-2xl-up     (>= 1536px)
- */
+$breakpoint-keys: map.keys($breakpoints);
+$breakpoint-count: list.length($breakpoint-keys);
 
-$-names: map.keys($breakpoints);
-$-smallest: list.nth($-names, 1);
-$-largest: list.nth($-names, list.length($-names));
-
-@each $name in $-names {
-  .u-hidden-#{$name} {
-    @include breakpoint-only($name) {
+/* Single band */
+@each $key in $breakpoint-keys {
+  .u-hidden-#{$key} {
+    @include breakpoint-only($key) {
       display: none !important;
     }
   }
+}
 
-  @if $name != $-smallest {
-    .u-hidden-#{$name}-up {
-      @include breakpoint-up($name) {
+/* Breakpoint and up */
+@each $key in $breakpoint-keys {
+  @if list.index($breakpoint-keys, $key) > 1 {
+    .u-hidden-#{$key}-up {
+      @include breakpoint-up($key) {
         display: none !important;
       }
     }
   }
+}
 
-  @if $name != $-largest {
-    .u-hidden-#{$name}-down {
-      @include breakpoint-down($name) {
+/* Breakpoint and down */
+@each $key in $breakpoint-keys {
+  $index: list.index($breakpoint-keys, $key);
+
+  @if $index > 1 and $index < $breakpoint-count {
+    .u-hidden-#{$key}-down {
+      @include breakpoint-down($key) {
         display: none !important;
       }
     }
