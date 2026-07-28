@@ -1,0 +1,17 @@
+// Focus ring.
+// The ring is drawn with box-shadow so it can sit outside the border without
+// affecting layout. Forced-colors mode discards box-shadow entirely, so an
+// outline is restored there - without it, focus would be invisible in Windows
+// High Contrast.
+
+// Pair with `&:focus { outline: none; }` on the component to drop the UA
+// default outline in normal rendering modes.
+
+@mixin focus-ring($color: var(--border-focus)) {
+  box-shadow: 0 0 0 var(--focus-ring-size) $color;
+
+  @media (forced-colors: active) {
+    outline: var(--focus-ring-size) solid;
+    outline-offset: var(--focus-ring-size);
+  }
+}

@@ -33,6 +33,8 @@
     gap: rem(8);
     font-size: var(--fs-xl);
     border-radius: var(--radius-lg);
+  } @else {
+    @error "btn-size(): Unknown size `#{$size}`. Expected one of: sm, md, lg, xl.";
   }
 }
 
@@ -61,5 +63,7 @@
 
     height: var(--form-item-height-lg);
     border-radius: var(--radius-md);
+  } @else {
+    @error "btn-icon-size(): Unknown size `#{$size}`. Expected one of: xs, sm, md, lg.";
   }
 }

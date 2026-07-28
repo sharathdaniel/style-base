@@ -47,7 +47,12 @@ $grid-gap: var(--space-4) !default;
   display: grid;
   grid-template-columns: repeat(#{$grid-columns}, minmax(0, 1fr));
 
-  > [class*='u-col-'] {
+  /*
+   * Default span for any column child. The gap utilities share the `u-col-`
+   * prefix, so they are excluded - `:where()` keeps this at the same
+   * specificity as the explicit `.u-col-{n}` rules below, which must win.
+   */
+  > [class*='u-col-']:where(:not([class*='u-col-gap-'])) {
     grid-column: span #{$grid-columns};
   }
 

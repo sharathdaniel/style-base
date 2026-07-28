@@ -1,4 +1,5 @@
 @use '../abstracts/functions/rem' as *;
+@use '../abstracts/mixins/focus-ring' as *;
 
 .app-c-textfield {
   display: block;
@@ -35,8 +36,15 @@
   }
 
   &:not(:disabled):focus-visible {
+    @include focus-ring(var(--field-focus-ring));
+  }
+
+  /*
+   * Read-only fields keep the ring - they are focusable, so focus must stay
+   * visible - but not the accent border, which would read as "editable".
+   */
+  &:not(:disabled, :read-only):focus-visible {
     border-color: var(--field-focus-ring);
-    box-shadow: 0 0 0 var(--focus-ring-size) var(--field-focus-ring);
   }
 
   &:focus {

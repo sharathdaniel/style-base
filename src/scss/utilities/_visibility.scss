@@ -1,31 +1,54 @@
 /* '!important' is used on purpose so hiding always works, even if a component sets its own display value. */
 
+@use 'sass:list';
+@use 'sass:map';
 @use '../abstracts/mixins/breakpoint' as *;
 
-/* Hide sm-down: < 768px */
-.u-hidden-sm-down {
-  @include breakpoint-down(sm) {
-    display: none !important;
-  }
-}
+/*
+ * Generated from the $breakpoints map, so adding a breakpoint picks these up
+ * with no edit here.
+ *
+ * u-hidden-{bp}       hidden only within that breakpoint's own range
+ * u-hidden-{bp}-up    hidden at that breakpoint and wider
+ * u-hidden-{bp}-down  hidden at that breakpoint and narrower
+ *
+ * `-up` is skipped for the smallest breakpoint (it would hide at every width)
+ * and `-down` for the largest (it has no breakpoint above it to sit below).
+ *
+ * Current output: u-hidden-{base,sm,md,lg,xl,2xl},
+ * u-hidden-{sm,md,lg,xl,2xl}-up, u-hidden-{base,sm,md,lg,xl}-down.
+ *
+ * Two pairs are equivalent by definition, since the outermost breakpoints are
+ * open-ended on one side. Both names are kept so the generated set stays
+ * predictable:
+ *   u-hidden-base == u-hidden-base-down  (< 640px)
+ *   u-hidden-2xl  == u-hidden-2xl-up     (>= 1536px)
+ */
 
-/* Hide md only: 768px - <1024px */
-.u-hidden-md {
-  @include breakpoint-only(md) {
-    display: none !important;
-  }
-}
+$-names: map.keys($breakpoints);
+$-smallest: list.nth($-names, 1);
+$-largest: list.nth($-names, list.length($-names));
 
-/* Hide md-down: < 1024px */
-.u-hidden-md-down {
-  @include breakpoint-down(md) {
-    display: none !important;
+@each $name in $-names {
+  .u-hidden-#{$name} {
+    @include breakpoint-only($name) {
+      display: none !important;
+    }
   }
-}
 
-/* Hide lg-up: >= 1024px */
-.u-hidden-lg-up {
-  @include breakpoint-up(lg) {
-    display: none !important;
+  @if $name != $-smallest {
+    .u-hidden-#{$name}-up {
+      @include breakpoint-up($name) {
+        display: none !important;
+      }
+    }
+  }
+
+  @if $name != $-largest {
+    .u-hidden-#{$name}-down {
+      @include breakpoint-down($name) {
+        display: none !important;
+      }
+    }
   }
 }

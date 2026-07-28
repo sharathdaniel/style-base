@@ -1,10 +1,11 @@
 @use '../abstracts/mixins/button-size' as *;
+@use '../abstracts/mixins/focus-ring' as *;
 
 .app-c-btn {
-  --btn-bg: transparent;
-  --btn-bg-hover: transparent;
+  --btn-bg: var(--common-transparent);
+  --btn-bg-hover: var(--common-transparent);
   --btn-color: var(--text-primary);
-  --btn-border: transparent;
+  --btn-border: var(--common-transparent);
   --btn-bg-disabled: var(--btn-bg);
   --btn-border-disabled: var(--btn-border);
   --btn-color-disabled: var(--btn-color);
@@ -41,7 +42,7 @@
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 var(--focus-ring-size) var(--btn-focus-ring);
+      @include focus-ring(var(--btn-focus-ring));
     }
   }
 
@@ -55,9 +56,9 @@
   --btn-bg-hover: var(--btn-primary-bg-hover);
   --btn-color: var(--btn-primary-color);
   --btn-border: var(--btn-primary-border);
-  --btn-bg-disabled: var(--btn-primary-disabled-bg);
-  --btn-border-disabled: var(--btn-primary-disabled-bg);
-  --btn-color-disabled: var(--text-disabled);
+  --btn-bg-disabled: var(--btn-primary-bg-disabled);
+  --btn-border-disabled: var(--btn-primary-border-disabled);
+  --btn-color-disabled: var(--btn-primary-color-disabled);
   --btn-focus-ring: var(--btn-primary-focus-ring);
 }
 
@@ -66,9 +67,9 @@
   --btn-bg-hover: var(--btn-secondary-bg-hover);
   --btn-color: var(--btn-secondary-color);
   --btn-border: var(--btn-secondary-border);
-  --btn-bg-disabled: var(--btn-secondary-disabled-bg);
-  --btn-border-disabled: var(--btn-secondary-disabled-border);
-  --btn-color-disabled: var(--text-disabled);
+  --btn-bg-disabled: var(--btn-secondary-bg-disabled);
+  --btn-border-disabled: var(--btn-secondary-border-disabled);
+  --btn-color-disabled: var(--btn-secondary-color-disabled);
   --btn-focus-ring: var(--btn-secondary-focus-ring);
 }
 

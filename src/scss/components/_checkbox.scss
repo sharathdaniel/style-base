@@ -1,10 +1,12 @@
 @use '../abstracts/functions/rem' as *;
 @use '../abstracts/mixins/svg-mask' as *;
+@use '../abstracts/mixins/focus-ring' as *;
 
 .app-c-checkbox {
   display: inline-flex;
   align-items: center;
   gap: rem(8);
+  -webkit-user-select: none;
   user-select: none;
   cursor: pointer;
 
@@ -42,7 +44,7 @@
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 var(--focus-ring-size) var(--selection-focus-ring);
+      @include focus-ring(var(--selection-focus-ring));
     }
 
     &:focus {

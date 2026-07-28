@@ -1,0 +1,126 @@
+// Light theme token data.
+// Maps only - this file emits no CSS. It is kept separate from _light.scss so
+// that _dark.scss can read the light token set for the parity check: a `@use`
+// of a CSS-emitting module would output that module's rules a second time.
+
+$bg: (
+  'bg-page': '--neutral-50',
+  'bg-surface': '--common-white',
+  'bg-surface-subtle': '--neutral-100',
+);
+$text: (
+  'text-primary': '--neutral-900',
+  'text-secondary': '--neutral-700',
+  'text-tertiary': '--neutral-600',
+  'text-disabled': '--neutral-400',
+  'text-link': '--primary-700',
+  'text-link-hover': '--primary-800',
+);
+$border: (
+  'border-light': '--neutral-200',
+  'border-medium': '--neutral-300',
+  'border-strong': '--neutral-400',
+  'border-focus': '--primary-500',
+);
+$status: (
+  'status-success': '--success-700',
+  'status-error': '--danger-700',
+  'status-warning': '--warning-700',
+  'status-info': '--info-700',
+);
+$button: (
+  'btn-primary-bg': '--primary-700',
+  'btn-primary-bg-hover': '--primary-800',
+  'btn-primary-color': '--common-white',
+  'btn-primary-border': '--primary-700',
+  'btn-primary-bg-disabled': 'rgb(var(--primary-300-rgb) / 60%)',
+  'btn-primary-border-disabled': 'rgb(var(--primary-300-rgb) / 60%)',
+  'btn-primary-color-disabled': '--primary-700',
+  'btn-primary-focus-ring': '--primary-400',
+  'btn-secondary-bg': '--common-white',
+  'btn-secondary-bg-hover': '--neutral-100',
+  'btn-secondary-color': '--neutral-900',
+  'btn-secondary-border': '--neutral-300',
+  'btn-secondary-bg-disabled': '--neutral-100',
+  'btn-secondary-border-disabled': '--neutral-200',
+  'btn-secondary-color-disabled': '--neutral-400',
+  'btn-secondary-focus-ring': '--primary-400',
+  'btn-tertiary-bg': '--common-transparent',
+  'btn-tertiary-bg-hover': '--neutral-100',
+  'btn-tertiary-color': '--primary-700',
+  'btn-tertiary-border': '--common-transparent',
+  'btn-tertiary-bg-disabled': '--common-transparent',
+  'btn-tertiary-border-disabled': '--common-transparent',
+  'btn-tertiary-color-disabled': '--neutral-400',
+  'btn-tertiary-focus-ring': '--primary-400',
+);
+$field: (
+  'field-bg': '--common-white',
+  'field-color': '--neutral-900',
+  'field-placeholder': '--neutral-600',
+  'field-border': '--neutral-300',
+  'field-border-hover': '--neutral-400',
+  'field-border-error': '--danger-700',
+  'field-bg-disabled': '--neutral-100',
+  'field-border-disabled': '--neutral-200',
+  'field-color-disabled': '--neutral-400',
+  'field-focus-ring': '--primary-400',
+  'field-focus-ring-error': '--danger-400',
+);
+$selection: (
+  'selection-bg': '--common-white',
+  'selection-bg-checked': '--primary-700',
+  'selection-bg-checked-disabled': '--primary-300',
+  'selection-bg-disabled': '--neutral-100',
+  'selection-border': '--neutral-300',
+  'selection-border-hover': '--neutral-400',
+  'selection-border-checked': '--primary-700',
+  'selection-border-disabled': '--neutral-200',
+  'selection-mark': '--common-white',
+  'selection-focus-ring': '--primary-400',
+);
+$toggle: (
+  'toggle-track': '--neutral-300',
+  'toggle-track-hover': '--neutral-400',
+  'toggle-track-checked': '--primary-700',
+  'toggle-track-checked-hover': '--primary-800',
+  'toggle-track-disabled': '--neutral-200',
+  'toggle-track-checked-disabled': '--primary-300',
+  'toggle-knob': '--common-white',
+  'toggle-focus-ring': '--primary-400',
+);
+$badge: (
+  'badge-neutral-bg': '--neutral-100',
+  'badge-neutral-color': '--neutral-700',
+  'badge-success-bg': '--success-100',
+  'badge-success-color': '--success-700',
+  'badge-error-bg': '--danger-100',
+  'badge-error-color': '--danger-700',
+  'badge-warning-bg': '--warning-100',
+  'badge-warning-color': '--warning-700',
+  'badge-info-bg': '--info-100',
+  'badge-info-color': '--info-700',
+);
+$scrollbar: (
+  'scrollbar-thumb': '--neutral-500',
+  'scrollbar-track': '--neutral-100',
+);
+$sidebar: (
+  'sidebar-bg': '--primary-50',
+  'sidebar-text': '--primary-700',
+);
+
+// Group order determines emission order. Keep in sync with _dark-tokens.scss.
+$theme: (
+  $bg,
+  $text,
+  $border,
+  $status,
+  $button,
+  $field,
+  $selection,
+  $toggle,
+  $badge,
+  $scrollbar,
+  $sidebar
+);

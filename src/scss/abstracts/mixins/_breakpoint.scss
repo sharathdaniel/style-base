@@ -1,9 +1,9 @@
-/*
- * Breakpoint mixins.
- * For one-off custom breakpoints, prefer modern range syntax:
- * @media (width <= 640px) { ... }  max-width
- * @media (width >= 1280px) { ... } min-width
- */
+// Breakpoint mixins.
+// For one-off custom breakpoints, prefer modern range syntax:
+//   @media (width <= 640px) { ... }  max-width
+//   @media (width >= 1280px) { ... } min-width
+// Comments are silent (`//`): this file is @use'd by several modules, and a
+// loud comment would be copied into the output once per consumer.
 
 @use 'sass:map';
 @use 'sass:list';
@@ -17,9 +17,9 @@ $breakpoints: (
   2xl: 1536px,
 );
 
-/* Core logic mixins */
+// Core logic mixins
 
-/* Min-width: target $size and everything larger. */
+// Min-width: target $size and everything larger.
 @mixin breakpoint-up($size) {
   @if not map.has-key($breakpoints, $size) {
     @error "Breakpoint #{$size} not found. Available: #{map.keys($breakpoints)}";
@@ -32,7 +32,7 @@ $breakpoints: (
   }
 }
 
-/* Max-width: target $size and everything smaller. */
+// Max-width: target $size and everything smaller.
 @mixin breakpoint-down($size) {
   @if not map.has-key($breakpoints, $size) {
     @error "Breakpoint #{$size} not found. Available: #{map.keys($breakpoints)}";
@@ -86,23 +86,23 @@ $breakpoints: (
   }
 }
 
-/* Single range bucket (e.g. base only, md only); for 2xl this resolves to an open-ended range. */
+// Single range bucket (e.g. base only, md only); for 2xl this resolves to an open-ended range.
 @mixin breakpoint-only($size) {
   @include breakpoint-between($size, $size) {
     @content;
   }
 }
 
-/* Interaction and capability helpers */
+// Interaction and capability helpers
 
-/* Targets devices with a fine pointer that support hover (helps distinguish tablets from small laptops). */
+// Targets devices with a fine pointer that support hover (helps distinguish tablets from small laptops).
 @mixin has-hover {
   @media (hover: hover) and (pointer: fine) {
     @content;
   }
 }
 
-/* Targets touch-first devices (coarse pointer) */
+// Targets touch-first devices (coarse pointer)
 @mixin is-touch {
   @media (pointer: coarse) and (hover: none) and (any-hover: none) {
     @content;

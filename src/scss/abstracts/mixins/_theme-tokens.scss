@@ -1,0 +1,78 @@
+// Theme token emission and validation.
+// A theme is a list of token-group maps. Each entry is 'token-name': '<value>',
+// where a value starting with `--` is a reference to a base token and gets
+// wrapped in var(); anything else is emitted verbatim, e.g. a raw
+// `rgb(var(--primary-300-rgb) / 60%)` expression.
+
+// Comments here are silent (`//`) on purpose: a loud comment in a mixin file is
+// copied into the compiled output once per consuming module.
+
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:string';
+
+/// Flattens a list of token-group maps into a flat list of token names.
+@function theme-token-names($groups) {
+  $names: ();
+
+  @each $group in $groups {
+    @each $token in map.keys($group) {
+      $names: list.append($names, $token, $separator: comma);
+    }
+  }
+
+  @return $names;
+}
+
+/// Renders a name list for an error message, or '(none)' when empty.
+/// @access private
+@function -format-names($names) {
+  @if list.length($names) == 0 {
+    @return '(none)';
+  }
+
+  @return $names;
+}
+
+/// Names present in $a but not in $b.
+/// @access private
+@function -missing-from($a, $b) {
+  $missing: ();
+
+  @each $name in $a {
+    @if not list.index($b, $name) {
+      $missing: list.append($missing, $name, $separator: comma);
+    }
+  }
+
+  @return $missing;
+}
+
+/// Fails the build when two themes do not declare the same token set.
+/// A token added to one theme and forgotten in the other leaves that theme
+/// resolving to nothing at all, with no error at build time.
+@mixin assert-theme-parity($a-groups, $a-name, $b-groups, $b-name) {
+  $a-names: theme-token-names($a-groups);
+  $b-names: theme-token-names($b-groups);
+  $missing-from-b: -missing-from($a-names, $b-names);
+  $missing-from-a: -missing-from($b-names, $a-names);
+
+  @if list.length($missing-from-b) > 0 or list.length($missing-from-a) > 0 {
+    @error "Theme parity check failed. " +
+      "In #{$a-name} but missing from #{$b-name}: #{-format-names($missing-from-b)}. " +
+      "In #{$b-name} but missing from #{$a-name}: #{-format-names($missing-from-a)}.";
+  }
+}
+
+/// Emits `--token: value` for every entry in a list of token-group maps.
+@mixin emit-theme-tokens($groups) {
+  @each $group in $groups {
+    @each $token, $ref in $group {
+      @if string.index($ref, '--') == 1 {
+        --#{$token}: var(#{$ref});
+      } @else {
+        --#{$token}: #{$ref};
+      }
+    }
+  }
+}

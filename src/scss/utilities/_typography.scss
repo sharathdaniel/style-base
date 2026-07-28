@@ -1,4 +1,5 @@
 @use '../abstracts/scales' as *;
+@use '../abstracts/mixins/truncate' as *;
 
 .u-fw-normal {
   font-weight: var(--fw-normal);
@@ -12,8 +13,13 @@
   font-weight: var(--fw-bold);
 }
 
+/*
+ * Font size. Named after the --fs-* tokens it maps to, matching how u-fw-* and
+ * u-lh-* mirror theirs. Deliberately not u-text-*: that prefix carries the text
+ * colour utilities (--text-*) and the alignment keywords.
+ */
 @each $name, $value in $text-scale {
-  .u-text-#{$name} {
+  .u-fs-#{$name} {
     font-size: $value;
   }
 }
@@ -39,9 +45,7 @@
 }
 
 .u-truncate {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  @include truncate;
 }
 
 .u-word-break {

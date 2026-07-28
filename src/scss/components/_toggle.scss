@@ -1,9 +1,11 @@
 @use '../abstracts/functions/rem' as *;
+@use '../abstracts/mixins/focus-ring' as *;
 
 .app-c-toggle {
   display: inline-flex;
   align-items: center;
   gap: rem(8);
+  -webkit-user-select: none;
   user-select: none;
   cursor: pointer;
 
@@ -55,7 +57,7 @@
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 var(--focus-ring-size) var(--toggle-focus-ring);
+      @include focus-ring(var(--toggle-focus-ring));
     }
 
     &:focus {

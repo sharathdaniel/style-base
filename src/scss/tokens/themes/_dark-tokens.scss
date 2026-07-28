@@ -1,0 +1,125 @@
+// Dark theme token data.
+// Maps only - this file emits no CSS. See _light-tokens.scss for why the data
+// is split out from the emitting file.
+
+$bg: (
+  'bg-page': '--neutral-950',
+  'bg-surface': '--neutral-900',
+  'bg-surface-subtle': '--neutral-800',
+);
+$text: (
+  'text-primary': '--neutral-50',
+  'text-secondary': '--neutral-300',
+  'text-tertiary': '--neutral-400',
+  'text-disabled': '--neutral-500',
+  'text-link': '--primary-300',
+  'text-link-hover': '--primary-200',
+);
+$border: (
+  'border-light': '--neutral-700',
+  'border-medium': '--neutral-600',
+  'border-strong': '--neutral-500',
+  'border-focus': '--primary-400',
+);
+$status: (
+  'status-success': '--success-400',
+  'status-error': '--danger-400',
+  'status-warning': '--warning-400',
+  'status-info': '--info-400',
+);
+$button: (
+  'btn-primary-bg': '--primary-600',
+  'btn-primary-bg-hover': '--primary-700',
+  'btn-primary-color': '--common-white',
+  'btn-primary-border': '--primary-600',
+  'btn-primary-bg-disabled': 'rgb(var(--primary-400-rgb) / 60%)',
+  'btn-primary-border-disabled': 'rgb(var(--primary-400-rgb) / 60%)',
+  'btn-primary-color-disabled': '--primary-200',
+  'btn-primary-focus-ring': '--primary-300',
+  'btn-secondary-bg': '--neutral-800',
+  'btn-secondary-bg-hover': '--neutral-700',
+  'btn-secondary-color': '--neutral-50',
+  'btn-secondary-border': '--neutral-600',
+  'btn-secondary-bg-disabled': '--neutral-800',
+  'btn-secondary-border-disabled': '--neutral-700',
+  'btn-secondary-color-disabled': '--neutral-500',
+  'btn-secondary-focus-ring': '--primary-300',
+  'btn-tertiary-bg': '--common-transparent',
+  'btn-tertiary-bg-hover': '--neutral-800',
+  'btn-tertiary-color': '--primary-300',
+  'btn-tertiary-border': '--common-transparent',
+  'btn-tertiary-bg-disabled': '--common-transparent',
+  'btn-tertiary-border-disabled': '--common-transparent',
+  'btn-tertiary-color-disabled': '--neutral-500',
+  'btn-tertiary-focus-ring': '--primary-300',
+);
+$field: (
+  'field-bg': '--neutral-900',
+  'field-color': '--neutral-50',
+  'field-placeholder': '--neutral-400',
+  'field-border': '--neutral-600',
+  'field-border-hover': '--neutral-500',
+  'field-border-error': '--danger-400',
+  'field-bg-disabled': '--neutral-800',
+  'field-border-disabled': '--neutral-700',
+  'field-color-disabled': '--neutral-500',
+  'field-focus-ring': '--primary-300',
+  'field-focus-ring-error': '--danger-300',
+);
+$selection: (
+  'selection-bg': '--neutral-800',
+  'selection-bg-checked': '--primary-500',
+  'selection-bg-checked-disabled': '--primary-700',
+  'selection-bg-disabled': '--neutral-800',
+  'selection-border': '--neutral-600',
+  'selection-border-hover': '--neutral-500',
+  'selection-border-checked': '--primary-500',
+  'selection-border-disabled': '--neutral-700',
+  'selection-mark': '--common-white',
+  'selection-focus-ring': '--primary-300',
+);
+$toggle: (
+  'toggle-track': '--neutral-600',
+  'toggle-track-hover': '--neutral-500',
+  'toggle-track-checked': '--primary-500',
+  'toggle-track-checked-hover': '--primary-400',
+  'toggle-track-disabled': '--neutral-700',
+  'toggle-track-checked-disabled': '--primary-700',
+  'toggle-knob': '--common-white',
+  'toggle-focus-ring': '--primary-300',
+);
+$badge: (
+  'badge-neutral-bg': '--neutral-800',
+  'badge-neutral-color': '--neutral-300',
+  'badge-success-bg': '--success-900',
+  'badge-success-color': '--success-400',
+  'badge-error-bg': '--danger-900',
+  'badge-error-color': '--danger-300',
+  'badge-warning-bg': '--warning-900',
+  'badge-warning-color': '--warning-400',
+  'badge-info-bg': '--info-900',
+  'badge-info-color': '--info-300',
+);
+$scrollbar: (
+  'scrollbar-thumb': '--neutral-500',
+  'scrollbar-track': '--neutral-800',
+);
+$sidebar: (
+  'sidebar-bg': '--primary-900',
+  'sidebar-text': '--primary-200',
+);
+
+// Group order determines emission order. Keep in sync with _light-tokens.scss.
+$theme: (
+  $bg,
+  $text,
+  $border,
+  $status,
+  $button,
+  $field,
+  $selection,
+  $toggle,
+  $badge,
+  $scrollbar,
+  $sidebar
+);

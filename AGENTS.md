@@ -93,7 +93,11 @@ These rules override everything else.
 - **Components:** `components/_{name}.scss` - imported via `components/_index.scss`, no `@layer` inside file
 - **Utilities:** `utilities/_{name}.scss` - imported via `utilities/_index.scss`, no `@layer` inside file
 - **Tokens:** `tokens/_*.scss` - only define values in `:root`, never use `@layer`
-- **Themes:** `tokens/themes/_light.scss` and `tokens/themes/_dark.scss` - define semantic tokens only; BOTH must always exist - never delete either. Light is the `:root` default; dark auto-applies via `prefers-color-scheme: dark` when no `data-theme` is set. Explicit `data-theme` attribute always overrides system preference.
+- **Themes:** split into data and emission - BOTH themes must always exist, never delete either:
+  - `tokens/themes/_light-tokens.scss` / `_dark-tokens.scss` - the token maps and the `$theme` group list. Data only, no CSS.
+  - `tokens/themes/_light.scss` / `_dark.scss` - emit the tokens via `emit-theme-tokens($theme)`.
+  - `_dark.scss` runs `assert-theme-parity(...)`, which **fails the build** if the two themes do not declare an identical token set.
+  - Light is the `:root` default; dark auto-applies via `prefers-color-scheme: dark` when no `data-theme` is set. Explicit `data-theme` attribute always overrides system preference.
 - **Layout:** `layout/_{name}.scss` - uses `@layer components`; styles shared across multiple pages go in `layout/_common.scss`
 - **Entry:** register new components in `components/_index.scss` via `@include meta.load-css('./{name}')`
 
@@ -106,6 +110,7 @@ Use these - do not write raw equivalents.
 **Breakpoints** (`abstracts/mixins/_breakpoint.scss`):
 - `breakpoint-up(md)` >=768px | `breakpoint-down(lg)` <1280px (lg and below - inclusive)
 - `breakpoint-between(md, lg)` | `breakpoint-only(base)`
+- Visibility: `u-hidden-{bp}` (that range only), `u-hidden-{bp}-up`, `u-hidden-{bp}-down` - generated for every breakpoint
 - `has-hover { }` (hover + fine pointer) | `is-touch { }` (coarse pointer, no hover) - device capability queries
 - Never use `base` as the lower bound in `breakpoint-between` - use `breakpoint-down` instead
 - Named points: base (0px), sm (640px), md (768px), lg (1024px), xl (1280px), 2xl (1536px)
@@ -114,6 +119,8 @@ Use these - do not write raw equivalents.
 - `text-style(body-md)` - sets font-size + line-height
 - `text-weight(medium)` - sets font-weight
 - Variants: h-md, h-lg, h-xl, h-2xl, h-3xl, body-md, body-sm, ui-md, ui-sm, ui-xs
+
+**Utility naming:** a utility that maps 1:1 to a token is named after that token's prefix - `--fs-*` -> `u-fs-*`, `--fw-*` -> `u-fw-*`, `--lh-*` -> `u-lh-*`, `--icon-*` -> `u-icon-*`, `--text-*` -> `u-text-*` (colour). Do NOT use `u-text-*` for font size, despite the Tailwind convention: here `--text-*` is the text *colour* namespace.
 
 **Flex Layout** (`utilities/_flex-layout.scss`):
 - Container: `u-flex-row` (flex wrap with default gap `--space-4`)
@@ -138,7 +145,11 @@ Prefer flex layout for most layouts (single-axis alignment, spacing, distributio
 - `btn-size(sm|md|lg|xl)` - text-button per-size dimensions (height, padding, font, `--icon-size`)
 - `btn-icon-size(xs|sm|md|lg)` - icon-only button shape + per-size dimensions
 
-**Other mixins:** `truncate`, `line-clamp($n)`, `page-height`, `rtl { }`, `svg-mask($svg)`
+**Other mixins:** `truncate`, `line-clamp($n)`, `page-height`, `rtl { }`, `svg-mask($svg)`, `focus-ring($color)`
+
+**Focus ring** (`abstracts/mixins/_focus-ring.scss`):
+- `focus-ring(var(--btn-focus-ring))` - draws the ring and restores an outline under `forced-colors: active`
+- Use it for every `:focus-visible` state; never hand-roll the `box-shadow`
 
 **rem()** (`abstracts/functions/_rem.scss`): `rem(16)` converts to `1rem`
 
@@ -153,8 +164,12 @@ Prefer flex layout for most layouts (single-axis alignment, spacing, distributio
 
 ### New token
 1. Add raw value to appropriate `tokens/_*.scss`
-2. Map to semantic name in both `_light.scss` and `_dark.scss`
+2. Map to semantic name in BOTH `themes/_light-tokens.scss` and `themes/_dark-tokens.scss` (adding it to only one fails the build via the parity check)
 3. Reference the semantic token in components
+
+### New token group
+1. Add the map to both `_light-tokens.scss` and `_dark-tokens.scss`
+2. Append it to the `$theme` list in both files - group order determines emission order
 
 ### New utility
 1. Add to existing utility file or create `utilities/_{name}.scss`
@@ -164,8 +179,9 @@ Prefer flex layout for most layouts (single-axis alignment, spacing, distributio
 ### New breakpoint
 1. Add to `$breakpoints` map in `abstracts/mixins/_breakpoint.scss`
 2. Add `breakpoint-up(...)` block in both `_flex-layout.scss` and `_grid-layout.scss`
-3. Add `u-hidden-{name}` class in `utilities/_visibility.scss`
-4. Update breakpoint lists in `AGENTS.md`, `.cursor/rules/stylebase.mdc`, and `README.md`
+3. Update breakpoint lists in `AGENTS.md`, `.cursor/rules/stylebase.mdc`, and `README.md`
+
+`utilities/_visibility.scss` needs no edit - `u-hidden-*` is generated from the `$breakpoints` map.
 
 ---
 

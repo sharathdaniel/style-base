@@ -158,6 +158,17 @@ StyleBase uses native CSS Layers in global stylesheets only:
 
 This allows full theme changes without rewriting component styles.
 
+Each theme is split in two:
+
+| File | Role |
+| --- | --- |
+| `themes/_light-tokens.scss` / `_dark-tokens.scss` | the token maps. Data only, emits no CSS |
+| `themes/_light.scss` / `_dark.scss` | emit those tokens under the theme selectors |
+
+`_dark.scss` runs a parity check that **fails the build** if the two themes do not
+declare an identical token set, so a token added to one and forgotten in the other
+is caught at compile time instead of silently resolving to nothing.
+
 ---
 
 ## Customization
@@ -170,8 +181,9 @@ Customize in this order, then let components consume the updated values:
    - `src/scss/components/_typography.scss` for class-level usage changes (only when needed)
 2. **Color foundation**
    - `src/scss/tokens/_colors.scss`
-   - `src/scss/tokens/themes/_light.scss`
-   - `src/scss/tokens/themes/_dark.scss`
+   - `src/scss/tokens/themes/_light-tokens.scss`
+   - `src/scss/tokens/themes/_dark-tokens.scss`
+   - (edit both - the parity check fails the build if they diverge)
 3. **System scales**
    - `src/scss/tokens/_spacing.scss`
    - `src/scss/tokens/_icon.scss`
