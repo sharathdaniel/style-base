@@ -169,6 +169,10 @@ Each theme is split in two:
 declare an identical token set, so a token added to one and forgotten in the other
 is caught at compile time instead of silently resolving to nothing.
 
+Shipping a light-only app? Dark auto-applies via `prefers-color-scheme`, so it has
+to be unloaded deliberately - see
+[Single Theme, Light Only](INSTALLATION.md#single-theme-light-only-optional).
+
 ---
 
 ## Customization

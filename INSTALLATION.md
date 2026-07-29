@@ -33,6 +33,28 @@ If you support manual theme switching, copy two snippets from this repo's `src/i
 
 Without these, automatic dark mode still works via `prefers-color-scheme`, but manually selected themes won't persist and dark-mode users may see a background flash on load.
 
+### Single Theme, Light Only (Optional)
+
+> **Do not simply leave the dark theme in place.** Dark auto-applies via `@media (prefers-color-scheme: dark)`, so a light-only app that ships the dark theme unchanged will render dark for every visitor whose OS is set to dark mode.
+
+To ship light only, delete one line from `main.scss`:
+
+```scss
+/* Themes */
+@include meta.load-css('tokens/themes/light');
+@include meta.load-css('tokens/themes/dark');   /* <- remove this line */
+```
+
+That is the whole change. It removes the `prefers-color-scheme` block and the `[data-theme='dark']` rules, and keeps `color-scheme: light`, which is what makes native form controls and scrollbars render light on a dark-mode machine.
+
+Also skip the Theme Bootstrap snippets above - in a light-only app the script has nothing to resolve, and it would actively set `data-theme="dark"` for dark-OS visitors.
+
+**Keep `_dark.scss` and `_dark-tokens.scss` on disk.** Unloaded, they emit no CSS and cost nothing. Adding dark later is just restoring that one line, and the theme parity check comes back with it. (The "never delete either theme" rule in `AGENTS.md` is about maintaining the system - it does not require your app to *ship* both.)
+
+**If you cannot edit the SCSS entry point,** set `data-theme="light"` on your `<html>` element instead. The auto-dark block is scoped to `:root:not([data-theme])`, so any `data-theme` value disables it, and `[data-theme='dark']` will not match `"light"`. This suppresses dark completely, but the unused dark CSS is still shipped.
+
+**Dark only** follows the same shape in reverse - drop the `light` line instead - but the light theme also carries the `:root` defaults, so the dark file must then be responsible for every token. Removing light is not a supported swap; prefer light-only, or ship both.
+
 ### Tooling Config (Recommended)
 
 These enforce consistent code quality. If you already have these in your project, merge the relevant rules rather than overwriting.
@@ -202,7 +224,7 @@ git config core.eol lf
 - [ ] Stylelint runs clean (`yarn lint:scss`)
 - [ ] Prettier formats SCSS files correctly
 - [ ] Husky pre-commit hook fires on commit
-- [ ] Light and dark themes render correctly
+- [ ] Light and dark themes render correctly - or, if shipping light only, the dark theme is unloaded and a dark-OS machine still renders light
 - [ ] Your application serves the styles
 
 ---
