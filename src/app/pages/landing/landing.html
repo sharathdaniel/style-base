@@ -187,30 +187,30 @@
                 @switch (heroTab()) { @case ('colors') {
                 <pre
                   class="app-c-landing-code-pre"
-                ><span class="app-c-landing-code-c">// Base tokens - raw values, not for components</span>
-<span class="app-c-landing-code-v">--primary-500</span><span class="app-c-landing-code-p">:</span>  <span class="app-c-landing-code-n">#6366f1</span><span class="app-c-landing-code-p">;</span>
+                ><span class="app-c-landing-code-c">// tokens/_colors.scss - base scales, not for components</span>
+<span class="app-c-landing-code-v">--primary-700</span><span class="app-c-landing-code-p">:</span>  <span class="app-c-landing-code-n">#4338ca</span><span class="app-c-landing-code-p">;</span>
 <span class="app-c-landing-code-v">--neutral-900</span><span class="app-c-landing-code-p">:</span>  <span class="app-c-landing-code-n">#0f172a</span><span class="app-c-landing-code-p">;</span>
 <span class="app-c-landing-code-v">--neutral-50</span><span class="app-c-landing-code-p">:</span>   <span class="app-c-landing-code-n">#f8fafc</span><span class="app-c-landing-code-p">;</span>
 
-<span class="app-c-landing-code-c">// Semantic tokens - use these in components</span>
-<span class="app-c-landing-code-v">--text-primary</span><span class="app-c-landing-code-p">:</span> <span class="app-c-landing-code-k">var</span><span class="app-c-landing-code-p">(</span><span class="app-c-landing-code-v">--neutral-50</span><span class="app-c-landing-code-p">);</span>
-<span class="app-c-landing-code-v">--bg-surface</span><span class="app-c-landing-code-p">:</span>   <span class="app-c-landing-code-k">var</span><span class="app-c-landing-code-p">(</span><span class="app-c-landing-code-v">--neutral-900</span><span class="app-c-landing-code-p">);</span></pre>
+<span class="app-c-landing-code-c">// themes/_light-tokens.scss - semantic maps, use these</span>
+<span class="app-c-landing-code-s">'text-primary'</span><span class="app-c-landing-code-p">:</span> <span class="app-c-landing-code-v">'--neutral-900'</span><span class="app-c-landing-code-p">,</span>
+<span class="app-c-landing-code-s">'bg-surface'</span><span class="app-c-landing-code-p">:</span>   <span class="app-c-landing-code-v">'--common-white'</span><span class="app-c-landing-code-p">,</span></pre>
                 } @case ('spacing') {
                 <pre
                   class="app-c-landing-code-pre"
-                ><span class="app-c-landing-code-c">// Spacing scale - rem-based for accessibility</span>
+                ><span class="app-c-landing-code-c">// tokens/_spacing.scss - 4-point scale, rem-based</span>
 <span class="app-c-landing-code-v">--space-1</span><span class="app-c-landing-code-p">:</span>   <span class="app-c-landing-code-n">0.25rem</span><span class="app-c-landing-code-p">;</span>
 <span class="app-c-landing-code-v">--space-2</span><span class="app-c-landing-code-p">:</span>   <span class="app-c-landing-code-n">0.5rem</span><span class="app-c-landing-code-p">;</span>
 <span class="app-c-landing-code-v">--space-4</span><span class="app-c-landing-code-p">:</span>   <span class="app-c-landing-code-n">1rem</span><span class="app-c-landing-code-p">;</span>
 <span class="app-c-landing-code-v">--space-8</span><span class="app-c-landing-code-p">:</span>   <span class="app-c-landing-code-n">2rem</span><span class="app-c-landing-code-p">;</span>
 
-<span class="app-c-landing-code-c">// Radii - px for borders, rem for layout</span>
+<span class="app-c-landing-code-c">// tokens/_variables.scss - radii, transitions, sizes</span>
 <span class="app-c-landing-code-v">--radius-sm</span><span class="app-c-landing-code-p">:</span> <span class="app-c-landing-code-n">0.25rem</span><span class="app-c-landing-code-p">;</span>
 <span class="app-c-landing-code-v">--radius-lg</span><span class="app-c-landing-code-p">:</span> <span class="app-c-landing-code-n">0.5rem</span><span class="app-c-landing-code-p">;</span></pre>
                 } @case ('typography') {
                 <pre
                   class="app-c-landing-code-pre"
-                ><span class="app-c-landing-code-c">// Type scale - semantic sizes</span>
+                ><span class="app-c-landing-code-c">// tokens/_font.scss - semantic type scale</span>
 <span class="app-c-landing-code-v">--fs-sm</span><span class="app-c-landing-code-p">:</span>   <span class="app-c-landing-code-n">0.75rem</span><span class="app-c-landing-code-p">;</span>
 <span class="app-c-landing-code-v">--fs-md</span><span class="app-c-landing-code-p">:</span>   <span class="app-c-landing-code-n">0.875rem</span><span class="app-c-landing-code-p">;</span>
 <span class="app-c-landing-code-v">--fs-lg</span><span class="app-c-landing-code-p">:</span>   <span class="app-c-landing-code-n">1rem</span><span class="app-c-landing-code-p">;</span>
@@ -406,6 +406,8 @@
                     Light and dark themes auto-switch via
                     <code class="app-c-landing-inline-code">prefers-color-scheme</code>. A
                     <code class="app-c-landing-inline-code">data-theme</code> attribute always wins.
+                    A token declared in one theme and forgotten in the other fails the build, not
+                    the page.
                   </p>
                 </div>
               </div>
@@ -420,9 +422,9 @@
             <div class="app-c-landing-tier">
               <span class="app-c-landing-tier-label">Base</span>
               <code class="app-c-landing-tier-code"
-                ><span class="app-c-landing-code-v">--primary-500</span
+                ><span class="app-c-landing-code-v">--primary-700</span
                 ><span class="app-c-landing-code-p">:</span>
-                <span class="app-c-landing-code-n">#6366f1</span
+                <span class="app-c-landing-code-n">#4338ca</span
                 ><span class="app-c-landing-code-p">;</span></code
               >
             </div>
@@ -436,7 +438,7 @@
                 ><span class="app-c-landing-code-p">:</span>
                 <span class="app-c-landing-code-k">var</span
                 ><span class="app-c-landing-code-p">(</span
-                ><span class="app-c-landing-code-v">--primary-500</span
+                ><span class="app-c-landing-code-v">--primary-700</span
                 ><span class="app-c-landing-code-p">);</span></code
               >
             </div>
@@ -446,9 +448,9 @@
             <div class="app-c-landing-tier featured">
               <span class="app-c-landing-tier-label">Component</span>
               <code class="app-c-landing-tier-code"
-                ><span class="app-c-landing-code-v">.app-c-btn</span>
+                ><span class="app-c-landing-code-v">.app-c-btn-primary</span>
                 <span class="app-c-landing-code-p">&#123;</span>
-                <span class="app-c-landing-code-k">background</span
+                <span class="app-c-landing-code-v">--btn-bg</span
                 ><span class="app-c-landing-code-p">:</span>
                 <span class="app-c-landing-code-k">var</span
                 ><span class="app-c-landing-code-p">(</span
@@ -492,7 +494,7 @@
                   >
                   <span class="app-c-landing-structure-row-name">tokens/</span>
                   <span class="app-c-landing-structure-row-desc"
-                    >Colors, Font, Spacing, Themes</span
+                    >Colors, Font, Spacing, Icons, Themes</span
                   >
                 </div>
                 <div class="app-c-landing-structure-row">
@@ -502,7 +504,16 @@
                     >folder</span
                   >
                   <span class="app-c-landing-structure-row-name">abstracts/</span>
-                  <span class="app-c-landing-structure-row-desc">Mixins, Functions, Tools</span>
+                  <span class="app-c-landing-structure-row-desc">Mixins, Functions, Scales</span>
+                </div>
+                <div class="app-c-landing-structure-row">
+                  <span
+                    class="material-symbols-outlined app-c-landing-structure-row-icon"
+                    aria-hidden="true"
+                    >folder</span
+                  >
+                  <span class="app-c-landing-structure-row-name">base/</span>
+                  <span class="app-c-landing-structure-row-desc">Reset, Global defaults</span>
                 </div>
                 <div class="app-c-landing-structure-row">
                   <span
@@ -521,8 +532,19 @@
                     aria-hidden="true"
                     >folder</span
                   >
+                  <span class="app-c-landing-structure-row-name">layout/</span>
+                  <span class="app-c-landing-structure-row-desc">Shared page structures</span>
+                </div>
+                <div class="app-c-landing-structure-row">
+                  <span
+                    class="material-symbols-outlined app-c-landing-structure-row-icon"
+                    aria-hidden="true"
+                    >folder</span
+                  >
                   <span class="app-c-landing-structure-row-name">utilities/</span>
-                  <span class="app-c-landing-structure-row-desc">Flex, Grid, Spacing, Display</span>
+                  <span class="app-c-landing-structure-row-desc"
+                    >Flex, Grid, Spacing, Visibility</span
+                  >
                 </div>
               </div>
 
@@ -598,10 +620,10 @@
             <div class="app-c-landing-step-num" aria-hidden="true">03</div>
             <h3 class="app-c-landing-step-title">Import and build</h3>
             <p class="app-c-landing-step-desc">
-              Import <code class="app-c-landing-inline-code">main.scss</code> in your app and start
-              writing semantic, scalable CSS.
+              Register <code class="app-c-landing-inline-code">main.scss</code> as a global
+              stylesheet and start writing semantic, scalable CSS.
             </p>
-            <div class="app-c-landing-step-cmd">&#64;use 'scss/main' as *;</div>
+            <div class="app-c-landing-step-cmd">import 'src/scss/main.scss';</div>
           </div>
         </div>
       </div>
