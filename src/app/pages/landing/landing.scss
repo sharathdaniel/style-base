@@ -79,7 +79,7 @@
 
 .app-c-landing-eyebrow {
   display: inline-block;
-  font-size: rem(11);
+  font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -93,7 +93,7 @@
 }
 
 .app-c-landing-head-title {
-  font-size: clamp(#{rem(32)}, 3.4vw, #{rem(46)});
+  font-size: clamp(var(--fs-5xl), 3.4vw, #{rem(46)});
   font-weight: var(--fw-bold);
   letter-spacing: -0.028em;
   line-height: var(--lh-tight);
@@ -253,7 +253,7 @@
 
 .app-c-landing-nav-mobile-toggle {
   .material-symbols-outlined {
-    font-size: rem(20);
+    font-size: var(--icon-lg);
   }
 
   @include breakpoint-up(md) {
@@ -481,7 +481,7 @@
 .app-c-landing-code-pre {
   margin: 0;
   font-family: monospace;
-  font-size: var(--fs-13);
+  font-size: var(--fs-label);
   line-height: 1.75;
   color: var(--neutral-300);
   tab-size: 2;
@@ -545,7 +545,7 @@
 }
 
 .app-c-landing-stats-label {
-  font-size: rem(11);
+  font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -622,7 +622,7 @@
 }
 
 .app-c-landing-approach-label {
-  font-size: rem(11);
+  font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -712,7 +712,7 @@
 }
 
 .app-c-landing-frameworks-label {
-  font-size: rem(11);
+  font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -852,7 +852,7 @@
 }
 
 .app-c-landing-diagram-title {
-  font-size: rem(11);
+  font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -889,7 +889,7 @@
 .app-c-landing-tier-code {
   display: block;
   font-family: monospace;
-  font-size: var(--fs-13);
+  font-size: var(--fs-label);
   line-height: var(--lh-normal);
   color: var(--text-secondary);
   overflow-wrap: anywhere;
@@ -903,7 +903,7 @@
   color: var(--text-tertiary);
 
   .material-symbols-outlined {
-    font-size: rem(16);
+    font-size: var(--icon-md);
   }
 }
 
@@ -1004,7 +1004,7 @@
 }
 
 .app-c-landing-structure-row-icon {
-  font-size: rem(20);
+  font-size: var(--icon-lg);
   color: var(--l-accent-text-strong);
   flex-shrink: 0;
 }
@@ -1035,7 +1035,7 @@
 }
 
 .app-c-landing-ships-label {
-  font-size: rem(11);
+  font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1248,7 +1248,7 @@
 }
 
 .app-c-landing-demo-label {
-  font-size: rem(11);
+  font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1300,7 +1300,7 @@
 }
 
 .app-c-landing-cta-heading {
-  font-size: clamp(#{rem(32)}, 3.6vw, #{rem(48)});
+  font-size: clamp(var(--fs-5xl), 3.6vw, #{rem(48)});
   font-weight: var(--fw-bold);
   letter-spacing: -0.03em;
   line-height: 1.05;
