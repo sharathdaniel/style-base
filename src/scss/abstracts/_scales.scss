@@ -19,9 +19,8 @@ $text-scale: (
 );
 
 // Icon scale
-// px reference: xs=8, sm=12, md=16, lg=20, xl=24, 2xl=32, 3xl=48
+// px reference: sm=12, md=16, lg=20, xl=24, 2xl=32, 3xl=48
 $icon-scale: (
-  xs: var(--icon-xs),
   sm: var(--icon-sm),
   md: var(--icon-md),
   lg: var(--icon-lg),
