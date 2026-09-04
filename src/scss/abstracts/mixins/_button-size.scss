@@ -46,7 +46,6 @@
     --icon-size: var(--icon-sm);
 
     height: var(--form-item-height-xs);
-    overflow: hidden;
     border-radius: var(--radius-sm);
   } @else if $size == sm {
     --icon-size: var(--icon-md);

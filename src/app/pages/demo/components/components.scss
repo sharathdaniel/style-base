@@ -19,6 +19,10 @@
   align-items: center;
   gap: rem(16);
   margin-bottom: rem(16);
+
+  .app-c-btn-icon-xs {
+    overflow: hidden;
+  }
 }
 
 .demo-stack {
