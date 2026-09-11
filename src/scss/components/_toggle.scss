@@ -56,12 +56,12 @@
       }
     }
 
-    &:focus-visible {
-      @include focus-ring(var(--toggle-focus-ring));
-    }
-
     &:focus {
       outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring(var(--toggle-focus-ring));
     }
 
     &:disabled {

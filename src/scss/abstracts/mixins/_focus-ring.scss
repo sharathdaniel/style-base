@@ -4,8 +4,8 @@
 // outline is restored there - without it, focus would be invisible in Windows
 // High Contrast.
 
-// Pair with `&:focus { outline: none; }` on the component to drop the UA
-// default outline in normal rendering modes.
+// Place `&:focus { outline: none; }` BEFORE the component's `&:focus-visible`
+// rule so the forced-colors outline emitted by this mixin wins the cascade.
 
 @mixin focus-ring($color: var(--border-focus)) {
   box-shadow: 0 0 0 var(--focus-ring-size) $color;

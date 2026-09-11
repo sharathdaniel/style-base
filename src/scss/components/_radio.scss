@@ -44,12 +44,12 @@
       border-color: var(--selection-border-hover);
     }
 
-    &:focus-visible {
-      @include focus-ring(var(--selection-focus-ring));
-    }
-
     &:focus {
       outline: none;
+    }
+
+    &:focus-visible {
+      @include focus-ring(var(--selection-focus-ring));
     }
 
     &:checked {
