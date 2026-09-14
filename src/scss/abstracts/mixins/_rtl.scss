@@ -1,14 +1,15 @@
+@use 'sass:selector';
+
 @mixin rtl {
-  [dir='rtl'] & {
+  @at-root #{selector.append(&, ':dir(rtl)')} {
     @content;
   }
 }
 
 /// Usage
 ///
-/// @include rtl {
-///   /* stylelint-disable property-disallowed-list */
-///   margin-left: 40px;
-///   padding-right: 16px;
-///   /* stylelint-enable property-disallowed-list */
+/// .app-c-arrow {
+///   @include rtl {
+///     transform: scaleX(-1);
+///   }
 /// }
