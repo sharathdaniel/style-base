@@ -9,7 +9,14 @@
     <script>
       (() => {
         const themeStorageKey = 'stylebase-theme';
-        const savedTheme = localStorage.getItem(themeStorageKey);
+        let savedTheme = null;
+
+        try {
+          savedTheme = localStorage.getItem(themeStorageKey);
+        } catch {
+          // Storage is unavailable; continue using the system preference.
+        }
+
         let resolvedTheme = 'light';
 
         if (savedTheme === 'dark' || savedTheme === 'light') {
