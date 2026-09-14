@@ -20,12 +20,12 @@
   :root:not([data-theme]) {
     color-scheme: dark;
 
-    @include emit-theme-tokens(tokens.$theme);
+    @include emit-theme-tokens(tokens.$theme, 'dark');
   }
 }
 
 [data-theme='dark'] {
   color-scheme: dark;
 
-  @include emit-theme-tokens(tokens.$theme);
+  @include emit-theme-tokens(tokens.$theme, 'dark');
 }

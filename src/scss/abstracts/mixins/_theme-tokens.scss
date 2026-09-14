@@ -64,8 +64,29 @@
   }
 }
 
-/// Emits `--token: value` for every entry in a list of token-group maps.
-@mixin emit-theme-tokens($groups) {
+/// Rejects token names repeated across groups, even when their values agree.
+@mixin assert-theme-unique($groups, $theme-name: 'unnamed') {
+  $first-group: ();
+  $group-number: 0;
+
+  @each $group in $groups {
+    $group-number: $group-number + 1;
+
+    @each $token in map.keys($group) {
+      @if map.has-key($first-group, $token) {
+        @error "Duplicate theme token \"#{$token}\" in #{$theme-name} theme, " +
+          "found in groups #{map.get($first-group, $token)} and #{$group-number}.";
+      }
+
+      $first-group: map.set($first-group, $token, $group-number);
+    }
+  }
+}
+
+/// Emits `--token: value` for every entry after rejecting duplicate names.
+@mixin emit-theme-tokens($groups, $theme-name: 'unnamed') {
+  @include assert-theme-unique($groups, $theme-name);
+
   @each $group in $groups {
     @each $token, $ref in $group {
       @if string.index($ref, '--') == 1 {
