@@ -98,12 +98,12 @@ They should not replace components.
 
 ```html
 <!-- Prefer: reusable component -->
-<button class="app-c-btn app-c-btn-primary">Submit</button>
+<button class="app-c-btn app-c-btn-primary app-c-btn-md">Submit</button>
 ```
 
 ```html
 <!-- Acceptable: one-off override -->
-<button class="app-c-btn app-c-btn-primary u-mt-4">Submit</button>
+<button class="app-c-btn app-c-btn-primary app-c-btn-md u-mt-4">Submit</button>
 ```
 
 ---
