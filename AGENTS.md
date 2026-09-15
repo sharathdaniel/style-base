@@ -190,8 +190,8 @@ Prefer flex layout for most layouts (single-axis alignment, spacing, distributio
 
 ### New breakpoint
 1. Add to `$breakpoints` map in `abstracts/mixins/_breakpoint.scss`
-2. Add `breakpoint-up(...)` block in `_flex-layout.scss`, and in **both** ladders in `_grid-layout.scss` - the one inside `.u-grid-row` (placement utilities) and the top-level one (`make-row-track-utilities`, for `u-grid-rows-*`)
-3. Nothing to do in `utilities/_visibility.scss` - `u-hidden-*` is generated from `$breakpoints`
+2. Keep the map ordered smallest to largest - flex, grid, and visibility utilities are generated from it in map order
+3. Nothing to do in `_flex-layout.scss`, `_grid-layout.scss`, or `utilities/_visibility.scss` - `u-col-*`, `u-row-*`, `u-grid-rows-*`, and `u-hidden-*` are generated from `$breakpoints`
 4. Update breakpoint lists in `AGENTS.md`, `.cursor/rules/stylebase.mdc`, and `README.md`
 
 ---

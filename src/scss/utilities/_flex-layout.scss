@@ -15,6 +15,8 @@
  * the parent and every item wraps.
  */
 
+@use 'sass:list';
+@use 'sass:map';
 @use 'sass:math';
 @use '../abstracts/mixins/breakpoint' as *;
 @use '../abstracts/scales' as *;
@@ -98,28 +100,12 @@ $flex-gap: var(--space-4) !default;
   /* Base */
   @include make-flex-columns;
 
-  /* sm and up: ≥ 640px */
-  @include breakpoint-up(sm) {
-    @include make-flex-columns('sm');
-  }
-
-  /* md and up: ≥ 768px */
-  @include breakpoint-up(md) {
-    @include make-flex-columns('md');
-  }
-
-  /* lg and up: ≥ 1024px */
-  @include breakpoint-up(lg) {
-    @include make-flex-columns('lg');
-  }
-
-  /* xl and up: ≥ 1280px */
-  @include breakpoint-up(xl) {
-    @include make-flex-columns('xl');
-  }
-
-  /* 2xl and up: ≥ 1536px */
-  @include breakpoint-up(2xl) {
-    @include make-flex-columns('2xl');
+  /* Responsive, generated from the $breakpoints map */
+  @each $key in map.keys($breakpoints) {
+    @if list.index(map.keys($breakpoints), $key) > 1 {
+      @include breakpoint-up($key) {
+        @include make-flex-columns($key);
+      }
+    }
   }
 }

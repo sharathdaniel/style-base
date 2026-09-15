@@ -32,6 +32,8 @@
  * or u-self-center to centre an item within its own row.
  */
 
+@use 'sass:list';
+@use 'sass:map';
 @use 'sass:math';
 @use '../abstracts/functions/rem' as *;
 @use '../abstracts/mixins/breakpoint' as *;
@@ -134,29 +136,13 @@ $grid-gap: var(--space-4) !default;
   /* Base */
   @include make-grid-utilities;
 
-  /* sm and up: ≥ 640px */
-  @include breakpoint-up(sm) {
-    @include make-grid-utilities('sm');
-  }
-
-  /* md and up: ≥ 768px */
-  @include breakpoint-up(md) {
-    @include make-grid-utilities('md');
-  }
-
-  /* lg and up: ≥ 1024px */
-  @include breakpoint-up(lg) {
-    @include make-grid-utilities('lg');
-  }
-
-  /* xl and up: ≥ 1280px */
-  @include breakpoint-up(xl) {
-    @include make-grid-utilities('xl');
-  }
-
-  /* 2xl and up: ≥ 1536px */
-  @include breakpoint-up(2xl) {
-    @include make-grid-utilities('2xl');
+  /* Responsive, generated from the $breakpoints map */
+  @each $key in map.keys($breakpoints) {
+    @if list.index(map.keys($breakpoints), $key) > 1 {
+      @include breakpoint-up($key) {
+        @include make-grid-utilities($key);
+      }
+    }
   }
 }
 
@@ -207,29 +193,13 @@ $grid-auto-min: rem(256) !default;
 /* Base */
 @include make-row-track-utilities;
 
-/* sm and up: ≥ 640px */
-@include breakpoint-up(sm) {
-  @include make-row-track-utilities('sm');
-}
-
-/* md and up: ≥ 768px */
-@include breakpoint-up(md) {
-  @include make-row-track-utilities('md');
-}
-
-/* lg and up: ≥ 1024px */
-@include breakpoint-up(lg) {
-  @include make-row-track-utilities('lg');
-}
-
-/* xl and up: ≥ 1280px */
-@include breakpoint-up(xl) {
-  @include make-row-track-utilities('xl');
-}
-
-/* 2xl and up: ≥ 1536px */
-@include breakpoint-up(2xl) {
-  @include make-row-track-utilities('2xl');
+/* Responsive, generated from the $breakpoints map */
+@each $key in map.keys($breakpoints) {
+  @if list.index(map.keys($breakpoints), $key) > 1 {
+    @include breakpoint-up($key) {
+      @include make-row-track-utilities($key);
+    }
+  }
 }
 
 /*
