@@ -266,11 +266,15 @@ Recommended VS Code extensions:
 
 ### AI Assistants
 
-StyleBase includes architecture rules formatted for popular AI coding assistants. When adopting StyleBase, you can safely append your own framework-specific instructions to these files:
+StyleBase rules live in one file and load only for styling work, so they stay separate from your application instructions:
 
-- `AGENTS.md` - Canonical source. Read automatically by Codex, Aider, Antigravity, Zed, and other agent CLI tools
-- `CLAUDE.md` - Imports `AGENTS.md` via `@AGENTS.md`. Read automatically by Claude Code
-- `.cursor/rules/stylebase.mdc` - Read automatically by Cursor
+- `src/scss/STYLEBASE.md` - Canonical StyleBase rules. Edit rules only here
+- `AGENTS.md` - Project-wide instructions with a pointer to `STYLEBASE.md`. Read by Codex, Aider, Antigravity, Zed, and other agent tools
+- `CLAUDE.md` - Imports `AGENTS.md` via `@AGENTS.md`. Read by Claude Code
+- `.cursor/rules/stylebase.mdc` - Cursor adapter. Loads `STYLEBASE.md` for matching files
+- `.claude/rules/stylebase.md` - Claude Code adapter. Loads `STYLEBASE.md` for matching files
+
+Adapters contain only file patterns and a reference to `STYLEBASE.md`, never copied rules. See [AI Rule Files](INSTALLATION.md#ai-rule-files-optional) for adoption steps.
 
 ### Git & Line Endings
 

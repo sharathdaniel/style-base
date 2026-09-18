@@ -12,6 +12,7 @@ Copy the files you need into your project, configure your build tool, and start 
 Copy the entire `src/scss/` directory into your project:
 
     src/scss/                -> your-project/src/scss/
+      STYLEBASE.md               StyleBase rules for AI assistants and developers
       abstracts/                 Shared Sass logic (functions, mixins, scales)
       base/                      Reset and global base styles (html/body defaults)
       components/                Reusable UI blocks
@@ -49,7 +50,7 @@ That is the whole change. It removes the `prefers-color-scheme` block and the `[
 
 Also skip the Theme Bootstrap snippets above - in a light-only app the script has nothing to resolve, and it would actively set `data-theme="dark"` for dark-OS visitors.
 
-**Keep `_dark.scss` and `_dark-tokens.scss` on disk.** Unloaded, they emit no CSS and cost nothing. Adding dark later is just restoring that one line, and the theme parity check comes back with it. (The "never delete either theme" rule in `AGENTS.md` is about maintaining the system - it does not require your app to *ship* both.)
+**Keep `_dark.scss` and `_dark-tokens.scss` on disk.** Unloaded, they emit no CSS and cost nothing. Adding dark later is just restoring that one line, and the theme parity check comes back with it. (The "never delete either theme" rule in `STYLEBASE.md` is about maintaining the system - it does not require your app to *ship* both.)
 
 **If you cannot edit the SCSS entry point,** set `data-theme="light"` on your `<html>` element instead. The auto-dark block is scoped to `:root:not([data-theme])`, so any `data-theme` value disables it, and `[data-theme='dark']` will not match `"light"`. This suppresses dark completely, but the unused dark CSS is still shipped.
 
@@ -70,11 +71,36 @@ These enforce consistent code quality. If you already have these in your project
 
 ### AI Rule Files (Optional)
 
-Architecture rules formatted for AI coding assistants. You can append your own framework-specific instructions to these files.
+The StyleBase rules live in `src/scss/STYLEBASE.md`, which is copied with the SCSS directory. The files below make AI assistants read it for styling work only, keeping it out of context for application logic.
 
-    AGENTS.md                    Canonical architecture rules (Codex, Aider, Antigravity, Zed, etc.)
+    AGENTS.md                    Pointer to STYLEBASE.md - merge into your existing AGENTS.md
     CLAUDE.md                    Imports AGENTS.md via @AGENTS.md (Claude Code)
-    .cursor/rules/stylebase.mdc  Architecture rules for Cursor
+    .cursor/rules/stylebase.mdc  Cursor adapter, loads STYLEBASE.md by file pattern
+    .claude/rules/stylebase.md   Claude Code adapter, loads STYLEBASE.md by file pattern
+
+#### Adopting
+
+1. Merge the `## Styling` pointer from `AGENTS.md` into your own `AGENTS.md`. Put your application and business-logic rules there, not in `STYLEBASE.md`.
+2. Copy only the adapters for tools your team uses.
+3. Adjust the adapter patterns to your structure and framework:
+   - **Angular:** `.scss`, `.html`, plus the specific `.ts` files that contain inline templates. Do not match all `.ts` files - the rules would load for logic work too.
+   - **React:** `.scss`, `.jsx`, `.tsx`.
+   - **Other source roots** (`apps/`, `projects/`): change `src/` to match.
+   - **Moved SCSS directory:** update the `STYLEBASE.md` path in `AGENTS.md` and each adapter.
+4. **Copilot (optional):** add `.github/instructions/stylebase.instructions.md` with an `applyTo` pattern and a single line telling it to read `STYLEBASE.md`.
+
+#### Maintaining
+
+- Edit StyleBase rules only in `STYLEBASE.md`.
+- Edit adapters only when file patterns or paths change. Never copy rules, breakpoint lists, or other architecture details into them.
+- When adding a component with an inline template, add its file to both adapters.
+
+#### Verifying
+
+After setup or any adapter change, confirm each tool reads `STYLEBASE.md`:
+
+- Ask it to edit an `.scss` file, an `.html` template, and an inline-template component (for example `src/app/icons/icon.component.ts`) without mentioning StyleBase.
+- Check that it reads or cites `src/scss/STYLEBASE.md` in each case. Claude Code lists loaded rule files under `/memory`; Cursor shows applied rules in the chat context.
 
 ---
 
@@ -226,6 +252,7 @@ git config core.eol lf
 - [ ] Husky pre-commit hook fires on commit
 - [ ] Light and dark themes render correctly - or, if shipping light only, the dark theme is unloaded and a dark-OS machine still renders light
 - [ ] Your application serves the styles
+- [ ] If using AI rule files: each tool reads `STYLEBASE.md` for SCSS and template edits (see [Verifying](#verifying))
 
 ---
 
